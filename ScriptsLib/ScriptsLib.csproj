@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crash.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="DynamicVars.cs" />

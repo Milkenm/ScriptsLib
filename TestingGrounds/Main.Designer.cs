@@ -32,6 +32,7 @@
 			this.button_apagarTabela = new System.Windows.Forms.Button();
 			this.button_insert = new System.Windows.Forms.Button();
 			this.button_criarBd = new System.Windows.Forms.Button();
+			this.button_crash = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -74,11 +75,22 @@
 			this.button_criarBd.UseVisualStyleBackColor = true;
 			this.button_criarBd.Click += new System.EventHandler(this.button_criarBd_Click);
 			// 
+			// button_crash
+			// 
+			this.button_crash.Location = new System.Drawing.Point(0, 44);
+			this.button_crash.Name = "button_crash";
+			this.button_crash.Size = new System.Drawing.Size(85, 23);
+			this.button_crash.TabIndex = 4;
+			this.button_crash.Text = "Crash";
+			this.button_crash.UseVisualStyleBackColor = true;
+			this.button_crash.Click += new System.EventHandler(this.button_crash_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(169, 45);
+			this.ClientSize = new System.Drawing.Size(169, 67);
+			this.Controls.Add(this.button_crash);
 			this.Controls.Add(this.button_criarBd);
 			this.Controls.Add(this.button_insert);
 			this.Controls.Add(this.button_apagarTabela);
@@ -96,6 +108,7 @@
 		private System.Windows.Forms.Button button_apagarTabela;
 		private System.Windows.Forms.Button button_insert;
 		private System.Windows.Forms.Button button_criarBd;
+		private System.Windows.Forms.Button button_crash;
 	}
 }
 

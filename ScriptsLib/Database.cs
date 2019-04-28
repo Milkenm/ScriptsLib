@@ -26,7 +26,7 @@ namespace ScriptsLib.Database
 
 		#region CREATE TABLE
 		// # ================================================================================================ #
-		public async Task CreateTable(List<Fields> _Fields, string _Name)
+		public async Task CreateTable(string _Name, List<TableFields> _Fields)
 		{
 			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
@@ -67,7 +67,7 @@ namespace ScriptsLib.Database
 			_SqlConnection.Close();
 		}
 
-		public struct Fields
+		public struct TableFields
 		{
 			public string Name;
 			public SqlDataTypes DataType;

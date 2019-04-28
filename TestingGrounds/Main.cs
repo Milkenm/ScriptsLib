@@ -24,19 +24,22 @@ namespace TestingGrounds
 		{
 			try
 			{
-				SlDatabase.Fields _Field_ID = new SlDatabase.Fields();
-				_Field_ID.Name = "ID";
-				_Field_ID.DataType = SlDatabase.SqlDataTypes.number;
-				SlDatabase.Fields _Field_Name = new SlDatabase.Fields();
-				_Field_Name.Name = "Name";
-				_Field_Name.DataType = SlDatabase.SqlDataTypes.text;
+				List<SlDatabase.TableFields> _Fields = new List<SlDatabase.TableFields>();
+				SlDatabase.TableFields _Field = new SlDatabase.TableFields();
 
-				List<SlDatabase.Fields> _FieldsList = new List<SlDatabase.Fields>();
-				_FieldsList.Add(_Field_ID);
-				_FieldsList.Add(_Field_Name);
+
+				_Field.Name = "ID";
+				_Field.DataType = SlDatabase.SqlDataTypes.number;
+				_Fields.Add(_Field);
+
+				_Field.Name = "Name";
+				_Field.DataType = SlDatabase.SqlDataTypes.text;
+				_Fields.Add(_Field);
+
+
 
 				string _TableName = "TestTable";
-				_Database.CreateTable(_FieldsList, _TableName).GetAwaiter();
+				_Database.CreateTable(_TableName, _Fields).GetAwaiter();
 			}
 			catch (Exception _Exception)
 			{
@@ -79,6 +82,12 @@ namespace TestingGrounds
 			{
 				MessageBox.Show(_Exception.Message);
 			}
+		}
+
+		private void button_crash_Click(object sender, EventArgs e)
+		{
+			ScriptsLib.Crash.Crash crash = new ScriptsLib.Crash.Crash();
+			crash.StackOverflow().GetAwaiter();
 		}
 	}
 }
