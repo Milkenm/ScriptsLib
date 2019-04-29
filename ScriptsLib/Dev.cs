@@ -4,15 +4,15 @@ using System.Windows.Forms;
 
 
 
-namespace ScriptsLib.Debug
+namespace ScriptsLib.Dev
 {
-	public class Errors
+	public class Debug
 	{
 		public readonly bool _Debug = false;
 
 
 
-		public void Msg(string _Message, string _Title)
+		public void Msg(string _Message, string _Title = null)
 		{
 			if (_Debug == true)
 			{

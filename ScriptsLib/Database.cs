@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
 
-using ScriptsLib.Debug;
+using ScriptsLib.Dev;
 #endregion Usings
 
 
@@ -14,17 +14,17 @@ namespace ScriptsLib.Database
 {
 	public class SlDatabase
 	{
+		internal static readonly string _BaseConnection = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
 		public static string _DatabasePath { get; set; }
-		private static readonly string _BaseConnection = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
 
 
-		Errors debug = new Errors();
-
-
+		Debug debug = new Debug();
 
 
 
-		#region CREATE TABLE
+
+
+		#region Create Table
 		// # ================================================================================================ #
 		public async Task CreateTable(string _Name, List<TableFields> _Fields)
 		{
@@ -34,13 +34,17 @@ namespace ScriptsLib.Database
 			foreach (var _Loop in _Fields)
 			{
 				string _DataType;
-				if (_Loop.DataType == SqlDataTypes.text)
+				if (_Loop.DataType == SqlDataTypes.Text)
 				{
 					_DataType = "text";
 				}
-				else if (_Loop.DataType == SqlDataTypes.number)
+				else if (_Loop.DataType == SqlDataTypes.Number)
 				{
 					_DataType = "bigint";
+				}
+				else if (_Loop.DataType == SqlDataTypes.VarChar)
+				{
+					_DataType = "varchar(50)";
 				}
 				else
 				{
@@ -75,13 +79,14 @@ namespace ScriptsLib.Database
 
 		public enum SqlDataTypes
 		{
-			text,
-			number,
+			Text,
+			Number,
+			VarChar,
 		}
 		// # ================================================================================================ #
-		#endregion CREATE TABLE
+		#endregion Create Table
 
-		#region DELETE TABLE
+		#region Delete Table
 		// # ================================================================================================ #
 		public async Task DeleteTable(string _TableName)
 		{
@@ -96,9 +101,9 @@ namespace ScriptsLib.Database
 			_SqlConnection.Close();
 		}
 		// # ================================================================================================ #
-		#endregion DELETE TABLE
+		#endregion Delete Table
 
-		#region INSERT INTO
+		#region Insert Into
 		// # ================================================================================================ #
 		public async Task InsertInto(string _TableName, string _Columns, string _Values)
 		{
@@ -113,9 +118,10 @@ namespace ScriptsLib.Database
 			_SqlConnection.Close();
 		}
 		// # ================================================================================================ #
-		#endregion INSERT INTO
+		#endregion Insert Into
 
-		#region CREATE DATABASE
+		#region Create Database
+		// # ================================================================================================ #
 		public async Task CreateDatabase(string _Path)
 		{
 			if (!File.Exists(_Path))
@@ -142,24 +148,27 @@ namespace ScriptsLib.Database
 				throw new Exception("File already exists!");
 			}
 		}
-		#endregion CREATE DATABASE
-
-
-
-		#region RAW COMMAND
 		// # ================================================================================================ #
-		public async Task RawCommand(string _Command)
+		#endregion Create Database
+
+
+
+		#region RawSql
+		// # ================================================================================================ #
+		public object RawSql(string _Command)
 		{
 			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
 			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
 			debug.Msg(_SqlCommand.CommandText, "SQL Command");
 
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
+			_SqlConnection.OpenAsync().GetAwaiter();
+			object _Result = _SqlCommand.ExecuteScalarAsync().GetAwaiter().GetResult();
 			_SqlConnection.Close();
+
+			return _Result;
 		}
 		// # ================================================================================================ #
-		#endregion RAW COMMAND
+		#endregion Raw Sql
 	}
 }
