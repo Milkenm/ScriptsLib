@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
 
-using ScriptsLib.Internal;
+using ScriptsLib.Debug;
 #endregion Usings
 
 
@@ -18,7 +18,7 @@ namespace ScriptsLib.Database
 		private static readonly string _BaseConnection = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
 
 
-		Debug debug = new Debug();
+		Errors debug = new Errors();
 
 
 
