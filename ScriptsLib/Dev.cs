@@ -1,4 +1,5 @@
 ﻿#region Usings
+using System;
 using System.Windows.Forms;
 #endregion Usings
 
@@ -6,17 +7,24 @@ using System.Windows.Forms;
 
 namespace ScriptsLib.Dev
 {
-	public class Debug
+	internal class Debug
 	{
-		public readonly bool _Debug = false;
+		internal readonly bool _Debug = false;
 
 
 
-		public void Msg(string _Message, string _Title = null)
+		internal void Msg(string _Message, string _Title = null)
 		{
 			if (_Debug == true)
 			{
-				MessageBox.Show(null, _Message, $"DE3UG - {_Title}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				if (!String.IsNullOrEmpty(_Title))
+				{
+					MessageBox.Show(null, _Message, "DE3UG - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show(null, _Message, "DE3UG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
 			}
 		}
 	}

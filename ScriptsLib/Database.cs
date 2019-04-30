@@ -152,8 +152,78 @@ namespace ScriptsLib.Database
 		#endregion Create Database
 
 
+		#region Select
+		public List<string> Select(string _Table, string _Selection = "*", string _Condition = null, string _Splitter = "|,|")
+		{
+			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-		#region RawSql
+			SqlCommand _Command;
+			if (!String.IsNullOrEmpty(_Condition))
+			{
+				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _Connection);
+			}
+			else
+			{
+				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table}", _Connection);
+			}
+
+
+			List<string> _Results = new List<string>();
+
+			_Connection.Open();
+			using (SqlDataReader _Reader = _Command.ExecuteReader())
+			{
+				bool _While = true;
+				while (_While == true)
+				{
+					if (_Reader.Read() == true)
+					{
+						debug.Msg("Read.", "SqlDataReader.Read()");
+						List<string> _Values = new List<string>();
+						int _Index = 0;
+
+						try
+						{
+							while (true)
+							{
+								_Values.Add(_Reader[_Index].ToString());
+								_Index++;
+							}
+						}
+						catch
+						{
+							string _Add = null;
+							foreach (string _Loop in _Values)
+							{
+								if (String.IsNullOrEmpty(_Add))
+								{
+									_Add = _Loop;
+								}
+								else
+								{
+									_Add = _Add + _Splitter + _Loop;
+								}
+							}
+							debug.Msg("Add: " + _Add, "SqlDataReader.Read()");
+							_Results.Add(_Add);
+						}
+					}
+					else
+					{
+						_While = false;
+						debug.Msg("Stop.", "SqlDataReader.Read()");
+					}
+				}
+			}
+			_Connection.Close();
+
+			return _Results;
+		}
+		#endregion Select
+
+
+
+		#region Raw Sql
 		// # ================================================================================================ #
 		public object RawSql(string _Command)
 		{
@@ -162,8 +232,9 @@ namespace ScriptsLib.Database
 			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
 			debug.Msg(_SqlCommand.CommandText, "SQL Command");
 
-			_SqlConnection.OpenAsync().GetAwaiter();
-			object _Result = _SqlCommand.ExecuteScalarAsync().GetAwaiter().GetResult();
+			_SqlConnection.Open();
+			debug.Msg(_SqlConnection.ConnectionString);
+			object _Result = _SqlCommand.ExecuteNonQuery();
 			_SqlConnection.Close();
 
 			return _Result;

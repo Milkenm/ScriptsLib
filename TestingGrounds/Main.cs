@@ -124,6 +124,14 @@ namespace TestingGrounds
 				MessageBox.Show(_Exception.Message);
 			}
 		}
+
+		private void button_select_Click(object sender, EventArgs e)
+		{
+			foreach (var _Loop in _Database.Select("Users"))
+			{
+				MessageBox.Show($"{_Loop}", "Selected values");
+			}
+		}
 		#endregion Database
 
 
@@ -149,5 +157,11 @@ namespace TestingGrounds
 			}
 		}
 		#endregion Tools
+
+		private void button_rawSql_Click(object sender, EventArgs e)
+		{
+			object _RawSql = _Database.RawSql(textBox_rawSql.Text);
+			MessageBox.Show(_RawSql.ToString(), "Raw SQL Result");
+		}
 	}
 }
