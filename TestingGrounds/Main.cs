@@ -157,11 +157,5 @@ namespace TestingGrounds
 			}
 		}
 		#endregion Tools
-
-		private void button_rawSql_Click(object sender, EventArgs e)
-		{
-			object _RawSql = _Database.RawSql(textBox_rawSql.Text);
-			MessageBox.Show(_RawSql.ToString(), "Raw SQL Result");
-		}
 	}
 }

@@ -220,26 +220,5 @@ namespace ScriptsLib.Database
 			return _Results;
 		}
 		#endregion Select
-
-
-
-		#region Raw Sql
-		// # ================================================================================================ #
-		public object RawSql(string _Command)
-		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
-
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
-
-			_SqlConnection.Open();
-			debug.Msg(_SqlConnection.ConnectionString);
-			object _Result = _SqlCommand.ExecuteNonQuery();
-			_SqlConnection.Close();
-
-			return _Result;
-		}
-		// # ================================================================================================ #
-		#endregion Raw Sql
 	}
 }
