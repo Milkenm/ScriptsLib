@@ -35,14 +35,12 @@
 			this.button_crash = new System.Windows.Forms.Button();
 			this.button_login = new System.Windows.Forms.Button();
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
+			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
 			this.label_pass = new System.Windows.Forms.Label();
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
-			this.textBox_rawSql = new System.Windows.Forms.TextBox();
-			this.button_rawSql = new System.Windows.Forms.Button();
-			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			this.SuspendLayout();
@@ -121,10 +119,18 @@
 			this.groupBox_database.TabStop = false;
 			this.groupBox_database.Text = "Database";
 			// 
+			// button_select
+			// 
+			this.button_select.Location = new System.Drawing.Point(6, 77);
+			this.button_select.Name = "button_select";
+			this.button_select.Size = new System.Drawing.Size(85, 23);
+			this.button_select.TabIndex = 4;
+			this.button_select.Text = "Select";
+			this.button_select.UseVisualStyleBackColor = true;
+			this.button_select.Click += new System.EventHandler(this.button_select_Click);
+			// 
 			// groupBox_tools
 			// 
-			this.groupBox_tools.Controls.Add(this.button_rawSql);
-			this.groupBox_tools.Controls.Add(this.textBox_rawSql);
 			this.groupBox_tools.Controls.Add(this.label_pass);
 			this.groupBox_tools.Controls.Add(this.label_user);
 			this.groupBox_tools.Controls.Add(this.textBox_pass);
@@ -170,33 +176,6 @@
 			this.textBox_user.Size = new System.Drawing.Size(136, 20);
 			this.textBox_user.TabIndex = 6;
 			// 
-			// textBox_rawSql
-			// 
-			this.textBox_rawSql.Location = new System.Drawing.Point(6, 50);
-			this.textBox_rawSql.Name = "textBox_rawSql";
-			this.textBox_rawSql.Size = new System.Drawing.Size(100, 20);
-			this.textBox_rawSql.TabIndex = 10;
-			// 
-			// button_rawSql
-			// 
-			this.button_rawSql.Location = new System.Drawing.Point(107, 49);
-			this.button_rawSql.Name = "button_rawSql";
-			this.button_rawSql.Size = new System.Drawing.Size(75, 22);
-			this.button_rawSql.TabIndex = 11;
-			this.button_rawSql.Text = "Raw SQL";
-			this.button_rawSql.UseVisualStyleBackColor = true;
-			this.button_rawSql.Click += new System.EventHandler(this.button_rawSql_Click);
-			// 
-			// button_select
-			// 
-			this.button_select.Location = new System.Drawing.Point(6, 77);
-			this.button_select.Name = "button_select";
-			this.button_select.Size = new System.Drawing.Size(85, 23);
-			this.button_select.TabIndex = 4;
-			this.button_select.Text = "Select";
-			this.button_select.UseVisualStyleBackColor = true;
-			this.button_select.Click += new System.EventHandler(this.button_select_Click);
-			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,8 +208,6 @@
 		private System.Windows.Forms.Label label_user;
 		private System.Windows.Forms.TextBox textBox_pass;
 		private System.Windows.Forms.TextBox textBox_user;
-		private System.Windows.Forms.Button button_rawSql;
-		private System.Windows.Forms.TextBox textBox_rawSql;
 		private System.Windows.Forms.Button button_select;
 	}
 }

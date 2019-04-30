@@ -150,8 +150,7 @@ namespace ScriptsLib.Database
 		}
 		// # ================================================================================================ #
 		#endregion Create Database
-
-
+			
 		#region Select
 		public List<string> Select(string _Table, string _Selection = "*", string _Condition = null, string _Splitter = "|,|")
 		{
