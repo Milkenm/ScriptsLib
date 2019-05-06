@@ -36,15 +36,35 @@ namespace ScriptsLib.Database
 				string _DataType;
 				if (_Loop.DataType == SqlDataTypes.Text)
 				{
-					_DataType = "text";
+					_DataType = "ntext";
 				}
 				else if (_Loop.DataType == SqlDataTypes.Number)
 				{
 					_DataType = "bigint";
 				}
-				else if (_Loop.DataType == SqlDataTypes.VarChar)
+				else if (_Loop.DataType == SqlDataTypes.Image)
 				{
-					_DataType = "varchar(50)";
+					_DataType = "image";
+				}
+				else if (_Loop.DataType == SqlDataTypes.Money)
+				{
+					_DataType = "money";
+				}
+				else if (_Loop.DataType == SqlDataTypes.Decimal)
+				{
+					_DataType = "decimal(38,38)";
+				}
+				else if (_Loop.DataType == SqlDataTypes.DateAndTime)
+				{
+					_DataType = "datetime2";
+				}
+				else if (_Loop.DataType == SqlDataTypes.Date)
+				{
+					_DataType = "date";
+				}
+				else if (_Loop.DataType == SqlDataTypes.Time)
+				{
+					_DataType = "time";
 				}
 				else
 				{
@@ -75,13 +95,20 @@ namespace ScriptsLib.Database
 		{
 			public string Name;
 			public SqlDataTypes DataType;
+			public bool PrimaryKey;
+			public bool AutoIncrement;
 		}
 
 		public enum SqlDataTypes
 		{
 			Text,
 			Number,
-			VarChar,
+			Image,
+			Money,
+			Decimal,
+			DateAndTime,
+			Date,
+			Time,
 		}
 		// # ================================================================================================ #
 		#endregion Create Table
