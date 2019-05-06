@@ -219,5 +219,21 @@ namespace ScriptsLib.Database
 			return _Results;
 		}
 		#endregion Select
+
+		#region Update
+		public async Task Update(string _Table, string _Update, string _Condition)
+		{
+			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+
+
+			SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
+
+			debug.Msg(_Command.CommandText, "Update Command Text");
+			
+			await _Connection.OpenAsync();
+			await _Command.ExecuteNonQueryAsync();
+			_Connection.Close();
+		}
+		#endregion Update
 	}
 }

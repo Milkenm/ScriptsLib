@@ -38,7 +38,7 @@ namespace ScriptsLib.Tools
 
 		
 
-		#region CHECK LOGIN
+		#region Check Login
 		// # ================================================================================================ #
 		public bool CheckLogin(string _Table, string _Username, string _Password, string _UsernameColumn, string _PasswordColumn)
 		{
@@ -61,6 +61,6 @@ namespace ScriptsLib.Tools
 			return false;
 		}
 		// # ================================================================================================ #
-		#endregion CHECK LOGIN
+		#endregion Check Login
 	}
 }
