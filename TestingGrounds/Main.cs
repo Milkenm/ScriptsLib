@@ -11,13 +11,15 @@ using ScriptsLib.Tools;
 
 namespace TestingGrounds
 {
+
 	public partial class Main : Form
 	{
+
 		#region Refs
 		SlDatabase _Database = new SlDatabase();
 		Tools _Tools = new Tools();
 		#endregion Refs
-		
+
 		#region Form
 		public Main()
 		{
@@ -57,14 +59,14 @@ namespace TestingGrounds
 				_Fields.Add(_Field);
 
 				_Field.Name = "Name";
-				_Field.DataType = SlDatabase.SqlDataTypes.VarChar;
+				_Field.DataType = SlDatabase.SqlDataTypes.Text;
 				_Fields.Add(_Field);
 
 				_Field.Name = "Password";
-				_Field.DataType = SlDatabase.SqlDataTypes.VarChar;
+				_Field.DataType = SlDatabase.SqlDataTypes.Text;
 				_Fields.Add(_Field);
-				
-				
+
+
 				_Database.CreateTable("Users", _Fields).GetAwaiter();
 
 
