@@ -99,7 +99,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_Database.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
+				_Database.InsertInto("Users", "Name, Password", "'User1', 'Pass1'").GetAwaiter();
 
 
 
@@ -129,9 +129,29 @@ namespace TestingGrounds
 
 		private void button_select_Click(object sender, EventArgs e)
 		{
-			foreach (var _Loop in _Database.Select("Users"))
+			try
 			{
-				MessageBox.Show($"{_Loop}", "Selected values");
+				foreach (var _Loop in _Database.Select("Users"))
+				{
+					MessageBox.Show($"{_Loop}", "Selected values");
+				}
+			}
+			catch (Exception _Exception)
+			{
+				MessageBox.Show(_Exception.Message);
+			}
+		}
+		
+		private void button_update_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				_Database.Update("Users", "Name = 'UserUpdate'", "Name = 'User1'").GetAwaiter();
+				MessageBox.Show("Updated.");
+			}
+			catch (Exception _Exception)
+			{
+				MessageBox.Show(_Exception.Message);
 			}
 		}
 		#endregion Database
@@ -159,5 +179,7 @@ namespace TestingGrounds
 			}
 		}
 		#endregion Tools
+
+
 	}
 }

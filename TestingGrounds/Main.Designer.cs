@@ -41,6 +41,8 @@
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
+			this.button_update = new System.Windows.Forms.Button();
+			this.button_orderby = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			this.SuspendLayout();
@@ -107,6 +109,8 @@
 			// 
 			// groupBox_database
 			// 
+			this.groupBox_database.Controls.Add(this.button_orderby);
+			this.groupBox_database.Controls.Add(this.button_update);
 			this.groupBox_database.Controls.Add(this.button_select);
 			this.groupBox_database.Controls.Add(this.button_criarTabela);
 			this.groupBox_database.Controls.Add(this.button_insert);
@@ -176,6 +180,25 @@
 			this.textBox_user.Size = new System.Drawing.Size(136, 20);
 			this.textBox_user.TabIndex = 6;
 			// 
+			// button_update
+			// 
+			this.button_update.Location = new System.Drawing.Point(97, 77);
+			this.button_update.Name = "button_update";
+			this.button_update.Size = new System.Drawing.Size(85, 23);
+			this.button_update.TabIndex = 5;
+			this.button_update.Text = "Update";
+			this.button_update.UseVisualStyleBackColor = true;
+			this.button_update.Click += new System.EventHandler(this.button_update_Click);
+			// 
+			// button_orderby
+			// 
+			this.button_orderby.Location = new System.Drawing.Point(6, 106);
+			this.button_orderby.Name = "button_orderby";
+			this.button_orderby.Size = new System.Drawing.Size(85, 23);
+			this.button_orderby.TabIndex = 6;
+			this.button_orderby.Text = "Order By";
+			this.button_orderby.UseVisualStyleBackColor = true;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +232,8 @@
 		private System.Windows.Forms.TextBox textBox_pass;
 		private System.Windows.Forms.TextBox textBox_user;
 		private System.Windows.Forms.Button button_select;
+		private System.Windows.Forms.Button button_orderby;
+		private System.Windows.Forms.Button button_update;
 	}
 }
 

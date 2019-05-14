@@ -256,11 +256,41 @@ namespace ScriptsLib.Database
 			SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
 
 			debug.Msg(_Command.CommandText, "Update Command Text");
-			
+
 			await _Connection.OpenAsync();
 			await _Command.ExecuteNonQueryAsync();
 			_Connection.Close();
 		}
 		#endregion Update
+
+		#region Order By
+		public enum SortType
+		{
+			Ascending,
+			Descending,
+		}
+
+		public async Task OrderBy(string _Table, string _Columns, SortType _Sort, string _Selection = "*")
+		{
+			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+
+			string _Order = null;
+			if (_Sort == SortType.Ascending)
+			{
+				_Order = "ASC";
+			}
+			else if (_Sort == SortType.Descending)
+			{
+				_Order = "DESC";
+			}
+			SqlCommand _Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} ORDER BY {_Columns} {_Order}", _Connection);
+
+			debug.Msg(_Command.CommandText, "Order By Command Text");
+
+			await _Connection.OpenAsync();
+			await _Command.ExecuteNonQueryAsync();
+			_Connection.Close();
+		}
+		#endregion Order By
 	}
 }
