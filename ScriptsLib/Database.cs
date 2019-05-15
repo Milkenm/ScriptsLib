@@ -26,7 +26,7 @@ namespace ScriptsLib.Database
 
 		#region Create Table
 		// # ================================================================================================ #
-		public async Task CreateTable(string _Name, List<TableFields> _Fields)
+		public async Task CreateTable(string _Name, List<TableFields> _Fields, string _PrimaryKey = null)
 		{
 			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
@@ -82,7 +82,15 @@ namespace ScriptsLib.Database
 				}
 			}
 
-			string _Command = $"CREATE TABLE {_Name} ({_Columns})";
+			string _Command;
+			if (String.IsNullOrEmpty(_PrimaryKey))
+			{
+				_Command = $"CREATE TABLE {_Name} ({_Columns})";
+			}
+			else
+			{
+				_Command = $"CREATE TABLE {_Name} ({_Columns}, PRIMARY KEY({_PrimaryKey}))";
+			}
 			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
 			debug.Msg(_SqlCommand.CommandText, "SQL Command");
 

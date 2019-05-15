@@ -67,7 +67,7 @@ namespace TestingGrounds
 				_Fields.Add(_Field);
 
 
-				_Database.CreateTable("Users", _Fields).GetAwaiter();
+				_Database.CreateTable("Users", _Fields, "ID").GetAwaiter();
 
 
 
@@ -154,6 +154,19 @@ namespace TestingGrounds
 				MessageBox.Show(_Exception.Message);
 			}
 		}
+
+		private void button_orderby_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				_Database.OrderBy("Users", "Name", SlDatabase.SortType.Ascending).GetAwaiter();
+				MessageBox.Show("Done.");
+			}
+			catch (Exception _Exception)
+			{
+				MessageBox.Show(_Exception.Message);
+			}
+		}
 		#endregion Database
 
 
@@ -166,20 +179,25 @@ namespace TestingGrounds
 
 		private void button_login_Click(object sender, EventArgs e)
 		{
-			Tools tools = new Tools();
-			bool _Success = tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password");
+			try
+			{
+				Tools tools = new Tools();
+				bool _Success = tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password");
 
-			if (_Success == true)
-			{
-				MessageBox.Show("Logged in.");
+				if (_Success == true)
+				{
+					MessageBox.Show("Logged in.");
+				}
+				else
+				{
+					MessageBox.Show("Invalid login credentials.");
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				MessageBox.Show("Invalid login credentials.");
+				MessageBox.Show(_Exception.Message);
 			}
 		}
 		#endregion Tools
-
-
 	}
 }
