@@ -64,5 +64,21 @@ namespace ScriptsLib.Tools
 		}
 		// # ================================================================================================ #
 		#endregion Check Login
+
+
+
+		#region Password Generator
+		public string PasswordGenerator(int _Size, string _Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
+		{
+			string _Password = null;
+			Random _Random = new Random();
+			while (_Size > 0)
+			{
+				_Size--;
+				_Password = $"{_Password}{_Chars[_Random.Next(_Chars.Length)]}";
+			}
+			return _Password;
+		}
+		#endregion Password Generator
 	}
 }

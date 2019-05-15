@@ -30,8 +30,14 @@ namespace TestingGrounds
 		{
 			SlDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
 
+
+
+			#region Perform Actions
 			textBox_user.Text = "User1";
 			textBox_pass.Text = "Pass1";
+
+			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
+			#endregion Perform Actions
 		}
 		#endregion Form
 
@@ -146,8 +152,7 @@ namespace TestingGrounds
 
 		private void button_login_Click(object sender, EventArgs e)
 		{
-			Tools tools = new Tools();
-			bool _Success = tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password");
+			bool _Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password");
 
 			if (_Success == true)
 			{
@@ -157,6 +162,11 @@ namespace TestingGrounds
 			{
 				MessageBox.Show("Invalid login credentials.");
 			}
+		}
+
+		private void button_generatePassword_Click(object sender, EventArgs e)
+		{
+			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
 		}
 		#endregion Tools
 	}

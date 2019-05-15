@@ -41,8 +41,12 @@
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
+			this.button_generatePassword = new System.Windows.Forms.Button();
+			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
+			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -97,7 +101,7 @@
 			// 
 			// button_login
 			// 
-			this.button_login.Location = new System.Drawing.Point(107, 243);
+			this.button_login.Location = new System.Drawing.Point(108, 243);
 			this.button_login.Name = "button_login";
 			this.button_login.Size = new System.Drawing.Size(75, 23);
 			this.button_login.TabIndex = 5;
@@ -131,6 +135,9 @@
 			// 
 			// groupBox_tools
 			// 
+			this.groupBox_tools.Controls.Add(this.numeric_passwordLength);
+			this.groupBox_tools.Controls.Add(this.textBox_generatePassword);
+			this.groupBox_tools.Controls.Add(this.button_generatePassword);
 			this.groupBox_tools.Controls.Add(this.label_pass);
 			this.groupBox_tools.Controls.Add(this.label_user);
 			this.groupBox_tools.Controls.Add(this.textBox_pass);
@@ -147,7 +154,7 @@
 			// label_pass
 			// 
 			this.label_pass.AutoSize = true;
-			this.label_pass.Location = new System.Drawing.Point(7, 220);
+			this.label_pass.Location = new System.Drawing.Point(4, 226);
 			this.label_pass.Name = "label_pass";
 			this.label_pass.Size = new System.Drawing.Size(33, 13);
 			this.label_pass.TabIndex = 9;
@@ -156,7 +163,7 @@
 			// label_user
 			// 
 			this.label_user.AutoSize = true;
-			this.label_user.Location = new System.Drawing.Point(8, 194);
+			this.label_user.Location = new System.Drawing.Point(5, 205);
 			this.label_user.Name = "label_user";
 			this.label_user.Size = new System.Drawing.Size(32, 13);
 			this.label_user.TabIndex = 8;
@@ -164,17 +171,57 @@
 			// 
 			// textBox_pass
 			// 
-			this.textBox_pass.Location = new System.Drawing.Point(46, 217);
+			this.textBox_pass.Location = new System.Drawing.Point(38, 223);
 			this.textBox_pass.Name = "textBox_pass";
-			this.textBox_pass.Size = new System.Drawing.Size(136, 20);
+			this.textBox_pass.Size = new System.Drawing.Size(144, 20);
 			this.textBox_pass.TabIndex = 7;
 			// 
 			// textBox_user
 			// 
-			this.textBox_user.Location = new System.Drawing.Point(46, 191);
+			this.textBox_user.Location = new System.Drawing.Point(38, 202);
 			this.textBox_user.Name = "textBox_user";
-			this.textBox_user.Size = new System.Drawing.Size(136, 20);
+			this.textBox_user.Size = new System.Drawing.Size(144, 20);
 			this.textBox_user.TabIndex = 6;
+			// 
+			// button_generatePassword
+			// 
+			this.button_generatePassword.Location = new System.Drawing.Point(72, 169);
+			this.button_generatePassword.Name = "button_generatePassword";
+			this.button_generatePassword.Size = new System.Drawing.Size(111, 22);
+			this.button_generatePassword.TabIndex = 10;
+			this.button_generatePassword.Text = "Generate Password";
+			this.button_generatePassword.UseVisualStyleBackColor = true;
+			this.button_generatePassword.Click += new System.EventHandler(this.button_generatePassword_Click);
+			// 
+			// textBox_generatePassword
+			// 
+			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 149);
+			this.textBox_generatePassword.Name = "textBox_generatePassword";
+			this.textBox_generatePassword.Size = new System.Drawing.Size(176, 20);
+			this.textBox_generatePassword.TabIndex = 11;
+			// 
+			// numeric_passwordLength
+			// 
+			this.numeric_passwordLength.Location = new System.Drawing.Point(6, 170);
+			this.numeric_passwordLength.Maximum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+			this.numeric_passwordLength.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+			this.numeric_passwordLength.Name = "numeric_passwordLength";
+			this.numeric_passwordLength.Size = new System.Drawing.Size(33, 20);
+			this.numeric_passwordLength.TabIndex = 12;
+			this.numeric_passwordLength.Tag = "";
+			this.numeric_passwordLength.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
 			// 
 			// Main
 			// 
@@ -190,6 +237,7 @@
 			this.groupBox_database.ResumeLayout(false);
 			this.groupBox_tools.ResumeLayout(false);
 			this.groupBox_tools.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -209,6 +257,9 @@
 		private System.Windows.Forms.TextBox textBox_pass;
 		private System.Windows.Forms.TextBox textBox_user;
 		private System.Windows.Forms.Button button_select;
+		private System.Windows.Forms.TextBox textBox_generatePassword;
+		private System.Windows.Forms.Button button_generatePassword;
+		private System.Windows.Forms.NumericUpDown numeric_passwordLength;
 	}
 }
 
