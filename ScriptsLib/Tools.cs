@@ -1,8 +1,9 @@
 ﻿#region Usings
 using System;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 using ScriptsLib.Database;
 using ScriptsLib.Dev;
 #endregion Usings
@@ -80,5 +81,24 @@ namespace ScriptsLib.Tools
 			return _Password;
 		}
 		#endregion Password Generator
+
+
+
+		#region ComboBox Resize
+		///
+		// https://stackoverflow.com/questions/3158004/how-do-i-set-the-height-of-a-combobox
+		///
+
+
+		[DllImport("user32.dll")]
+		static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+		private const int CB_SETITEMHEIGHT = 0x153;
+
+		public void ResizeCombobox(ComboBox _ComboBox, int _Hight)
+		{
+			SendMessage(_ComboBox.Handle, CB_SETITEMHEIGHT, -1, _Hight - 6);
+			_ComboBox.Refresh();
+		}
+		#endregion ComboBox Resize
 	}
 }

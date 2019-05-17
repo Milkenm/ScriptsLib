@@ -41,6 +41,12 @@ namespace TestingGrounds
 		}
 		#endregion Form
 
+		#region Stuff
+		private void timer_debug_Tick(object sender, EventArgs e)
+		{
+			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+		}
+		#endregion Stuff
 
 
 
@@ -167,6 +173,18 @@ namespace TestingGrounds
 		private void button_generatePassword_Click(object sender, EventArgs e)
 		{
 			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
+		}
+
+		private void button_resizeCombobox_Click(object sender, EventArgs e)
+		{
+			if (comboBox_resize.Height == 37)
+			{
+				_Tools.ResizeCombobox(comboBox_resize, 21);
+			}
+			else
+			{
+				_Tools.ResizeCombobox(comboBox_resize, 37);
+			}
 		}
 		#endregion Tools
 	}
