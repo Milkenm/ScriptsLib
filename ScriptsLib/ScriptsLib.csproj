@@ -70,10 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database.cs" />
+    <Compile Include="Database\SqlServer_Database.cs" />
     <Compile Include="Dev.cs" />
     <Compile Include="DynamicVars.cs" />
     <Compile Include="Info.cs" />
+    <Compile Include="Database\Access_Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />
   </ItemGroup>

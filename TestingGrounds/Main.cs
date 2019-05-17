@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-using ScriptsLib.Database;
+using ScriptsLib.Databases;
 using ScriptsLib.Tools;
 #endregion Usings
 
@@ -16,7 +16,7 @@ namespace TestingGrounds
 	{
 
 		#region Refs
-		SlDatabase _Database = new SlDatabase();
+		SqlServer_Database _Database = new SqlServer_Database();
 		Tools _Tools = new Tools();
 		#endregion Refs
 
@@ -28,7 +28,7 @@ namespace TestingGrounds
 
 		private void Main_Load(object sender, EventArgs e)
 		{
-			SlDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
+			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
 
 
 
@@ -62,28 +62,56 @@ namespace TestingGrounds
 		{
 			try
 			{
-				List<SlDatabase.TableFields> _Fields = new List<SlDatabase.TableFields>();
-				SlDatabase.TableFields _Field = new SlDatabase.TableFields();
+				if (comboBox_databaseType.SelectedIndex == 0)
+				{
+					List<SqlServer_Database.TableFields> _Fields = new List<SqlServer_Database.TableFields>();
+					SqlServer_Database.TableFields _Field = new SqlServer_Database.TableFields();
 
 
-				_Field.Name = "ID";
-				_Field.DataType = SlDatabase.SqlDataTypes.Number;
-				_Fields.Add(_Field);
+					_Field.Name = "ID";
+					_Field.DataType = SqlServer_Database.SqlDataTypes.Number;
+					_Fields.Add(_Field);
 
-				_Field.Name = "Name";
-				_Field.DataType = SlDatabase.SqlDataTypes.Text;
-				_Fields.Add(_Field);
+					_Field.Name = "Name";
+					_Field.DataType = SqlServer_Database.SqlDataTypes.Text;
+					_Fields.Add(_Field);
 
-				_Field.Name = "Password";
-				_Field.DataType = SlDatabase.SqlDataTypes.Text;
-				_Fields.Add(_Field);
-
-
-				_Database.CreateTable("Users", _Fields).GetAwaiter();
+					_Field.Name = "Password";
+					_Field.DataType = SqlServer_Database.SqlDataTypes.Text;
+					_Fields.Add(_Field);
 
 
+					_Database.CreateTable("Users", _Fields).GetAwaiter();
 
-				MessageBox.Show("Done.");
+
+
+					MessageBox.Show("Done.");
+				}
+				else
+				{
+					List<Access_Database.TableFields> _Fields = new List<Access_Database.TableFields>();
+					Access_Database.TableFields _Field = new Access_Database.TableFields();
+
+
+					_Field.Name = "ID";
+					_Field.DataType = Access_Database.SqlDataTypes.Number;
+					_Fields.Add(_Field);
+
+					_Field.Name = "Name";
+					_Field.DataType = Access_Database.SqlDataTypes.Text;
+					_Fields.Add(_Field);
+
+					_Field.Name = "Password";
+					_Field.DataType = Access_Database.SqlDataTypes.Text;
+					_Fields.Add(_Field);
+
+
+					_Database.CreateTable("Users", _Fields).GetAwaiter();
+
+
+
+					MessageBox.Show("Done.");
+				}
 			}
 			catch (Exception _Exception)
 			{

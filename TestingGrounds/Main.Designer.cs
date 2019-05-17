@@ -38,6 +38,8 @@
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
 			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
+			this.comboBox_resize = new System.Windows.Forms.ComboBox();
+			this.button_resizeCombobox = new System.Windows.Forms.Button();
 			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
 			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
 			this.button_generatePassword = new System.Windows.Forms.Button();
@@ -45,9 +47,8 @@
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
-			this.button_resizeCombobox = new System.Windows.Forms.Button();
-			this.comboBox_resize = new System.Windows.Forms.ComboBox();
 			this.timer_debug = new System.Windows.Forms.Timer(this.components);
+			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -115,6 +116,7 @@
 			// 
 			// groupBox_database
 			// 
+			this.groupBox_database.Controls.Add(this.comboBox_databaseType);
 			this.groupBox_database.Controls.Add(this.button_select);
 			this.groupBox_database.Controls.Add(this.button_criarTabela);
 			this.groupBox_database.Controls.Add(this.button_insert);
@@ -156,6 +158,24 @@
 			this.groupBox_tools.TabIndex = 7;
 			this.groupBox_tools.TabStop = false;
 			this.groupBox_tools.Text = "Tools";
+			// 
+			// comboBox_resize
+			// 
+			this.comboBox_resize.FormattingEnabled = true;
+			this.comboBox_resize.Location = new System.Drawing.Point(55, 78);
+			this.comboBox_resize.Name = "comboBox_resize";
+			this.comboBox_resize.Size = new System.Drawing.Size(127, 21);
+			this.comboBox_resize.TabIndex = 14;
+			// 
+			// button_resizeCombobox
+			// 
+			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 77);
+			this.button_resizeCombobox.Name = "button_resizeCombobox";
+			this.button_resizeCombobox.Size = new System.Drawing.Size(47, 39);
+			this.button_resizeCombobox.TabIndex = 13;
+			this.button_resizeCombobox.Text = "Resize";
+			this.button_resizeCombobox.UseVisualStyleBackColor = true;
+			this.button_resizeCombobox.Click += new System.EventHandler(this.button_resizeCombobox_Click);
 			// 
 			// numeric_passwordLength
 			// 
@@ -229,28 +249,21 @@
 			this.textBox_user.Size = new System.Drawing.Size(144, 20);
 			this.textBox_user.TabIndex = 6;
 			// 
-			// button_resizeCombobox
-			// 
-			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 77);
-			this.button_resizeCombobox.Name = "button_resizeCombobox";
-			this.button_resizeCombobox.Size = new System.Drawing.Size(47, 39);
-			this.button_resizeCombobox.TabIndex = 13;
-			this.button_resizeCombobox.Text = "Resize";
-			this.button_resizeCombobox.UseVisualStyleBackColor = true;
-			this.button_resizeCombobox.Click += new System.EventHandler(this.button_resizeCombobox_Click);
-			// 
-			// comboBox_resize
-			// 
-			this.comboBox_resize.FormattingEnabled = true;
-			this.comboBox_resize.Location = new System.Drawing.Point(55, 78);
-			this.comboBox_resize.Name = "comboBox_resize";
-			this.comboBox_resize.Size = new System.Drawing.Size(127, 21);
-			this.comboBox_resize.TabIndex = 14;
-			// 
 			// timer_debug
 			// 
 			this.timer_debug.Enabled = true;
 			this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
+			// 
+			// comboBox_databaseType
+			// 
+			this.comboBox_databaseType.FormattingEnabled = true;
+			this.comboBox_databaseType.Items.AddRange(new object[] {
+            "SqlServer",
+            "Access"});
+			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 240);
+			this.comboBox_databaseType.Name = "comboBox_databaseType";
+			this.comboBox_databaseType.Size = new System.Drawing.Size(176, 21);
+			this.comboBox_databaseType.TabIndex = 5;
 			// 
 			// Main
 			// 
@@ -292,6 +305,7 @@
 		private System.Windows.Forms.ComboBox comboBox_resize;
 		private System.Windows.Forms.Button button_resizeCombobox;
 		private System.Windows.Forms.Timer timer_debug;
+		private System.Windows.Forms.ComboBox comboBox_databaseType;
 	}
 }
 

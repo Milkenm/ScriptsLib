@@ -1,20 +1,20 @@
 ﻿#region Usings
+
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.IO;
 using System.Threading.Tasks;
-
 using ScriptsLib.Dev;
 #endregion Usings
 
 
 
-namespace ScriptsLib.Database
+namespace ScriptsLib.Databases
 {
-	public class SlDatabase
+	public class Access_Database
 	{
-		internal static readonly string _BaseConnection = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
+		internal static readonly string _BaseConnection = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 		public static string _DatabasePath { get; set; }
 
 
@@ -28,7 +28,7 @@ namespace ScriptsLib.Database
 		// # ================================================================================================ #
 		public async Task CreateTable(string _Name, List<TableFields> _Fields)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+			OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 			string _Columns = null;
 			foreach (var _Loop in _Fields)
@@ -83,12 +83,12 @@ namespace ScriptsLib.Database
 			}
 
 			string _Command = $"CREATE TABLE {_Name} ({_Columns})";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
+			OleDbCommand _OleDbCommand = new OleDbCommand(_Command, _OleDbConnection);
+			debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
 
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+			await _OleDbConnection.OpenAsync();
+			await _OleDbCommand.ExecuteNonQueryAsync();
+			_OleDbConnection.Close();
 		}
 
 		public struct TableFields
@@ -112,50 +112,48 @@ namespace ScriptsLib.Database
 		}
 		// # ================================================================================================ #
 		#endregion Create Table
-
+		
 		#region Delete Table
 		// # ================================================================================================ #
 		public async Task DeleteTable(string _TableName)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+			OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+			
+			OleDbCommand _OleDbCommand = new OleDbCommand($"DROP TABLE {_TableName}", _OleDbConnection);
+			debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
 
-			string _Command = $"DROP TABLE {_TableName}";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
-
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+			await _OleDbConnection.OpenAsync();
+			await _OleDbCommand.ExecuteNonQueryAsync();
+			_OleDbConnection.Close();
 		}
 		// # ================================================================================================ #
 		#endregion Delete Table
-
+		
 		#region Insert Into
 		// # ================================================================================================ #
 		public async Task InsertInto(string _TableName, string _Columns, string _Values)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+			OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+			
+			OleDbCommand _OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})", _OleDbConnection);
+			debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
 
-			string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
-
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+			await _OleDbConnection.OpenAsync();
+			await _OleDbCommand.ExecuteNonQueryAsync();
+			_OleDbConnection.Close();
 		}
 		// # ================================================================================================ #
 		#endregion Insert Into
-
+		
 		#region Create Database
 		// # ================================================================================================ #
-		public async Task CreateDatabase(string _Path)
+		private async Task CreateDatabase(string _Path)
 		{
 			if (!File.Exists(_Path))
 			{
 				string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-				var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
+				var _Connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;");
 				await _Connection.OpenAsync();
 				var _Command = _Connection.CreateCommand();
 
@@ -177,27 +175,27 @@ namespace ScriptsLib.Database
 		}
 		// # ================================================================================================ #
 		#endregion Create Database
-			
+		
 		#region Select
 		public List<string> Select(string _Table, string _Selection = "*", string _Condition = null, string _Splitter = "|,|")
 		{
-			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+			OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
-			SqlCommand _Command;
+			OleDbCommand _OleDbCommand;
 			if (!String.IsNullOrEmpty(_Condition))
 			{
-				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _Connection);
+				_OleDbCommand = new OleDbCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _OleDbConnection);
 			}
 			else
 			{
-				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table}", _Connection);
+				_OleDbCommand = new OleDbCommand($"SELECT {_Selection} FROM {_Table}", _OleDbConnection);
 			}
 
 
 			List<string> _Results = new List<string>();
 
-			_Connection.Open();
-			using (SqlDataReader _Reader = _Command.ExecuteReader())
+			_OleDbConnection.Open();
+			using (OleDbDataReader _Reader = _OleDbCommand.ExecuteReader())
 			{
 				bool _While = true;
 				while (_While == true)
@@ -230,18 +228,18 @@ namespace ScriptsLib.Database
 									_Add = _Add + _Splitter + _Loop;
 								}
 							}
-							debug.Msg("Add: " + _Add, "SqlDataReader.Read()");
+							debug.Msg("Add: " + _Add, "OleDbDataReader.Read()");
 							_Results.Add(_Add);
 						}
 					}
 					else
 					{
 						_While = false;
-						debug.Msg("Stop.", "SqlDataReader.Read()");
+						debug.Msg("Stop.", "OleDbDataReader.Read()");
 					}
 				}
 			}
-			_Connection.Close();
+			_OleDbConnection.Close();
 
 			return _Results;
 		}
@@ -250,16 +248,16 @@ namespace ScriptsLib.Database
 		#region Update
 		public async Task Update(string _Table, string _Update, string _Condition)
 		{
-			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+			OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 
-			SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
+			OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _OleDbConnection);
 
-			debug.Msg(_Command.CommandText, "Update Command Text");
-			
-			await _Connection.OpenAsync();
-			await _Command.ExecuteNonQueryAsync();
-			_Connection.Close();
+			debug.Msg(_OleDbCommand.CommandText, "Update Command Text");
+
+			await _OleDbConnection.OpenAsync();
+			await _OleDbCommand.ExecuteNonQueryAsync();
+			_OleDbConnection.Close();
 		}
 		#endregion Update
 	}
