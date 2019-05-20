@@ -37,13 +37,13 @@
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
 			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
+			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
+			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
+			this.button_generatePassword = new System.Windows.Forms.Button();
 			this.label_pass = new System.Windows.Forms.Label();
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
-			this.button_generatePassword = new System.Windows.Forms.Button();
-			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
-			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -151,6 +151,46 @@
 			this.groupBox_tools.TabStop = false;
 			this.groupBox_tools.Text = "Tools";
 			// 
+			// numeric_passwordLength
+			// 
+			this.numeric_passwordLength.Location = new System.Drawing.Point(6, 170);
+			this.numeric_passwordLength.Maximum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+			this.numeric_passwordLength.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+			this.numeric_passwordLength.Name = "numeric_passwordLength";
+			this.numeric_passwordLength.Size = new System.Drawing.Size(33, 20);
+			this.numeric_passwordLength.TabIndex = 12;
+			this.numeric_passwordLength.Tag = "";
+			this.numeric_passwordLength.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+			// 
+			// textBox_generatePassword
+			// 
+			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 149);
+			this.textBox_generatePassword.Name = "textBox_generatePassword";
+			this.textBox_generatePassword.Size = new System.Drawing.Size(176, 20);
+			this.textBox_generatePassword.TabIndex = 11;
+			// 
+			// button_generatePassword
+			// 
+			this.button_generatePassword.Location = new System.Drawing.Point(72, 169);
+			this.button_generatePassword.Name = "button_generatePassword";
+			this.button_generatePassword.Size = new System.Drawing.Size(111, 22);
+			this.button_generatePassword.TabIndex = 10;
+			this.button_generatePassword.Text = "Generate Password";
+			this.button_generatePassword.UseVisualStyleBackColor = true;
+			this.button_generatePassword.Click += new System.EventHandler(this.button_generatePassword_Click);
+			// 
 			// label_pass
 			// 
 			this.label_pass.AutoSize = true;
@@ -182,46 +222,6 @@
 			this.textBox_user.Name = "textBox_user";
 			this.textBox_user.Size = new System.Drawing.Size(144, 20);
 			this.textBox_user.TabIndex = 6;
-			// 
-			// button_generatePassword
-			// 
-			this.button_generatePassword.Location = new System.Drawing.Point(72, 169);
-			this.button_generatePassword.Name = "button_generatePassword";
-			this.button_generatePassword.Size = new System.Drawing.Size(111, 22);
-			this.button_generatePassword.TabIndex = 10;
-			this.button_generatePassword.Text = "Generate Password";
-			this.button_generatePassword.UseVisualStyleBackColor = true;
-			this.button_generatePassword.Click += new System.EventHandler(this.button_generatePassword_Click);
-			// 
-			// textBox_generatePassword
-			// 
-			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 149);
-			this.textBox_generatePassword.Name = "textBox_generatePassword";
-			this.textBox_generatePassword.Size = new System.Drawing.Size(176, 20);
-			this.textBox_generatePassword.TabIndex = 11;
-			// 
-			// numeric_passwordLength
-			// 
-			this.numeric_passwordLength.Location = new System.Drawing.Point(6, 170);
-			this.numeric_passwordLength.Maximum = new decimal(new int[] {
-            16,
-            0,
-            0,
-            0});
-			this.numeric_passwordLength.Minimum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-			this.numeric_passwordLength.Name = "numeric_passwordLength";
-			this.numeric_passwordLength.Size = new System.Drawing.Size(33, 20);
-			this.numeric_passwordLength.TabIndex = 12;
-			this.numeric_passwordLength.Tag = "";
-			this.numeric_passwordLength.Value = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
 			// 
 			// Main
 			// 
