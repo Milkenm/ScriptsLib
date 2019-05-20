@@ -80,5 +80,17 @@ namespace ScriptsLib.Tools
 			return _Password;
 		}
 		#endregion Password Generator
+
+
+
+		#region SqlFilter
+		public string SqlFilter(string _String)
+		{
+			_String = _String.Replace("'", null);
+			_String = _String.Replace(";", null);
+
+			return _String;
+		}
+		#endregion SqlFilter
 	}
 }

@@ -44,6 +44,8 @@
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
+			this.textBox_sqlFilter = new System.Windows.Forms.TextBox();
+			this.button_sqlFilter = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -135,6 +137,8 @@
 			// 
 			// groupBox_tools
 			// 
+			this.groupBox_tools.Controls.Add(this.button_sqlFilter);
+			this.groupBox_tools.Controls.Add(this.textBox_sqlFilter);
 			this.groupBox_tools.Controls.Add(this.numeric_passwordLength);
 			this.groupBox_tools.Controls.Add(this.textBox_generatePassword);
 			this.groupBox_tools.Controls.Add(this.button_generatePassword);
@@ -223,6 +227,23 @@
 			this.textBox_user.Size = new System.Drawing.Size(144, 20);
 			this.textBox_user.TabIndex = 6;
 			// 
+			// textBox_sqlFilter
+			// 
+			this.textBox_sqlFilter.Location = new System.Drawing.Point(8, 114);
+			this.textBox_sqlFilter.Name = "textBox_sqlFilter";
+			this.textBox_sqlFilter.Size = new System.Drawing.Size(137, 20);
+			this.textBox_sqlFilter.TabIndex = 13;
+			// 
+			// button_sqlFilter
+			// 
+			this.button_sqlFilter.Location = new System.Drawing.Point(145, 113);
+			this.button_sqlFilter.Name = "button_sqlFilter";
+			this.button_sqlFilter.Size = new System.Drawing.Size(37, 22);
+			this.button_sqlFilter.TabIndex = 14;
+			this.button_sqlFilter.Text = "Filter";
+			this.button_sqlFilter.UseVisualStyleBackColor = true;
+			this.button_sqlFilter.Click += new System.EventHandler(this.button_sqlFilter_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +281,8 @@
 		private System.Windows.Forms.TextBox textBox_generatePassword;
 		private System.Windows.Forms.Button button_generatePassword;
 		private System.Windows.Forms.NumericUpDown numeric_passwordLength;
+		private System.Windows.Forms.Button button_sqlFilter;
+		private System.Windows.Forms.TextBox textBox_sqlFilter;
 	}
 }
 

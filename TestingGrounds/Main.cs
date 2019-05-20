@@ -37,6 +37,8 @@ namespace TestingGrounds
 			textBox_pass.Text = "Pass1";
 
 			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
+
+			textBox_sqlFilter.Text = "ABC;DEF;GHI'JKL'MNO";
 			#endregion Perform Actions
 		}
 		#endregion Form
@@ -167,6 +169,11 @@ namespace TestingGrounds
 		private void button_generatePassword_Click(object sender, EventArgs e)
 		{
 			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
+		}
+
+		private void button_sqlFilter_Click(object sender, EventArgs e)
+		{
+			textBox_sqlFilter.Text = _Tools.SqlFilter(textBox_sqlFilter.Text);
 		}
 		#endregion Tools
 	}
