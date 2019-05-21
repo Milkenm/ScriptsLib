@@ -36,6 +36,7 @@
 			this.button_crash = new System.Windows.Forms.Button();
 			this.button_login = new System.Windows.Forms.Button();
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
+			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
 			this.comboBox_resize = new System.Windows.Forms.ComboBox();
@@ -50,7 +51,6 @@
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
 			this.timer_debug = new System.Windows.Forms.Timer(this.components);
-			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -131,6 +131,17 @@
 			this.groupBox_database.TabStop = false;
 			this.groupBox_database.Text = "Database";
 			// 
+			// comboBox_databaseType
+			// 
+			this.comboBox_databaseType.FormattingEnabled = true;
+			this.comboBox_databaseType.Items.AddRange(new object[] {
+            "Sql Server",
+            "Access"});
+			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 240);
+			this.comboBox_databaseType.Name = "comboBox_databaseType";
+			this.comboBox_databaseType.Size = new System.Drawing.Size(176, 21);
+			this.comboBox_databaseType.TabIndex = 5;
+			// 
 			// button_select
 			// 
 			this.button_select.Location = new System.Drawing.Point(6, 77);
@@ -166,15 +177,13 @@
 			// comboBox_resize
 			// 
 			this.comboBox_resize.FormattingEnabled = true;
-			this.comboBox_resize.Location = new System.Drawing.Point(55, 78);
 			this.comboBox_resize.Location = new System.Drawing.Point(55, 61);
 			this.comboBox_resize.Name = "comboBox_resize";
 			this.comboBox_resize.Size = new System.Drawing.Size(127, 21);
 			this.comboBox_resize.TabIndex = 14;
 			// 
 			// button_resizeCombobox
-			//
-			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 77);
+			// 
 			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 60);
 			this.button_resizeCombobox.Name = "button_resizeCombobox";
 			this.button_resizeCombobox.Size = new System.Drawing.Size(47, 39);
@@ -276,17 +285,6 @@
 			// 
 			this.timer_debug.Enabled = true;
 			this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
-			// 
-			// comboBox_databaseType
-			// 
-			this.comboBox_databaseType.FormattingEnabled = true;
-			this.comboBox_databaseType.Items.AddRange(new object[] {
-            "SqlServer",
-            "Access"});
-			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 240);
-			this.comboBox_databaseType.Name = "comboBox_databaseType";
-			this.comboBox_databaseType.Size = new System.Drawing.Size(176, 21);
-			this.comboBox_databaseType.TabIndex = 5;
 			// 
 			// Main
 			// 
