@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using ScriptsLib.Database;
 using ScriptsLib.Dev;
 #endregion Usings
@@ -83,7 +84,7 @@ namespace ScriptsLib.Tools
 		#endregion Password Generator
 
 
-
+		
 		#region ComboBox Resize
 		///
 		// https://stackoverflow.com/questions/3158004/how-do-i-set-the-height-of-a-combobox
@@ -100,5 +101,17 @@ namespace ScriptsLib.Tools
 			_ComboBox.Refresh();
 		}
 		#endregion ComboBox Resize
+
+
+
+		#region SqlFilter
+		public string SqlFilter(string _String)
+		{
+			_String = _String.Replace("'", null);
+			_String = _String.Replace(";", null);
+
+			return _String;
+		}
+		#endregion SqlFilter
 	}
 }

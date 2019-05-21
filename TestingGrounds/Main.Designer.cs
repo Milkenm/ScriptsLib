@@ -40,6 +40,8 @@
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
 			this.comboBox_resize = new System.Windows.Forms.ComboBox();
 			this.button_resizeCombobox = new System.Windows.Forms.Button();
+			this.button_sqlFilter = new System.Windows.Forms.Button();
+			this.textBox_sqlFilter = new System.Windows.Forms.TextBox();
 			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
 			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
 			this.button_generatePassword = new System.Windows.Forms.Button();
@@ -143,6 +145,8 @@
 			// 
 			this.groupBox_tools.Controls.Add(this.comboBox_resize);
 			this.groupBox_tools.Controls.Add(this.button_resizeCombobox);
+			this.groupBox_tools.Controls.Add(this.button_sqlFilter);
+			this.groupBox_tools.Controls.Add(this.textBox_sqlFilter);
 			this.groupBox_tools.Controls.Add(this.numeric_passwordLength);
 			this.groupBox_tools.Controls.Add(this.textBox_generatePassword);
 			this.groupBox_tools.Controls.Add(this.button_generatePassword);
@@ -163,19 +167,38 @@
 			// 
 			this.comboBox_resize.FormattingEnabled = true;
 			this.comboBox_resize.Location = new System.Drawing.Point(55, 78);
+			this.comboBox_resize.Location = new System.Drawing.Point(55, 61);
 			this.comboBox_resize.Name = "comboBox_resize";
 			this.comboBox_resize.Size = new System.Drawing.Size(127, 21);
 			this.comboBox_resize.TabIndex = 14;
 			// 
 			// button_resizeCombobox
-			// 
+			//
 			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 77);
+			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 60);
 			this.button_resizeCombobox.Name = "button_resizeCombobox";
 			this.button_resizeCombobox.Size = new System.Drawing.Size(47, 39);
 			this.button_resizeCombobox.TabIndex = 13;
 			this.button_resizeCombobox.Text = "Resize";
 			this.button_resizeCombobox.UseVisualStyleBackColor = true;
 			this.button_resizeCombobox.Click += new System.EventHandler(this.button_resizeCombobox_Click);
+			// 
+			// button_sqlFilter
+			// 
+			this.button_sqlFilter.Location = new System.Drawing.Point(145, 113);
+			this.button_sqlFilter.Name = "button_sqlFilter";
+			this.button_sqlFilter.Size = new System.Drawing.Size(37, 22);
+			this.button_sqlFilter.TabIndex = 14;
+			this.button_sqlFilter.Text = "Filter";
+			this.button_sqlFilter.UseVisualStyleBackColor = true;
+			this.button_sqlFilter.Click += new System.EventHandler(this.button_sqlFilter_Click);
+			// 
+			// textBox_sqlFilter
+			// 
+			this.textBox_sqlFilter.Location = new System.Drawing.Point(8, 114);
+			this.textBox_sqlFilter.Name = "textBox_sqlFilter";
+			this.textBox_sqlFilter.Size = new System.Drawing.Size(137, 20);
+			this.textBox_sqlFilter.TabIndex = 13;
 			// 
 			// numeric_passwordLength
 			// 
@@ -306,6 +329,8 @@
 		private System.Windows.Forms.Button button_resizeCombobox;
 		private System.Windows.Forms.Timer timer_debug;
 		private System.Windows.Forms.ComboBox comboBox_databaseType;
+		private System.Windows.Forms.Button button_sqlFilter;
+		private System.Windows.Forms.TextBox textBox_sqlFilter;
 	}
 }
 
