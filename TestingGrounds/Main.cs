@@ -1,6 +1,7 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 using ScriptsLib.Databases;
@@ -14,9 +15,9 @@ namespace TestingGrounds
 
 	public partial class Main : Form
 	{
-
 		#region Refs
-		SqlServer_Database _Database = new SqlServer_Database();
+		SqlServer_Database _SqlDatabase = new SqlServer_Database();
+		Access_Database _AccessDatabase = new Access_Database();
 		Tools _Tools = new Tools();
 		#endregion Refs
 
@@ -28,8 +29,14 @@ namespace TestingGrounds
 
 		private void Main_Load(object sender, EventArgs e)
 		{
-			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
+			if (Debugger.IsAttached == true)
+			{
+				this.Text = $"{this.Text} - DE3UG";
+			}
 
+
+			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
+			Access_Database._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
 
 
 			#region Perform Actions
@@ -39,6 +46,8 @@ namespace TestingGrounds
 			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
 
 			textBox_sqlFilter.Text = "ABC;DEF;GHI'JKL'MNO";
+
+			comboBox_databaseType.SelectedIndex = 0;
 			#endregion Perform Actions
 		}
 		#endregion Form
@@ -47,6 +56,11 @@ namespace TestingGrounds
 		private void timer_debug_Tick(object sender, EventArgs e)
 		{
 			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+		}
+
+		private void Ex(Exception _Exception)
+		{
+			MessageBox.Show(_Exception.Message, _Exception.Source);
 		}
 		#endregion Stuff
 
@@ -83,11 +97,7 @@ namespace TestingGrounds
 					_Fields.Add(_Field);
 
 
-					_Database.CreateTable("Users", _Fields).GetAwaiter();
-
-
-
-					MessageBox.Show("Done.");
+					_SqlDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
 				else
 				{
@@ -96,28 +106,25 @@ namespace TestingGrounds
 
 
 					_Field.Name = "ID";
-					_Field.DataType = Access_Database.SqlDataTypes.Number;
+					_Field.DataType = Access_Database.AccessDataTypes.Key;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Name";
-					_Field.DataType = Access_Database.SqlDataTypes.Text;
+					_Field.DataType = Access_Database.AccessDataTypes.Text;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Password";
-					_Field.DataType = Access_Database.SqlDataTypes.Text;
+					_Field.DataType = Access_Database.AccessDataTypes.Text;
 					_Fields.Add(_Field);
 
 
-					_Database.CreateTable("Users", _Fields).GetAwaiter();
-
-
-
-					MessageBox.Show("Done.");
+					_AccessDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
+				MessageBox.Show("Done.");
 			}
 			catch (Exception _Exception)
 			{
-				MessageBox.Show(_Exception.Message);
+				Ex(_Exception);
 			}
 		}
 
@@ -125,15 +132,19 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_Database.DeleteTable("Users").GetAwaiter();
-
-
-
+				if (comboBox_databaseType.SelectedIndex == 0)
+				{
+					_SqlDatabase.DeleteTable("Users").GetAwaiter();
+				}
+				else
+				{
+					_AccessDatabase.DeleteTable("Users").GetAwaiter();
+				}
 				MessageBox.Show("Done.");
 			}
 			catch (Exception _Exception)
 			{
-				MessageBox.Show(_Exception.Message);
+				Ex(_Exception);
 			}
 		}
 
@@ -141,15 +152,19 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_Database.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
-
-
-
+				if (comboBox_databaseType.SelectedIndex == 0)
+				{
+					_SqlDatabase.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
+				}
+				else
+				{
+					_AccessDatabase.InsertInto("[Users]", "[Name], [Password]", "'User1', 'Pass1'").GetAwaiter();
+				}
 				MessageBox.Show("Done.");
 			}
 			catch (Exception _Exception)
 			{
-				MessageBox.Show(_Exception.Message);
+				Ex(_Exception);
 			}
 		}
 
@@ -157,23 +172,45 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_Database.CreateDatabase(@"C:\Milkenm\Data\Tests.mdf").GetAwaiter();
-
-
-
+				if (comboBox_databaseType.SelectedIndex == 0)
+				{
+					_SqlDatabase.CreateDatabase(@"C:\Milkenm\Data\Tests.mdf").GetAwaiter();
+				}
+				else
+				{
+					MessageBox.Show("There is no 'Create Database' yet.");
+					return;
+				}
 				MessageBox.Show("Done.");
 			}
 			catch (Exception _Exception)
 			{
-				MessageBox.Show(_Exception.Message);
+				Ex(_Exception);
 			}
 		}
 
 		private void button_select_Click(object sender, EventArgs e)
 		{
-			foreach (var _Loop in _Database.Select("Users"))
+			try
 			{
-				MessageBox.Show($"{_Loop}", "Selected values");
+				if (comboBox_databaseType.SelectedIndex == 0)
+				{
+					foreach (var _Loop in _SqlDatabase.Select("Users"))
+					{
+						MessageBox.Show($"{_Loop}", "Selected values");
+					}
+				}
+				else
+				{
+					foreach (var _Loop in _AccessDatabase.Select("Users"))
+					{
+						MessageBox.Show($"{_Loop}", "Selected values");
+					}
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
 			}
 		}
 		#endregion Database
@@ -188,7 +225,15 @@ namespace TestingGrounds
 
 		private void button_login_Click(object sender, EventArgs e)
 		{
-			bool _Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password");
+			bool _Success;
+			if (comboBox_databaseType.SelectedIndex == 0)
+			{
+				 _Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.SqlServer);
+			}
+			else
+			{
+				_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.Access);
+			}
 
 			if (_Success == true)
 			{

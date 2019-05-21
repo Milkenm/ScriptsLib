@@ -295,7 +295,7 @@
 			this.Controls.Add(this.groupBox_database);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "Main";
-			this.Text = "Main";
+			this.Text = "Testing Grounds";
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.groupBox_database.ResumeLayout(false);
 			this.groupBox_tools.ResumeLayout(false);
