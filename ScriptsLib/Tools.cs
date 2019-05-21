@@ -19,12 +19,9 @@ namespace ScriptsLib.Tools
 		Debug debug = new Debug();
 
 
+		
 
-
-
-
-
-
+		
 
 
 

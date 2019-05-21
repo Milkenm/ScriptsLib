@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.button_criarTabela = new System.Windows.Forms.Button();
 			this.button_apagarTabela = new System.Windows.Forms.Button();
 			this.button_insert = new System.Windows.Forms.Button();
@@ -293,7 +294,9 @@
 			this.ClientSize = new System.Drawing.Size(673, 275);
 			this.Controls.Add(this.groupBox_tools);
 			this.Controls.Add(this.groupBox_database);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "Main";
 			this.Text = "Testing Grounds";
 			this.Load += new System.EventHandler(this.Main_Load);
