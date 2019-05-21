@@ -10,7 +10,7 @@ namespace ScriptsLib.Dev
 {
 	internal class Debug
 	{
-		bool _Debug;
+		bool _Debug = false;
 
 
 
