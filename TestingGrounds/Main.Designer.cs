@@ -137,7 +137,8 @@
 			this.comboBox_databaseType.FormattingEnabled = true;
 			this.comboBox_databaseType.Items.AddRange(new object[] {
             "Sql Server",
-            "Access"});
+            "Access",
+            "MySql"});
 			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 240);
 			this.comboBox_databaseType.Name = "comboBox_databaseType";
 			this.comboBox_databaseType.Size = new System.Drawing.Size(176, 21);

@@ -12,12 +12,13 @@ using ScriptsLib.Tools;
 
 namespace TestingGrounds
 {
-
 	public partial class Main : Form
 	{
 		#region Refs
 		SqlServer_Database _SqlDatabase = new SqlServer_Database();
 		Access_Database _AccessDatabase = new Access_Database();
+		MySql_Database _MySqlDatabase = new MySql_Database();
+
 		Tools _Tools = new Tools();
 		#endregion Refs
 
@@ -27,6 +28,8 @@ namespace TestingGrounds
 			InitializeComponent();
 		}
 
+
+
 		private void Main_Load(object sender, EventArgs e)
 		{
 			if (Debugger.IsAttached == true)
@@ -35,8 +38,18 @@ namespace TestingGrounds
 			}
 
 
+
 			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
+
 			Access_Database._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
+			
+			MySql_Database._Server = "127.0.0.1";
+			MySql_Database._Port = 3306;
+			MySql_Database._Database = "test";
+			MySql_Database._User = "root";
+			MySql_Database._Password = "";
+			MySql_Database._SslMode = "none";
+
 
 
 			#region Perform Actions
@@ -47,7 +60,7 @@ namespace TestingGrounds
 
 			textBox_sqlFilter.Text = "ABC;DEF;GHI'JKL'MNO";
 
-			comboBox_databaseType.SelectedIndex = 0;
+			comboBox_databaseType.SelectedIndex = 2;
 			#endregion Perform Actions
 		}
 		#endregion Form
@@ -61,6 +74,11 @@ namespace TestingGrounds
 		private void Ex(Exception _Exception)
 		{
 			MessageBox.Show(_Exception.Message, _Exception.Source);
+		}
+
+		private void Libs()
+		{
+			//File.WriteAllBytes()
 		}
 		#endregion Stuff
 
@@ -99,7 +117,7 @@ namespace TestingGrounds
 
 					_SqlDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
-				else
+				else if (comboBox_databaseType.SelectedIndex == 1)
 				{
 					List<Access_Database.TableFields> _Fields = new List<Access_Database.TableFields>();
 					Access_Database.TableFields _Field = new Access_Database.TableFields();
@@ -119,6 +137,27 @@ namespace TestingGrounds
 
 
 					_AccessDatabase.CreateTable("Users", _Fields).GetAwaiter();
+				}
+				else if (comboBox_databaseType.SelectedIndex == 2)
+				{
+					List<MySql_Database.TableFields> _Fields = new List<MySql_Database.TableFields>();
+					MySql_Database.TableFields _Field = new MySql_Database.TableFields();
+
+
+					_Field.Name = "ID";
+					_Field.DataType = MySql_Database.MySqlDataTypes.Key;
+					_Fields.Add(_Field);
+
+					_Field.Name = "Name";
+					_Field.DataType = MySql_Database.MySqlDataTypes.Text;
+					_Fields.Add(_Field);
+
+					_Field.Name = "Password";
+					_Field.DataType = MySql_Database.MySqlDataTypes.Text;
+					_Fields.Add(_Field);
+
+
+					_MySqlDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
 				MessageBox.Show("Done.");
 			}
