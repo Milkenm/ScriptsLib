@@ -14,6 +14,7 @@ namespace ScriptsLib.Dev
 
 
 
+		#region DE3UG
 		internal void Msg(string _Message, MsgType _Type, string _Title = null)
 		{
 			try
@@ -52,5 +53,6 @@ namespace ScriptsLib.Dev
 			Info,
 			Error,
 		}
+		#endregion DE3UG
 	}
 }

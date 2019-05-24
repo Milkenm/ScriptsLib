@@ -3,6 +3,8 @@ using System;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -179,5 +181,30 @@ namespace ScriptsLib.Tools
 			}
 		}
 		#endregion SqlFilter
+
+
+
+		#region Hash
+		public string Hash(string _String)
+		{
+			try
+			{
+				HashAlgorithm _Hash = SHA256.Create();
+				StringBuilder _Builder = new StringBuilder();
+
+				foreach (byte _Byte in _Hash.ComputeHash(Encoding.UTF8.GetBytes(_String)))
+				{
+					_Builder.Append(_Byte.ToString("X2"));
+				}
+
+				return _Builder.ToString();
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
+		}
+		#endregion Hash
 	}
 }
