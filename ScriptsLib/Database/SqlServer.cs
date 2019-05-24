@@ -6,8 +6,6 @@ using System.IO;
 using System.Threading.Tasks;
 
 using ScriptsLib.Dev;
-
-using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
 
@@ -20,7 +18,7 @@ namespace ScriptsLib.Databases
 		public static string _DatabasePath { get; set; }
 
 
-		Debug debug = new Debug();
+		Debug _Debug = new Debug();
 
 
 
@@ -96,7 +94,7 @@ namespace ScriptsLib.Databases
 
 				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
 				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
+				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
 				await _SqlConnection.OpenAsync();
 				await _SqlCommand.ExecuteNonQueryAsync();
@@ -104,7 +102,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 			}
 		}
 
@@ -142,7 +140,7 @@ namespace ScriptsLib.Databases
 
 				string _Command = $"DROP TABLE {_TableName}";
 				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
+				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
 				await _SqlConnection.OpenAsync();
 				await _SqlCommand.ExecuteNonQueryAsync();
@@ -150,7 +148,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
@@ -168,7 +166,7 @@ namespace ScriptsLib.Databases
 
 				string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
 				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
+				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
 				await _SqlConnection.OpenAsync();
 				await _SqlCommand.ExecuteNonQueryAsync();
@@ -176,7 +174,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
@@ -200,11 +198,11 @@ namespace ScriptsLib.Databases
 
 
 					_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
-					debug.Msg(_Command.CommandText, MsgType.Info, "Create Database");
+					_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Create Database");
 					await _Command.ExecuteNonQueryAsync();
 
 					_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
-					debug.Msg(_Command.CommandText, MsgType.Info, "Export Database");
+					_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Export Database");
 					await _Command.ExecuteNonQueryAsync();
 
 					_Connection.Close();
@@ -216,7 +214,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
@@ -252,7 +250,7 @@ namespace ScriptsLib.Databases
 					{
 						if (_Reader.Read() == true)
 						{
-							debug.Msg("Read.", MsgType.Info, "SqlDataReader.Read()");
+							_Debug.Msg("Read.", Debug.MsgType.Info, "SqlDataReader.Read()");
 							List<string> _Values = new List<string>();
 							int _Index = 0;
 
@@ -278,14 +276,14 @@ namespace ScriptsLib.Databases
 										_Add = _Add + _Splitter + _Loop;
 									}
 								}
-								debug.Msg("Add: " + _Add, MsgType.Info, "SqlDataReader.Read()");
+								_Debug.Msg("Add: " + _Add, Debug.MsgType.Info, "SqlDataReader.Read()");
 								_Results.Add(_Add);
 							}
 						}
 						else
 						{
 							_While = false;
-							debug.Msg("Stop.", MsgType.Info, "SqlDataReader.Read()");
+							_Debug.Msg("Stop.", Debug.MsgType.Info, "SqlDataReader.Read()");
 						}
 					}
 				}
@@ -295,7 +293,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 				return null;
 			}
 		}
@@ -313,7 +311,7 @@ namespace ScriptsLib.Databases
 
 				SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
 
-				debug.Msg(_Command.CommandText, MsgType.Info, "Update Command Text");
+				_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Update Command Text");
 
 				await _Connection.OpenAsync();
 				await _Command.ExecuteNonQueryAsync();
@@ -321,9 +319,31 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
 			}
 		}
 		#endregion Update
+
+
+
+		#region Delete
+		public async Task Delete(string _Table, string _Condition)
+		{
+			try
+			{
+				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+
+				SqlCommand _SqlCommand = new SqlCommand($"DELETE FROM {_Table} WHERE {_Condition}", _SqlConnection);
+
+				await _SqlConnection.OpenAsync();
+				await _SqlCommand.ExecuteNonQueryAsync();
+				_SqlConnection.Close();
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, Debug.MsgType.Error, _Exception.Source);
+			}
+		}
+		#endregion Delete
 	}
 }

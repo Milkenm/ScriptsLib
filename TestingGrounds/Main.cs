@@ -262,7 +262,7 @@ namespace TestingGrounds
 			{
 				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
-					
+					_SqlDatabase.Delete("Users", "ID = 1").GetAwaiter();
 				}
 				else // Access MDB
 				{

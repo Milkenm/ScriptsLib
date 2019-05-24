@@ -370,7 +370,7 @@ namespace ScriptsLib.Databases
 			try
 			{
 				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
-				
+
 				OleDbCommand _OleDbCommand = new OleDbCommand($"DELETE FROM {_Table} WHERE {_Condition}", _OleDbConnection);
 
 				await _OleDbConnection.OpenAsync();
