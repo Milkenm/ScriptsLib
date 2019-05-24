@@ -185,6 +185,11 @@ namespace ScriptsLib.Tools
 
 
 		#region Hash
+		///
+		// https://stackoverflow.com/questions/3984138/hash-string-in-c-sharp
+		///
+
+
 		public string Hash(string _String)
 		{
 			try
