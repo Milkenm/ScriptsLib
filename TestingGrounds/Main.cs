@@ -288,23 +288,30 @@ namespace TestingGrounds
 
 		private void button_login_Click(object sender, EventArgs e)
 		{
-			bool _Success;
-			if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+			try
 			{
-				 _Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.SqlServer);
-			}
-			else
-			{
-				_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.Access);
-			}
+				bool _Success;
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				{
+					_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.SqlServer);
+				}
+				else
+				{
+					_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.Access);
+				}
 
-			if (_Success == true)
-			{
-				MessageBox.Show("Logged in.");
+				if (_Success == true)
+				{
+					MessageBox.Show("Logged in.");
+				}
+				else
+				{
+					MessageBox.Show("Invalid login credentials.");
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				MessageBox.Show("Invalid login credentials.");
+				Ex(_Exception);
 			}
 		}
 
@@ -329,6 +336,20 @@ namespace TestingGrounds
 		{
 			textBox_sqlFilter.Text = _Tools.SqlFilter(textBox_sqlFilter.Text);
 		}
+
+		private void button_log_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				_Tools.Log(textBox_log.Text, @"C:\Milkenm\Data\Text.txt").GetAwaiter();
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
 		#endregion Tools
+
+
 	}
 }

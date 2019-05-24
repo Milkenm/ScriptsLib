@@ -2,9 +2,11 @@
 using System;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -211,5 +213,57 @@ namespace ScriptsLib.Tools
 			}
 		}
 		#endregion Hash
+
+
+
+		#region Log
+		public async Task Log(string _Message, string _FileLocation, bool _IncludeDate = true)
+		{
+			try
+			{
+				if (!File.Exists(_FileLocation))
+				{
+					StreamWriter _File = File.CreateText(_FileLocation);
+
+					if (_IncludeDate == true)
+					{
+						await _File.WriteLineAsync($"[{DateTime.Now}] {_Message}");
+					}
+					else
+					{
+						await _File.WriteLineAsync(_Message);
+					}
+
+					_File.Close();
+				}
+				else
+				{
+					StreamWriter _File = new StreamWriter(_FileLocation, true);
+
+					if (_IncludeDate == true)
+					{
+						await _File.WriteLineAsync($"[{DateTime.Now}] {_Message}");
+					}
+					else
+					{
+						await _File.WriteLineAsync(_Message);
+					}
+
+					_File.Close();
+				}
+
+				
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
+		}
+
+		internal void CreateTextFile(string _Path)
+		{
+			File.Create(_Path);
+		}
+		#endregion Log
 	}
 }

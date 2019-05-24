@@ -37,9 +37,12 @@
 			this.button_crash = new System.Windows.Forms.Button();
 			this.button_login = new System.Windows.Forms.Button();
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
+			this.button_delete = new System.Windows.Forms.Button();
 			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
+			this.textBox_log = new System.Windows.Forms.TextBox();
+			this.button_log = new System.Windows.Forms.Button();
 			this.comboBox_resize = new System.Windows.Forms.ComboBox();
 			this.button_resizeCombobox = new System.Windows.Forms.Button();
 			this.button_sqlFilter = new System.Windows.Forms.Button();
@@ -52,7 +55,6 @@
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
 			this.timer_debug = new System.Windows.Forms.Timer(this.components);
-			this.button_delete = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -129,10 +131,20 @@
 			this.groupBox_database.Controls.Add(this.button_criarBd);
 			this.groupBox_database.Location = new System.Drawing.Point(2, 2);
 			this.groupBox_database.Name = "groupBox_database";
-			this.groupBox_database.Size = new System.Drawing.Size(188, 272);
+			this.groupBox_database.Size = new System.Drawing.Size(188, 347);
 			this.groupBox_database.TabIndex = 6;
 			this.groupBox_database.TabStop = false;
 			this.groupBox_database.Text = "Database";
+			// 
+			// button_delete
+			// 
+			this.button_delete.Location = new System.Drawing.Point(97, 77);
+			this.button_delete.Name = "button_delete";
+			this.button_delete.Size = new System.Drawing.Size(85, 23);
+			this.button_delete.TabIndex = 6;
+			this.button_delete.Text = "Delete";
+			this.button_delete.UseVisualStyleBackColor = true;
+			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
 			// 
 			// comboBox_databaseType
 			// 
@@ -158,6 +170,8 @@
 			// 
 			// groupBox_tools
 			// 
+			this.groupBox_tools.Controls.Add(this.textBox_log);
+			this.groupBox_tools.Controls.Add(this.button_log);
 			this.groupBox_tools.Controls.Add(this.comboBox_resize);
 			this.groupBox_tools.Controls.Add(this.button_resizeCombobox);
 			this.groupBox_tools.Controls.Add(this.button_sqlFilter);
@@ -173,10 +187,27 @@
 			this.groupBox_tools.Controls.Add(this.button_crash);
 			this.groupBox_tools.Location = new System.Drawing.Point(196, 2);
 			this.groupBox_tools.Name = "groupBox_tools";
-			this.groupBox_tools.Size = new System.Drawing.Size(188, 272);
+			this.groupBox_tools.Size = new System.Drawing.Size(188, 347);
 			this.groupBox_tools.TabIndex = 7;
 			this.groupBox_tools.TabStop = false;
 			this.groupBox_tools.Text = "Tools";
+			// 
+			// textBox_log
+			// 
+			this.textBox_log.Location = new System.Drawing.Point(6, 283);
+			this.textBox_log.Name = "textBox_log";
+			this.textBox_log.Size = new System.Drawing.Size(143, 20);
+			this.textBox_log.TabIndex = 16;
+			// 
+			// button_log
+			// 
+			this.button_log.Location = new System.Drawing.Point(149, 282);
+			this.button_log.Name = "button_log";
+			this.button_log.Size = new System.Drawing.Size(33, 22);
+			this.button_log.TabIndex = 15;
+			this.button_log.Text = "Log";
+			this.button_log.UseVisualStyleBackColor = true;
+			this.button_log.Click += new System.EventHandler(this.button_log_Click);
 			// 
 			// comboBox_resize
 			// 
@@ -290,21 +321,11 @@
 			this.timer_debug.Enabled = true;
 			this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
 			// 
-			// button_delete
-			// 
-			this.button_delete.Location = new System.Drawing.Point(97, 77);
-			this.button_delete.Name = "button_delete";
-			this.button_delete.Size = new System.Drawing.Size(85, 23);
-			this.button_delete.TabIndex = 6;
-			this.button_delete.Text = "Delete";
-			this.button_delete.UseVisualStyleBackColor = true;
-			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
-			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(673, 275);
+			this.ClientSize = new System.Drawing.Size(673, 350);
 			this.Controls.Add(this.groupBox_tools);
 			this.Controls.Add(this.groupBox_database);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -346,6 +367,8 @@
 		private System.Windows.Forms.TextBox textBox_sqlFilter;
 		private System.Windows.Forms.Button button_delete;
 		private System.Windows.Forms.Button button_generatePassword;
+		private System.Windows.Forms.TextBox textBox_log;
+		private System.Windows.Forms.Button button_log;
 	}
 }
 
