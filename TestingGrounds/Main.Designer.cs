@@ -52,6 +52,7 @@
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
 			this.timer_debug = new System.Windows.Forms.Timer(this.components);
+			this.button_delete = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -119,6 +120,7 @@
 			// 
 			// groupBox_database
 			// 
+			this.groupBox_database.Controls.Add(this.button_delete);
 			this.groupBox_database.Controls.Add(this.comboBox_databaseType);
 			this.groupBox_database.Controls.Add(this.button_select);
 			this.groupBox_database.Controls.Add(this.button_criarTabela);
@@ -288,6 +290,16 @@
 			this.timer_debug.Enabled = true;
 			this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
 			// 
+			// button_delete
+			// 
+			this.button_delete.Location = new System.Drawing.Point(97, 77);
+			this.button_delete.Name = "button_delete";
+			this.button_delete.Size = new System.Drawing.Size(85, 23);
+			this.button_delete.TabIndex = 6;
+			this.button_delete.Text = "Delete";
+			this.button_delete.UseVisualStyleBackColor = true;
+			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,7 +337,6 @@
 		private System.Windows.Forms.TextBox textBox_user;
 		private System.Windows.Forms.Button button_select;
 		private System.Windows.Forms.TextBox textBox_generatePassword;
-		private System.Windows.Forms.Button button_generatePassword;
 		private System.Windows.Forms.NumericUpDown numeric_passwordLength;
 		private System.Windows.Forms.ComboBox comboBox_resize;
 		private System.Windows.Forms.Button button_resizeCombobox;
@@ -333,6 +344,8 @@
 		private System.Windows.Forms.ComboBox comboBox_databaseType;
 		private System.Windows.Forms.Button button_sqlFilter;
 		private System.Windows.Forms.TextBox textBox_sqlFilter;
+		private System.Windows.Forms.Button button_delete;
+		private System.Windows.Forms.Button button_generatePassword;
 	}
 }
 

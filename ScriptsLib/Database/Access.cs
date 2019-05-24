@@ -361,5 +361,27 @@ namespace ScriptsLib.Databases
 			}
 		}
 		#endregion Update
+
+
+
+		#region Delete
+		public async Task Delete(string _Table, string _Condition)
+		{
+			try
+			{
+				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+				
+				OleDbCommand _OleDbCommand = new OleDbCommand($"DELETE FROM {_Table} WHERE {_Condition}", _OleDbConnection);
+
+				await _OleDbConnection.OpenAsync();
+				await _OleDbCommand.ExecuteNonQueryAsync();
+				_OleDbConnection.Close();
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
+		}
+		#endregion Delete
 	}
 }

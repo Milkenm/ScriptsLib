@@ -99,7 +99,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0)
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					List<SqlServer_Database.TableFields> _Fields = new List<SqlServer_Database.TableFields>();
 					SqlServer_Database.TableFields _Field = new SqlServer_Database.TableFields();
@@ -174,7 +174,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0)
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.DeleteTable("Users").GetAwaiter();
 				}
@@ -194,7 +194,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0)
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
 				}
@@ -214,7 +214,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0)
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.CreateDatabase(@"C:\Milkenm\Data\Tests.mdf").GetAwaiter();
 				}
@@ -235,7 +235,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0)
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					foreach (var _Loop in _SqlDatabase.Select("Users"))
 					{
@@ -255,6 +255,27 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
+
+		private void button_delete_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				{
+					
+				}
+				else // Access MDB
+				{
+					_AccessDatabase.Delete("Users", "ID = 1").GetAwaiter();
+				}
+
+				MessageBox.Show("Done.");
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
 		#endregion Database
 
 
@@ -268,7 +289,7 @@ namespace TestingGrounds
 		private void button_login_Click(object sender, EventArgs e)
 		{
 			bool _Success;
-			if (comboBox_databaseType.SelectedIndex == 0)
+			if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 			{
 				 _Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.SqlServer);
 			}
