@@ -7,25 +7,50 @@ using System.Windows.Forms;
 
 namespace ScriptsLib.Dev
 {
-	internal class Debug
+	public class Debug
 	{
-		bool _Debug = true;
+		public static bool _Debug { get; set; }
+		public static bool _ErrorsOnly { get; set; }
 
 
 
-		internal void Msg(string _Message, string _Title = null)
+		internal void Msg(string _Message, MsgType _Type, string _Title = null)
 		{
-			if (_Debug == true)
+			try
 			{
-				if (!String.IsNullOrEmpty(_Title))
+				if (_Debug == true)
 				{
-					MessageBox.Show(null, _Message, "DE3UG - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-				else
-				{
-					MessageBox.Show(null, _Message, "DE3UG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					if (_ErrorsOnly == true && _Type == MsgType.Error)
+					{
+						if (!String.IsNullOrEmpty(_Title))
+						{
+							MessageBox.Show(null, _Message, "ScriptsLib Error - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+						else
+						{
+							MessageBox.Show(null, _Message, "ScriptsLib Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+					}
+					else if (_ErrorsOnly == false)
+					{
+						if (!String.IsNullOrEmpty(_Title))
+						{
+							MessageBox.Show(null, _Message, "DE3UG - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+						else
+						{
+							MessageBox.Show(null, _Message, "DE3UG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+					}
 				}
 			}
+			catch { }
+		}
+
+		internal enum MsgType
+		{
+			Info,
+			Error,
 		}
 	}
 }

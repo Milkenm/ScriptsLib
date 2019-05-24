@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 
 using ScriptsLib.Dev;
+
+using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
 
@@ -14,11 +16,21 @@ namespace ScriptsLib.Databases
 {
 	public class Access_Database
 	{
-		internal static readonly string _BaseConnection = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+		internal static readonly string _BaseConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 		public static string _DatabasePath { get; set; }
 
 
 		Debug _Debug = new Debug();
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,7 +103,7 @@ namespace ScriptsLib.Databases
 
 				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
 				OleDbCommand _OleDbCommand = new OleDbCommand(_Command, _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
+				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
 
 				await _OleDbConnection.OpenAsync();
@@ -100,7 +112,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 
@@ -124,6 +136,8 @@ namespace ScriptsLib.Databases
 		// # ================================================================================================ #
 		#endregion Create Table
 
+
+
 		#region Delete Table
 		// # ================================================================================================ #
 		public async Task DeleteTable(string _TableName)
@@ -133,7 +147,7 @@ namespace ScriptsLib.Databases
 				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 				OleDbCommand _OleDbCommand = new OleDbCommand($"DROP TABLE {_TableName}", _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
+				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
 				await _OleDbConnection.OpenAsync();
 				await _OleDbCommand.ExecuteNonQueryAsync();
@@ -141,11 +155,13 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
 		#endregion Delete Table
+
+
 
 		#region Insert Into
 		// # ================================================================================================ #
@@ -153,10 +169,41 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
+				if (!_TableName.StartsWith("[") && !_TableName.EndsWith("]"))
+				{
+					_TableName = $"[{_TableName}]";
+				}
+				if (!_Columns.StartsWith("[") && !_Columns.EndsWith("]"))
+				{
+					string[] _SplitColumns;
+					_Columns = null;
+
+					_SplitColumns = _Columns.Split(',');
+
+					foreach (string _ValueColumn in _SplitColumns)
+					{
+						if (!String.IsNullOrEmpty(_Columns))
+						{
+							_Columns = $"{_Columns}, [{_ValueColumn}]";
+						}
+						else
+						{
+							_Columns = $"[{_ValueColumn}]";
+						}
+					}
+				}
+
+
+
+
+
+
+
+
 				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 				OleDbCommand _OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})", _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, "OleDb Command");
+				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
 				await _OleDbConnection.OpenAsync();
 				await _OleDbCommand.ExecuteNonQueryAsync();
@@ -164,11 +211,13 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				System.Windows.Forms.MessageBox.Show(_Exception.Message, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
 		#endregion Insert Into
+
+
 
 		#region Create Database
 		// # ================================================================================================ #
@@ -186,11 +235,11 @@ namespace ScriptsLib.Databases
 
 
 					_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
-					_Debug.Msg(_Command.CommandText, "Create Database");
+					_Debug.Msg(_Command.CommandText, MsgType.Info, "Create Database");
 					await _Command.ExecuteNonQueryAsync();
 
 					_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
-					_Debug.Msg(_Command.CommandText, "Export Database");
+					_Debug.Msg(_Command.CommandText, MsgType.Info, "Export Database");
 					await _Command.ExecuteNonQueryAsync();
 
 					_Connection.Close();
@@ -202,11 +251,13 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
 		#endregion Create Database
+
+
 
 		#region Select
 		public List<string> Select(string _Table, string _Selection = "*", string _Condition = null, string _Splitter = "|,|")
@@ -236,7 +287,7 @@ namespace ScriptsLib.Databases
 					{
 						if (_Reader.Read() == true)
 						{
-							_Debug.Msg("Read.", "SqlDataReader.Read()");
+							_Debug.Msg("Read.", MsgType.Info, "SqlDataReader.Read()");
 							List<string> _Values = new List<string>();
 							int _Index = 0;
 
@@ -262,28 +313,31 @@ namespace ScriptsLib.Databases
 										_Add = _Add + _Splitter + _Loop;
 									}
 								}
-								_Debug.Msg("Add: " + _Add, "OleDbDataReader.Read()");
+								_Debug.Msg("Add: " + _Add, MsgType.Info, "OleDbDataReader.Read()");
 								_Results.Add(_Add);
 							}
 						}
 						else
 						{
 							_While = false;
-							_Debug.Msg("Stop.", "OleDbDataReader.Read()");
+							_Debug.Msg("Stop.", MsgType.Info, "OleDbDataReader.Read()");
 						}
 					}
 				}
 				_OleDbConnection.Close();
 
+
 				return _Results;
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 				return null;
 			}
 		}
 		#endregion Select
+
+
 
 		#region Update
 		public async Task Update(string _Table, string _Update, string _Condition)
@@ -295,7 +349,7 @@ namespace ScriptsLib.Databases
 
 				OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _OleDbConnection);
 
-				_Debug.Msg(_OleDbCommand.CommandText, "Update Command Text");
+				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "Update Command Text");
 
 				await _OleDbConnection.OpenAsync();
 				await _OleDbCommand.ExecuteNonQueryAsync();
@@ -303,7 +357,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 		#endregion Update

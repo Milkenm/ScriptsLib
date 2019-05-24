@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 using ScriptsLib.Dev;
+using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
 
@@ -26,6 +27,16 @@ namespace ScriptsLib.Databases
 
 
 
+
+
+
+
+
+
+
+
+
+
 		#region Create Table
 		// # ================================================================================================ #
 		public async Task CreateTable(string _Name, List<TableFields> _Fields)
@@ -33,7 +44,7 @@ namespace ScriptsLib.Databases
 			try
 			{
 				MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
-				_Debug.Msg(_MySqlConnection.ConnectionString, "MySql Connection");
+				_Debug.Msg(_MySqlConnection.ConnectionString, MsgType.Info, "MySql Connection");
 
 				string _Columns = null;
 				foreach (var _Loop in _Fields)
@@ -107,7 +118,7 @@ namespace ScriptsLib.Databases
 
 				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
 				MySqlCommand _MySqlCommand = new MySqlCommand(_Command, _MySqlConnection);
-				_Debug.Msg(_MySqlCommand.CommandText, "MySql Command");
+				_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "MySql Command");
 
 
 				await _MySqlConnection.OpenAsync();
@@ -116,7 +127,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 
@@ -143,6 +154,8 @@ namespace ScriptsLib.Databases
 		// # ================================================================================================ #
 		#endregion Create Table
 
+
+
 		#region Delete Table
 		// # ================================================================================================ #
 		public async Task DeleteTable(string _TableName)
@@ -152,7 +165,7 @@ namespace ScriptsLib.Databases
 				MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
 
 				MySqlCommand _MySqlCommand = new MySqlCommand($"DROP TABLE {_TableName}", _MySqlConnection);
-				_Debug.Msg(_MySqlCommand.CommandText, "OleDb Command");
+				_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "OleDb Command");
 
 				await _MySqlConnection.OpenAsync();
 				await _MySqlCommand.ExecuteNonQueryAsync();
@@ -160,7 +173,7 @@ namespace ScriptsLib.Databases
 			}
 			catch (Exception _Exception)
 			{
-				_Debug.Msg(_Exception.Message, _Exception.Source);
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #

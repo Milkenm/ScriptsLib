@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 using ScriptsLib.Databases;
 using ScriptsLib.Dev;
+
+using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
 
@@ -16,12 +18,12 @@ namespace ScriptsLib.Tools
 {
 	public class Tools
 	{
-		Debug debug = new Debug();
+		Debug _Debug = new Debug();
 
 
-		
 
-		
+
+
 
 
 
@@ -44,49 +46,57 @@ namespace ScriptsLib.Tools
 		// # ================================================================================================ #
 		public bool CheckLogin(string _Table, string _Username, string _Password, string _UsernameColumn, string _PasswordColumn, DatabaseType _DatabaseType)
 		{
-			if (_DatabaseType == DatabaseType.SqlServer)
+			try
 			{
-				SqlConnection _Connection = new SqlConnection(SqlServer_Database._BaseConnection + SqlServer_Database._DatabasePath);
-
-
-				SqlCommand _Command = new SqlCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
-
-				_Connection.OpenAsync().GetAwaiter().GetResult();
-				int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
-
-				debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", "CheckLogin");
-
-				_Connection.Close();
-
-				if (_Result > 0)
+				if (_DatabaseType == DatabaseType.SqlServer)
 				{
-					return true;
+					SqlConnection _Connection = new SqlConnection(SqlServer_Database._BaseConnection + SqlServer_Database._DatabasePath);
+
+
+					SqlCommand _Command = new SqlCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
+
+					_Connection.OpenAsync().GetAwaiter().GetResult();
+					int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
+
+					_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
+
+					_Connection.Close();
+
+					if (_Result > 0)
+					{
+						return true;
+					}
+					return false;
 				}
-				return false;
-			}
-			else if (_DatabaseType == DatabaseType.Access)
-			{
-				OleDbConnection _Connection = new OleDbConnection(Access_Database._BaseConnection + Access_Database._DatabasePath);
-
-
-				OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
-
-				_Connection.OpenAsync().GetAwaiter().GetResult();
-				int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
-
-				debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", "CheckLogin");
-
-				_Connection.Close();
-
-				if (_Result > 0)
+				else if (_DatabaseType == DatabaseType.Access)
 				{
-					return true;
+					OleDbConnection _Connection = new OleDbConnection(Access_Database._BaseConnection + Access_Database._DatabasePath);
+
+
+					OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
+
+					_Connection.OpenAsync().GetAwaiter().GetResult();
+					int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
+
+					_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
+
+					_Connection.Close();
+
+					if (_Result > 0)
+					{
+						return true;
+					}
+					return false;
 				}
-				return false;
+				else
+				{
+					throw new Exception();
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				throw new Exception();
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return false;
 			}
 		}
 
@@ -105,19 +115,27 @@ namespace ScriptsLib.Tools
 		#region Password Generator
 		public string PasswordGenerator(int _Size, string _Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
 		{
-			string _Password = null;
-			Random _Random = new Random();
-			while (_Size > 0)
+			try
 			{
-				_Size--;
-				_Password = $"{_Password}{_Chars[_Random.Next(_Chars.Length)]}";
+				string _Password = null;
+				Random _Random = new Random();
+				while (_Size > 0)
+				{
+					_Size--;
+					_Password = $"{_Password}{_Chars[_Random.Next(_Chars.Length)]}";
+				}
+				return _Password;
 			}
-			return _Password;
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
 		}
 		#endregion Password Generator
 
 
-		
+
 		#region ComboBox Resize
 		///
 		// https://stackoverflow.com/questions/3158004/how-do-i-set-the-height-of-a-combobox
@@ -130,8 +148,15 @@ namespace ScriptsLib.Tools
 
 		public void ResizeCombobox(ComboBox _ComboBox, int _Hight)
 		{
-			SendMessage(_ComboBox.Handle, CB_SETITEMHEIGHT, -1, _Hight - 6);
-			_ComboBox.Refresh();
+			try
+			{
+				SendMessage(_ComboBox.Handle, CB_SETITEMHEIGHT, -1, _Hight - 6);
+				_ComboBox.Refresh();
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
 		}
 		#endregion ComboBox Resize
 
@@ -140,10 +165,18 @@ namespace ScriptsLib.Tools
 		#region SqlFilter
 		public string SqlFilter(string _String)
 		{
-			_String = _String.Replace("'", null);
-			_String = _String.Replace(";", null);
+			try
+			{
+				_String = _String.Replace("'", null);
+				_String = _String.Replace(";", null);
 
-			return _String;
+				return _String;
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
 		}
 		#endregion SqlFilter
 	}

@@ -37,6 +37,9 @@ namespace TestingGrounds
 				this.Text = $"{this.Text} - DE3UG";
 			}
 
+			ScriptsLib.Dev.Debug._Debug = true;
+
+
 
 
 			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";

@@ -6,6 +6,8 @@ using System.IO;
 using System.Threading.Tasks;
 
 using ScriptsLib.Dev;
+
+using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
 
@@ -14,7 +16,7 @@ namespace ScriptsLib.Databases
 {
 	public class SqlServer_Database
 	{
-		internal static readonly string _BaseConnection = $@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
+		internal static readonly string _BaseConnection = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
 		public static string _DatabasePath { get; set; }
 
 
@@ -24,71 +26,86 @@ namespace ScriptsLib.Databases
 
 
 
+
+
+
+
+
+
+
+
 		#region Create Table
 		// # ================================================================================================ #
 		public async Task CreateTable(string _Name, List<TableFields> _Fields)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
-
-			string _Columns = null;
-			foreach (var _Loop in _Fields)
+			try
 			{
-				string _DataType;
-				if (_Loop.DataType == SqlDataTypes.Text)
+				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+
+				string _Columns = null;
+				foreach (var _Loop in _Fields)
 				{
-					_DataType = "ntext";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Number)
-				{
-					_DataType = "bigint";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Image)
-				{
-					_DataType = "image";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Money)
-				{
-					_DataType = "money";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Decimal)
-				{
-					_DataType = "decimal(38,38)";
-				}
-				else if (_Loop.DataType == SqlDataTypes.DateAndTime)
-				{
-					_DataType = "datetime2";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Date)
-				{
-					_DataType = "date";
-				}
-				else if (_Loop.DataType == SqlDataTypes.Time)
-				{
-					_DataType = "time";
-				}
-				else
-				{
-					throw new Exception();
-				}
+					string _DataType;
+					if (_Loop.DataType == SqlDataTypes.Text)
+					{
+						_DataType = "ntext";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Number)
+					{
+						_DataType = "bigint";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Image)
+					{
+						_DataType = "image";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Money)
+					{
+						_DataType = "money";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Decimal)
+					{
+						_DataType = "decimal(38,38)";
+					}
+					else if (_Loop.DataType == SqlDataTypes.DateAndTime)
+					{
+						_DataType = "datetime2";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Date)
+					{
+						_DataType = "date";
+					}
+					else if (_Loop.DataType == SqlDataTypes.Time)
+					{
+						_DataType = "time";
+					}
+					else
+					{
+						throw new Exception();
+					}
 
 
-				if (!String.IsNullOrEmpty(_Columns))
-				{
-					_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+					if (!String.IsNullOrEmpty(_Columns))
+					{
+						_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+					}
+					else
+					{
+						_Columns = $"{_Loop.Name} {_DataType}";
+					}
 				}
-				else
-				{
-					_Columns = $"{_Loop.Name} {_DataType}";
-				}
+
+				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
+				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
+
+				await _SqlConnection.OpenAsync();
+				await _SqlCommand.ExecuteNonQueryAsync();
+				_SqlConnection.Close();
 			}
-
-			string _Command = $"CREATE TABLE {_Name} ({_Columns})";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
-
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+			catch (Exception _Exception)
+			{
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
 		}
 
 		public struct TableFields
@@ -113,153 +130,199 @@ namespace ScriptsLib.Databases
 		// # ================================================================================================ #
 		#endregion Create Table
 
+
+
 		#region Delete Table
 		// # ================================================================================================ #
 		public async Task DeleteTable(string _TableName)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+			try
+			{
+				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-			string _Command = $"DROP TABLE {_TableName}";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
+				string _Command = $"DROP TABLE {_TableName}";
+				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
 
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+				await _SqlConnection.OpenAsync();
+				await _SqlCommand.ExecuteNonQueryAsync();
+				_SqlConnection.Close();
+			}
+			catch (Exception _Exception)
+			{
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Delete Table
+
+
 
 		#region Insert Into
 		// # ================================================================================================ #
 		public async Task InsertInto(string _TableName, string _Columns, string _Values)
 		{
-			SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+			try
+			{
+				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-			string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
-			SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-			debug.Msg(_SqlCommand.CommandText, "SQL Command");
+				string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
+				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+				debug.Msg(_SqlCommand.CommandText, MsgType.Info, "SQL Command");
 
-			await _SqlConnection.OpenAsync();
-			await _SqlCommand.ExecuteNonQueryAsync();
-			_SqlConnection.Close();
+				await _SqlConnection.OpenAsync();
+				await _SqlCommand.ExecuteNonQueryAsync();
+				_SqlConnection.Close();
+			}
+			catch (Exception _Exception)
+			{
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Insert Into
+
+
 
 		#region Create Database
 		// # ================================================================================================ #
 		public async Task CreateDatabase(string _Path)
 		{
-			if (!File.Exists(_Path))
+			try
 			{
-				string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
+				if (!File.Exists(_Path))
+				{
+					string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-				var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
-				await _Connection.OpenAsync();
-				var _Command = _Connection.CreateCommand();
+					var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
+					await _Connection.OpenAsync();
+					var _Command = _Connection.CreateCommand();
 
 
-				_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
-				debug.Msg(_Command.CommandText, "Create Database");
-				await _Command.ExecuteNonQueryAsync();
+					_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
+					debug.Msg(_Command.CommandText, MsgType.Info, "Create Database");
+					await _Command.ExecuteNonQueryAsync();
 
-				_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
-				debug.Msg(_Command.CommandText, "Export Database");
-				await _Command.ExecuteNonQueryAsync();
+					_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
+					debug.Msg(_Command.CommandText, MsgType.Info, "Export Database");
+					await _Command.ExecuteNonQueryAsync();
 
-				_Connection.Close();
+					_Connection.Close();
+				}
+				else
+				{
+					throw new Exception("File already exists!");
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				throw new Exception("File already exists!");
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 		// # ================================================================================================ #
 		#endregion Create Database
-			
+
+
+
 		#region Select
 		public List<string> Select(string _Table, string _Selection = "*", string _Condition = null, string _Splitter = "|,|")
 		{
-			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
-
-			SqlCommand _Command;
-			if (!String.IsNullOrEmpty(_Condition))
+			try
 			{
-				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _Connection);
-			}
-			else
-			{
-				_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table}", _Connection);
-			}
+				SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-
-			List<string> _Results = new List<string>();
-
-			_Connection.Open();
-			using (SqlDataReader _Reader = _Command.ExecuteReader())
-			{
-				bool _While = true;
-				while (_While == true)
+				SqlCommand _Command;
+				if (!String.IsNullOrEmpty(_Condition))
 				{
-					if (_Reader.Read() == true)
-					{
-						debug.Msg("Read.", "SqlDataReader.Read()");
-						List<string> _Values = new List<string>();
-						int _Index = 0;
+					_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _Connection);
+				}
+				else
+				{
+					_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table}", _Connection);
+				}
 
-						try
-						{
-							while (true)
-							{
-								_Values.Add(_Reader[_Index].ToString());
-								_Index++;
-							}
-						}
-						catch
-						{
-							string _Add = null;
-							foreach (string _Loop in _Values)
-							{
-								if (String.IsNullOrEmpty(_Add))
-								{
-									_Add = _Loop;
-								}
-								else
-								{
-									_Add = _Add + _Splitter + _Loop;
-								}
-							}
-							debug.Msg("Add: " + _Add, "SqlDataReader.Read()");
-							_Results.Add(_Add);
-						}
-					}
-					else
+
+				List<string> _Results = new List<string>();
+
+				_Connection.Open();
+				using (SqlDataReader _Reader = _Command.ExecuteReader())
+				{
+					bool _While = true;
+					while (_While == true)
 					{
-						_While = false;
-						debug.Msg("Stop.", "SqlDataReader.Read()");
+						if (_Reader.Read() == true)
+						{
+							debug.Msg("Read.", MsgType.Info, "SqlDataReader.Read()");
+							List<string> _Values = new List<string>();
+							int _Index = 0;
+
+							try
+							{
+								while (true)
+								{
+									_Values.Add(_Reader[_Index].ToString());
+									_Index++;
+								}
+							}
+							catch
+							{
+								string _Add = null;
+								foreach (string _Loop in _Values)
+								{
+									if (String.IsNullOrEmpty(_Add))
+									{
+										_Add = _Loop;
+									}
+									else
+									{
+										_Add = _Add + _Splitter + _Loop;
+									}
+								}
+								debug.Msg("Add: " + _Add, MsgType.Info, "SqlDataReader.Read()");
+								_Results.Add(_Add);
+							}
+						}
+						else
+						{
+							_While = false;
+							debug.Msg("Stop.", MsgType.Info, "SqlDataReader.Read()");
+						}
 					}
 				}
-			}
-			_Connection.Close();
+				_Connection.Close();
 
-			return _Results;
+				return _Results;
+			}
+			catch (Exception _Exception)
+			{
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
 		}
 		#endregion Select
+
+
 
 		#region Update
 		public async Task Update(string _Table, string _Update, string _Condition)
 		{
-			SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+			try
+			{
+				SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
 
 
-			SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
+				SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
 
-			debug.Msg(_Command.CommandText, "Update Command Text");
-			
-			await _Connection.OpenAsync();
-			await _Command.ExecuteNonQueryAsync();
-			_Connection.Close();
+				debug.Msg(_Command.CommandText, MsgType.Info, "Update Command Text");
+
+				await _Connection.OpenAsync();
+				await _Command.ExecuteNonQueryAsync();
+				_Connection.Close();
+			}
+			catch (Exception _Exception)
+			{
+				debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+			}
 		}
 		#endregion Update
 	}
