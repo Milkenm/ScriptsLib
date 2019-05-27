@@ -12,13 +12,16 @@ using ScriptsLib.Dev;
 
 namespace ScriptsLib.Databases
 {
-	public class SqlServer_Database
+	public class SqlServerDatabase
 	{
+		#region Refs
+		Debug _Debug = new Debug();
+		#endregion Refs
+
+		#region Vars
 		internal static readonly string _BaseConnection = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName=";
 		public static string _DatabasePath { get; set; }
-
-
-		Debug _Debug = new Debug();
+		#endregion Vars
 
 
 
@@ -38,67 +41,70 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
-
-				string _Columns = null;
-				foreach (var _Loop in _Fields)
+				await Task.Factory.StartNew(() =>
 				{
-					string _DataType;
-					if (_Loop.DataType == SqlDataTypes.Text)
+					SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+
+					string _Columns = null;
+					foreach (var _Loop in _Fields)
 					{
-						_DataType = "ntext";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Number)
-					{
-						_DataType = "bigint";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Image)
-					{
-						_DataType = "image";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Money)
-					{
-						_DataType = "money";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Decimal)
-					{
-						_DataType = "decimal(38,38)";
-					}
-					else if (_Loop.DataType == SqlDataTypes.DateAndTime)
-					{
-						_DataType = "datetime2";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Date)
-					{
-						_DataType = "date";
-					}
-					else if (_Loop.DataType == SqlDataTypes.Time)
-					{
-						_DataType = "time";
-					}
-					else
-					{
-						throw new Exception();
-					}
+						string _DataType;
+						if (_Loop.DataType == SqlDataTypes.Text)
+						{
+							_DataType = "ntext";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Number)
+						{
+							_DataType = "bigint";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Image)
+						{
+							_DataType = "image";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Money)
+						{
+							_DataType = "money";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Decimal)
+						{
+							_DataType = "decimal(38,38)";
+						}
+						else if (_Loop.DataType == SqlDataTypes.DateAndTime)
+						{
+							_DataType = "datetime2";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Date)
+						{
+							_DataType = "date";
+						}
+						else if (_Loop.DataType == SqlDataTypes.Time)
+						{
+							_DataType = "time";
+						}
+						else
+						{
+							throw new Exception();
+						}
 
 
-					if (!String.IsNullOrEmpty(_Columns))
-					{
-						_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+						if (!String.IsNullOrEmpty(_Columns))
+						{
+							_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+						}
+						else
+						{
+							_Columns = $"{_Loop.Name} {_DataType}";
+						}
 					}
-					else
-					{
-						_Columns = $"{_Loop.Name} {_DataType}";
-					}
-				}
 
-				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
-				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
+					string _Command = $"CREATE TABLE {_Name} ({_Columns})";
+					SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+					_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
-				await _SqlConnection.OpenAsync();
-				await _SqlCommand.ExecuteNonQueryAsync();
-				_SqlConnection.Close();
+					_SqlConnection.OpenAsync();
+					_SqlCommand.ExecuteNonQueryAsync();
+					_SqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -136,15 +142,18 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-				string _Command = $"DROP TABLE {_TableName}";
-				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
+					string _Command = $"DROP TABLE {_TableName}";
+					SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+					_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
-				await _SqlConnection.OpenAsync();
-				await _SqlCommand.ExecuteNonQueryAsync();
-				_SqlConnection.Close();
+					_SqlConnection.OpenAsync();
+					_SqlCommand.ExecuteNonQueryAsync();
+					_SqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -162,15 +171,18 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-				string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
-				SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
-				_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
+					string _Command = $"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})";
+					SqlCommand _SqlCommand = new SqlCommand(_Command, _SqlConnection);
+					_Debug.Msg(_SqlCommand.CommandText, Debug.MsgType.Info, "SQL Command");
 
-				await _SqlConnection.OpenAsync();
-				await _SqlCommand.ExecuteNonQueryAsync();
-				_SqlConnection.Close();
+					_SqlConnection.OpenAsync();
+					_SqlCommand.ExecuteNonQueryAsync();
+					_SqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -188,29 +200,32 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				if (!File.Exists(_Path))
+				await Task.Factory.StartNew(() =>
 				{
-					string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
+					if (!File.Exists(_Path))
+					{
+						string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-					var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
-					await _Connection.OpenAsync();
-					var _Command = _Connection.CreateCommand();
+						var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
+						_Connection.OpenAsync();
+						var _Command = _Connection.CreateCommand();
 
 
-					_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
-					_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Create Database");
-					await _Command.ExecuteNonQueryAsync();
+						_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
+						_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Create Database");
+						_Command.ExecuteNonQueryAsync();
 
-					_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
-					_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Export Database");
-					await _Command.ExecuteNonQueryAsync();
+						_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
+						_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Export Database");
+						_Command.ExecuteNonQueryAsync();
 
-					_Connection.Close();
-				}
-				else
-				{
-					throw new Exception("File already exists!");
-				}
+						_Connection.Close();
+					}
+					else
+					{
+						throw new Exception("File already exists!");
+					}
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -306,16 +321,19 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
 
 
-				SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
+					SqlCommand _Command = new SqlCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _Connection);
 
-				_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Update Command Text");
+					_Debug.Msg(_Command.CommandText, Debug.MsgType.Info, "Update Command Text");
 
-				await _Connection.OpenAsync();
-				await _Command.ExecuteNonQueryAsync();
-				_Connection.Close();
+					_Connection.OpenAsync();
+					_Command.ExecuteNonQueryAsync();
+					_Connection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -331,13 +349,16 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
-				SqlCommand _SqlCommand = new SqlCommand($"DELETE FROM {_Table} WHERE {_Condition}", _SqlConnection);
+					SqlCommand _SqlCommand = new SqlCommand($"DELETE FROM {_Table} WHERE {_Condition}", _SqlConnection);
 
-				await _SqlConnection.OpenAsync();
-				await _SqlCommand.ExecuteNonQueryAsync();
-				_SqlConnection.Close();
+					_SqlConnection.OpenAsync();
+					_SqlCommand.ExecuteNonQueryAsync();
+					_SqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{

@@ -13,8 +13,16 @@ using static ScriptsLib.Dev.Debug;
 
 namespace ScriptsLib.Databases
 {
-	public class MySql_Database
+	public class MySqlDatabase
 	{
+		#region Refs
+		// # ================================================================================================ #
+		Debug _Debug = new Debug();
+		// # ================================================================================================ #
+		#endregion Refs
+
+		#region Vars
+		// # ================================================================================================ #
 		internal static readonly string _BaseConnection = @"Server={0}; Port={1}; User ID={2}; Password={3}; Database={4}; SslMode={5}";
 		public static string _Server { get; set; }
 		public static int _Port { get; set; }
@@ -22,9 +30,8 @@ namespace ScriptsLib.Databases
 		public static string _User { get; set; }
 		public static string _Password { get; set; }
 		public static string _SslMode { get; set; }
-
-		Debug _Debug = new Debug();
-
+		// # ================================================================================================ #
+		#endregion Vars
 
 
 
@@ -43,87 +50,90 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
-				_Debug.Msg(_MySqlConnection.ConnectionString, MsgType.Info, "MySql Connection");
-
-				string _Columns = null;
-				foreach (var _Loop in _Fields)
+				await Task.Factory.StartNew(() =>
 				{
-					string _DataType;
-					if (_Loop.DataType == MySqlDataTypes.Text)
-					{
-						_DataType = "longtext";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Number)
-					{
-						_DataType = "bigint";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Money)
-					{
-						_DataType = "currency";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Decimal)
-					{
-						_DataType = "double";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.DateAndTime)
-					{
-						_DataType = "datetime";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Key)
-					{
-						_DataType = "key";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Boolean)
-					{
-						_DataType = "boolean";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Timestamp)
-					{
-						_DataType = "timespamp";
-					}
-					else if (_Loop.DataType == MySqlDataTypes.Year)
-					{
-						_DataType = "year";
-					}
-					else
-					{
-						throw new Exception();
-					}
+					MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
+					_Debug.Msg(_MySqlConnection.ConnectionString, MsgType.Info, "MySql Connection");
 
-
-					if (_DataType != "key")
+					string _Columns = null;
+					foreach (var _Loop in _Fields)
 					{
-						if (!String.IsNullOrEmpty(_Columns))
+						string _DataType;
+						if (_Loop.DataType == MySqlDataTypes.Text)
 						{
-							_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+							_DataType = "longtext";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Number)
+						{
+							_DataType = "bigint";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Money)
+						{
+							_DataType = "currency";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Decimal)
+						{
+							_DataType = "double";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.DateAndTime)
+						{
+							_DataType = "datetime";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Key)
+						{
+							_DataType = "key";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Boolean)
+						{
+							_DataType = "boolean";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Timestamp)
+						{
+							_DataType = "timespamp";
+						}
+						else if (_Loop.DataType == MySqlDataTypes.Year)
+						{
+							_DataType = "year";
 						}
 						else
 						{
-							_Columns = $"{_Loop.Name} {_DataType}";
+							throw new Exception();
 						}
-					}
-					else
-					{
-						if (!String.IsNullOrEmpty(_Columns))
+
+
+						if (_DataType != "key")
 						{
-							_Columns = $"{_Columns}, {_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})";
+							if (!String.IsNullOrEmpty(_Columns))
+							{
+								_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
+							}
+							else
+							{
+								_Columns = $"{_Loop.Name} {_DataType}";
+							}
 						}
 						else
 						{
-							_Columns = $"{_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})";
+							if (!String.IsNullOrEmpty(_Columns))
+							{
+								_Columns = $"{_Columns}, {_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})";
+							}
+							else
+							{
+								_Columns = $"{_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})";
+							}
 						}
 					}
-				}
 
-				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
-				MySqlCommand _MySqlCommand = new MySqlCommand(_Command, _MySqlConnection);
-				_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "MySql Command");
+					string _Command = $"CREATE TABLE {_Name} ({_Columns})";
+					MySqlCommand _MySqlCommand = new MySqlCommand(_Command, _MySqlConnection);
+					_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "MySql Command");
 
 
-				await _MySqlConnection.OpenAsync();
-				await _MySqlCommand.ExecuteNonQueryAsync();
-				_MySqlConnection.Close();
+					_MySqlConnection.OpenAsync();
+					_MySqlCommand.ExecuteNonQueryAsync();
+					_MySqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -162,14 +172,17 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
+				await Task.Factory.StartNew(() =>
+				{
+					MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
 
-				MySqlCommand _MySqlCommand = new MySqlCommand($"DROP TABLE {_TableName}", _MySqlConnection);
-				_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "OleDb Command");
+					MySqlCommand _MySqlCommand = new MySqlCommand($"DROP TABLE {_TableName}", _MySqlConnection);
+					_Debug.Msg(_MySqlCommand.CommandText, MsgType.Info, "OleDb Command");
 
-				await _MySqlConnection.OpenAsync();
-				await _MySqlCommand.ExecuteNonQueryAsync();
-				_MySqlConnection.Close();
+					_MySqlConnection.OpenAsync();
+					_MySqlCommand.ExecuteNonQueryAsync();
+					_MySqlConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 
+using ScriptsLib.Controls;
 using ScriptsLib.Databases;
+using ScriptsLib.Generators;
 using ScriptsLib.Tools;
 #endregion Usings
 
@@ -15,21 +17,24 @@ namespace TestingGrounds
 	public partial class Main : Form
 	{
 		#region Refs
-		SqlServer_Database _SqlDatabase = new SqlServer_Database();
-		Access_Database _AccessDatabase = new Access_Database();
-		MySql_Database _MySqlDatabase = new MySql_Database();
+		// # ================================================================================================ #
+		SqlServerDatabase _SqlDatabase = new SqlServerDatabase();
+		AccessDatabase _AccessDatabase = new AccessDatabase();
+		MySqlDatabase _MySqlDatabase = new MySqlDatabase();
 
 		Tools _Tools = new Tools();
+		Generators _Generators = new Generators();
+		Controls _Controls = new Controls();
+		// # ================================================================================================ #
 		#endregion Refs
 
 		#region Form
+		// # ================================================================================================ #
 		public Main()
 		{
 			InitializeComponent();
 		}
-
-
-
+		// # ================================================================================================ #
 		private void Main_Load(object sender, EventArgs e)
 		{
 			if (Debugger.IsAttached == true)
@@ -42,16 +47,16 @@ namespace TestingGrounds
 
 
 
-			SqlServer_Database._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
+			SqlServerDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
 
-			Access_Database._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
+			AccessDatabase._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
 			
-			MySql_Database._Server = "127.0.0.1";
-			MySql_Database._Port = 3306;
-			MySql_Database._Database = "test";
-			MySql_Database._User = "root";
-			MySql_Database._Password = "";
-			MySql_Database._SslMode = "none";
+			MySqlDatabase._Server = "127.0.0.1";
+			MySqlDatabase._Port = 3306;
+			MySqlDatabase._Database = "test";
+			MySqlDatabase._User = "root";
+			MySqlDatabase._Password = "";
+			MySqlDatabase._SslMode = "none";
 
 
 
@@ -59,30 +64,28 @@ namespace TestingGrounds
 			textBox_user.Text = "User1";
 			textBox_pass.Text = "Pass1";
 
-			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
+			textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
 
 			textBox_sqlFilter.Text = "ABC;DEF;GHI'JKL'MNO";
 
 			comboBox_databaseType.SelectedIndex = 2;
+
+			comboBox_logType.SelectedIndex = 0;
+			_Controls.ResizeComboBox(comboBox_logType, 20);
+
+			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
 			#endregion Perform Actions
 		}
+		// # ================================================================================================ #
 		#endregion Form
 
 		#region Stuff
-		private void timer_debug_Tick(object sender, EventArgs e)
-		{
-			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
-		}
-
+		// # ================================================================================================ #
 		private void Ex(Exception _Exception)
 		{
 			MessageBox.Show(_Exception.Message, _Exception.Source);
 		}
-
-		private void Libs()
-		{
-			//File.WriteAllBytes()
-		}
+		// # ================================================================================================ #
 		#endregion Stuff
 
 
@@ -95,26 +98,27 @@ namespace TestingGrounds
 
 
 		#region Database
+		// # ================================================================================================ #
 		private void button_criarTabela_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
 				{
-					List<SqlServer_Database.TableFields> _Fields = new List<SqlServer_Database.TableFields>();
-					SqlServer_Database.TableFields _Field = new SqlServer_Database.TableFields();
+					List<SqlServerDatabase.TableFields> _Fields = new List<SqlServerDatabase.TableFields>();
+					SqlServerDatabase.TableFields _Field = new SqlServerDatabase.TableFields();
 
 
 					_Field.Name = "ID";
-					_Field.DataType = SqlServer_Database.SqlDataTypes.Number;
+					_Field.DataType = SqlServerDatabase.SqlDataTypes.Number;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Name";
-					_Field.DataType = SqlServer_Database.SqlDataTypes.Text;
+					_Field.DataType = SqlServerDatabase.SqlDataTypes.Text;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Password";
-					_Field.DataType = SqlServer_Database.SqlDataTypes.Text;
+					_Field.DataType = SqlServerDatabase.SqlDataTypes.Text;
 					_Fields.Add(_Field);
 
 
@@ -122,20 +126,20 @@ namespace TestingGrounds
 				}
 				else if (comboBox_databaseType.SelectedIndex == 1)
 				{
-					List<Access_Database.TableFields> _Fields = new List<Access_Database.TableFields>();
-					Access_Database.TableFields _Field = new Access_Database.TableFields();
+					List<AccessDatabase.TableFields> _Fields = new List<AccessDatabase.TableFields>();
+					AccessDatabase.TableFields _Field = new AccessDatabase.TableFields();
 
 
 					_Field.Name = "ID";
-					_Field.DataType = Access_Database.AccessDataTypes.Key;
+					_Field.DataType = AccessDatabase.AccessDataTypes.Key;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Name";
-					_Field.DataType = Access_Database.AccessDataTypes.Text;
+					_Field.DataType = AccessDatabase.AccessDataTypes.Text;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Password";
-					_Field.DataType = Access_Database.AccessDataTypes.Text;
+					_Field.DataType = AccessDatabase.AccessDataTypes.Text;
 					_Fields.Add(_Field);
 
 
@@ -143,20 +147,20 @@ namespace TestingGrounds
 				}
 				else if (comboBox_databaseType.SelectedIndex == 2)
 				{
-					List<MySql_Database.TableFields> _Fields = new List<MySql_Database.TableFields>();
-					MySql_Database.TableFields _Field = new MySql_Database.TableFields();
+					List<MySqlDatabase.TableFields> _Fields = new List<MySqlDatabase.TableFields>();
+					MySqlDatabase.TableFields _Field = new MySqlDatabase.TableFields();
 
 
 					_Field.Name = "ID";
-					_Field.DataType = MySql_Database.MySqlDataTypes.Key;
+					_Field.DataType = MySqlDatabase.MySqlDataTypes.Key;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Name";
-					_Field.DataType = MySql_Database.MySqlDataTypes.Text;
+					_Field.DataType = MySqlDatabase.MySqlDataTypes.Text;
 					_Fields.Add(_Field);
 
 					_Field.Name = "Password";
-					_Field.DataType = MySql_Database.MySqlDataTypes.Text;
+					_Field.DataType = MySqlDatabase.MySqlDataTypes.Text;
 					_Fields.Add(_Field);
 
 
@@ -169,7 +173,7 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-
+		// # ================================================================================================ #
 		private void button_apagarTabela_Click(object sender, EventArgs e)
 		{
 			try
@@ -189,7 +193,7 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-
+		// # ================================================================================================ #
 		private void button_insert_Click(object sender, EventArgs e)
 		{
 			try
@@ -209,7 +213,7 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-
+		// # ================================================================================================ #
 		private void button_criarBd_Click(object sender, EventArgs e)
 		{
 			try
@@ -230,7 +234,7 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-
+		// # ================================================================================================ #
 		private void button_select_Click(object sender, EventArgs e)
 		{
 			try
@@ -255,7 +259,7 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-
+		// # ================================================================================================ #
 		private void button_delete_Click(object sender, EventArgs e)
 		{
 			try
@@ -276,16 +280,25 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
+		// # ================================================================================================ #
 		#endregion Database
 
 
 
 		#region Tools
+		#region Tools.Crash
+		// # ================================================================================================ #
 		private void button_crash_Click(object sender, EventArgs e)
 		{
 			_Tools.Crash().GetAwaiter();
 		}
+		// # ================================================================================================ #
+		#endregion Tools.Crash
 
+
+
+		#region Tools.Login
+		// # ================================================================================================ #
 		private void button_login_Click(object sender, EventArgs e)
 		{
 			try
@@ -314,42 +327,100 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
+		// # ================================================================================================ #
+		#endregion Tools.Login
 
-		private void button_generatePassword_Click(object sender, EventArgs e)
-		{
-			textBox_generatePassword.Text = _Tools.PasswordGenerator((int)numeric_passwordLength.Value);
-		}
 
-		private void button_resizeCombobox_Click(object sender, EventArgs e)
-		{
-			if (comboBox_resize.Height == 37)
-			{
-				_Tools.ResizeCombobox(comboBox_resize, 21);
-			}
-			else
-			{
-				_Tools.ResizeCombobox(comboBox_resize, 37);
-			}
-		}
 
+		#region Tools.SqlFilter
+		// # ================================================================================================ #
 		private void button_sqlFilter_Click(object sender, EventArgs e)
 		{
 			textBox_sqlFilter.Text = _Tools.SqlFilter(textBox_sqlFilter.Text);
 		}
+		// # ================================================================================================ #
+		#endregion Tools.SqlFilter
 
+
+
+		#region Tools.Log
+		// # ================================================================================================ #
 		private void button_log_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				_Tools.Log(textBox_log.Text, @"C:\Milkenm\Data\Text.txt").GetAwaiter();
+				if (comboBox_logType.SelectedIndex == 0) // INFO
+				{
+					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Info).GetAwaiter();
+				}
+				else if (comboBox_logType.SelectedIndex == 1) // ERROR
+				{
+					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Error).GetAwaiter();
+				}
+				else if (comboBox_logType.SelectedIndex == 2) // WARNING
+				{
+					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Warning).GetAwaiter();
+				}
 			}
 			catch (Exception _Exception)
 			{
 				Ex(_Exception);
 			}
 		}
+		// # ================================================================================================ #
+		#endregion Tools.Log
+
+
+
+		#region Tools.Hash
+		// # ================================================================================================ #
+		private void button_hash_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(_Tools.Hash(textBox_hash.Text));
+		}
+		// # ================================================================================================ #
+		private void textBox_hash_TextChanged(object sender, EventArgs e)
+		{
+			statusBarPanel_label.Text = "Hash:";
+			statusBarPanel_message.Text = _Tools.Hash(textBox_hash.Text);
+		}
+		// # ================================================================================================ #
+		#endregion Tools.Hash
 		#endregion Tools
 
 
+
+		#region Generators
+		#region Generators.GeneratePassword
+		// # ================================================================================================ #
+		private void button_generatePassword_Click(object sender, EventArgs e)
+		{
+			textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
+		}
+		// # ================================================================================================ #
+		#endregion Generators.GeneratePassword
+		#endregion Generators
+
+
+
+		#region Controls
+		#region Controls.ResizeComboBox
+		// # ================================================================================================ #
+		private void button_resizeCombobox_Click(object sender, EventArgs e)
+		{
+			if (comboBox_resize.Height == 37)
+			{
+				_Controls.ResizeComboBox(comboBox_resize, 21);
+			}
+			else
+			{
+				_Controls.ResizeComboBox(comboBox_resize, 37);
+			}
+
+			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+		}
+		// # ================================================================================================ #
+		#endregion Controls.ResizeComboBox
+		#endregion Controls
 	}
 }

@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.button_criarTabela = new System.Windows.Forms.Button();
 			this.button_apagarTabela = new System.Windows.Forms.Button();
@@ -41,8 +40,6 @@
 			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.button_select = new System.Windows.Forms.Button();
 			this.groupBox_tools = new System.Windows.Forms.GroupBox();
-			this.textBox_log = new System.Windows.Forms.TextBox();
-			this.button_log = new System.Windows.Forms.Button();
 			this.comboBox_resize = new System.Windows.Forms.ComboBox();
 			this.button_resizeCombobox = new System.Windows.Forms.Button();
 			this.button_sqlFilter = new System.Windows.Forms.Button();
@@ -50,19 +47,40 @@
 			this.numeric_passwordLength = new System.Windows.Forms.NumericUpDown();
 			this.textBox_generatePassword = new System.Windows.Forms.TextBox();
 			this.button_generatePassword = new System.Windows.Forms.Button();
+			this.textBox_logMessage = new System.Windows.Forms.TextBox();
+			this.button_log = new System.Windows.Forms.Button();
 			this.label_pass = new System.Windows.Forms.Label();
 			this.label_user = new System.Windows.Forms.Label();
 			this.textBox_pass = new System.Windows.Forms.TextBox();
 			this.textBox_user = new System.Windows.Forms.TextBox();
-			this.timer_debug = new System.Windows.Forms.Timer(this.components);
+			this.textBox_logSource = new System.Windows.Forms.TextBox();
+			this.comboBox_logType = new System.Windows.Forms.ComboBox();
+			this.groupBox_toolHash = new System.Windows.Forms.GroupBox();
+			this.textBox_hash = new System.Windows.Forms.TextBox();
+			this.statusBar = new System.Windows.Forms.StatusBar();
+			this.statusBarPanel_label = new System.Windows.Forms.StatusBarPanel();
+			this.statusBarPanel_message = new System.Windows.Forms.StatusBarPanel();
+			this.groupBox_login = new System.Windows.Forms.GroupBox();
+			this.groupBox_log = new System.Windows.Forms.GroupBox();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
+			this.groupBox_toolHash.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).BeginInit();
+			this.groupBox_login.SuspendLayout();
+			this.groupBox_log.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
 			// 
-			this.button_criarTabela.Location = new System.Drawing.Point(97, 19);
+			this.button_criarTabela.Location = new System.Drawing.Point(109, 19);
 			this.button_criarTabela.Name = "button_criarTabela";
 			this.button_criarTabela.Size = new System.Drawing.Size(85, 23);
 			this.button_criarTabela.TabIndex = 0;
@@ -72,7 +90,7 @@
 			// 
 			// button_apagarTabela
 			// 
-			this.button_apagarTabela.Location = new System.Drawing.Point(97, 48);
+			this.button_apagarTabela.Location = new System.Drawing.Point(109, 48);
 			this.button_apagarTabela.Name = "button_apagarTabela";
 			this.button_apagarTabela.Size = new System.Drawing.Size(85, 23);
 			this.button_apagarTabela.TabIndex = 1;
@@ -104,7 +122,7 @@
 			// 
 			this.button_crash.Location = new System.Drawing.Point(6, 19);
 			this.button_crash.Name = "button_crash";
-			this.button_crash.Size = new System.Drawing.Size(85, 23);
+			this.button_crash.Size = new System.Drawing.Size(188, 23);
 			this.button_crash.TabIndex = 4;
 			this.button_crash.Text = "Crash";
 			this.button_crash.UseVisualStyleBackColor = true;
@@ -112,9 +130,9 @@
 			// 
 			// button_login
 			// 
-			this.button_login.Location = new System.Drawing.Point(108, 243);
+			this.button_login.Location = new System.Drawing.Point(110, 60);
 			this.button_login.Name = "button_login";
-			this.button_login.Size = new System.Drawing.Size(75, 23);
+			this.button_login.Size = new System.Drawing.Size(85, 23);
 			this.button_login.TabIndex = 5;
 			this.button_login.Text = "Login";
 			this.button_login.UseVisualStyleBackColor = true;
@@ -131,14 +149,14 @@
 			this.groupBox_database.Controls.Add(this.button_criarBd);
 			this.groupBox_database.Location = new System.Drawing.Point(2, 2);
 			this.groupBox_database.Name = "groupBox_database";
-			this.groupBox_database.Size = new System.Drawing.Size(188, 347);
+			this.groupBox_database.Size = new System.Drawing.Size(200, 148);
 			this.groupBox_database.TabIndex = 6;
 			this.groupBox_database.TabStop = false;
 			this.groupBox_database.Text = "Database";
 			// 
 			// button_delete
 			// 
-			this.button_delete.Location = new System.Drawing.Point(97, 77);
+			this.button_delete.Location = new System.Drawing.Point(109, 77);
 			this.button_delete.Name = "button_delete";
 			this.button_delete.Size = new System.Drawing.Size(85, 23);
 			this.button_delete.TabIndex = 6;
@@ -153,9 +171,9 @@
             "Sql Server",
             "Access",
             "MySql"});
-			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 240);
+			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 119);
 			this.comboBox_databaseType.Name = "comboBox_databaseType";
-			this.comboBox_databaseType.Size = new System.Drawing.Size(176, 21);
+			this.comboBox_databaseType.Size = new System.Drawing.Size(188, 21);
 			this.comboBox_databaseType.TabIndex = 5;
 			// 
 			// button_select
@@ -170,56 +188,25 @@
 			// 
 			// groupBox_tools
 			// 
-			this.groupBox_tools.Controls.Add(this.textBox_log);
-			this.groupBox_tools.Controls.Add(this.button_log);
-			this.groupBox_tools.Controls.Add(this.comboBox_resize);
-			this.groupBox_tools.Controls.Add(this.button_resizeCombobox);
-			this.groupBox_tools.Controls.Add(this.button_sqlFilter);
-			this.groupBox_tools.Controls.Add(this.textBox_sqlFilter);
-			this.groupBox_tools.Controls.Add(this.numeric_passwordLength);
-			this.groupBox_tools.Controls.Add(this.textBox_generatePassword);
-			this.groupBox_tools.Controls.Add(this.button_generatePassword);
-			this.groupBox_tools.Controls.Add(this.label_pass);
-			this.groupBox_tools.Controls.Add(this.label_user);
-			this.groupBox_tools.Controls.Add(this.textBox_pass);
-			this.groupBox_tools.Controls.Add(this.textBox_user);
-			this.groupBox_tools.Controls.Add(this.button_login);
 			this.groupBox_tools.Controls.Add(this.button_crash);
-			this.groupBox_tools.Location = new System.Drawing.Point(196, 2);
+			this.groupBox_tools.Location = new System.Drawing.Point(208, 150);
 			this.groupBox_tools.Name = "groupBox_tools";
-			this.groupBox_tools.Size = new System.Drawing.Size(188, 347);
+			this.groupBox_tools.Size = new System.Drawing.Size(200, 51);
 			this.groupBox_tools.TabIndex = 7;
 			this.groupBox_tools.TabStop = false;
-			this.groupBox_tools.Text = "Tools";
-			// 
-			// textBox_log
-			// 
-			this.textBox_log.Location = new System.Drawing.Point(6, 283);
-			this.textBox_log.Name = "textBox_log";
-			this.textBox_log.Size = new System.Drawing.Size(143, 20);
-			this.textBox_log.TabIndex = 16;
-			// 
-			// button_log
-			// 
-			this.button_log.Location = new System.Drawing.Point(149, 282);
-			this.button_log.Name = "button_log";
-			this.button_log.Size = new System.Drawing.Size(33, 22);
-			this.button_log.TabIndex = 15;
-			this.button_log.Text = "Log";
-			this.button_log.UseVisualStyleBackColor = true;
-			this.button_log.Click += new System.EventHandler(this.button_log_Click);
+			this.groupBox_tools.Text = "Tools.Crash";
 			// 
 			// comboBox_resize
 			// 
 			this.comboBox_resize.FormattingEnabled = true;
-			this.comboBox_resize.Location = new System.Drawing.Point(55, 61);
+			this.comboBox_resize.Location = new System.Drawing.Point(53, 20);
 			this.comboBox_resize.Name = "comboBox_resize";
-			this.comboBox_resize.Size = new System.Drawing.Size(127, 21);
+			this.comboBox_resize.Size = new System.Drawing.Size(141, 21);
 			this.comboBox_resize.TabIndex = 14;
 			// 
 			// button_resizeCombobox
 			// 
-			this.button_resizeCombobox.Location = new System.Drawing.Point(8, 60);
+			this.button_resizeCombobox.Location = new System.Drawing.Point(6, 19);
 			this.button_resizeCombobox.Name = "button_resizeCombobox";
 			this.button_resizeCombobox.Size = new System.Drawing.Size(47, 39);
 			this.button_resizeCombobox.TabIndex = 13;
@@ -229,7 +216,7 @@
 			// 
 			// button_sqlFilter
 			// 
-			this.button_sqlFilter.Location = new System.Drawing.Point(145, 113);
+			this.button_sqlFilter.Location = new System.Drawing.Point(157, 18);
 			this.button_sqlFilter.Name = "button_sqlFilter";
 			this.button_sqlFilter.Size = new System.Drawing.Size(37, 22);
 			this.button_sqlFilter.TabIndex = 14;
@@ -239,16 +226,16 @@
 			// 
 			// textBox_sqlFilter
 			// 
-			this.textBox_sqlFilter.Location = new System.Drawing.Point(8, 114);
+			this.textBox_sqlFilter.Location = new System.Drawing.Point(6, 19);
 			this.textBox_sqlFilter.Name = "textBox_sqlFilter";
-			this.textBox_sqlFilter.Size = new System.Drawing.Size(137, 20);
+			this.textBox_sqlFilter.Size = new System.Drawing.Size(151, 20);
 			this.textBox_sqlFilter.TabIndex = 13;
 			// 
 			// numeric_passwordLength
 			// 
-			this.numeric_passwordLength.Location = new System.Drawing.Point(6, 170);
+			this.numeric_passwordLength.Location = new System.Drawing.Point(6, 40);
 			this.numeric_passwordLength.Maximum = new decimal(new int[] {
-            16,
+            24,
             0,
             0,
             0});
@@ -269,14 +256,14 @@
 			// 
 			// textBox_generatePassword
 			// 
-			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 149);
+			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 19);
 			this.textBox_generatePassword.Name = "textBox_generatePassword";
-			this.textBox_generatePassword.Size = new System.Drawing.Size(176, 20);
+			this.textBox_generatePassword.Size = new System.Drawing.Size(188, 20);
 			this.textBox_generatePassword.TabIndex = 11;
 			// 
 			// button_generatePassword
 			// 
-			this.button_generatePassword.Location = new System.Drawing.Point(72, 169);
+			this.button_generatePassword.Location = new System.Drawing.Point(83, 40);
 			this.button_generatePassword.Name = "button_generatePassword";
 			this.button_generatePassword.Size = new System.Drawing.Size(111, 22);
 			this.button_generatePassword.TabIndex = 10;
@@ -284,10 +271,27 @@
 			this.button_generatePassword.UseVisualStyleBackColor = true;
 			this.button_generatePassword.Click += new System.EventHandler(this.button_generatePassword_Click);
 			// 
+			// textBox_logMessage
+			// 
+			this.textBox_logMessage.Location = new System.Drawing.Point(8, 19);
+			this.textBox_logMessage.Name = "textBox_logMessage";
+			this.textBox_logMessage.Size = new System.Drawing.Size(128, 20);
+			this.textBox_logMessage.TabIndex = 16;
+			// 
+			// button_log
+			// 
+			this.button_log.Location = new System.Drawing.Point(136, 18);
+			this.button_log.Name = "button_log";
+			this.button_log.Size = new System.Drawing.Size(58, 22);
+			this.button_log.TabIndex = 15;
+			this.button_log.Text = "Log";
+			this.button_log.UseVisualStyleBackColor = true;
+			this.button_log.Click += new System.EventHandler(this.button_log_Click);
+			// 
 			// label_pass
 			// 
 			this.label_pass.AutoSize = true;
-			this.label_pass.Location = new System.Drawing.Point(4, 226);
+			this.label_pass.Location = new System.Drawing.Point(6, 43);
 			this.label_pass.Name = "label_pass";
 			this.label_pass.Size = new System.Drawing.Size(33, 13);
 			this.label_pass.TabIndex = 9;
@@ -296,7 +300,7 @@
 			// label_user
 			// 
 			this.label_user.AutoSize = true;
-			this.label_user.Location = new System.Drawing.Point(5, 205);
+			this.label_user.Location = new System.Drawing.Point(7, 22);
 			this.label_user.Name = "label_user";
 			this.label_user.Size = new System.Drawing.Size(32, 13);
 			this.label_user.TabIndex = 8;
@@ -304,28 +308,149 @@
 			// 
 			// textBox_pass
 			// 
-			this.textBox_pass.Location = new System.Drawing.Point(38, 223);
+			this.textBox_pass.Location = new System.Drawing.Point(40, 40);
 			this.textBox_pass.Name = "textBox_pass";
-			this.textBox_pass.Size = new System.Drawing.Size(144, 20);
+			this.textBox_pass.Size = new System.Drawing.Size(154, 20);
 			this.textBox_pass.TabIndex = 7;
 			// 
 			// textBox_user
 			// 
-			this.textBox_user.Location = new System.Drawing.Point(38, 202);
+			this.textBox_user.Location = new System.Drawing.Point(40, 19);
 			this.textBox_user.Name = "textBox_user";
-			this.textBox_user.Size = new System.Drawing.Size(144, 20);
+			this.textBox_user.Size = new System.Drawing.Size(154, 20);
 			this.textBox_user.TabIndex = 6;
 			// 
-			// timer_debug
+			// textBox_logSource
 			// 
-			this.timer_debug.Enabled = true;
-			this.timer_debug.Tick += new System.EventHandler(this.timer_debug_Tick);
+			this.textBox_logSource.Location = new System.Drawing.Point(8, 40);
+			this.textBox_logSource.Name = "textBox_logSource";
+			this.textBox_logSource.Size = new System.Drawing.Size(128, 20);
+			this.textBox_logSource.TabIndex = 17;
+			// 
+			// comboBox_logType
+			// 
+			this.comboBox_logType.FormattingEnabled = true;
+			this.comboBox_logType.Items.AddRange(new object[] {
+            "INFO",
+            "ERROR",
+            "WARNING"});
+			this.comboBox_logType.Location = new System.Drawing.Point(137, 40);
+			this.comboBox_logType.Name = "comboBox_logType";
+			this.comboBox_logType.Size = new System.Drawing.Size(56, 21);
+			this.comboBox_logType.TabIndex = 18;
+			// 
+			// groupBox_toolHash
+			// 
+			this.groupBox_toolHash.Controls.Add(this.textBox_hash);
+			this.groupBox_toolHash.Location = new System.Drawing.Point(2, 156);
+			this.groupBox_toolHash.Name = "groupBox_toolHash";
+			this.groupBox_toolHash.Size = new System.Drawing.Size(200, 50);
+			this.groupBox_toolHash.TabIndex = 8;
+			this.groupBox_toolHash.TabStop = false;
+			this.groupBox_toolHash.Text = "Tools.Hash";
+			// 
+			// textBox_hash
+			// 
+			this.textBox_hash.Location = new System.Drawing.Point(6, 19);
+			this.textBox_hash.Name = "textBox_hash";
+			this.textBox_hash.Size = new System.Drawing.Size(188, 20);
+			this.textBox_hash.TabIndex = 0;
+			this.textBox_hash.TextChanged += new System.EventHandler(this.textBox_hash_TextChanged);
+			// 
+			// statusBar
+			// 
+			this.statusBar.Location = new System.Drawing.Point(0, 357);
+			this.statusBar.Name = "statusBar";
+			this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
+            this.statusBarPanel_label,
+            this.statusBarPanel_message});
+			this.statusBar.ShowPanels = true;
+			this.statusBar.Size = new System.Drawing.Size(592, 22);
+			this.statusBar.TabIndex = 9;
+			// 
+			// statusBarPanel_label
+			// 
+			this.statusBarPanel_label.Name = "statusBarPanel_label";
+			this.statusBarPanel_label.Width = 50;
+			// 
+			// statusBarPanel_message
+			// 
+			this.statusBarPanel_message.Name = "statusBarPanel_message";
+			this.statusBarPanel_message.Width = 609;
+			// 
+			// groupBox_login
+			// 
+			this.groupBox_login.Controls.Add(this.textBox_user);
+			this.groupBox_login.Controls.Add(this.button_login);
+			this.groupBox_login.Controls.Add(this.textBox_pass);
+			this.groupBox_login.Controls.Add(this.label_user);
+			this.groupBox_login.Controls.Add(this.label_pass);
+			this.groupBox_login.Location = new System.Drawing.Point(2, 212);
+			this.groupBox_login.Name = "groupBox_login";
+			this.groupBox_login.Size = new System.Drawing.Size(200, 92);
+			this.groupBox_login.TabIndex = 10;
+			this.groupBox_login.TabStop = false;
+			this.groupBox_login.Text = "Tools.CheckLogin";
+			// 
+			// groupBox_log
+			// 
+			this.groupBox_log.Controls.Add(this.comboBox_logType);
+			this.groupBox_log.Controls.Add(this.textBox_logMessage);
+			this.groupBox_log.Controls.Add(this.textBox_logSource);
+			this.groupBox_log.Controls.Add(this.button_log);
+			this.groupBox_log.Location = new System.Drawing.Point(208, 207);
+			this.groupBox_log.Name = "groupBox_log";
+			this.groupBox_log.Size = new System.Drawing.Size(200, 68);
+			this.groupBox_log.TabIndex = 11;
+			this.groupBox_log.TabStop = false;
+			this.groupBox_log.Text = "Tools.Log";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.comboBox_resize);
+			this.groupBox1.Controls.Add(this.button_resizeCombobox);
+			this.groupBox1.Location = new System.Drawing.Point(208, 79);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(200, 65);
+			this.groupBox1.TabIndex = 12;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Controls.ResizeComboBox";
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.button_sqlFilter);
+			this.groupBox2.Controls.Add(this.textBox_sqlFilter);
+			this.groupBox2.Location = new System.Drawing.Point(2, 310);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(200, 46);
+			this.groupBox2.TabIndex = 13;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Tools.SqlFilter";
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.numeric_passwordLength);
+			this.groupBox3.Controls.Add(this.textBox_generatePassword);
+			this.groupBox3.Controls.Add(this.button_generatePassword);
+			this.groupBox3.Location = new System.Drawing.Point(208, 2);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(200, 71);
+			this.groupBox3.TabIndex = 14;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Generators.GeneratePassword";
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(673, 350);
+			this.ClientSize = new System.Drawing.Size(592, 379);
+			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.groupBox_log);
+			this.Controls.Add(this.groupBox_login);
+			this.Controls.Add(this.statusBar);
+			this.Controls.Add(this.groupBox_toolHash);
 			this.Controls.Add(this.groupBox_tools);
 			this.Controls.Add(this.groupBox_database);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -336,8 +461,20 @@
 			this.Load += new System.EventHandler(this.Main_Load);
 			this.groupBox_database.ResumeLayout(false);
 			this.groupBox_tools.ResumeLayout(false);
-			this.groupBox_tools.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).EndInit();
+			this.groupBox_toolHash.ResumeLayout(false);
+			this.groupBox_toolHash.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).EndInit();
+			this.groupBox_login.ResumeLayout(false);
+			this.groupBox_login.PerformLayout();
+			this.groupBox_log.ResumeLayout(false);
+			this.groupBox_log.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			this.groupBox3.ResumeLayout(false);
+			this.groupBox3.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -361,14 +498,25 @@
 		private System.Windows.Forms.NumericUpDown numeric_passwordLength;
 		private System.Windows.Forms.ComboBox comboBox_resize;
 		private System.Windows.Forms.Button button_resizeCombobox;
-		private System.Windows.Forms.Timer timer_debug;
 		private System.Windows.Forms.ComboBox comboBox_databaseType;
 		private System.Windows.Forms.Button button_sqlFilter;
 		private System.Windows.Forms.TextBox textBox_sqlFilter;
 		private System.Windows.Forms.Button button_delete;
 		private System.Windows.Forms.Button button_generatePassword;
-		private System.Windows.Forms.TextBox textBox_log;
+		private System.Windows.Forms.TextBox textBox_logMessage;
 		private System.Windows.Forms.Button button_log;
+		private System.Windows.Forms.TextBox textBox_logSource;
+		private System.Windows.Forms.ComboBox comboBox_logType;
+		private System.Windows.Forms.GroupBox groupBox_toolHash;
+		private System.Windows.Forms.TextBox textBox_hash;
+		private System.Windows.Forms.StatusBar statusBar;
+		private System.Windows.Forms.StatusBarPanel statusBarPanel_label;
+		private System.Windows.Forms.StatusBarPanel statusBarPanel_message;
+		private System.Windows.Forms.GroupBox groupBox_login;
+		private System.Windows.Forms.GroupBox groupBox_log;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.GroupBox groupBox3;
 	}
 }
 

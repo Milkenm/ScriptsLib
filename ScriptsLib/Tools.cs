@@ -6,7 +6,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,8 +37,11 @@ namespace ScriptsLib.Tools
 
 		public async Task Crash()
 		{
-			_Variable++;
-			await Crash();
+			await Task.Factory.StartNew(() =>
+			{
+				_Variable++;
+				Crash().GetAwaiter();
+			});
 		}
 		// # ================================================================================================ #
 		#endregion Crash
@@ -54,7 +56,7 @@ namespace ScriptsLib.Tools
 			{
 				if (_DatabaseType == DatabaseType.SqlServer)
 				{
-					SqlConnection _Connection = new SqlConnection(SqlServer_Database._BaseConnection + SqlServer_Database._DatabasePath);
+					SqlConnection _Connection = new SqlConnection(SqlServerDatabase._BaseConnection + SqlServerDatabase._DatabasePath);
 
 
 					SqlCommand _Command = new SqlCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
@@ -74,7 +76,7 @@ namespace ScriptsLib.Tools
 				}
 				else if (_DatabaseType == DatabaseType.Access)
 				{
-					OleDbConnection _Connection = new OleDbConnection(Access_Database._BaseConnection + Access_Database._DatabasePath);
+					OleDbConnection _Connection = new OleDbConnection(AccessDatabase._BaseConnection + AccessDatabase._DatabasePath);
 
 
 					OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
@@ -114,59 +116,10 @@ namespace ScriptsLib.Tools
 		// # ================================================================================================ #
 		#endregion Check Login
 
-
-
-		#region Password Generator
-		public string PasswordGenerator(int _Size, string _Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
-		{
-			try
-			{
-				string _Password = null;
-				Random _Random = new Random();
-				while (_Size > 0)
-				{
-					_Size--;
-					_Password = $"{_Password}{_Chars[_Random.Next(_Chars.Length)]}";
-				}
-				return _Password;
-			}
-			catch (Exception _Exception)
-			{
-				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return null;
-			}
-		}
-		#endregion Password Generator
-
-
-
-		#region ComboBox Resize
-		///
-		// https://stackoverflow.com/questions/3158004/how-do-i-set-the-height-of-a-combobox
-		///
-
-
-		[DllImport("user32.dll")]
-		static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
-		private const int CB_SETITEMHEIGHT = 0x153;
-
-		public void ResizeCombobox(ComboBox _ComboBox, int _Hight)
-		{
-			try
-			{
-				SendMessage(_ComboBox.Handle, CB_SETITEMHEIGHT, -1, _Hight - 6);
-				_ComboBox.Refresh();
-			}
-			catch (Exception _Exception)
-			{
-				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-			}
-		}
-		#endregion ComboBox Resize
-
-
+			
 
 		#region SqlFilter
+		// # ================================================================================================ #
 		public string SqlFilter(string _String)
 		{
 			try
@@ -182,6 +135,7 @@ namespace ScriptsLib.Tools
 				return null;
 			}
 		}
+		// # ================================================================================================ #
 		#endregion SqlFilter
 
 
@@ -192,6 +146,8 @@ namespace ScriptsLib.Tools
 		///
 
 
+
+		// # ================================================================================================ #
 		public string Hash(string _String)
 		{
 			try
@@ -212,47 +168,75 @@ namespace ScriptsLib.Tools
 				return null;
 			}
 		}
+		// # ================================================================================================ #
 		#endregion Hash
 
 
 
 		#region Log
-		public async Task Log(string _Message, string _FileLocation, bool _IncludeDate = true)
+		// # ================================================================================================ #
+		public async Task Log(string _Message, string _FileLocation, string _Source = null, LogType _LogType = LogType.Info, bool _IncludeDate = true)
 		{
 			try
 			{
-				if (!File.Exists(_FileLocation))
+				await Task.Factory.StartNew(() =>
 				{
-					StreamWriter _File = File.CreateText(_FileLocation);
+					bool _Exists = false;
 
-					if (_IncludeDate == true)
+					#region Create File
+					StreamWriter _File;
+					if (!File.Exists(_FileLocation))
 					{
-						await _File.WriteLineAsync($"[{DateTime.Now}] {_Message}");
+						_File = File.CreateText(_FileLocation);
 					}
 					else
 					{
-						await _File.WriteLineAsync(_Message);
+						_File = new StreamWriter(_FileLocation, true);
+						_Exists = true;
 					}
+					#endregion Create File
 
-					_File.Close();
-				}
-				else
-				{
-					StreamWriter _File = new StreamWriter(_FileLocation, true);
-
-					if (_IncludeDate == true)
+					#region Source / Date
+					if (!String.IsNullOrEmpty(_Source))
 					{
-						await _File.WriteLineAsync($"[{DateTime.Now}] {_Message}");
+						_Message = $"[{_Source}] {_Message}";
+
+						if (_IncludeDate == true)
+						{
+							_Message = $"[{DateTime.Now}]{_Message}";
+						}
 					}
-					else
+					else if (_IncludeDate == true)
 					{
-						await _File.WriteLineAsync(_Message);
+						_Message = $"[{DateTime.Now}] {_Message}";
 					}
+					#endregion Source / Date
 
+					#region Log Type
+					if (_LogType == LogType.Info)
+					{
+						_Message = $"[INFO]{_Message}";
+					}
+					else if (_LogType == LogType.Error)
+					{
+						_Message = $"[ERROR]{_Message}";
+					}
+					else if (_LogType == LogType.Warning)
+					{
+						_Message = $"[WARNING]{_Message}";
+					}
+					#endregion Log Type
+
+
+
+					_Debug.Msg(_Message, MsgType.Info);
+					if (_Exists == true)
+					{
+						_Message = $"\n{_Message}";
+					}
+					_File.WriteAsync(_Message);
 					_File.Close();
-				}
-
-				
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -260,10 +244,37 @@ namespace ScriptsLib.Tools
 			}
 		}
 
-		internal void CreateTextFile(string _Path)
+		public enum LogType
 		{
-			File.Create(_Path);
+			Info,
+			Error,
+			Warning,
 		}
+		// # ================================================================================================ #
 		#endregion Log
+
+
+
+		#region Exception
+		///
+		// https://stackoverflow.com/questions/3328990/c-sharp-get-line-number-which-threw-exception
+		///
+
+
+
+		// # ================================================================================================ #
+		public async Task Exception(Exception _Exception)
+		{
+			try
+			{
+				await Task.Factory.StartNew(() =>
+				{
+					MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", $"Error: {_Exception.Source}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				});
+			}
+			catch { }
+		}
+		// # ================================================================================================ #
+		#endregion Exception
 	}
 }

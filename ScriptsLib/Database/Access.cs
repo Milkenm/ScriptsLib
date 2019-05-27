@@ -14,14 +14,16 @@ using static ScriptsLib.Dev.Debug;
 
 namespace ScriptsLib.Databases
 {
-	public class Access_Database
+	public class AccessDatabase
 	{
+		#region Refs
+		Debug _Debug = new Debug();
+		#endregion Refs
+
+		#region Vars
 		internal static readonly string _BaseConnection = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
 		public static string _DatabasePath { get; set; }
-
-
-		Debug _Debug = new Debug();
-
+		#endregion Vars
 
 
 
@@ -40,75 +42,78 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
-
-
-				string _Columns = null;
-				foreach (var _Loop in _Fields)
+				await Task.Factory.StartNew(() =>
 				{
-					string _DataType;
-					if (_Loop.DataType == AccessDataTypes.Text)
-					{
-						_DataType = "text";
-					}
-					else if (_Loop.DataType == AccessDataTypes.Number)
-					{
-						_DataType = "long";
-					}
-					else if (_Loop.DataType == AccessDataTypes.Money)
-					{
-						_DataType = "currency";
-					}
-					else if (_Loop.DataType == AccessDataTypes.Decimal)
-					{
-						_DataType = "double";
-					}
-					else if (_Loop.DataType == AccessDataTypes.DateAndTime)
-					{
-						_DataType = "date/time";
-					}
-					else if (_Loop.DataType == AccessDataTypes.Key)
-					{
-						_DataType = "key";
-					}
-					else
-					{
-						throw new Exception();
-					}
+					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 
-					if (_DataType != "key")
+					string _Columns = null;
+					foreach (var _Loop in _Fields)
 					{
-						if (!String.IsNullOrEmpty(_Columns))
+						string _DataType;
+						if (_Loop.DataType == AccessDataTypes.Text)
 						{
-							_Columns = $"{_Columns}, [{_Loop.Name}] {_DataType}";
+							_DataType = "text";
+						}
+						else if (_Loop.DataType == AccessDataTypes.Number)
+						{
+							_DataType = "long";
+						}
+						else if (_Loop.DataType == AccessDataTypes.Money)
+						{
+							_DataType = "currency";
+						}
+						else if (_Loop.DataType == AccessDataTypes.Decimal)
+						{
+							_DataType = "double";
+						}
+						else if (_Loop.DataType == AccessDataTypes.DateAndTime)
+						{
+							_DataType = "date/time";
+						}
+						else if (_Loop.DataType == AccessDataTypes.Key)
+						{
+							_DataType = "key";
 						}
 						else
 						{
-							_Columns = $"[{_Loop.Name}] {_DataType}";
+							throw new Exception();
 						}
-					}
-					else
-					{
-						if (!String.IsNullOrEmpty(_Columns))
+
+
+						if (_DataType != "key")
 						{
-							_Columns = $"{_Columns}, [{_Loop.Name}] AUTOINCREMENT PRIMARY KEY";
+							if (!String.IsNullOrEmpty(_Columns))
+							{
+								_Columns = $"{_Columns}, [{_Loop.Name}] {_DataType}";
+							}
+							else
+							{
+								_Columns = $"[{_Loop.Name}] {_DataType}";
+							}
 						}
 						else
 						{
-							_Columns = $"[{_Loop.Name}] AUTOINCREMENT PRIMARY KEY";
+							if (!String.IsNullOrEmpty(_Columns))
+							{
+								_Columns = $"{_Columns}, [{_Loop.Name}] AUTOINCREMENT PRIMARY KEY";
+							}
+							else
+							{
+								_Columns = $"[{_Loop.Name}] AUTOINCREMENT PRIMARY KEY";
+							}
 						}
 					}
-				}
 
-				string _Command = $"CREATE TABLE {_Name} ({_Columns})";
-				OleDbCommand _OleDbCommand = new OleDbCommand(_Command, _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
+					string _Command = $"CREATE TABLE {_Name} ({_Columns})";
+					OleDbCommand _OleDbCommand = new OleDbCommand(_Command, _OleDbConnection);
+					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
 
-				await _OleDbConnection.OpenAsync();
-				await _OleDbCommand.ExecuteNonQueryAsync();
-				_OleDbConnection.Close();
+					_OleDbConnection.OpenAsync();
+					_OleDbCommand.ExecuteNonQueryAsync();
+					_OleDbConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -144,14 +149,17 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
-				OleDbCommand _OleDbCommand = new OleDbCommand($"DROP TABLE {_TableName}", _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
+					OleDbCommand _OleDbCommand = new OleDbCommand($"DROP TABLE {_TableName}", _OleDbConnection);
+					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
-				await _OleDbConnection.OpenAsync();
-				await _OleDbCommand.ExecuteNonQueryAsync();
-				_OleDbConnection.Close();
+					_OleDbConnection.OpenAsync();
+					_OleDbCommand.ExecuteNonQueryAsync();
+					_OleDbConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -169,29 +177,31 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				if (!_TableName.StartsWith("[") && !_TableName.EndsWith("]"))
+				await Task.Factory.StartNew(() =>
 				{
-					_TableName = $"[{_TableName}]";
-				}
-				if (!_Columns.StartsWith("[") && !_Columns.EndsWith("]"))
-				{
-					string[] _SplitColumns;
-					_Columns = null;
-
-					_SplitColumns = _Columns.Split(',');
-
-					foreach (string _ValueColumn in _SplitColumns)
+					if (!_TableName.StartsWith("[") && !_TableName.EndsWith("]"))
 					{
-						if (!String.IsNullOrEmpty(_Columns))
+						_TableName = $"[{_TableName}]";
+					}
+					if (!_Columns.StartsWith("[") && !_Columns.EndsWith("]"))
+					{
+						string[] _SplitColumns;
+						_Columns = null;
+
+						_SplitColumns = _Columns.Split(',');
+
+						foreach (string _ValueColumn in _SplitColumns)
 						{
-							_Columns = $"{_Columns}, [{_ValueColumn}]";
-						}
-						else
-						{
-							_Columns = $"[{_ValueColumn}]";
+							if (!String.IsNullOrEmpty(_Columns))
+							{
+								_Columns = $"{_Columns}, [{_ValueColumn}]";
+							}
+							else
+							{
+								_Columns = $"[{_ValueColumn}]";
+							}
 						}
 					}
-				}
 
 
 
@@ -200,14 +210,15 @@ namespace ScriptsLib.Databases
 
 
 
-				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
-				OleDbCommand _OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})", _OleDbConnection);
-				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
+					OleDbCommand _OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})", _OleDbConnection);
+					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
-				await _OleDbConnection.OpenAsync();
-				await _OleDbCommand.ExecuteNonQueryAsync();
-				_OleDbConnection.Close();
+					_OleDbConnection.OpenAsync();
+					_OleDbCommand.ExecuteNonQueryAsync();
+					_OleDbConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -225,29 +236,32 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				if (!File.Exists(_Path))
+				await Task.Factory.StartNew(() =>
 				{
-					string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
+					if (!File.Exists(_Path))
+					{
+						string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-					var _Connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;");
-					await _Connection.OpenAsync();
-					var _Command = _Connection.CreateCommand();
+						var _Connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;");
+						_Connection.OpenAsync();
+						var _Command = _Connection.CreateCommand();
 
 
-					_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
-					_Debug.Msg(_Command.CommandText, MsgType.Info, "Create Database");
-					await _Command.ExecuteNonQueryAsync();
+						_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";
+						_Debug.Msg(_Command.CommandText, MsgType.Info, "Create Database");
+						_Command.ExecuteNonQueryAsync();
 
-					_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
-					_Debug.Msg(_Command.CommandText, MsgType.Info, "Export Database");
-					await _Command.ExecuteNonQueryAsync();
+						_Command.CommandText = $"EXEC sp_detach_db '{_DatabaseName}', 'true'";
+						_Debug.Msg(_Command.CommandText, MsgType.Info, "Export Database");
+						_Command.ExecuteNonQueryAsync();
 
-					_Connection.Close();
-				}
-				else
-				{
-					throw new Exception("File already exists!");
-				}
+						_Connection.Close();
+					}
+					else
+					{
+						throw new Exception("File already exists!");
+					}
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -344,16 +358,19 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 
-				OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _OleDbConnection);
+					OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _OleDbConnection);
 
-				_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "Update Command Text");
+					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "Update Command Text");
 
-				await _OleDbConnection.OpenAsync();
-				await _OleDbCommand.ExecuteNonQueryAsync();
-				_OleDbConnection.Close();
+					_OleDbConnection.OpenAsync();
+					_OleDbCommand.ExecuteNonQueryAsync();
+					_OleDbConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{
@@ -369,13 +386,16 @@ namespace ScriptsLib.Databases
 		{
 			try
 			{
-				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+				await Task.Factory.StartNew(() =>
+				{
+					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
-				OleDbCommand _OleDbCommand = new OleDbCommand($"DELETE FROM {_Table} WHERE {_Condition}", _OleDbConnection);
+					OleDbCommand _OleDbCommand = new OleDbCommand($"DELETE FROM {_Table} WHERE {_Condition}", _OleDbConnection);
 
-				await _OleDbConnection.OpenAsync();
-				await _OleDbCommand.ExecuteNonQueryAsync();
-				_OleDbConnection.Close();
+					_OleDbConnection.OpenAsync();
+					_OleDbCommand.ExecuteNonQueryAsync();
+					_OleDbConnection.Close();
+				});
 			}
 			catch (Exception _Exception)
 			{

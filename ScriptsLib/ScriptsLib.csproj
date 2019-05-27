@@ -84,9 +84,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls.cs" />
     <Compile Include="Database\MySql.cs" />
     <Compile Include="Database\SqlServer.cs" />
     <Compile Include="Dev.cs" />
+    <Compile Include="Generators.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Database\Access.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
