@@ -29,6 +29,7 @@ namespace TestingGrounds
 
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
+		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -47,6 +48,7 @@ namespace TestingGrounds
 			}
 
 			ScriptsLib.Dev.Debug._Debug = true;
+			ScriptsLib.Dev.Debug._ErrorsOnly = true;
 
 
 
@@ -54,7 +56,7 @@ namespace TestingGrounds
 			SqlServerDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
 
 			AccessDatabase._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
-			
+
 			MySqlDatabase._Server = "127.0.0.1";
 			MySqlDatabase._Port = 3306;
 			MySqlDatabase._Database = "test";
@@ -78,6 +80,9 @@ namespace TestingGrounds
 			_ComboBox.Resize(comboBox_logType, 20);
 
 			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+
+			textBox_table.Text = "Unique";
+			textBox_column.Text = "Value";
 			#endregion Perform Actions
 		}
 		// # ================================================================================================ #
@@ -301,52 +306,6 @@ namespace TestingGrounds
 
 
 
-		#region Tools.Login
-		// # ================================================================================================ #
-		private void button_login_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				bool _Success;
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
-				{
-					_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.SqlServer);
-				}
-				else
-				{
-					_Success = _Tools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseType.Access);
-				}
-
-				if (_Success == true)
-				{
-					MessageBox.Show("Logged in.");
-				}
-				else
-				{
-					MessageBox.Show("Invalid login credentials.");
-				}
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Tools.Login
-
-
-
-		#region Tools.SqlFilter
-		// # ================================================================================================ #
-		private void button_sqlFilter_Click(object sender, EventArgs e)
-		{
-			textBox_sqlFilter.Text = _Tools.SqlFilter(textBox_sqlFilter.Text);
-		}
-		// # ================================================================================================ #
-		#endregion Tools.SqlFilter
-
-
-
 		#region Tools.Log
 		// # ================================================================================================ #
 		private void button_log_Click(object sender, EventArgs e)
@@ -391,6 +350,90 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		#endregion Tools.Hash
 		#endregion Tools
+
+
+
+		#region Tools.DatabaseTools
+		#region Tools.DatabaseTools.CheckLogin
+		// # ================================================================================================ #
+		private void button_login_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				bool _Success;
+				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				{
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.SqlServer);
+				}
+				else
+				{
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.Access);
+				}
+
+				if (_Success == true)
+				{
+					MessageBox.Show("Logged in.");
+				}
+				else
+				{
+					MessageBox.Show("Invalid login credentials.");
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Tools.DatabaseTools.CheckLogin
+
+
+
+		#region Tools.DatabaseTools.SqlFilter
+		// # ================================================================================================ #
+		private void button_sqlFilter_Click(object sender, EventArgs e)
+		{
+			textBox_sqlFilter.Text = _DatabaseTools.FilterSql(textBox_sqlFilter.Text);
+		}
+		// # ================================================================================================ #
+		#endregion Tools.DatabaseTools.SqlFilter
+
+
+
+		#region Tools.DatabaseTools.SelectUnique
+		// # ================================================================================================ #
+		private void button_selectUnique_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (comboBox_databaseType.SelectedIndex == 1)
+				{
+					List<string> _Select = _DatabaseTools.SelectUnique(textBox_table.Text, textBox_column.Text, Tools.DatabaseTools.DatabaseType.Access);
+
+					string _String = null;
+					foreach (string _Value in _Select)
+					{
+						if (!String.IsNullOrEmpty(_String))
+						{
+							_String = $"{_String}, {_Value}";
+						}
+						else
+						{
+							_String = _Value;
+						}
+					}
+
+					MessageBox.Show(_String);
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Tools.DatabaseTools.SelectUnique
+		#endregion Tools.DatabaseTools
 
 
 
@@ -443,6 +486,7 @@ namespace TestingGrounds
 		}
 		// # ================================================================================================ #
 		#endregion Controls.ComboBox.OnlyNumbersTextBox
+
 		#endregion Controls
 	}
 }

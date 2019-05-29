@@ -37,8 +37,8 @@
 			this.button_login = new System.Windows.Forms.Button();
 			this.groupBox_database = new System.Windows.Forms.GroupBox();
 			this.button_delete = new System.Windows.Forms.Button();
-			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.button_select = new System.Windows.Forms.Button();
+			this.comboBox_databaseType = new System.Windows.Forms.ComboBox();
 			this.groupBox_tools_crash = new System.Windows.Forms.GroupBox();
 			this.comboBox_resize = new System.Windows.Forms.ComboBox();
 			this.button_resizeCombobox = new System.Windows.Forms.Button();
@@ -60,33 +60,40 @@
 			this.statusBar = new System.Windows.Forms.StatusBar();
 			this.statusBarPanel_label = new System.Windows.Forms.StatusBarPanel();
 			this.statusBarPanel_message = new System.Windows.Forms.StatusBarPanel();
+			this.statusBarPanel_separator = new System.Windows.Forms.StatusBarPanel();
 			this.groupBox_tools_checkLogin = new System.Windows.Forms.GroupBox();
 			this.groupBox__tools_log = new System.Windows.Forms.GroupBox();
 			this.groupBox_controls_resizeComboBox = new System.Windows.Forms.GroupBox();
-			this.groupBox_tools_sqlFilter = new System.Windows.Forms.GroupBox();
+			this.groupBox_tools_databaseTools_sqlFilter = new System.Windows.Forms.GroupBox();
 			this.groupBox_generators_generatePassword = new System.Windows.Forms.GroupBox();
 			this.groupBox_controls_onlyNumbersTextBox = new System.Windows.Forms.GroupBox();
 			this.checkBox_onlyNumbers = new System.Windows.Forms.CheckBox();
 			this.textBox_onlyNumbers = new System.Windows.Forms.TextBox();
+			this.groupBox_tools_databaseTools_selectUnique = new System.Windows.Forms.GroupBox();
+			this.button_selectUnique = new System.Windows.Forms.Button();
+			this.textBox_column = new System.Windows.Forms.TextBox();
+			this.textBox_table = new System.Windows.Forms.TextBox();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
 			this.groupBox_toolHash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).BeginInit();
 			this.groupBox_tools_checkLogin.SuspendLayout();
 			this.groupBox__tools_log.SuspendLayout();
 			this.groupBox_controls_resizeComboBox.SuspendLayout();
-			this.groupBox_tools_sqlFilter.SuspendLayout();
+			this.groupBox_tools_databaseTools_sqlFilter.SuspendLayout();
 			this.groupBox_generators_generatePassword.SuspendLayout();
 			this.groupBox_controls_onlyNumbersTextBox.SuspendLayout();
+			this.groupBox_tools_databaseTools_selectUnique.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
 			// 
-			this.button_criarTabela.Location = new System.Drawing.Point(109, 19);
+			this.button_criarTabela.Location = new System.Drawing.Point(100, 19);
 			this.button_criarTabela.Name = "button_criarTabela";
-			this.button_criarTabela.Size = new System.Drawing.Size(85, 23);
+			this.button_criarTabela.Size = new System.Drawing.Size(95, 23);
 			this.button_criarTabela.TabIndex = 0;
 			this.button_criarTabela.Text = "Criar Tabela";
 			this.button_criarTabela.UseVisualStyleBackColor = true;
@@ -94,9 +101,9 @@
 			// 
 			// button_apagarTabela
 			// 
-			this.button_apagarTabela.Location = new System.Drawing.Point(109, 48);
+			this.button_apagarTabela.Location = new System.Drawing.Point(100, 41);
 			this.button_apagarTabela.Name = "button_apagarTabela";
-			this.button_apagarTabela.Size = new System.Drawing.Size(85, 23);
+			this.button_apagarTabela.Size = new System.Drawing.Size(95, 23);
 			this.button_apagarTabela.TabIndex = 1;
 			this.button_apagarTabela.Text = "Apagar Tabela";
 			this.button_apagarTabela.UseVisualStyleBackColor = true;
@@ -104,9 +111,9 @@
 			// 
 			// button_insert
 			// 
-			this.button_insert.Location = new System.Drawing.Point(6, 48);
+			this.button_insert.Location = new System.Drawing.Point(6, 41);
 			this.button_insert.Name = "button_insert";
-			this.button_insert.Size = new System.Drawing.Size(85, 23);
+			this.button_insert.Size = new System.Drawing.Size(95, 23);
 			this.button_insert.TabIndex = 2;
 			this.button_insert.Text = "Insert";
 			this.button_insert.UseVisualStyleBackColor = true;
@@ -116,7 +123,7 @@
 			// 
 			this.button_criarBd.Location = new System.Drawing.Point(6, 19);
 			this.button_criarBd.Name = "button_criarBd";
-			this.button_criarBd.Size = new System.Drawing.Size(85, 23);
+			this.button_criarBd.Size = new System.Drawing.Size(95, 23);
 			this.button_criarBd.TabIndex = 3;
 			this.button_criarBd.Text = "Criar BD";
 			this.button_criarBd.UseVisualStyleBackColor = true;
@@ -124,7 +131,7 @@
 			// 
 			// button_crash
 			// 
-			this.button_crash.Location = new System.Drawing.Point(6, 19);
+			this.button_crash.Location = new System.Drawing.Point(6, 18);
 			this.button_crash.Name = "button_crash";
 			this.button_crash.Size = new System.Drawing.Size(188, 23);
 			this.button_crash.TabIndex = 4;
@@ -145,7 +152,6 @@
 			// groupBox_database
 			// 
 			this.groupBox_database.Controls.Add(this.button_delete);
-			this.groupBox_database.Controls.Add(this.comboBox_databaseType);
 			this.groupBox_database.Controls.Add(this.button_select);
 			this.groupBox_database.Controls.Add(this.button_criarTabela);
 			this.groupBox_database.Controls.Add(this.button_insert);
@@ -153,20 +159,30 @@
 			this.groupBox_database.Controls.Add(this.button_criarBd);
 			this.groupBox_database.Location = new System.Drawing.Point(2, 2);
 			this.groupBox_database.Name = "groupBox_database";
-			this.groupBox_database.Size = new System.Drawing.Size(200, 148);
+			this.groupBox_database.Size = new System.Drawing.Size(200, 93);
 			this.groupBox_database.TabIndex = 6;
 			this.groupBox_database.TabStop = false;
 			this.groupBox_database.Text = "Database";
 			// 
 			// button_delete
 			// 
-			this.button_delete.Location = new System.Drawing.Point(109, 77);
+			this.button_delete.Location = new System.Drawing.Point(100, 63);
 			this.button_delete.Name = "button_delete";
-			this.button_delete.Size = new System.Drawing.Size(85, 23);
+			this.button_delete.Size = new System.Drawing.Size(95, 23);
 			this.button_delete.TabIndex = 6;
 			this.button_delete.Text = "Delete";
 			this.button_delete.UseVisualStyleBackColor = true;
 			this.button_delete.Click += new System.EventHandler(this.button_delete_Click);
+			// 
+			// button_select
+			// 
+			this.button_select.Location = new System.Drawing.Point(6, 63);
+			this.button_select.Name = "button_select";
+			this.button_select.Size = new System.Drawing.Size(95, 23);
+			this.button_select.TabIndex = 4;
+			this.button_select.Text = "Select";
+			this.button_select.UseVisualStyleBackColor = true;
+			this.button_select.Click += new System.EventHandler(this.button_select_Click);
 			// 
 			// comboBox_databaseType
 			// 
@@ -175,27 +191,17 @@
             "Sql Server",
             "Access",
             "MySql"});
-			this.comboBox_databaseType.Location = new System.Drawing.Point(6, 119);
+			this.comboBox_databaseType.Location = new System.Drawing.Point(428, 358);
 			this.comboBox_databaseType.Name = "comboBox_databaseType";
 			this.comboBox_databaseType.Size = new System.Drawing.Size(188, 21);
 			this.comboBox_databaseType.TabIndex = 5;
 			// 
-			// button_select
-			// 
-			this.button_select.Location = new System.Drawing.Point(6, 77);
-			this.button_select.Name = "button_select";
-			this.button_select.Size = new System.Drawing.Size(85, 23);
-			this.button_select.TabIndex = 4;
-			this.button_select.Text = "Select";
-			this.button_select.UseVisualStyleBackColor = true;
-			this.button_select.Click += new System.EventHandler(this.button_select_Click);
-			// 
 			// groupBox_tools_crash
 			// 
 			this.groupBox_tools_crash.Controls.Add(this.button_crash);
-			this.groupBox_tools_crash.Location = new System.Drawing.Point(208, 150);
+			this.groupBox_tools_crash.Location = new System.Drawing.Point(2, 307);
 			this.groupBox_tools_crash.Name = "groupBox_tools_crash";
-			this.groupBox_tools_crash.Size = new System.Drawing.Size(200, 51);
+			this.groupBox_tools_crash.Size = new System.Drawing.Size(200, 49);
 			this.groupBox_tools_crash.TabIndex = 7;
 			this.groupBox_tools_crash.TabStop = false;
 			this.groupBox_tools_crash.Text = "Tools.Crash";
@@ -346,7 +352,7 @@
 			// groupBox_toolHash
 			// 
 			this.groupBox_toolHash.Controls.Add(this.textBox_hash);
-			this.groupBox_toolHash.Location = new System.Drawing.Point(2, 156);
+			this.groupBox_toolHash.Location = new System.Drawing.Point(2, 101);
 			this.groupBox_toolHash.Name = "groupBox_toolHash";
 			this.groupBox_toolHash.Size = new System.Drawing.Size(200, 50);
 			this.groupBox_toolHash.TabIndex = 8;
@@ -367,9 +373,10 @@
 			this.statusBar.Name = "statusBar";
 			this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
             this.statusBarPanel_label,
-            this.statusBarPanel_message});
+            this.statusBarPanel_message,
+            this.statusBarPanel_separator});
 			this.statusBar.ShowPanels = true;
-			this.statusBar.Size = new System.Drawing.Size(592, 22);
+			this.statusBar.Size = new System.Drawing.Size(616, 22);
 			this.statusBar.TabIndex = 9;
 			// 
 			// statusBarPanel_label
@@ -380,7 +387,11 @@
 			// statusBarPanel_message
 			// 
 			this.statusBarPanel_message.Name = "statusBarPanel_message";
-			this.statusBarPanel_message.Width = 609;
+			this.statusBarPanel_message.Width = 377;
+			// 
+			// statusBarPanel_separator
+			// 
+			this.statusBarPanel_separator.Name = "statusBarPanel_separator";
 			// 
 			// groupBox_tools_checkLogin
 			// 
@@ -389,7 +400,7 @@
 			this.groupBox_tools_checkLogin.Controls.Add(this.textBox_pass);
 			this.groupBox_tools_checkLogin.Controls.Add(this.label_user);
 			this.groupBox_tools_checkLogin.Controls.Add(this.label_pass);
-			this.groupBox_tools_checkLogin.Location = new System.Drawing.Point(2, 212);
+			this.groupBox_tools_checkLogin.Location = new System.Drawing.Point(2, 157);
 			this.groupBox_tools_checkLogin.Name = "groupBox_tools_checkLogin";
 			this.groupBox_tools_checkLogin.Size = new System.Drawing.Size(200, 92);
 			this.groupBox_tools_checkLogin.TabIndex = 10;
@@ -402,7 +413,7 @@
 			this.groupBox__tools_log.Controls.Add(this.textBox_logMessage);
 			this.groupBox__tools_log.Controls.Add(this.textBox_logSource);
 			this.groupBox__tools_log.Controls.Add(this.button_log);
-			this.groupBox__tools_log.Location = new System.Drawing.Point(208, 207);
+			this.groupBox__tools_log.Location = new System.Drawing.Point(208, 150);
 			this.groupBox__tools_log.Name = "groupBox__tools_log";
 			this.groupBox__tools_log.Size = new System.Drawing.Size(200, 68);
 			this.groupBox__tools_log.TabIndex = 11;
@@ -420,16 +431,16 @@
 			this.groupBox_controls_resizeComboBox.TabStop = false;
 			this.groupBox_controls_resizeComboBox.Text = "Controls.ResizeComboBox";
 			// 
-			// groupBox_tools_sqlFilter
+			// groupBox_tools_databaseTools_sqlFilter
 			// 
-			this.groupBox_tools_sqlFilter.Controls.Add(this.button_sqlFilter);
-			this.groupBox_tools_sqlFilter.Controls.Add(this.textBox_sqlFilter);
-			this.groupBox_tools_sqlFilter.Location = new System.Drawing.Point(2, 310);
-			this.groupBox_tools_sqlFilter.Name = "groupBox_tools_sqlFilter";
-			this.groupBox_tools_sqlFilter.Size = new System.Drawing.Size(200, 46);
-			this.groupBox_tools_sqlFilter.TabIndex = 13;
-			this.groupBox_tools_sqlFilter.TabStop = false;
-			this.groupBox_tools_sqlFilter.Text = "Tools.SqlFilter";
+			this.groupBox_tools_databaseTools_sqlFilter.Controls.Add(this.button_sqlFilter);
+			this.groupBox_tools_databaseTools_sqlFilter.Controls.Add(this.textBox_sqlFilter);
+			this.groupBox_tools_databaseTools_sqlFilter.Location = new System.Drawing.Point(2, 255);
+			this.groupBox_tools_databaseTools_sqlFilter.Name = "groupBox_tools_databaseTools_sqlFilter";
+			this.groupBox_tools_databaseTools_sqlFilter.Size = new System.Drawing.Size(200, 46);
+			this.groupBox_tools_databaseTools_sqlFilter.TabIndex = 13;
+			this.groupBox_tools_databaseTools_sqlFilter.TabStop = false;
+			this.groupBox_tools_databaseTools_sqlFilter.Text = "Tools.DatabaseTools.SqlFilter";
 			// 
 			// groupBox_generators_generatePassword
 			// 
@@ -447,7 +458,7 @@
 			// 
 			this.groupBox_controls_onlyNumbersTextBox.Controls.Add(this.checkBox_onlyNumbers);
 			this.groupBox_controls_onlyNumbersTextBox.Controls.Add(this.textBox_onlyNumbers);
-			this.groupBox_controls_onlyNumbersTextBox.Location = new System.Drawing.Point(208, 281);
+			this.groupBox_controls_onlyNumbersTextBox.Location = new System.Drawing.Point(208, 224);
 			this.groupBox_controls_onlyNumbersTextBox.Name = "groupBox_controls_onlyNumbersTextBox";
 			this.groupBox_controls_onlyNumbersTextBox.Size = new System.Drawing.Size(200, 75);
 			this.groupBox_controls_onlyNumbersTextBox.TabIndex = 15;
@@ -472,14 +483,52 @@
 			this.textBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
 			this.textBox_onlyNumbers.TabIndex = 0;
 			// 
+			// groupBox_tools_databaseTools_selectUnique
+			// 
+			this.groupBox_tools_databaseTools_selectUnique.Controls.Add(this.button_selectUnique);
+			this.groupBox_tools_databaseTools_selectUnique.Controls.Add(this.textBox_column);
+			this.groupBox_tools_databaseTools_selectUnique.Controls.Add(this.textBox_table);
+			this.groupBox_tools_databaseTools_selectUnique.Location = new System.Drawing.Point(414, 2);
+			this.groupBox_tools_databaseTools_selectUnique.Name = "groupBox_tools_databaseTools_selectUnique";
+			this.groupBox_tools_databaseTools_selectUnique.Size = new System.Drawing.Size(200, 90);
+			this.groupBox_tools_databaseTools_selectUnique.TabIndex = 15;
+			this.groupBox_tools_databaseTools_selectUnique.TabStop = false;
+			this.groupBox_tools_databaseTools_selectUnique.Text = "Tools.DatabaseTools.SelectUnique";
+			// 
+			// button_selectUnique
+			// 
+			this.button_selectUnique.Location = new System.Drawing.Point(120, 60);
+			this.button_selectUnique.Name = "button_selectUnique";
+			this.button_selectUnique.Size = new System.Drawing.Size(75, 23);
+			this.button_selectUnique.TabIndex = 13;
+			this.button_selectUnique.Text = "Select";
+			this.button_selectUnique.UseVisualStyleBackColor = true;
+			this.button_selectUnique.Click += new System.EventHandler(this.button_selectUnique_Click);
+			// 
+			// textBox_column
+			// 
+			this.textBox_column.Location = new System.Drawing.Point(6, 40);
+			this.textBox_column.Name = "textBox_column";
+			this.textBox_column.Size = new System.Drawing.Size(188, 20);
+			this.textBox_column.TabIndex = 12;
+			// 
+			// textBox_table
+			// 
+			this.textBox_table.Location = new System.Drawing.Point(6, 19);
+			this.textBox_table.Name = "textBox_table";
+			this.textBox_table.Size = new System.Drawing.Size(188, 20);
+			this.textBox_table.TabIndex = 11;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(592, 379);
+			this.ClientSize = new System.Drawing.Size(616, 379);
+			this.Controls.Add(this.groupBox_tools_databaseTools_selectUnique);
+			this.Controls.Add(this.comboBox_databaseType);
 			this.Controls.Add(this.groupBox_controls_onlyNumbersTextBox);
 			this.Controls.Add(this.groupBox_generators_generatePassword);
-			this.Controls.Add(this.groupBox_tools_sqlFilter);
+			this.Controls.Add(this.groupBox_tools_databaseTools_sqlFilter);
 			this.Controls.Add(this.groupBox_controls_resizeComboBox);
 			this.Controls.Add(this.groupBox__tools_log);
 			this.Controls.Add(this.groupBox_tools_checkLogin);
@@ -500,17 +549,20 @@
 			this.groupBox_toolHash.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).EndInit();
 			this.groupBox_tools_checkLogin.ResumeLayout(false);
 			this.groupBox_tools_checkLogin.PerformLayout();
 			this.groupBox__tools_log.ResumeLayout(false);
 			this.groupBox__tools_log.PerformLayout();
 			this.groupBox_controls_resizeComboBox.ResumeLayout(false);
-			this.groupBox_tools_sqlFilter.ResumeLayout(false);
-			this.groupBox_tools_sqlFilter.PerformLayout();
+			this.groupBox_tools_databaseTools_sqlFilter.ResumeLayout(false);
+			this.groupBox_tools_databaseTools_sqlFilter.PerformLayout();
 			this.groupBox_generators_generatePassword.ResumeLayout(false);
 			this.groupBox_generators_generatePassword.PerformLayout();
 			this.groupBox_controls_onlyNumbersTextBox.ResumeLayout(false);
 			this.groupBox_controls_onlyNumbersTextBox.PerformLayout();
+			this.groupBox_tools_databaseTools_selectUnique.ResumeLayout(false);
+			this.groupBox_tools_databaseTools_selectUnique.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -551,11 +603,16 @@
 		private System.Windows.Forms.GroupBox groupBox_tools_checkLogin;
 		private System.Windows.Forms.GroupBox groupBox__tools_log;
 		private System.Windows.Forms.GroupBox groupBox_controls_resizeComboBox;
-		private System.Windows.Forms.GroupBox groupBox_tools_sqlFilter;
+		private System.Windows.Forms.GroupBox groupBox_tools_databaseTools_sqlFilter;
 		private System.Windows.Forms.GroupBox groupBox_generators_generatePassword;
 		private System.Windows.Forms.GroupBox groupBox_controls_onlyNumbersTextBox;
 		private System.Windows.Forms.CheckBox checkBox_onlyNumbers;
 		private System.Windows.Forms.TextBox textBox_onlyNumbers;
+		private System.Windows.Forms.GroupBox groupBox_tools_databaseTools_selectUnique;
+		private System.Windows.Forms.Button button_selectUnique;
+		private System.Windows.Forms.TextBox textBox_column;
+		private System.Windows.Forms.TextBox textBox_table;
+		private System.Windows.Forms.StatusBarPanel statusBarPanel_separator;
 	}
 }
 

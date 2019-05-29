@@ -1,5 +1,6 @@
 ﻿#region Usings
 using System;
+using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
@@ -21,13 +22,148 @@ namespace ScriptsLib.Tools
 {
 	public class Tools
 	{
+		#region Refs
 		Debug _Debug = new Debug();
+		AccessDatabase _AccessDatabase = new AccessDatabase();
+		#endregion Refs
 
 
 
 
 
+		public class DatabaseTools : Tools
+		{
+			public enum DatabaseType
+			{
+				SqlServer,
+				Access,
+			}
 
+
+			
+
+
+
+
+
+			#region Check Login
+			// # ================================================================================================ #
+			public bool CheckLogin(string _Table, string _Username, string _Password, string _UsernameColumn, string _PasswordColumn, DatabaseType _DatabaseType)
+			{
+				try
+				{
+					if (_DatabaseType == DatabaseType.SqlServer)
+					{
+						SqlConnection _Connection = new SqlConnection(SqlServerDatabase._BaseConnection + SqlServerDatabase._DatabasePath);
+
+
+						SqlCommand _Command = new SqlCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
+
+						_Connection.OpenAsync().GetAwaiter().GetResult();
+						int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
+
+						_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
+
+						_Connection.Close();
+
+						if (_Result > 0)
+						{
+							return true;
+						}
+						return false;
+					}
+					else if (_DatabaseType == DatabaseType.Access)
+					{
+						OleDbConnection _Connection = new OleDbConnection(AccessDatabase._BaseConnection + AccessDatabase._DatabasePath);
+
+
+						OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
+
+						_Connection.OpenAsync().GetAwaiter().GetResult();
+						int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
+
+						_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
+
+						_Connection.Close();
+
+						if (_Result > 0)
+						{
+							return true;
+						}
+						return false;
+					}
+					else
+					{
+						throw new Exception();
+					}
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+					return false;
+				}
+			}
+
+
+
+
+			// # ================================================================================================ #
+			#endregion Check Login
+
+
+
+			#region Filter SQL
+			// # ================================================================================================ #
+			public string FilterSql(string _String)
+			{
+				try
+				{
+					_String = _String.Replace("'", null);
+					_String = _String.Replace(";", null);
+
+					return _String;
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+					return null;
+				}
+			}
+			// # ================================================================================================ #
+			#endregion Filter SQL
+
+
+
+			#region Select Unique
+			// # ================================================================================================ #
+			public List<string> SelectUnique(string _Table, string _Column, DatabaseType _DatabaseType)
+			{
+				try
+				{
+					List<string> _UniqueValues = new List<string>();
+
+					if (_DatabaseType == DatabaseType.Access)
+					{
+						foreach (string _Value in _AccessDatabase.Select(_Table, _Column))
+						{
+							if (!_UniqueValues.Contains(_Value))
+							{
+								_UniqueValues.Add(_Value);
+							}
+						}
+					}
+
+					return _UniqueValues;
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, "Hehe");
+					return null;
+				}
+			}
+			// # ================================================================================================ #
+			#endregion Select Unique
+		}
 
 
 
@@ -40,99 +176,7 @@ namespace ScriptsLib.Tools
 		// # ================================================================================================ #
 		#endregion Crash
 
-
-
-		#region Check Login
-		// # ================================================================================================ #
-		public bool CheckLogin(string _Table, string _Username, string _Password, string _UsernameColumn, string _PasswordColumn, DatabaseType _DatabaseType)
-		{
-			try
-			{
-				if (_DatabaseType == DatabaseType.SqlServer)
-				{
-					SqlConnection _Connection = new SqlConnection(SqlServerDatabase._BaseConnection + SqlServerDatabase._DatabasePath);
-
-
-					SqlCommand _Command = new SqlCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
-
-					_Connection.OpenAsync().GetAwaiter().GetResult();
-					int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
-
-					_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
-
-					_Connection.Close();
-
-					if (_Result > 0)
-					{
-						return true;
-					}
-					return false;
-				}
-				else if (_DatabaseType == DatabaseType.Access)
-				{
-					OleDbConnection _Connection = new OleDbConnection(AccessDatabase._BaseConnection + AccessDatabase._DatabasePath);
-
-
-					OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
-
-					_Connection.OpenAsync().GetAwaiter().GetResult();
-					int _Result = Convert.ToInt32(_Command.ExecuteScalarAsync().GetAwaiter().GetResult().ToString());
-
-					_Debug.Msg($"Command: {_Command.CommandText}\n\nResult: {_Result}", MsgType.Info, "CheckLogin");
-
-					_Connection.Close();
-
-					if (_Result > 0)
-					{
-						return true;
-					}
-					return false;
-				}
-				else
-				{
-					throw new Exception();
-				}
-			}
-			catch (Exception _Exception)
-			{
-				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return false;
-			}
-		}
-
-
-
-		public enum DatabaseType
-		{
-			SqlServer,
-			Access,
-		}
-		// # ================================================================================================ #
-		#endregion Check Login
-
 			
-
-		#region SqlFilter
-		// # ================================================================================================ #
-		public string SqlFilter(string _String)
-		{
-			try
-			{
-				_String = _String.Replace("'", null);
-				_String = _String.Replace(";", null);
-
-				return _String;
-			}
-			catch (Exception _Exception)
-			{
-				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return null;
-			}
-		}
-		// # ================================================================================================ #
-		#endregion SqlFilter
-
-
 
 		#region Hash
 		///
