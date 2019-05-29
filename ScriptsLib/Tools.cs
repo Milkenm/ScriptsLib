@@ -33,15 +33,9 @@ namespace ScriptsLib.Tools
 
 		#region Crash
 		// # ================================================================================================ #
-		private int _Variable { get; set; }
-
 		public async Task Crash()
 		{
-			await Task.Factory.StartNew(() =>
-			{
-				_Variable++;
-				Crash().GetAwaiter();
-			});
+			await Crash();
 		}
 		// # ================================================================================================ #
 		#endregion Crash
