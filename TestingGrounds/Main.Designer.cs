@@ -66,8 +66,8 @@
 			this.groupBox_tools_sqlFilter = new System.Windows.Forms.GroupBox();
 			this.groupBox_generators_generatePassword = new System.Windows.Forms.GroupBox();
 			this.groupBox_controls_onlyNumbersTextBox = new System.Windows.Forms.GroupBox();
-			this.textBox_onlyNumbers = new System.Windows.Forms.TextBox();
 			this.checkBox_onlyNumbers = new System.Windows.Forms.CheckBox();
+			this.textBox_onlyNumbers = new System.Windows.Forms.TextBox();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -454,13 +454,6 @@
 			this.groupBox_controls_onlyNumbersTextBox.TabStop = false;
 			this.groupBox_controls_onlyNumbersTextBox.Text = "Controls.OnlyNumbersTextBox";
 			// 
-			// textBox_onlyNumbers
-			// 
-			this.textBox_onlyNumbers.Location = new System.Drawing.Point(8, 19);
-			this.textBox_onlyNumbers.Name = "textBox_onlyNumbers";
-			this.textBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
-			this.textBox_onlyNumbers.TabIndex = 0;
-			// 
 			// checkBox_onlyNumbers
 			// 
 			this.checkBox_onlyNumbers.AutoSize = true;
@@ -471,6 +464,13 @@
 			this.checkBox_onlyNumbers.Text = "Only accept numbers";
 			this.checkBox_onlyNumbers.UseVisualStyleBackColor = true;
 			this.checkBox_onlyNumbers.CheckedChanged += new System.EventHandler(this.checkBox_onlyNumbers_CheckedChanged);
+			// 
+			// textBox_onlyNumbers
+			// 
+			this.textBox_onlyNumbers.Location = new System.Drawing.Point(8, 19);
+			this.textBox_onlyNumbers.Name = "textBox_onlyNumbers";
+			this.textBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
+			this.textBox_onlyNumbers.TabIndex = 0;
 			// 
 			// Main
 			// 
