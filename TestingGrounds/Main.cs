@@ -22,9 +22,13 @@ namespace TestingGrounds
 		AccessDatabase _AccessDatabase = new AccessDatabase();
 		MySqlDatabase _MySqlDatabase = new MySqlDatabase();
 
+
+
 		Tools _Tools = new Tools();
 		Generators _Generators = new Generators();
-		Controls _Controls = new Controls();
+
+		Controls.ComboBox _ComboBox = new Controls.ComboBox();
+		Controls.TextBox _TextBox = new Controls.TextBox();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -71,7 +75,7 @@ namespace TestingGrounds
 			comboBox_databaseType.SelectedIndex = 2;
 
 			comboBox_logType.SelectedIndex = 0;
-			_Controls.ResizeComboBox(comboBox_logType, 20);
+			_ComboBox.Resize(comboBox_logType, 20);
 
 			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
 			#endregion Perform Actions
@@ -404,23 +408,41 @@ namespace TestingGrounds
 
 
 		#region Controls
-		#region Controls.ResizeComboBox
+		#region Controls.ComboBox.ResizeComboBox
 		// # ================================================================================================ #
 		private void button_resizeCombobox_Click(object sender, EventArgs e)
 		{
 			if (comboBox_resize.Height == 37)
 			{
-				_Controls.ResizeComboBox(comboBox_resize, 21);
+				_ComboBox.Resize(comboBox_resize, 21);
 			}
 			else
 			{
-				_Controls.ResizeComboBox(comboBox_resize, 37);
+				_ComboBox.Resize(comboBox_resize, 37);
 			}
 
 			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
 		}
 		// # ================================================================================================ #
-		#endregion Controls.ResizeComboBox
+		#endregion Controls.ComboBox.ResizeComboBox
+
+
+
+		#region Controls.ComboBox.OnlyNumbersTextBox
+		// # ================================================================================================ #
+		private void checkBox_onlyNumbers_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox_onlyNumbers.Checked == true)
+			{
+				_TextBox.OnlyNumbers(textBox_onlyNumbers);
+			}
+			else
+			{
+				_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Controls.ComboBox.OnlyNumbersTextBox
 		#endregion Controls
 	}
 }
