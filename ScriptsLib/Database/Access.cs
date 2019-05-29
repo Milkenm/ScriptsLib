@@ -283,7 +283,7 @@ namespace ScriptsLib.Databases
 				OleDbCommand _OleDbCommand;
 				if (!String.IsNullOrEmpty(_Condition))
 				{
-					if (_Selection == "*")
+					if (_Selection == "*" || _Selection.Contains("MAX"))
 					{
 						_OleDbCommand = new OleDbCommand($"SELECT {_Selection} FROM [{_Table}] WHERE {_Condition}", _OleDbConnection);
 					}
@@ -294,7 +294,7 @@ namespace ScriptsLib.Databases
 				}
 				else
 				{
-					if (_Selection == "*")
+					if (_Selection == "*" || _Selection.Contains("MAX"))
 					{
 						_OleDbCommand = new OleDbCommand($"SELECT {_Selection} FROM [{_Table}]", _OleDbConnection);
 					}
