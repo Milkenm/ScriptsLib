@@ -37,6 +37,7 @@ namespace ScriptsLib.Tools
 			{
 				SqlServer,
 				Access,
+				MySql,
 			}
 
 
@@ -94,7 +95,7 @@ namespace ScriptsLib.Tools
 					}
 					else
 					{
-						throw new Exception();
+						throw new Exception("Selected database type not supported.");
 					}
 				}
 				catch (Exception _Exception)
@@ -151,6 +152,10 @@ namespace ScriptsLib.Tools
 								_UniqueValues.Add(_Value);
 							}
 						}
+					}
+					else
+					{
+						throw new Exception("Selected database type not supported.");
 					}
 
 					return _UniqueValues;
