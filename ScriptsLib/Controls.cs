@@ -33,7 +33,7 @@ namespace ScriptsLib.Controls
 		{
 			#region Only Numbers
 			// # ================================================================================================ #
-			public void OnlyNumbers(System.Windows.Forms.TextBox _TextBox, bool _Enabled = true, bool _Decimal = false)
+			public void OnlyNumbers(System.Windows.Forms.TextBox _TextBox, bool _Decimal = false, bool _Enabled = true)
 			{
 				_TextBox.KeyPress += new KeyPressEventHandler((_Sender, _Event) => OnlyNumbersEvent(_Sender, _Event, _Decimal, _Enabled));
 			}

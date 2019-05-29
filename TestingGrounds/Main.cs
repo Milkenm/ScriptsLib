@@ -434,11 +434,11 @@ namespace TestingGrounds
 		{
 			if (checkBox_onlyNumbers.Checked == true)
 			{
-				_TextBox.OnlyNumbers(textBox_onlyNumbers);
+				_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
 			}
 			else
 			{
-				_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
+				_TextBox.OnlyNumbers(textBox_onlyNumbers, false, false);
 			}
 		}
 		// # ================================================================================================ #
