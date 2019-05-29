@@ -349,6 +349,15 @@ namespace TestingGrounds
 		}
 		// # ================================================================================================ #
 		#endregion Tools.Hash
+
+
+
+		#region Tools.GetDate
+		private void timer_date_Tick(object sender, EventArgs e)
+		{
+			label_date.Text = _Tools.GetDate();
+		}
+		#endregion Tools.GetDate
 		#endregion Tools
 
 

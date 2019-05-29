@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.button_criarTabela = new System.Windows.Forms.Button();
 			this.button_apagarTabela = new System.Windows.Forms.Button();
@@ -73,6 +74,9 @@
 			this.button_selectUnique = new System.Windows.Forms.Button();
 			this.textBox_column = new System.Windows.Forms.TextBox();
 			this.textBox_table = new System.Windows.Forms.TextBox();
+			this.label_date = new System.Windows.Forms.Label();
+			this.groupBox_tools_getDate = new System.Windows.Forms.GroupBox();
+			this.timer_date = new System.Windows.Forms.Timer(this.components);
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -87,6 +91,7 @@
 			this.groupBox_generators_generatePassword.SuspendLayout();
 			this.groupBox_controls_onlyNumbersTextBox.SuspendLayout();
 			this.groupBox_tools_databaseTools_selectUnique.SuspendLayout();
+			this.groupBox_tools_getDate.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -519,11 +524,37 @@
 			this.textBox_table.Size = new System.Drawing.Size(188, 20);
 			this.textBox_table.TabIndex = 11;
 			// 
+			// label_date
+			// 
+			this.label_date.AutoSize = true;
+			this.label_date.Location = new System.Drawing.Point(6, 23);
+			this.label_date.Name = "label_date";
+			this.label_date.Size = new System.Drawing.Size(129, 13);
+			this.label_date.TabIndex = 16;
+			this.label_date.Text = "<date (updates on code)>";
+			// 
+			// groupBox_tools_getDate
+			// 
+			this.groupBox_tools_getDate.Controls.Add(this.label_date);
+			this.groupBox_tools_getDate.Location = new System.Drawing.Point(208, 305);
+			this.groupBox_tools_getDate.Name = "groupBox_tools_getDate";
+			this.groupBox_tools_getDate.Size = new System.Drawing.Size(200, 51);
+			this.groupBox_tools_getDate.TabIndex = 17;
+			this.groupBox_tools_getDate.TabStop = false;
+			this.groupBox_tools_getDate.Text = "Tools.GetDate";
+			// 
+			// timer_date
+			// 
+			this.timer_date.Enabled = true;
+			this.timer_date.Interval = 1;
+			this.timer_date.Tick += new System.EventHandler(this.timer_date_Tick);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(616, 379);
+			this.Controls.Add(this.groupBox_tools_getDate);
 			this.Controls.Add(this.groupBox_tools_databaseTools_selectUnique);
 			this.Controls.Add(this.comboBox_databaseType);
 			this.Controls.Add(this.groupBox_controls_onlyNumbersTextBox);
@@ -563,6 +594,8 @@
 			this.groupBox_controls_onlyNumbersTextBox.PerformLayout();
 			this.groupBox_tools_databaseTools_selectUnique.ResumeLayout(false);
 			this.groupBox_tools_databaseTools_selectUnique.PerformLayout();
+			this.groupBox_tools_getDate.ResumeLayout(false);
+			this.groupBox_tools_getDate.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -613,6 +646,9 @@
 		private System.Windows.Forms.TextBox textBox_column;
 		private System.Windows.Forms.TextBox textBox_table;
 		private System.Windows.Forms.StatusBarPanel statusBarPanel_separator;
+		private System.Windows.Forms.Label label_date;
+		private System.Windows.Forms.GroupBox groupBox_tools_getDate;
+		private System.Windows.Forms.Timer timer_date;
 	}
 }
 
