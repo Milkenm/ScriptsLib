@@ -1,8 +1,12 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using ScriptsLib.Dev;
 
 using static ScriptsLib.Dev.Debug;
@@ -17,6 +21,7 @@ namespace ScriptsLib.Controls
 		#region Refs
 		// # ================================================================================================ #
 		Debug _Debug = new Debug();
+		Tools.Tools _Tools = new Tools.Tools();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -127,6 +132,64 @@ namespace ScriptsLib.Controls
 				return _Forms;
 			}
 			#endregion Get Open Forms
+
+
+
+			#region Set Intro Form
+			public async void SetIntroForm(System.Windows.Forms.Form _Form, double _BloomRatio, bool _Transparent, System.Windows.Forms.Form _NextForm = null, int _NextFormChangeDelay = 0, int _MsDelay = 1)
+			{
+				try
+				{
+					await Task.Factory.StartNew(() =>
+					{
+						_Form.Invoke(new Action(() =>
+						{
+							if (_Transparent == true)
+							{
+								_Form.BackColor = Color.White;
+								_Form.TransparencyKey = Color.White;
+							}
+
+							System.Windows.Forms.Timer _SetIntroFormTimer = new System.Windows.Forms.Timer();
+							_SetIntroFormTimer.Tick += new EventHandler((_Sender, _Event) => _SetIntroFormTimerEvent(_Sender, _Event, _Form, _BloomRatio, _NextForm, _NextFormChangeDelay, _SetIntroFormTimer));
+							_SetIntroFormTimer.Interval = _MsDelay;
+							_SetIntroFormTimer.Start();
+						}));
+					});
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				}
+			}
+
+			private void _SetIntroFormTimerEvent(object _Sender, EventArgs _Event, System.Windows.Forms.Form _Form, double _BloomRatio, System.Windows.Forms.Form _NextForm, int _NextFormChangeDelay, System.Windows.Forms.Timer _Timer)
+			{
+				try
+				{
+					if (_Form.Opacity < 1)
+					{
+						_Form.Opacity = _Form.Opacity + _BloomRatio;
+					}
+					else
+					{
+						_Timer.Stop();
+
+						if (_NextForm != null)
+						{
+							Thread.Sleep(_NextFormChangeDelay);
+
+							_Form.Hide();
+							_NextForm.Show();
+						}
+					}
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				}
+			}
+			#endregion Set Intro Form
 		}
 	}
 }

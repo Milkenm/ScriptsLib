@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ScriptsLib.Controls;
@@ -38,7 +39,9 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		public Main()
 		{
+			this.Opacity = 0;
 			InitializeComponent();
+			_Form.SetIntroForm(this, 0.0085, false);
 		}
 		// # ================================================================================================ #
 		private void Main_Load(object sender, EventArgs e)
