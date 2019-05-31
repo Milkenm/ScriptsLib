@@ -40,19 +40,22 @@ namespace ScriptsLib.Controls
 			// # ================================================================================================ #
 			private void OnlyNumbersEvent(object _Sender, KeyPressEventArgs _Event, bool _Decimal, bool _Enabled)
 			{
+				///
+				// https://stackoverflow.com/questions/463299/how-do-i-make-a-textbox-that-only-accepts-numbers
+				///
+
+
+
 				if (_Enabled == true)
 				{
-					if (!Char.IsControl(_Event.KeyChar) && !Char.IsDigit(_Event.KeyChar) && (_Event.KeyChar != '.'))
+					if (!Char.IsControl(_Event.KeyChar) && !Char.IsDigit(_Event.KeyChar) && _Event.KeyChar != '.')
 					{
 						_Event.Handled = true;
 					}
 
-					if (_Decimal == true)
+					if (_Event.KeyChar == '.' && (_Sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1 || _Event.KeyChar == '.' && _Decimal == false)
 					{
-						if ((_Event.KeyChar == '.') && ((_Sender as System.Windows.Forms.TextBox).Text.IndexOf('.') > -1))
-						{
-							_Event.Handled = true;
-						}
+						_Event.Handled = true;
 					}
 				}
 			}

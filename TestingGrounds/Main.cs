@@ -84,6 +84,8 @@ namespace TestingGrounds
 
 			textBox_table.Text = "Unique";
 			textBox_column.Text = "Value";
+
+			checkBox_onlyNumbers.Checked = true;
 			#endregion Perform Actions
 		}
 		// # ================================================================================================ #
@@ -481,7 +483,7 @@ namespace TestingGrounds
 
 
 
-		#region Controls.ComboBox.OnlyNumbersTextBox
+		#region Controls.TextBox.OnlyNumbersTextBox
 		// # ================================================================================================ #
 		private void checkBox_onlyNumbers_CheckedChanged(object sender, EventArgs e)
 		{
@@ -495,10 +497,11 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Controls.ComboBox.OnlyNumbersTextBox
+		#endregion Controls.TextBox.OnlyNumbersTextBox
 
-		#endregion Controls
 
+
+		#region Controls.Form.GetOpenForms
 		private void button_controls_getOpenForms_Click(object sender, EventArgs e)
 		{
 			try
@@ -510,5 +513,7 @@ namespace TestingGrounds
 				_Tools.Exception(_Exception);
 			}
 		}
+		#endregion Controls.Form.GetOpenForms
+		#endregion Controls
 	}
 }
