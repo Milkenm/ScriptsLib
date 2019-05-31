@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using ScriptsLib.Dev;
@@ -179,26 +180,23 @@ namespace ScriptsLib.Databases
 			{
 				await Task.Factory.StartNew(() =>
 				{
+					string _EditColumns = null;
+
 					if (!_TableName.StartsWith("[") && !_TableName.EndsWith("]"))
 					{
 						_TableName = $"[{_TableName}]";
 					}
 					if (!_Columns.StartsWith("[") && !_Columns.EndsWith("]"))
 					{
-						string[] _SplitColumns;
-						_Columns = null;
-
-						_SplitColumns = _Columns.Split(',');
-
-						foreach (string _ValueColumn in _SplitColumns)
+						foreach (string _Column in _Columns.Split(','))
 						{
-							if (!String.IsNullOrEmpty(_Columns))
+							if (!String.IsNullOrEmpty(_EditColumns))
 							{
-								_Columns = $"{_Columns}, [{_ValueColumn}]";
+								_EditColumns = $"{_EditColumns}, [{_Column}]";
 							}
 							else
 							{
-								_Columns = $"[{_ValueColumn}]";
+								_EditColumns = $"[{_Column}]";
 							}
 						}
 					}
@@ -211,8 +209,10 @@ namespace ScriptsLib.Databases
 
 
 					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
+					OleDbCommand _OleDbCommand;
 
-					OleDbCommand _OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_Columns}) VALUES ({_Values})", _OleDbConnection);
+					_OleDbCommand = new OleDbCommand($"INSERT INTO {_TableName} ({_EditColumns}) VALUES ({_Values})", _OleDbConnection);
+
 					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "OleDb Command");
 
 					_OleDbConnection.OpenAsync();

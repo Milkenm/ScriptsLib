@@ -77,6 +77,8 @@
 			this.label_date = new System.Windows.Forms.Label();
 			this.groupBox_tools_getDate = new System.Windows.Forms.GroupBox();
 			this.timer_date = new System.Windows.Forms.Timer(this.components);
+			this.groupBox_controls_getOpenForms = new System.Windows.Forms.GroupBox();
+			this.button_controls_getOpenForms = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -92,6 +94,7 @@
 			this.groupBox_controls_onlyNumbersTextBox.SuspendLayout();
 			this.groupBox_tools_databaseTools_selectUnique.SuspendLayout();
 			this.groupBox_tools_getDate.SuspendLayout();
+			this.groupBox_controls_getOpenForms.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -549,11 +552,32 @@
 			this.timer_date.Interval = 1;
 			this.timer_date.Tick += new System.EventHandler(this.timer_date_Tick);
 			// 
+			// groupBox_controls_getOpenForms
+			// 
+			this.groupBox_controls_getOpenForms.Controls.Add(this.button_controls_getOpenForms);
+			this.groupBox_controls_getOpenForms.Location = new System.Drawing.Point(414, 98);
+			this.groupBox_controls_getOpenForms.Name = "groupBox_controls_getOpenForms";
+			this.groupBox_controls_getOpenForms.Size = new System.Drawing.Size(200, 53);
+			this.groupBox_controls_getOpenForms.TabIndex = 18;
+			this.groupBox_controls_getOpenForms.TabStop = false;
+			this.groupBox_controls_getOpenForms.Text = "Controls.GetOpenForms";
+			// 
+			// button_controls_getOpenForms
+			// 
+			this.button_controls_getOpenForms.Location = new System.Drawing.Point(6, 18);
+			this.button_controls_getOpenForms.Name = "button_controls_getOpenForms";
+			this.button_controls_getOpenForms.Size = new System.Drawing.Size(188, 23);
+			this.button_controls_getOpenForms.TabIndex = 0;
+			this.button_controls_getOpenForms.Text = "Get Open Forms";
+			this.button_controls_getOpenForms.UseVisualStyleBackColor = true;
+			this.button_controls_getOpenForms.Click += new System.EventHandler(this.button_controls_getOpenForms_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(616, 379);
+			this.Controls.Add(this.groupBox_controls_getOpenForms);
 			this.Controls.Add(this.groupBox_tools_getDate);
 			this.Controls.Add(this.groupBox_tools_databaseTools_selectUnique);
 			this.Controls.Add(this.comboBox_databaseType);
@@ -596,6 +620,7 @@
 			this.groupBox_tools_databaseTools_selectUnique.PerformLayout();
 			this.groupBox_tools_getDate.ResumeLayout(false);
 			this.groupBox_tools_getDate.PerformLayout();
+			this.groupBox_controls_getOpenForms.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -649,6 +674,8 @@
 		private System.Windows.Forms.Label label_date;
 		private System.Windows.Forms.GroupBox groupBox_tools_getDate;
 		private System.Windows.Forms.Timer timer_date;
+		private System.Windows.Forms.GroupBox groupBox_controls_getOpenForms;
+		private System.Windows.Forms.Button button_controls_getOpenForms;
 	}
 }
 

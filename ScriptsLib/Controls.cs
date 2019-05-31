@@ -1,8 +1,8 @@
 ﻿#region Usings
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-
 using ScriptsLib.Dev;
 
 using static ScriptsLib.Dev.Debug;
@@ -90,6 +90,40 @@ namespace ScriptsLib.Controls
 			}
 			// # ================================================================================================ #
 			#endregion Resize
+		}
+
+
+
+		public class Form : Controls
+		{
+			#region Is Open
+			public bool IsOpen(string _FormName)
+			{
+				FormCollection _Forms = Application.OpenForms;
+				foreach (System.Windows.Forms.Form _Form in _Forms)
+				{
+					if (_Form.Name == _FormName)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			#endregion Is Open
+
+
+
+			#region Get Open Forms
+			public List<System.Windows.Forms.Form> GetOpenForms()
+			{
+				List<System.Windows.Forms.Form> _Forms = new List<System.Windows.Forms.Form>();
+				foreach (System.Windows.Forms.Form _Form in Application.OpenForms)
+				{
+					_Forms.Add(_Form);
+				}
+				return _Forms;
+			}
+			#endregion Get Open Forms
 		}
 	}
 }

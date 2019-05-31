@@ -29,6 +29,7 @@ namespace TestingGrounds
 
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
+		Controls.Form _Form = new Controls.Form();
 		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		// # ================================================================================================ #
 		#endregion Refs
@@ -497,5 +498,17 @@ namespace TestingGrounds
 		#endregion Controls.ComboBox.OnlyNumbersTextBox
 
 		#endregion Controls
+
+		private void button_controls_getOpenForms_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				_Form.GetOpenForms();
+			}
+			catch (Exception _Exception)
+			{
+				_Tools.Exception(_Exception);
+			}
+		}
 	}
 }
