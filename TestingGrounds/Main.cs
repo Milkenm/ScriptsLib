@@ -40,15 +40,12 @@ namespace TestingGrounds
 		public Main()
 		{
 			InitializeComponent();
-			_Form.SetIntroForm(this, 0.0085, false);
 		}
 		// # ================================================================================================ #
 		private void Main_Load(object sender, EventArgs e)
 		{
-			if (Debugger.IsAttached == true)
-			{
-				this.Text = $"{this.Text} - DE3UG";
-			}
+			_Form.SetIntroForm(this, 0.0085, false);
+			
 
 			ScriptsLib.Dev.Debug._Debug = true;
 			ScriptsLib.Dev.Debug._ErrorsOnly = true;

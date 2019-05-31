@@ -3,15 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ScriptsLib.Databases;
-using ScriptsLib.Dev;
 
 using static ScriptsLib.Dev.Debug;
 #endregion Usings
@@ -23,7 +23,7 @@ namespace ScriptsLib.Tools
 	public class Tools
 	{
 		#region Refs
-		Debug _Debug = new Debug();
+		Dev.Debug _Debug = new Dev.Debug();
 		AccessDatabase _AccessDatabase = new AccessDatabase();
 		#endregion Refs
 
@@ -362,5 +362,33 @@ namespace ScriptsLib.Tools
 			return $"{_Day}/{_Month}/{_Year} - {_Hour}:{_Minute}:{_Second} (.{_Millisecond})";
 		}
 		#endregion Get Date
+
+
+
+		#region Is Application Running
+		public bool? IsApplicationRunning()
+		{
+			try
+			{
+				Regex _Regex = new Regex(".exe");
+				int _Instances = 0;
+				foreach (Process _Process in Process.GetProcessesByName(_Regex.Replace(AppDomain.CurrentDomain.FriendlyName, "")))
+				{
+					_Instances++;
+				}
+
+				if (_Instances <= 1)
+				{
+					return false;
+				}
+				return true;
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
+		}
+		#endregion Is Application Running
 	}
 }
