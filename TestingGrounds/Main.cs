@@ -39,7 +39,6 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		public Main()
 		{
-			this.Opacity = 0;
 			InitializeComponent();
 			_Form.SetIntroForm(this, 0.0085, false);
 		}

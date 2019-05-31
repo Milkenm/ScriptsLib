@@ -136,7 +136,7 @@ namespace ScriptsLib.Controls
 
 
 			#region Set Intro Form
-			public async void SetIntroForm(System.Windows.Forms.Form _Form, double _BloomRatio, bool _Transparent, System.Windows.Forms.Form _NextForm = null, int _NextFormChangeDelay = 0, int _MsDelay = 1)
+			public async void SetIntroForm(System.Windows.Forms.Form _Form, double _BloomRatio, bool _Transparent, bool _OnTop = false, System.Windows.Forms.Form _NextForm = null, int _NextFormChangeDelay = 0, int _MsDelay = 1)
 			{
 				try
 				{
@@ -144,6 +144,14 @@ namespace ScriptsLib.Controls
 					{
 						_Form.Invoke(new Action(() =>
 						{
+							_Form.Hide();
+							_Form.Opacity = 0;
+							_Form.Show();
+
+							if (_OnTop == true)
+							{
+								_Form.TopMost = true;
+							}
 							if (_Transparent == true)
 							{
 								_Form.BackColor = Color.White;
