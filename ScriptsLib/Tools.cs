@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 using ScriptsLib.Databases;
 
 using static ScriptsLib.Dev.Debug;
@@ -312,7 +314,7 @@ namespace ScriptsLib.Tools
 			{
 				await Task.Factory.StartNew(() =>
 				{
-					MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", $"Error: {_Exception.Source}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", $"Error - {_Exception.Source}", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				});
 			}
 			catch { }
@@ -323,6 +325,7 @@ namespace ScriptsLib.Tools
 
 
 		#region Get Date
+		// # ================================================================================================ #
 		public string GetDate()
 		{
 			string _Day = DateTime.Now.Day.ToString(), _Month = DateTime.Now.Month.ToString(), _Year = DateTime.Now.Year.ToString(), _Hour = DateTime.Now.Hour.ToString(), _Minute = DateTime.Now.Minute.ToString(), _Second = DateTime.Now.Second.ToString(), _Millisecond = DateTime.Now.Millisecond.ToString();
@@ -361,11 +364,13 @@ namespace ScriptsLib.Tools
 
 			return $"{_Day}/{_Month}/{_Year} - {_Hour}:{_Minute}:{_Second} (.{_Millisecond})";
 		}
+		// # ================================================================================================ #
 		#endregion Get Date
 
 
 
 		#region Is Application Running
+		// # ================================================================================================ #
 		public bool? IsApplicationRunning()
 		{
 			try
@@ -389,6 +394,53 @@ namespace ScriptsLib.Tools
 				return null;
 			}
 		}
+		// # ================================================================================================ #
 		#endregion Is Application Running
+
+
+
+		#region SetWallpaper
+		// # ================================================================================================ #
+		[DllImport("user32.dll", CharSet = CharSet.Auto)]
+		static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+		// # ================================================================================================ #
+		public async Task SetWallpaper(Image _Image, Style _Style)
+		{
+			await Task.Factory.StartNew(() =>
+			{
+				string _TempPath = Path.GetTempPath() + @"MWallpaper";
+				_Image.Save(_TempPath);
+
+				RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+				if (_Style == Style.Stretched)
+				{
+					key.SetValue(@"WallpaperStyle", 2.ToString());
+					key.SetValue(@"TileWallpaper", 0.ToString());
+				}
+				if (_Style == Style.Centered)
+				{
+					key.SetValue(@"WallpaperStyle", 1.ToString());
+					key.SetValue(@"TileWallpaper", 0.ToString());
+				}
+				if (_Style == Style.Tiled)
+				{
+					key.SetValue(@"WallpaperStyle", 1.ToString());
+					key.SetValue(@"TileWallpaper", 1.ToString());
+				}
+
+				SystemParametersInfo(20, 0, _TempPath, 0x01 | 0x02);
+
+				File.Delete(_TempPath);
+			});
+		}
+		// # ================================================================================================ #
+		public enum Style
+		{
+			Tiled,
+			Centered,
+			Stretched,
+		}
+		// # ================================================================================================ #
+		#endregion SetWallpaper
 	}
 }
