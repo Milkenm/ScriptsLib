@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -399,12 +400,12 @@ namespace ScriptsLib.Tools
 
 
 
-		#region SetWallpaper
+		#region Set Wallpaper
 		// # ================================================================================================ #
 		[DllImport("user32.dll", CharSet = CharSet.Auto)]
 		static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
 		// # ================================================================================================ #
-		public async Task SetWallpaper(Image _Image, Style _Style)
+		public async Task SetWallpaper(Image _Image, WallpaperStyle _WallpaperStyle)
 		{
 			await Task.Factory.StartNew(() =>
 			{
@@ -412,17 +413,17 @@ namespace ScriptsLib.Tools
 				_Image.Save(_TempPath);
 
 				RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-				if (_Style == Style.Stretched)
+				if (_WallpaperStyle == WallpaperStyle.Stretched)
 				{
 					key.SetValue(@"WallpaperStyle", 2.ToString());
 					key.SetValue(@"TileWallpaper", 0.ToString());
 				}
-				if (_Style == Style.Centered)
+				if (_WallpaperStyle == WallpaperStyle.Centered)
 				{
 					key.SetValue(@"WallpaperStyle", 1.ToString());
 					key.SetValue(@"TileWallpaper", 0.ToString());
 				}
-				if (_Style == Style.Tiled)
+				if (_WallpaperStyle == WallpaperStyle.Tiled)
 				{
 					key.SetValue(@"WallpaperStyle", 1.ToString());
 					key.SetValue(@"TileWallpaper", 1.ToString());
@@ -434,13 +435,33 @@ namespace ScriptsLib.Tools
 			});
 		}
 		// # ================================================================================================ #
-		public enum Style
+		public enum WallpaperStyle
 		{
 			Tiled,
 			Centered,
 			Stretched,
 		}
 		// # ================================================================================================ #
-		#endregion SetWallpaper
+		#endregion Set Wallpaper
+
+
+
+		#region Get GIF Frames
+		// # ================================================================================================ #
+		Image[] GetGifFrames(Image _Gif)
+		{
+			int _FramesNumber = _Gif.GetFrameCount(FrameDimension.Time);
+			Image[] _Frames = new Image[_FramesNumber];
+
+			for (int i = 0; i < _FramesNumber; i++)
+			{
+				_Gif.SelectActiveFrame(FrameDimension.Time, i);
+				_Frames[i] = (Image)_Gif.Clone();
+			}
+
+			return _Frames;
+		}
+		// # ================================================================================================ #
+		#endregion Get GIF Frames
 	}
 }
