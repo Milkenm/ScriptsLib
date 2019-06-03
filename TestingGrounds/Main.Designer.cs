@@ -84,6 +84,8 @@
 			this.pictureBox_gif = new System.Windows.Forms.PictureBox();
 			this.button_setWallpaper = new System.Windows.Forms.Button();
 			this.fileDialog_searchGif = new System.Windows.Forms.OpenFileDialog();
+			this.groupBox_controls_messageBox_showConfirmationDialog = new System.Windows.Forms.GroupBox();
+			this.button_showConfirmationDialog = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -102,6 +104,7 @@
 			this.groupBox_controls_getOpenForms.SuspendLayout();
 			this.groupBox_tools_setWallpaperGetGifFrames.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).BeginInit();
+			this.groupBox_controls_messageBox_showConfirmationDialog.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -391,7 +394,7 @@
             this.statusBarPanel_message,
             this.statusBarPanel_separator});
 			this.statusBar.ShowPanels = true;
-			this.statusBar.Size = new System.Drawing.Size(616, 22);
+			this.statusBar.Size = new System.Drawing.Size(845, 22);
 			this.statusBar.TabIndex = 9;
 			// 
 			// statusBarPanel_label
@@ -567,7 +570,7 @@
 			this.groupBox_controls_getOpenForms.Size = new System.Drawing.Size(200, 53);
 			this.groupBox_controls_getOpenForms.TabIndex = 18;
 			this.groupBox_controls_getOpenForms.TabStop = false;
-			this.groupBox_controls_getOpenForms.Text = "Controls.GetOpenForms";
+			this.groupBox_controls_getOpenForms.Text = "Controls.Forms.GetOpenForms";
 			// 
 			// button_controls_getOpenForms
 			// 
@@ -626,11 +629,32 @@
 			this.fileDialog_searchGif.Filter = "GIF Image|*.gif";
 			this.fileDialog_searchGif.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_searchGif_FileOk);
 			// 
+			// groupBox_controls_messageBox_showConfirmationDialog
+			// 
+			this.groupBox_controls_messageBox_showConfirmationDialog.Controls.Add(this.button_showConfirmationDialog);
+			this.groupBox_controls_messageBox_showConfirmationDialog.Location = new System.Drawing.Point(620, 2);
+			this.groupBox_controls_messageBox_showConfirmationDialog.Name = "groupBox_controls_messageBox_showConfirmationDialog";
+			this.groupBox_controls_messageBox_showConfirmationDialog.Size = new System.Drawing.Size(200, 53);
+			this.groupBox_controls_messageBox_showConfirmationDialog.TabIndex = 19;
+			this.groupBox_controls_messageBox_showConfirmationDialog.TabStop = false;
+			this.groupBox_controls_messageBox_showConfirmationDialog.Text = "Controls.MessageBox.ShowConfirmationDialog";
+			// 
+			// button_showConfirmationDialog
+			// 
+			this.button_showConfirmationDialog.Location = new System.Drawing.Point(6, 18);
+			this.button_showConfirmationDialog.Name = "button_showConfirmationDialog";
+			this.button_showConfirmationDialog.Size = new System.Drawing.Size(188, 23);
+			this.button_showConfirmationDialog.TabIndex = 0;
+			this.button_showConfirmationDialog.Text = "Show Confirmation Dialog";
+			this.button_showConfirmationDialog.UseVisualStyleBackColor = true;
+			this.button_showConfirmationDialog.Click += new System.EventHandler(this.button_showConfirmationDialog_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(616, 379);
+			this.ClientSize = new System.Drawing.Size(845, 379);
+			this.Controls.Add(this.groupBox_controls_messageBox_showConfirmationDialog);
 			this.Controls.Add(this.groupBox_tools_setWallpaperGetGifFrames);
 			this.Controls.Add(this.groupBox_controls_getOpenForms);
 			this.Controls.Add(this.groupBox_tools_getDate);
@@ -679,6 +703,7 @@
 			this.groupBox_controls_getOpenForms.ResumeLayout(false);
 			this.groupBox_tools_setWallpaperGetGifFrames.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).EndInit();
+			this.groupBox_controls_messageBox_showConfirmationDialog.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -739,6 +764,8 @@
 		private System.Windows.Forms.PictureBox pictureBox_gif;
 		private System.Windows.Forms.Button button_setWallpaper;
 		private System.Windows.Forms.OpenFileDialog fileDialog_searchGif;
+		private System.Windows.Forms.GroupBox groupBox_controls_messageBox_showConfirmationDialog;
+		private System.Windows.Forms.Button button_showConfirmationDialog;
 	}
 }
 

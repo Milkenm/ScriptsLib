@@ -32,6 +32,8 @@ namespace TestingGrounds
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
 		Controls.Form _Form = new Controls.Form();
+		Controls.MessageBox _MessageBox = new Controls.MessageBox();
+
 		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		// # ================================================================================================ #
 		#endregion Refs
@@ -569,11 +571,23 @@ namespace TestingGrounds
 		}
 		#endregion Controls.Form.GetOpenForms
 
-		#endregion Controls
 
-		private void pictureBox_gif_BackgroundImageChanged(object sender, EventArgs e)
+
+		#region Controls.MessageBox.ShowConfirmationDialog
+		private void button_showConfirmationDialog_Click(object sender, EventArgs e)
 		{
-			_Tools.SetWallpaper(pictureBox_gif.BackgroundImage, Tools.WallpaperStyle.Centered);
+			bool _Confirm = _MessageBox.ShowConfirmationDialog("Title", "Message", MessageBoxIcon.Information);
+
+			if (_Confirm == true)
+			{
+				MessageBox.Show("Accepted!");
+			}
+			else
+			{
+				MessageBox.Show("Declined.");
+			}
 		}
+		#endregion Controls.MessageBox.ShowConfirmationDialog
+		#endregion Controls
 	}
 }
