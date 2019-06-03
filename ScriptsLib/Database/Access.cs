@@ -378,7 +378,7 @@ namespace ScriptsLib.Databases
 					OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 
-					OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE {_Table} SET {_Update} WHERE {_Condition}", _OleDbConnection);
+					OleDbCommand _OleDbCommand = new OleDbCommand($"UPDATE [{_Table}] SET {_Update} WHERE {_Condition}", _OleDbConnection);
 
 					_Debug.Msg(_OleDbCommand.CommandText, MsgType.Info, "Update Command Text");
 
