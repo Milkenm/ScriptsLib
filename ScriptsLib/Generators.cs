@@ -29,6 +29,9 @@ namespace ScriptsLib.Generators
 
 		#region Generate Password
 		// # ================================================================================================ #
+		/// <summary>Generates a password (or call it string with random chars).</summary>
+		/// <param name="_Size">The amount of characters.</param>
+		/// <param name="_Chars">The characters to be used to make the password.</param>
 		public string GeneratePassword(int _Size, string _Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")
 		{
 			try

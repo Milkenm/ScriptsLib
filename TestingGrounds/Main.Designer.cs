@@ -63,7 +63,7 @@
 			this.statusBarPanel_message = new System.Windows.Forms.StatusBarPanel();
 			this.statusBarPanel_separator = new System.Windows.Forms.StatusBarPanel();
 			this.groupBox_tools_checkLogin = new System.Windows.Forms.GroupBox();
-			this.groupBox__tools_log = new System.Windows.Forms.GroupBox();
+			this.groupBox_tools_log = new System.Windows.Forms.GroupBox();
 			this.groupBox_controls_resizeComboBox = new System.Windows.Forms.GroupBox();
 			this.groupBox_tools_databaseTools_sqlFilter = new System.Windows.Forms.GroupBox();
 			this.groupBox_generators_generatePassword = new System.Windows.Forms.GroupBox();
@@ -79,6 +79,11 @@
 			this.timer_date = new System.Windows.Forms.Timer(this.components);
 			this.groupBox_controls_getOpenForms = new System.Windows.Forms.GroupBox();
 			this.button_controls_getOpenForms = new System.Windows.Forms.Button();
+			this.groupBox_tools_setWallpaperGetGifFrames = new System.Windows.Forms.GroupBox();
+			this.button_searchGif = new System.Windows.Forms.Button();
+			this.pictureBox_gif = new System.Windows.Forms.PictureBox();
+			this.button_setWallpaper = new System.Windows.Forms.Button();
+			this.fileDialog_searchGif = new System.Windows.Forms.OpenFileDialog();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -87,7 +92,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).BeginInit();
 			this.groupBox_tools_checkLogin.SuspendLayout();
-			this.groupBox__tools_log.SuspendLayout();
+			this.groupBox_tools_log.SuspendLayout();
 			this.groupBox_controls_resizeComboBox.SuspendLayout();
 			this.groupBox_tools_databaseTools_sqlFilter.SuspendLayout();
 			this.groupBox_generators_generatePassword.SuspendLayout();
@@ -95,6 +100,8 @@
 			this.groupBox_tools_databaseTools_selectUnique.SuspendLayout();
 			this.groupBox_tools_getDate.SuspendLayout();
 			this.groupBox_controls_getOpenForms.SuspendLayout();
+			this.groupBox_tools_setWallpaperGetGifFrames.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -415,18 +422,18 @@
 			this.groupBox_tools_checkLogin.TabStop = false;
 			this.groupBox_tools_checkLogin.Text = "Tools.CheckLogin";
 			// 
-			// groupBox__tools_log
+			// groupBox_tools_log
 			// 
-			this.groupBox__tools_log.Controls.Add(this.comboBox_logType);
-			this.groupBox__tools_log.Controls.Add(this.textBox_logMessage);
-			this.groupBox__tools_log.Controls.Add(this.textBox_logSource);
-			this.groupBox__tools_log.Controls.Add(this.button_log);
-			this.groupBox__tools_log.Location = new System.Drawing.Point(208, 150);
-			this.groupBox__tools_log.Name = "groupBox__tools_log";
-			this.groupBox__tools_log.Size = new System.Drawing.Size(200, 68);
-			this.groupBox__tools_log.TabIndex = 11;
-			this.groupBox__tools_log.TabStop = false;
-			this.groupBox__tools_log.Text = "Tools.Log";
+			this.groupBox_tools_log.Controls.Add(this.comboBox_logType);
+			this.groupBox_tools_log.Controls.Add(this.textBox_logMessage);
+			this.groupBox_tools_log.Controls.Add(this.textBox_logSource);
+			this.groupBox_tools_log.Controls.Add(this.button_log);
+			this.groupBox_tools_log.Location = new System.Drawing.Point(208, 150);
+			this.groupBox_tools_log.Name = "groupBox_tools_log";
+			this.groupBox_tools_log.Size = new System.Drawing.Size(200, 68);
+			this.groupBox_tools_log.TabIndex = 11;
+			this.groupBox_tools_log.TabStop = false;
+			this.groupBox_tools_log.Text = "Tools.Log";
 			// 
 			// groupBox_controls_resizeComboBox
 			// 
@@ -572,11 +579,59 @@
 			this.button_controls_getOpenForms.UseVisualStyleBackColor = true;
 			this.button_controls_getOpenForms.Click += new System.EventHandler(this.button_controls_getOpenForms_Click);
 			// 
+			// groupBox_tools_setWallpaperGetGifFrames
+			// 
+			this.groupBox_tools_setWallpaperGetGifFrames.Controls.Add(this.button_searchGif);
+			this.groupBox_tools_setWallpaperGetGifFrames.Controls.Add(this.pictureBox_gif);
+			this.groupBox_tools_setWallpaperGetGifFrames.Controls.Add(this.button_setWallpaper);
+			this.groupBox_tools_setWallpaperGetGifFrames.Location = new System.Drawing.Point(414, 154);
+			this.groupBox_tools_setWallpaperGetGifFrames.Name = "groupBox_tools_setWallpaperGetGifFrames";
+			this.groupBox_tools_setWallpaperGetGifFrames.Size = new System.Drawing.Size(200, 202);
+			this.groupBox_tools_setWallpaperGetGifFrames.TabIndex = 20;
+			this.groupBox_tools_setWallpaperGetGifFrames.TabStop = false;
+			this.groupBox_tools_setWallpaperGetGifFrames.Text = "Tools.(SetWallpaper | GetGifFrames)";
+			// 
+			// button_searchGif
+			// 
+			this.button_searchGif.Location = new System.Drawing.Point(10, 169);
+			this.button_searchGif.Name = "button_searchGif";
+			this.button_searchGif.Size = new System.Drawing.Size(92, 23);
+			this.button_searchGif.TabIndex = 2;
+			this.button_searchGif.Text = "Search GIF";
+			this.button_searchGif.UseVisualStyleBackColor = true;
+			this.button_searchGif.Click += new System.EventHandler(this.button_searchGif_Click);
+			// 
+			// pictureBox_gif
+			// 
+			this.pictureBox_gif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pictureBox_gif.Location = new System.Drawing.Point(10, 19);
+			this.pictureBox_gif.Name = "pictureBox_gif";
+			this.pictureBox_gif.Size = new System.Drawing.Size(182, 144);
+			this.pictureBox_gif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox_gif.TabIndex = 1;
+			this.pictureBox_gif.TabStop = false;
+			// 
+			// button_setWallpaper
+			// 
+			this.button_setWallpaper.Location = new System.Drawing.Point(101, 169);
+			this.button_setWallpaper.Name = "button_setWallpaper";
+			this.button_setWallpaper.Size = new System.Drawing.Size(93, 23);
+			this.button_setWallpaper.TabIndex = 0;
+			this.button_setWallpaper.Text = "Set Wallpaper";
+			this.button_setWallpaper.UseVisualStyleBackColor = true;
+			this.button_setWallpaper.Click += new System.EventHandler(this.button_setWallpaper_Click);
+			// 
+			// fileDialog_searchGif
+			// 
+			this.fileDialog_searchGif.Filter = "GIF Image|*.gif";
+			this.fileDialog_searchGif.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_searchGif_FileOk);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(616, 379);
+			this.Controls.Add(this.groupBox_tools_setWallpaperGetGifFrames);
 			this.Controls.Add(this.groupBox_controls_getOpenForms);
 			this.Controls.Add(this.groupBox_tools_getDate);
 			this.Controls.Add(this.groupBox_tools_databaseTools_selectUnique);
@@ -585,7 +640,7 @@
 			this.Controls.Add(this.groupBox_generators_generatePassword);
 			this.Controls.Add(this.groupBox_tools_databaseTools_sqlFilter);
 			this.Controls.Add(this.groupBox_controls_resizeComboBox);
-			this.Controls.Add(this.groupBox__tools_log);
+			this.Controls.Add(this.groupBox_tools_log);
 			this.Controls.Add(this.groupBox_tools_checkLogin);
 			this.Controls.Add(this.statusBar);
 			this.Controls.Add(this.groupBox_toolHash);
@@ -608,8 +663,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).EndInit();
 			this.groupBox_tools_checkLogin.ResumeLayout(false);
 			this.groupBox_tools_checkLogin.PerformLayout();
-			this.groupBox__tools_log.ResumeLayout(false);
-			this.groupBox__tools_log.PerformLayout();
+			this.groupBox_tools_log.ResumeLayout(false);
+			this.groupBox_tools_log.PerformLayout();
 			this.groupBox_controls_resizeComboBox.ResumeLayout(false);
 			this.groupBox_tools_databaseTools_sqlFilter.ResumeLayout(false);
 			this.groupBox_tools_databaseTools_sqlFilter.PerformLayout();
@@ -622,6 +677,8 @@
 			this.groupBox_tools_getDate.ResumeLayout(false);
 			this.groupBox_tools_getDate.PerformLayout();
 			this.groupBox_controls_getOpenForms.ResumeLayout(false);
+			this.groupBox_tools_setWallpaperGetGifFrames.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -660,7 +717,7 @@
 		private System.Windows.Forms.StatusBarPanel statusBarPanel_label;
 		private System.Windows.Forms.StatusBarPanel statusBarPanel_message;
 		private System.Windows.Forms.GroupBox groupBox_tools_checkLogin;
-		private System.Windows.Forms.GroupBox groupBox__tools_log;
+		private System.Windows.Forms.GroupBox groupBox_tools_log;
 		private System.Windows.Forms.GroupBox groupBox_controls_resizeComboBox;
 		private System.Windows.Forms.GroupBox groupBox_tools_databaseTools_sqlFilter;
 		private System.Windows.Forms.GroupBox groupBox_generators_generatePassword;
@@ -677,6 +734,11 @@
 		private System.Windows.Forms.Timer timer_date;
 		private System.Windows.Forms.GroupBox groupBox_controls_getOpenForms;
 		private System.Windows.Forms.Button button_controls_getOpenForms;
+		private System.Windows.Forms.GroupBox groupBox_tools_setWallpaperGetGifFrames;
+		private System.Windows.Forms.Button button_searchGif;
+		private System.Windows.Forms.PictureBox pictureBox_gif;
+		private System.Windows.Forms.Button button_setWallpaper;
+		private System.Windows.Forms.OpenFileDialog fileDialog_searchGif;
 	}
 }
 

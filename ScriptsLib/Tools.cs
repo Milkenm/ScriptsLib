@@ -13,7 +13,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using Microsoft.Win32;
+
 using ScriptsLib.Databases;
 
 using static ScriptsLib.Dev.Debug;
@@ -34,24 +36,42 @@ namespace ScriptsLib.Tools
 
 
 
+
+
+
+
+
+
+
+
+
+
+		#region Database Tools
+		/// <summary>Tools to use with databases.</summary>
 		public class DatabaseTools : Tools
 		{
+			/// <summary>Type of database to be used.</summary>
 			public enum DatabaseType
 			{
+				/// <summary>SQL Server.</summary>
 				SqlServer,
+				/// <summary>Access Database (.mdb).</summary>
 				Access,
+				/// <summary>MySql.</summary>
 				MySql,
 			}
 
-
 			
-
-
-
-
 
 			#region Check Login
 			// # ================================================================================================ #
+			/// <summary>Checks if the given user and password exist in the database.</summary>
+			/// <param name="_Table">The database table containing the user accounts.</param>
+			/// <param name="_Username">The given username to be checked.</param>
+			/// <param name="_Password">The given password to be checked.</param>
+			/// <param name="_UsernameColumn">The table column containing the usernames.</param>
+			/// <param name="_PasswordColumn">The table column containing the passwords.</param>
+			/// <param name="_DatabaseType">The type of database to use.</param>
 			public bool CheckLogin(string _Table, string _Username, string _Password, string _UsernameColumn, string _PasswordColumn, DatabaseType _DatabaseType)
 			{
 				try
@@ -107,17 +127,13 @@ namespace ScriptsLib.Tools
 					return false;
 				}
 			}
-
-
-
-
 			// # ================================================================================================ #
 			#endregion Check Login
-
-
-
+				
 			#region Filter SQL
 			// # ================================================================================================ #
+			/// <summary>Removes every unwanted char from the given string so it doesn't break the SQL query.</summary>
+			/// <param name="_String">The string to be filtered.</param>
 			public string FilterSql(string _String)
 			{
 				try
@@ -135,11 +151,13 @@ namespace ScriptsLib.Tools
 			}
 			// # ================================================================================================ #
 			#endregion Filter SQL
-
-
-
+				
 			#region Select Unique
 			// # ================================================================================================ #
+			/// <summary>From varius values, selectes one of each.</summary>
+			/// <param name="_Table">The table to search.</param>
+			/// <param name="_Column">The table column to search.</param>
+			/// <param name="_DatabaseType">The type of database to use.</param>
 			public List<string> SelectUnique(string _Table, string _Column, DatabaseType _DatabaseType)
 			{
 				try
@@ -172,11 +190,13 @@ namespace ScriptsLib.Tools
 			// # ================================================================================================ #
 			#endregion Select Unique
 		}
+		#endregion Database Tools
 
 
 
 		#region Crash
 		// # ================================================================================================ #
+		/// <summary>Crashes your application (this is useless no?).</summary>
 		public async Task Crash()
 		{
 			await Crash();
@@ -184,7 +204,7 @@ namespace ScriptsLib.Tools
 		// # ================================================================================================ #
 		#endregion Crash
 
-			
+
 
 		#region Hash
 		///
@@ -194,6 +214,8 @@ namespace ScriptsLib.Tools
 
 
 		// # ================================================================================================ #
+		/// <summary>Converts the given string to SHA-256.</summary>
+		/// <param name="_String">The string to be converted.</param>
 		public string Hash(string _String)
 		{
 			try
@@ -221,6 +243,12 @@ namespace ScriptsLib.Tools
 
 		#region Log
 		// # ================================================================================================ #
+		/// <summary>Logs something to a text file.</summary>
+		/// <param name="_Message">The message to log.</param>
+		/// <param name="_FileLocation">The location of the text file.</param>
+		/// <param name="_Source">The source of the message ([Source] » Message >>> [Main Form] » Something broke).</param>
+		/// <param name="_LogType">Info, Error or Warning (only changes the tag displayed on the log file).</param>
+		/// <param name="_IncludeDate">Include date and time?</param>
 		public async Task Log(string _Message, string _FileLocation, string _Source = null, LogType _LogType = LogType.Info, bool _IncludeDate = true)
 		{
 			try
@@ -290,10 +318,14 @@ namespace ScriptsLib.Tools
 			}
 		}
 
+		/// <summary>Type of log.</summary>
 		public enum LogType
 		{
+			/// <summary>Info tag.</summary>
 			Info,
+			/// <summary>Error tag.</summary>
 			Error,
+			/// <summary>Warning tag.</summary>
 			Warning,
 		}
 		// # ================================================================================================ #
@@ -309,6 +341,8 @@ namespace ScriptsLib.Tools
 
 
 		// # ================================================================================================ #
+		/// <summary>Formats exceptions.</summary>
+		/// <param name="_Exception">The exception itself.</param>
 		public async Task Exception(Exception _Exception)
 		{
 			try
@@ -327,6 +361,7 @@ namespace ScriptsLib.Tools
 
 		#region Get Date
 		// # ================================================================================================ #
+		/// <summary>Get current time and date. Format: [day]/[month]/[year] - [hour]:[minute]:[second] (.[millisecond])</summary>
 		public string GetDate()
 		{
 			string _Day = DateTime.Now.Day.ToString(), _Month = DateTime.Now.Month.ToString(), _Year = DateTime.Now.Year.ToString(), _Hour = DateTime.Now.Hour.ToString(), _Minute = DateTime.Now.Minute.ToString(), _Second = DateTime.Now.Second.ToString(), _Millisecond = DateTime.Now.Millisecond.ToString();
@@ -372,6 +407,7 @@ namespace ScriptsLib.Tools
 
 		#region Is Application Running
 		// # ================================================================================================ #
+		/// <summary>Returns true is "this" application is running, else false.</summary>
 		public bool? IsApplicationRunning()
 		{
 			try
@@ -405,6 +441,9 @@ namespace ScriptsLib.Tools
 		[DllImport("user32.dll", CharSet = CharSet.Auto)]
 		static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
 		// # ================================================================================================ #
+		/// <summary>Sets the desktop wallpaper.</summary>
+		/// <param name="_Image">The image to be set as wallpaper.</param>
+		/// <param name="_WallpaperStyle">How the imagem is going to be resized to fit the screen.</param>
 		public async Task SetWallpaper(Image _Image, WallpaperStyle _WallpaperStyle)
 		{
 			await Task.Factory.StartNew(() =>
@@ -435,10 +474,14 @@ namespace ScriptsLib.Tools
 			});
 		}
 		// # ================================================================================================ #
+		/// <summary>Types of wallpaper.</summary>
 		public enum WallpaperStyle
 		{
+			/// <summary>The image is tiled across the screen.</summary>
 			Tiled,
+			/// <summary>The image is centered on the screen.</summary>
 			Centered,
+			/// <summary>The image is steched to fit the screen.</summary>
 			Stretched,
 		}
 		// # ================================================================================================ #
@@ -448,16 +491,21 @@ namespace ScriptsLib.Tools
 
 		#region Get GIF Frames
 		// # ================================================================================================ #
-		Image[] GetGifFrames(Image _Gif)
+		/// <summary>Get frames from a GIF image.</summary>
+		/// <param name="_Gif">The GIF image to get the frames from.</param>
+		public Image[] GetGifFrames(Image _Gif)
 		{
 			int _FramesNumber = _Gif.GetFrameCount(FrameDimension.Time);
 			Image[] _Frames = new Image[_FramesNumber];
 
-			for (int i = 0; i < _FramesNumber; i++)
+			Task.Factory.StartNew(() =>
 			{
-				_Gif.SelectActiveFrame(FrameDimension.Time, i);
-				_Frames[i] = (Image)_Gif.Clone();
-			}
+				for (int i = 0; i < _FramesNumber; i++)
+				{
+					_Gif.SelectActiveFrame(FrameDimension.Time, i);
+					_Frames[i] = (Image)_Gif.Clone();
+				}
+			}).GetAwaiter().GetResult();
 
 			return _Frames;
 		}

@@ -7,14 +7,21 @@ using System.Windows.Forms;
 
 namespace ScriptsLib.Dev
 {
+	/// <summary>Debug tools.</summary>
 	public class Debug
 	{
+		/// <summary>Enables or disabled debug mode.</summary>
 		public static bool _Debug { get; set; }
+		/// <summary>Hide info messages if debug mode is on?</summary>
 		public static bool _ErrorsOnly { get; set; }
 
 
 
 		#region DE3UG
+		/// <summary>Shows a message box.</summary>
+		/// <param name="_Message">The message to be displayed.</param>
+		/// <param name="_Type">Type of message.</param>
+		/// <param name="_Title">Title of the message.</param>
 		internal void Msg(string _Message, MsgType _Type, string _Title = null)
 		{
 			try
@@ -48,9 +55,12 @@ namespace ScriptsLib.Dev
 			catch { }
 		}
 
+		/// <summary>Type of message.</summary>
 		internal enum MsgType
 		{
+			/// <summary>Info.</summary>
 			Info,
+			/// <summary>Error.</summary>
 			Error,
 		}
 		#endregion DE3UG

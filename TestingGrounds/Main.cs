@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -50,7 +51,7 @@ namespace TestingGrounds
 			ScriptsLib.Dev.Debug._Debug = true;
 			ScriptsLib.Dev.Debug._ErrorsOnly = true;
 
-
+			fileDialog_searchGif.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
 
 			SqlServerDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
@@ -355,11 +356,65 @@ namespace TestingGrounds
 
 
 		#region Tools.GetDate
+		// # ================================================================================================ #
 		private void timer_date_Tick(object sender, EventArgs e)
 		{
 			label_date.Text = _Tools.GetDate();
 		}
+		// # ================================================================================================ #
 		#endregion Tools.GetDate
+
+
+
+		#region Tools.SetWallpaper | Tools.GetGifFrames
+		// # ================================================================================================ #
+		static Image[] _Frames;
+		// # ================================================================================================ #
+		private void button_searchGif_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				fileDialog_searchGif.ShowDialog();
+			}
+			catch (Exception _Exception)
+			{
+				_Tools.Exception(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		private void fileDialog_searchGif_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			if (!String.IsNullOrEmpty(fileDialog_searchGif.FileName))
+			{
+				_Frames = _Tools.GetGifFrames(Image.FromFile(fileDialog_searchGif.FileName));
+
+				UseGifFrames();
+			}
+		}
+		// # ================================================================================================ #
+		void UseGifFrames()
+		{
+			foreach (Image _Frame in _Frames)
+			{
+				pictureBox_gif.BackgroundImage = _Frame;
+			}
+		}
+		// # ================================================================================================ #
+		private void button_setWallpaper_Click(object sender, EventArgs e)
+		{
+			Task.Factory.StartNew(() =>
+			{
+				while (true)
+				{
+					foreach (Image _Frame in _Frames)
+					{
+						_Tools.SetWallpaper(_Frame, Tools.WallpaperStyle.Centered).GetAwaiter();
+					}
+				}
+			});
+		}
+		// # ================================================================================================ #
+		#endregion Tools.SetWallpaper | Tools.GetGifFrames
 		#endregion Tools
 
 
@@ -513,6 +568,12 @@ namespace TestingGrounds
 			}
 		}
 		#endregion Controls.Form.GetOpenForms
+
 		#endregion Controls
+
+		private void pictureBox_gif_BackgroundImageChanged(object sender, EventArgs e)
+		{
+			_Tools.SetWallpaper(pictureBox_gif.BackgroundImage, Tools.WallpaperStyle.Centered);
+		}
 	}
 }
