@@ -224,6 +224,30 @@ namespace ScriptsLib.Controls
 			}
 			// # ================================================================================================ #
 			#endregion Set Intro Form
+
+
+
+			#region Bring To Front
+			/// <summary>Brings the selected form to the front.</summary>
+			/// <param name="_FormName">The name of the form to bring to the front.</param>
+			public void BringToFront(string _FormName)
+			{
+				try
+				{
+					foreach (System.Windows.Forms.Form _Form in Application.OpenForms)
+					{
+						if(_Form.Name == _FormName)
+						{
+							_Form.BringToFront();
+						}
+					}
+				}
+				catch (Exception _Exception)
+				{
+					_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				}
+			}
+			#endregion Bring To Front
 		}
 
 
