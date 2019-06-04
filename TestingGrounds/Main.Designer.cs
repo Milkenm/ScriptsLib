@@ -222,7 +222,7 @@
 			this.groupBox_tools_crash.Size = new System.Drawing.Size(200, 49);
 			this.groupBox_tools_crash.TabIndex = 7;
 			this.groupBox_tools_crash.TabStop = false;
-			this.groupBox_tools_crash.Text = "Tools.Crash";
+			this.groupBox_tools_crash.Text = "Crash";
 			// 
 			// comboBox_resize
 			// 
@@ -375,7 +375,7 @@
 			this.groupBox_toolHash.Size = new System.Drawing.Size(200, 50);
 			this.groupBox_toolHash.TabIndex = 8;
 			this.groupBox_toolHash.TabStop = false;
-			this.groupBox_toolHash.Text = "Tools.Hash";
+			this.groupBox_toolHash.Text = "Hash";
 			// 
 			// textBox_hash
 			// 
@@ -423,7 +423,7 @@
 			this.groupBox_tools_checkLogin.Size = new System.Drawing.Size(200, 92);
 			this.groupBox_tools_checkLogin.TabIndex = 10;
 			this.groupBox_tools_checkLogin.TabStop = false;
-			this.groupBox_tools_checkLogin.Text = "Tools.CheckLogin";
+			this.groupBox_tools_checkLogin.Text = "Check Login";
 			// 
 			// groupBox_tools_log
 			// 
@@ -436,7 +436,7 @@
 			this.groupBox_tools_log.Size = new System.Drawing.Size(200, 68);
 			this.groupBox_tools_log.TabIndex = 11;
 			this.groupBox_tools_log.TabStop = false;
-			this.groupBox_tools_log.Text = "Tools.Log";
+			this.groupBox_tools_log.Text = "Log";
 			// 
 			// groupBox_controls_resizeComboBox
 			// 
@@ -447,7 +447,7 @@
 			this.groupBox_controls_resizeComboBox.Size = new System.Drawing.Size(200, 65);
 			this.groupBox_controls_resizeComboBox.TabIndex = 12;
 			this.groupBox_controls_resizeComboBox.TabStop = false;
-			this.groupBox_controls_resizeComboBox.Text = "Controls.ResizeComboBox";
+			this.groupBox_controls_resizeComboBox.Text = "Resize ComboBox";
 			// 
 			// groupBox_tools_databaseTools_sqlFilter
 			// 
@@ -458,7 +458,7 @@
 			this.groupBox_tools_databaseTools_sqlFilter.Size = new System.Drawing.Size(200, 46);
 			this.groupBox_tools_databaseTools_sqlFilter.TabIndex = 13;
 			this.groupBox_tools_databaseTools_sqlFilter.TabStop = false;
-			this.groupBox_tools_databaseTools_sqlFilter.Text = "Tools.DatabaseTools.SqlFilter";
+			this.groupBox_tools_databaseTools_sqlFilter.Text = "SQL Filter";
 			// 
 			// groupBox_generators_generatePassword
 			// 
@@ -470,7 +470,7 @@
 			this.groupBox_generators_generatePassword.Size = new System.Drawing.Size(200, 71);
 			this.groupBox_generators_generatePassword.TabIndex = 14;
 			this.groupBox_generators_generatePassword.TabStop = false;
-			this.groupBox_generators_generatePassword.Text = "Generators.GeneratePassword";
+			this.groupBox_generators_generatePassword.Text = "Generate Password";
 			// 
 			// groupBox_controls_onlyNumbersTextBox
 			// 
@@ -481,7 +481,7 @@
 			this.groupBox_controls_onlyNumbersTextBox.Size = new System.Drawing.Size(200, 75);
 			this.groupBox_controls_onlyNumbersTextBox.TabIndex = 15;
 			this.groupBox_controls_onlyNumbersTextBox.TabStop = false;
-			this.groupBox_controls_onlyNumbersTextBox.Text = "Controls.OnlyNumbersTextBox";
+			this.groupBox_controls_onlyNumbersTextBox.Text = "Only Numbers TextBox";
 			// 
 			// checkBox_onlyNumbers
 			// 
@@ -511,7 +511,7 @@
 			this.groupBox_tools_databaseTools_selectUnique.Size = new System.Drawing.Size(200, 90);
 			this.groupBox_tools_databaseTools_selectUnique.TabIndex = 15;
 			this.groupBox_tools_databaseTools_selectUnique.TabStop = false;
-			this.groupBox_tools_databaseTools_selectUnique.Text = "Tools.DatabaseTools.SelectUnique";
+			this.groupBox_tools_databaseTools_selectUnique.Text = "Select Unique";
 			// 
 			// button_selectUnique
 			// 
@@ -554,7 +554,7 @@
 			this.groupBox_tools_getDate.Size = new System.Drawing.Size(200, 51);
 			this.groupBox_tools_getDate.TabIndex = 17;
 			this.groupBox_tools_getDate.TabStop = false;
-			this.groupBox_tools_getDate.Text = "Tools.GetDate";
+			this.groupBox_tools_getDate.Text = "Get Date";
 			// 
 			// timer_date
 			// 
@@ -570,7 +570,7 @@
 			this.groupBox_controls_getOpenForms.Size = new System.Drawing.Size(200, 53);
 			this.groupBox_controls_getOpenForms.TabIndex = 18;
 			this.groupBox_controls_getOpenForms.TabStop = false;
-			this.groupBox_controls_getOpenForms.Text = "Controls.Forms.GetOpenForms";
+			this.groupBox_controls_getOpenForms.Text = "Get Open Forms";
 			// 
 			// button_controls_getOpenForms
 			// 
@@ -592,7 +592,7 @@
 			this.groupBox_tools_setWallpaperGetGifFrames.Size = new System.Drawing.Size(200, 202);
 			this.groupBox_tools_setWallpaperGetGifFrames.TabIndex = 20;
 			this.groupBox_tools_setWallpaperGetGifFrames.TabStop = false;
-			this.groupBox_tools_setWallpaperGetGifFrames.Text = "Tools.(SetWallpaper | GetGifFrames)";
+			this.groupBox_tools_setWallpaperGetGifFrames.Text = "Set Wallpaper | Get GIF Frames";
 			// 
 			// button_searchGif
 			// 
@@ -637,7 +637,7 @@
 			this.groupBox_controls_messageBox_showConfirmationDialog.Size = new System.Drawing.Size(200, 53);
 			this.groupBox_controls_messageBox_showConfirmationDialog.TabIndex = 19;
 			this.groupBox_controls_messageBox_showConfirmationDialog.TabStop = false;
-			this.groupBox_controls_messageBox_showConfirmationDialog.Text = "Controls.MessageBox.ShowConfirmationDialog";
+			this.groupBox_controls_messageBox_showConfirmationDialog.Text = "Show Confirmation Dialog";
 			// 
 			// button_showConfirmationDialog
 			// 
