@@ -343,7 +343,10 @@ namespace ScriptsLib.Databases
 									}
 								}
 								_Debug.Msg("Add: " + _Add, MsgType.Info, "OleDbDataReader.Read()");
-								_Results.Add(_Add);
+								if (!String.IsNullOrEmpty(_Add))
+								{
+									_Results.Add(_Add);
+								}
 							}
 						}
 						else
@@ -355,8 +358,21 @@ namespace ScriptsLib.Databases
 				}
 				_OleDbConnection.Close();
 
+				List<string> _FilterResults = new List<string>();
 
-				return _Results;
+				foreach (string _Result in _Results)
+				{
+					if (!String.IsNullOrEmpty(_Result))
+					{
+						_FilterResults.Add(_Result);
+					}
+				}
+
+				if (_FilterResults == null)
+				{
+					_FilterResults[0] = null;
+				}
+				return _FilterResults;
 			}
 			catch (Exception _Exception)
 			{
