@@ -368,10 +368,6 @@ namespace ScriptsLib.Databases
 					}
 				}
 
-				if (_FilterResults == null)
-				{
-					_FilterResults[0] = null;
-				}
 				return _FilterResults;
 			}
 			catch (Exception _Exception)
