@@ -511,5 +511,30 @@ namespace ScriptsLib.Tools
 		}
 		// # ================================================================================================ #
 		#endregion Get GIF Frames
+
+
+
+		#region Get Text File Content
+		public string GetTextFileContent(string _Path)
+		{
+			try
+			{
+				if (File.Exists(_Path))
+				{
+					return String.Join("\n", File.ReadAllLines($@"{_Path}"));
+				}
+				else
+				{
+					_Debug.Msg("The file does not exist", MsgType.Error, "GetTextFileContent()");
+					return null;
+				}
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
+		}
+		#endregion Get Text File Content
 	}
 }
