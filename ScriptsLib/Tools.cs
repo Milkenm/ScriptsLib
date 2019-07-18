@@ -523,6 +523,9 @@ namespace ScriptsLib.Tools
 
 
 		#region Get Text File Content
+		// # ================================================================================================ #
+		/// <summary>Reads a text file and returns its content in a single string.</summary>
+		/// <param name="_Path">The path of the text file.</param>
 		public string GetTextFileContent(string _Path)
 		{
 			try
@@ -543,6 +546,16 @@ namespace ScriptsLib.Tools
 				return null;
 			}
 		}
+		// # ================================================================================================ #
 		#endregion Get Text File Content
+
+
+
+		#region Replace String
+		public string ReplaceString(string _String)
+		{
+
+		}
+		#endregion Replace String
 	}
 }
