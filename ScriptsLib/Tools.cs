@@ -495,19 +495,27 @@ namespace ScriptsLib.Tools
 		/// <param name="_Gif">The GIF image to get the frames from.</param>
 		public Image[] GetGifFrames(Image _Gif)
 		{
-			int _FramesNumber = _Gif.GetFrameCount(FrameDimension.Time);
-			Image[] _Frames = new Image[_FramesNumber];
-
-			Task.Factory.StartNew(() =>
+			try
 			{
-				for (int i = 0; i < _FramesNumber; i++)
-				{
-					_Gif.SelectActiveFrame(FrameDimension.Time, i);
-					_Frames[i] = (Image)_Gif.Clone();
-				}
-			}).GetAwaiter().GetResult();
+				int _FramesNumber = _Gif.GetFrameCount(FrameDimension.Time);
+				Image[] _Frames = new Image[_FramesNumber];
 
-			return _Frames;
+				Task.Factory.StartNew(() =>
+				{
+					for (int i = 0; i < _FramesNumber; i++)
+					{
+						_Gif.SelectActiveFrame(FrameDimension.Time, i);
+						_Frames[i] = (Image)_Gif.Clone();
+					}
+				}).GetAwaiter().GetResult();
+
+				return _Frames;
+			}
+			catch (Exception _Exception)
+			{
+				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
+				return null;
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Get GIF Frames
