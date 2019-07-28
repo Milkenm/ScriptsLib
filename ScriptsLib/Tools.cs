@@ -554,16 +554,16 @@ namespace ScriptsLib.Tools
 		#region Replace String
 		// # ================================================================================================ #
 		/// <summary>Replaces values from a string with new ones.</summary>
-		/// <param name="_String">The string to replace values from.</param>
+		/// <param name="_OriginalString">The string to replace values from.</param>
 		/// <param name="_Search">The values to be replaced.</param>
 		/// <param name="_Replacement">The value to replace with.</param>
-		public string ReplaceString(string _String, string _Search, string _Replacement)
+		public string ReplaceString(string _OriginalString, string _Search, string _Replacement)
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(_String))
+				if (!String.IsNullOrEmpty(_OriginalString))
 				{
-					return new Regex($@"{_Search}").Replace(_String, _Replacement);
+					return new Regex($@"{_Search}").Replace(_OriginalString, _Replacement);
 				}
 				else
 				{
