@@ -1,14 +1,15 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
+using System.Numerics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ScriptsLib.Controls;
 using ScriptsLib.Databases;
 using ScriptsLib.Generators;
+using ScriptsLib.Network;
 using ScriptsLib.Tools;
 #endregion Usings
 
@@ -35,6 +36,8 @@ namespace TestingGrounds
 		Controls.MessageBox _MessageBox = new Controls.MessageBox();
 
 		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
+
+		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -48,7 +51,7 @@ namespace TestingGrounds
 		private void Main_Load(object sender, EventArgs e)
 		{
 			_Form.SetIntroForm(this, 0.0085, false);
-			
+
 
 			ScriptsLib.Dev.Debug._Debug = true;
 			ScriptsLib.Dev.Debug._ErrorsOnly = true;
@@ -368,7 +371,7 @@ namespace TestingGrounds
 
 
 
-		#region Tools.SetWallpaper | Tools.GetGifFrames
+		#region Tools.SetWallpaper & Tools.GetGifFrames
 		// # ================================================================================================ #
 		static Image[] _Frames;
 		// # ================================================================================================ #
@@ -380,7 +383,7 @@ namespace TestingGrounds
 			}
 			catch (Exception _Exception)
 			{
-				_Tools.Exception(_Exception);
+				Ex(_Exception);
 			}
 		}
 		// # ================================================================================================ #
@@ -416,7 +419,58 @@ namespace TestingGrounds
 			});
 		}
 		// # ================================================================================================ #
-		#endregion Tools.SetWallpaper | Tools.GetGifFrames
+		#endregion Tools.SetWallpaper & Tools.GetGifFrames
+
+
+
+		#region Tools.GetTextFileContent
+		// # ================================================================================================ #
+		private void button_readfile_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				fileDialog_readFile.ShowDialog();
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		private void fileDialog_readFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			try
+			{
+				if (!String.IsNullOrEmpty(fileDialog_readFile.FileName))
+				{
+					MessageBox.Show(_Tools.GetTextFileContent(fileDialog_readFile.FileName), "Read File");
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Tools.GetTextFileContent
+
+
+
+		#region Tools.ReplaceString
+		// # ================================================================================================ #
+		private void button_replace_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				MessageBox.Show(_Tools.ReplaceString(textBox_original.Text, textBox_replace.Text, textBox_replacewith.Text));
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Tools.ReplaceString
 		#endregion Tools
 
 
@@ -461,7 +515,14 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_sqlFilter_Click(object sender, EventArgs e)
 		{
-			textBox_sqlFilter.Text = _DatabaseTools.FilterSql(textBox_sqlFilter.Text);
+			try
+			{
+				textBox_sqlFilter.Text = _DatabaseTools.FilterSql(textBox_sqlFilter.Text);
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Tools.DatabaseTools.SqlFilter
@@ -510,7 +571,14 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_generatePassword_Click(object sender, EventArgs e)
 		{
-			textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
+			try
+			{
+				textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Generators.GeneratePassword
@@ -523,16 +591,23 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_resizeCombobox_Click(object sender, EventArgs e)
 		{
-			if (comboBox_resize.Height == 37)
+			try
 			{
-				_ComboBox.Resize(comboBox_resize, 21);
-			}
-			else
-			{
-				_ComboBox.Resize(comboBox_resize, 37);
-			}
+				if (comboBox_resize.Height == 37)
+				{
+					_ComboBox.Resize(comboBox_resize, 21);
+				}
+				else
+				{
+					_ComboBox.Resize(comboBox_resize, 37);
+				}
 
-			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+				button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
 		}
 		// # ================================================================================================ #
 		#endregion Controls.ComboBox.ResizeComboBox
@@ -543,13 +618,20 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void checkBox_onlyNumbers_CheckedChanged(object sender, EventArgs e)
 		{
-			if (checkBox_onlyNumbers.Checked == true)
+			try
 			{
-				_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
+				if (checkBox_onlyNumbers.Checked == true)
+				{
+					_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
+				}
+				else
+				{
+					_TextBox.OnlyNumbers(textBox_onlyNumbers, false, false);
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				_TextBox.OnlyNumbers(textBox_onlyNumbers, false, false);
+				Ex(_Exception);
 			}
 		}
 		// # ================================================================================================ #
@@ -566,7 +648,7 @@ namespace TestingGrounds
 			}
 			catch (Exception _Exception)
 			{
-				_Tools.Exception(_Exception);
+				Ex(_Exception);
 			}
 		}
 		#endregion Controls.Form.GetOpenForms
@@ -576,18 +658,93 @@ namespace TestingGrounds
 		#region Controls.MessageBox.ShowConfirmationDialog
 		private void button_showConfirmationDialog_Click(object sender, EventArgs e)
 		{
-			bool _Confirm = _MessageBox.ShowConfirmationDialog("Title", "Message", MessageBoxIcon.Information);
+			try
+			{
+				bool _Confirm = _MessageBox.ShowConfirmationDialog("Title", "Message", MessageBoxIcon.Information);
 
-			if (_Confirm == true)
-			{
-				MessageBox.Show("Accepted!");
+				if (_Confirm == true)
+				{
+					MessageBox.Show("Accepted!");
+				}
+				else
+				{
+					MessageBox.Show("Declined.");
+				}
 			}
-			else
+			catch (Exception _Exception)
 			{
-				MessageBox.Show("Declined.");
+				Ex(_Exception);
 			}
 		}
 		#endregion Controls.MessageBox.ShowConfirmationDialog
 		#endregion Controls
+
+
+
+		#region Network
+		#region Network.Wifi.Connect
+		// # ================================================================================================ #
+		private void button_connect_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (!String.IsNullOrEmpty(textBox_wifiPassword.Text) && !String.IsNullOrEmpty(textBox_wifiSsid.Text))
+				{
+					Network.Wifi _Wifi = new Network.Wifi();
+					_Wifi.Connect(textBox_wifiSsid.Text, textBox_wifiPassword.Text);
+				}
+				else
+				{
+					MessageBox.Show("Fill all fields.");
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Network.Wifi.Connect
+		#endregion Network
+
+
+
+		#region Math
+		#region Calculate Combinations
+		// # ================================================================================================ #
+		private void button_calculate_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				MessageBox.Show(_Math.CalculateCombinations((BigInteger)numeric_elements.Value, (BigInteger)numeric_group.Value).ToString(), "Result", MessageBoxButtons.OK);
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Calculate Combinations
+
+
+
+		#region Calculate Factorial
+		// # ================================================================================================ #
+		private void button_calculateFactorial_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				MessageBox.Show(_Math.CalculateFactorial((ulong)numeric_factorial.Value).ToString(), "Result", MessageBoxButtons.OK);
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Calculate Factorial
+		#endregion Math
+
+
 	}
 }

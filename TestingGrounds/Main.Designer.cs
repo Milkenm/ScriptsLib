@@ -61,7 +61,6 @@
 			this.statusBar = new System.Windows.Forms.StatusBar();
 			this.statusBarPanel_label = new System.Windows.Forms.StatusBarPanel();
 			this.statusBarPanel_message = new System.Windows.Forms.StatusBarPanel();
-			this.statusBarPanel_separator = new System.Windows.Forms.StatusBarPanel();
 			this.groupBox_tools_checkLogin = new System.Windows.Forms.GroupBox();
 			this.groupBox_tools_log = new System.Windows.Forms.GroupBox();
 			this.groupBox_controls_resizeComboBox = new System.Windows.Forms.GroupBox();
@@ -86,13 +85,39 @@
 			this.fileDialog_searchGif = new System.Windows.Forms.OpenFileDialog();
 			this.groupBox_controls_messageBox_showConfirmationDialog = new System.Windows.Forms.GroupBox();
 			this.button_showConfirmationDialog = new System.Windows.Forms.Button();
+			this.groupBox_network_wifi_connect = new System.Windows.Forms.GroupBox();
+			this.button_connect = new System.Windows.Forms.Button();
+			this.label_password = new System.Windows.Forms.Label();
+			this.label_ssid = new System.Windows.Forms.Label();
+			this.textBox_wifiPassword = new System.Windows.Forms.TextBox();
+			this.textBox_wifiSsid = new System.Windows.Forms.TextBox();
+			this.groupBox_tools_gettextfilecontent = new System.Windows.Forms.GroupBox();
+			this.button_readfile = new System.Windows.Forms.Button();
+			this.fileDialog_readFile = new System.Windows.Forms.OpenFileDialog();
+			this.groupBox_tools_replaceString = new System.Windows.Forms.GroupBox();
+			this.label_replacewith = new System.Windows.Forms.Label();
+			this.button_replace = new System.Windows.Forms.Button();
+			this.label_replace = new System.Windows.Forms.Label();
+			this.label_original = new System.Windows.Forms.Label();
+			this.textBox_replacewith = new System.Windows.Forms.TextBox();
+			this.textBox_replace = new System.Windows.Forms.TextBox();
+			this.textBox_original = new System.Windows.Forms.TextBox();
+			this.button_calculate = new System.Windows.Forms.Button();
+			this.groupBox_math_calculateCombinations = new System.Windows.Forms.GroupBox();
+			this.numeric_elements = new System.Windows.Forms.NumericUpDown();
+			this.label_elements = new System.Windows.Forms.Label();
+			this.label_group = new System.Windows.Forms.Label();
+			this.numeric_group = new System.Windows.Forms.NumericUpDown();
+			this.groupBox_math_calculateFactorial = new System.Windows.Forms.GroupBox();
+			this.button_calculateFactorial = new System.Windows.Forms.Button();
+			this.label_factorial = new System.Windows.Forms.Label();
+			this.numeric_factorial = new System.Windows.Forms.NumericUpDown();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
 			this.groupBox_toolHash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).BeginInit();
 			this.groupBox_tools_checkLogin.SuspendLayout();
 			this.groupBox_tools_log.SuspendLayout();
 			this.groupBox_controls_resizeComboBox.SuspendLayout();
@@ -105,6 +130,14 @@
 			this.groupBox_tools_setWallpaperGetGifFrames.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).BeginInit();
 			this.groupBox_controls_messageBox_showConfirmationDialog.SuspendLayout();
+			this.groupBox_network_wifi_connect.SuspendLayout();
+			this.groupBox_tools_gettextfilecontent.SuspendLayout();
+			this.groupBox_tools_replaceString.SuspendLayout();
+			this.groupBox_math_calculateCombinations.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_elements)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_group)).BeginInit();
+			this.groupBox_math_calculateFactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_factorial)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_criarTabela
@@ -209,7 +242,7 @@
             "Sql Server",
             "Access",
             "MySql"});
-			this.comboBox_databaseType.Location = new System.Drawing.Point(428, 358);
+			this.comboBox_databaseType.Location = new System.Drawing.Point(635, 358);
 			this.comboBox_databaseType.Name = "comboBox_databaseType";
 			this.comboBox_databaseType.Size = new System.Drawing.Size(188, 21);
 			this.comboBox_databaseType.TabIndex = 5;
@@ -286,6 +319,7 @@
 			// 
 			this.textBox_generatePassword.Location = new System.Drawing.Point(6, 19);
 			this.textBox_generatePassword.Name = "textBox_generatePassword";
+			this.textBox_generatePassword.ReadOnly = true;
 			this.textBox_generatePassword.Size = new System.Drawing.Size(188, 20);
 			this.textBox_generatePassword.TabIndex = 11;
 			// 
@@ -391,10 +425,9 @@
 			this.statusBar.Name = "statusBar";
 			this.statusBar.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
             this.statusBarPanel_label,
-            this.statusBarPanel_message,
-            this.statusBarPanel_separator});
+            this.statusBarPanel_message});
 			this.statusBar.ShowPanels = true;
-			this.statusBar.Size = new System.Drawing.Size(845, 22);
+			this.statusBar.Size = new System.Drawing.Size(1028, 22);
 			this.statusBar.TabIndex = 9;
 			// 
 			// statusBarPanel_label
@@ -405,11 +438,7 @@
 			// statusBarPanel_message
 			// 
 			this.statusBarPanel_message.Name = "statusBarPanel_message";
-			this.statusBarPanel_message.Width = 377;
-			// 
-			// statusBarPanel_separator
-			// 
-			this.statusBarPanel_separator.Name = "statusBarPanel_separator";
+			this.statusBarPanel_message.Width = 1000;
 			// 
 			// groupBox_tools_checkLogin
 			// 
@@ -592,7 +621,7 @@
 			this.groupBox_tools_setWallpaperGetGifFrames.Size = new System.Drawing.Size(200, 202);
 			this.groupBox_tools_setWallpaperGetGifFrames.TabIndex = 20;
 			this.groupBox_tools_setWallpaperGetGifFrames.TabStop = false;
-			this.groupBox_tools_setWallpaperGetGifFrames.Text = "Set Wallpaper | Get GIF Frames";
+			this.groupBox_tools_setWallpaperGetGifFrames.Text = "Set Wallpaper && Get GIF Frames";
 			// 
 			// button_searchGif
 			// 
@@ -649,11 +678,264 @@
 			this.button_showConfirmationDialog.UseVisualStyleBackColor = true;
 			this.button_showConfirmationDialog.Click += new System.EventHandler(this.button_showConfirmationDialog_Click);
 			// 
+			// groupBox_network_wifi_connect
+			// 
+			this.groupBox_network_wifi_connect.Controls.Add(this.button_connect);
+			this.groupBox_network_wifi_connect.Controls.Add(this.label_password);
+			this.groupBox_network_wifi_connect.Controls.Add(this.label_ssid);
+			this.groupBox_network_wifi_connect.Controls.Add(this.textBox_wifiPassword);
+			this.groupBox_network_wifi_connect.Controls.Add(this.textBox_wifiSsid);
+			this.groupBox_network_wifi_connect.Location = new System.Drawing.Point(620, 58);
+			this.groupBox_network_wifi_connect.Name = "groupBox_network_wifi_connect";
+			this.groupBox_network_wifi_connect.Size = new System.Drawing.Size(200, 133);
+			this.groupBox_network_wifi_connect.TabIndex = 21;
+			this.groupBox_network_wifi_connect.TabStop = false;
+			this.groupBox_network_wifi_connect.Text = "Connect to Wi-Fi";
+			// 
+			// button_connect
+			// 
+			this.button_connect.Location = new System.Drawing.Point(119, 102);
+			this.button_connect.Name = "button_connect";
+			this.button_connect.Size = new System.Drawing.Size(75, 23);
+			this.button_connect.TabIndex = 4;
+			this.button_connect.Text = "Connect";
+			this.button_connect.UseVisualStyleBackColor = true;
+			this.button_connect.Click += new System.EventHandler(this.button_connect_Click);
+			// 
+			// label_password
+			// 
+			this.label_password.AutoSize = true;
+			this.label_password.Location = new System.Drawing.Point(6, 59);
+			this.label_password.Name = "label_password";
+			this.label_password.Size = new System.Drawing.Size(53, 13);
+			this.label_password.TabIndex = 3;
+			this.label_password.Text = "Password";
+			// 
+			// label_ssid
+			// 
+			this.label_ssid.AutoSize = true;
+			this.label_ssid.Location = new System.Drawing.Point(6, 16);
+			this.label_ssid.Name = "label_ssid";
+			this.label_ssid.Size = new System.Drawing.Size(32, 13);
+			this.label_ssid.TabIndex = 2;
+			this.label_ssid.Text = "SSID";
+			// 
+			// textBox_wifiPassword
+			// 
+			this.textBox_wifiPassword.Location = new System.Drawing.Point(9, 75);
+			this.textBox_wifiPassword.Name = "textBox_wifiPassword";
+			this.textBox_wifiPassword.Size = new System.Drawing.Size(185, 20);
+			this.textBox_wifiPassword.TabIndex = 1;
+			// 
+			// textBox_wifiSsid
+			// 
+			this.textBox_wifiSsid.Location = new System.Drawing.Point(9, 32);
+			this.textBox_wifiSsid.Name = "textBox_wifiSsid";
+			this.textBox_wifiSsid.Size = new System.Drawing.Size(185, 20);
+			this.textBox_wifiSsid.TabIndex = 0;
+			// 
+			// groupBox_tools_gettextfilecontent
+			// 
+			this.groupBox_tools_gettextfilecontent.Controls.Add(this.button_readfile);
+			this.groupBox_tools_gettextfilecontent.Location = new System.Drawing.Point(620, 193);
+			this.groupBox_tools_gettextfilecontent.Name = "groupBox_tools_gettextfilecontent";
+			this.groupBox_tools_gettextfilecontent.Size = new System.Drawing.Size(200, 50);
+			this.groupBox_tools_gettextfilecontent.TabIndex = 22;
+			this.groupBox_tools_gettextfilecontent.TabStop = false;
+			this.groupBox_tools_gettextfilecontent.Text = "Get Text File Content";
+			// 
+			// button_readfile
+			// 
+			this.button_readfile.Location = new System.Drawing.Point(9, 19);
+			this.button_readfile.Name = "button_readfile";
+			this.button_readfile.Size = new System.Drawing.Size(185, 23);
+			this.button_readfile.TabIndex = 0;
+			this.button_readfile.Text = "Read File";
+			this.button_readfile.UseVisualStyleBackColor = true;
+			this.button_readfile.Click += new System.EventHandler(this.button_readfile_Click);
+			// 
+			// fileDialog_readFile
+			// 
+			this.fileDialog_readFile.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_readFile_FileOk);
+			// 
+			// groupBox_tools_replaceString
+			// 
+			this.groupBox_tools_replaceString.Controls.Add(this.label_replacewith);
+			this.groupBox_tools_replaceString.Controls.Add(this.button_replace);
+			this.groupBox_tools_replaceString.Controls.Add(this.label_replace);
+			this.groupBox_tools_replaceString.Controls.Add(this.label_original);
+			this.groupBox_tools_replaceString.Controls.Add(this.textBox_replacewith);
+			this.groupBox_tools_replaceString.Controls.Add(this.textBox_replace);
+			this.groupBox_tools_replaceString.Controls.Add(this.textBox_original);
+			this.groupBox_tools_replaceString.Location = new System.Drawing.Point(620, 244);
+			this.groupBox_tools_replaceString.Name = "groupBox_tools_replaceString";
+			this.groupBox_tools_replaceString.Size = new System.Drawing.Size(200, 112);
+			this.groupBox_tools_replaceString.TabIndex = 23;
+			this.groupBox_tools_replaceString.TabStop = false;
+			this.groupBox_tools_replaceString.Text = "Replace String";
+			// 
+			// label_replacewith
+			// 
+			this.label_replacewith.AutoSize = true;
+			this.label_replacewith.Location = new System.Drawing.Point(108, 62);
+			this.label_replacewith.Name = "label_replacewith";
+			this.label_replacewith.Size = new System.Drawing.Size(26, 13);
+			this.label_replacewith.TabIndex = 27;
+			this.label_replacewith.Text = "with";
+			// 
+			// button_replace
+			// 
+			this.button_replace.Location = new System.Drawing.Point(119, 85);
+			this.button_replace.Name = "button_replace";
+			this.button_replace.Size = new System.Drawing.Size(75, 23);
+			this.button_replace.TabIndex = 24;
+			this.button_replace.Text = "Replace";
+			this.button_replace.UseVisualStyleBackColor = true;
+			this.button_replace.Click += new System.EventHandler(this.button_replace_Click);
+			// 
+			// label_replace
+			// 
+			this.label_replace.AutoSize = true;
+			this.label_replace.Location = new System.Drawing.Point(3, 62);
+			this.label_replace.Name = "label_replace";
+			this.label_replace.Size = new System.Drawing.Size(47, 13);
+			this.label_replace.TabIndex = 26;
+			this.label_replace.Text = "Replace";
+			// 
+			// label_original
+			// 
+			this.label_original.AutoSize = true;
+			this.label_original.Location = new System.Drawing.Point(6, 16);
+			this.label_original.Name = "label_original";
+			this.label_original.Size = new System.Drawing.Size(42, 13);
+			this.label_original.TabIndex = 25;
+			this.label_original.Text = "Original";
+			// 
+			// textBox_replacewith
+			// 
+			this.textBox_replacewith.Location = new System.Drawing.Point(137, 59);
+			this.textBox_replacewith.Name = "textBox_replacewith";
+			this.textBox_replacewith.Size = new System.Drawing.Size(57, 20);
+			this.textBox_replacewith.TabIndex = 2;
+			// 
+			// textBox_replace
+			// 
+			this.textBox_replace.Location = new System.Drawing.Point(50, 59);
+			this.textBox_replace.Name = "textBox_replace";
+			this.textBox_replace.Size = new System.Drawing.Size(58, 20);
+			this.textBox_replace.TabIndex = 1;
+			// 
+			// textBox_original
+			// 
+			this.textBox_original.Location = new System.Drawing.Point(6, 33);
+			this.textBox_original.Name = "textBox_original";
+			this.textBox_original.Size = new System.Drawing.Size(188, 20);
+			this.textBox_original.TabIndex = 0;
+			// 
+			// button_calculate
+			// 
+			this.button_calculate.Location = new System.Drawing.Point(119, 116);
+			this.button_calculate.Name = "button_calculate";
+			this.button_calculate.Size = new System.Drawing.Size(75, 23);
+			this.button_calculate.TabIndex = 24;
+			this.button_calculate.Text = "Calculate";
+			this.button_calculate.UseVisualStyleBackColor = true;
+			this.button_calculate.Click += new System.EventHandler(this.button_calculate_Click);
+			// 
+			// groupBox_math_calculateCombinations
+			// 
+			this.groupBox_math_calculateCombinations.Controls.Add(this.numeric_group);
+			this.groupBox_math_calculateCombinations.Controls.Add(this.button_calculate);
+			this.groupBox_math_calculateCombinations.Controls.Add(this.label_group);
+			this.groupBox_math_calculateCombinations.Controls.Add(this.label_elements);
+			this.groupBox_math_calculateCombinations.Controls.Add(this.numeric_elements);
+			this.groupBox_math_calculateCombinations.Location = new System.Drawing.Point(826, 2);
+			this.groupBox_math_calculateCombinations.Name = "groupBox_math_calculateCombinations";
+			this.groupBox_math_calculateCombinations.Size = new System.Drawing.Size(200, 149);
+			this.groupBox_math_calculateCombinations.TabIndex = 20;
+			this.groupBox_math_calculateCombinations.TabStop = false;
+			this.groupBox_math_calculateCombinations.Text = "Calculate Combinations";
+			// 
+			// numeric_elements
+			// 
+			this.numeric_elements.Location = new System.Drawing.Point(6, 40);
+			this.numeric_elements.Name = "numeric_elements";
+			this.numeric_elements.Size = new System.Drawing.Size(188, 20);
+			this.numeric_elements.TabIndex = 0;
+			// 
+			// label_elements
+			// 
+			this.label_elements.AutoSize = true;
+			this.label_elements.Location = new System.Drawing.Point(3, 24);
+			this.label_elements.Name = "label_elements";
+			this.label_elements.Size = new System.Drawing.Size(50, 13);
+			this.label_elements.TabIndex = 1;
+			this.label_elements.Text = "Elements";
+			// 
+			// label_group
+			// 
+			this.label_group.AutoSize = true;
+			this.label_group.Location = new System.Drawing.Point(5, 73);
+			this.label_group.Name = "label_group";
+			this.label_group.Size = new System.Drawing.Size(36, 13);
+			this.label_group.TabIndex = 2;
+			this.label_group.Text = "Group";
+			// 
+			// numeric_group
+			// 
+			this.numeric_group.Location = new System.Drawing.Point(6, 88);
+			this.numeric_group.Name = "numeric_group";
+			this.numeric_group.Size = new System.Drawing.Size(188, 20);
+			this.numeric_group.TabIndex = 3;
+			// 
+			// groupBox_math_calculateFactorial
+			// 
+			this.groupBox_math_calculateFactorial.Controls.Add(this.button_calculateFactorial);
+			this.groupBox_math_calculateFactorial.Controls.Add(this.label_factorial);
+			this.groupBox_math_calculateFactorial.Controls.Add(this.numeric_factorial);
+			this.groupBox_math_calculateFactorial.Location = new System.Drawing.Point(826, 154);
+			this.groupBox_math_calculateFactorial.Name = "groupBox_math_calculateFactorial";
+			this.groupBox_math_calculateFactorial.Size = new System.Drawing.Size(200, 85);
+			this.groupBox_math_calculateFactorial.TabIndex = 25;
+			this.groupBox_math_calculateFactorial.TabStop = false;
+			this.groupBox_math_calculateFactorial.Text = "Calculate Factorial";
+			// 
+			// button_calculateFactorial
+			// 
+			this.button_calculateFactorial.Location = new System.Drawing.Point(119, 58);
+			this.button_calculateFactorial.Name = "button_calculateFactorial";
+			this.button_calculateFactorial.Size = new System.Drawing.Size(75, 23);
+			this.button_calculateFactorial.TabIndex = 24;
+			this.button_calculateFactorial.Text = "Calculate";
+			this.button_calculateFactorial.UseVisualStyleBackColor = true;
+			this.button_calculateFactorial.Click += new System.EventHandler(this.button_calculateFactorial_Click);
+			// 
+			// label_factorial
+			// 
+			this.label_factorial.AutoSize = true;
+			this.label_factorial.Location = new System.Drawing.Point(4, 17);
+			this.label_factorial.Name = "label_factorial";
+			this.label_factorial.Size = new System.Drawing.Size(44, 13);
+			this.label_factorial.TabIndex = 1;
+			this.label_factorial.Text = "Number";
+			// 
+			// numeric_factorial
+			// 
+			this.numeric_factorial.Location = new System.Drawing.Point(6, 33);
+			this.numeric_factorial.Name = "numeric_factorial";
+			this.numeric_factorial.Size = new System.Drawing.Size(188, 20);
+			this.numeric_factorial.TabIndex = 0;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(845, 379);
+			this.ClientSize = new System.Drawing.Size(1028, 379);
+			this.Controls.Add(this.groupBox_math_calculateFactorial);
+			this.Controls.Add(this.groupBox_math_calculateCombinations);
+			this.Controls.Add(this.groupBox_tools_replaceString);
+			this.Controls.Add(this.groupBox_tools_gettextfilecontent);
+			this.Controls.Add(this.groupBox_network_wifi_connect);
 			this.Controls.Add(this.groupBox_controls_messageBox_showConfirmationDialog);
 			this.Controls.Add(this.groupBox_tools_setWallpaperGetGifFrames);
 			this.Controls.Add(this.groupBox_controls_getOpenForms);
@@ -684,7 +966,6 @@
 			this.groupBox_toolHash.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_label)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_message)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.statusBarPanel_separator)).EndInit();
 			this.groupBox_tools_checkLogin.ResumeLayout(false);
 			this.groupBox_tools_checkLogin.PerformLayout();
 			this.groupBox_tools_log.ResumeLayout(false);
@@ -704,6 +985,18 @@
 			this.groupBox_tools_setWallpaperGetGifFrames.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_gif)).EndInit();
 			this.groupBox_controls_messageBox_showConfirmationDialog.ResumeLayout(false);
+			this.groupBox_network_wifi_connect.ResumeLayout(false);
+			this.groupBox_network_wifi_connect.PerformLayout();
+			this.groupBox_tools_gettextfilecontent.ResumeLayout(false);
+			this.groupBox_tools_replaceString.ResumeLayout(false);
+			this.groupBox_tools_replaceString.PerformLayout();
+			this.groupBox_math_calculateCombinations.ResumeLayout(false);
+			this.groupBox_math_calculateCombinations.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_elements)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_group)).EndInit();
+			this.groupBox_math_calculateFactorial.ResumeLayout(false);
+			this.groupBox_math_calculateFactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_factorial)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -753,7 +1046,6 @@
 		private System.Windows.Forms.Button button_selectUnique;
 		private System.Windows.Forms.TextBox textBox_column;
 		private System.Windows.Forms.TextBox textBox_table;
-		private System.Windows.Forms.StatusBarPanel statusBarPanel_separator;
 		private System.Windows.Forms.Label label_date;
 		private System.Windows.Forms.GroupBox groupBox_tools_getDate;
 		private System.Windows.Forms.Timer timer_date;
@@ -766,6 +1058,33 @@
 		private System.Windows.Forms.OpenFileDialog fileDialog_searchGif;
 		private System.Windows.Forms.GroupBox groupBox_controls_messageBox_showConfirmationDialog;
 		private System.Windows.Forms.Button button_showConfirmationDialog;
+		private System.Windows.Forms.GroupBox groupBox_network_wifi_connect;
+		private System.Windows.Forms.Button button_connect;
+		private System.Windows.Forms.Label label_password;
+		private System.Windows.Forms.Label label_ssid;
+		private System.Windows.Forms.TextBox textBox_wifiPassword;
+		private System.Windows.Forms.TextBox textBox_wifiSsid;
+		private System.Windows.Forms.GroupBox groupBox_tools_gettextfilecontent;
+		private System.Windows.Forms.Button button_readfile;
+		private System.Windows.Forms.OpenFileDialog fileDialog_readFile;
+		private System.Windows.Forms.GroupBox groupBox_tools_replaceString;
+		private System.Windows.Forms.Label label_replacewith;
+		private System.Windows.Forms.Button button_replace;
+		private System.Windows.Forms.Label label_replace;
+		private System.Windows.Forms.Label label_original;
+		private System.Windows.Forms.TextBox textBox_replacewith;
+		private System.Windows.Forms.TextBox textBox_replace;
+		private System.Windows.Forms.TextBox textBox_original;
+		private System.Windows.Forms.Button button_calculate;
+		private System.Windows.Forms.GroupBox groupBox_math_calculateCombinations;
+		private System.Windows.Forms.NumericUpDown numeric_elements;
+		private System.Windows.Forms.NumericUpDown numeric_group;
+		private System.Windows.Forms.Label label_group;
+		private System.Windows.Forms.Label label_elements;
+		private System.Windows.Forms.GroupBox groupBox_math_calculateFactorial;
+		private System.Windows.Forms.Button button_calculateFactorial;
+		private System.Windows.Forms.Label label_factorial;
+		private System.Windows.Forms.NumericUpDown numeric_factorial;
 	}
 }
 
