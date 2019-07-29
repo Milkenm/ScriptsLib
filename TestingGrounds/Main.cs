@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Net;
 using System.Numerics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,8 @@ namespace TestingGrounds
 
 		Tools _Tools = new Tools();
 		Generators _Generators = new Generators();
+		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
+		Network.Packets _Packets = new Network.Packets();
 
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
@@ -36,8 +39,6 @@ namespace TestingGrounds
 		Controls.MessageBox _MessageBox = new Controls.MessageBox();
 
 		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
-
-		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -743,8 +744,23 @@ namespace TestingGrounds
 		}
 		// # ================================================================================================ #
 		#endregion Calculate Factorial
+
 		#endregion Math
 
+		private void button1_Click(object sender, EventArgs e)
+		{
+			new Task(new Action(() =>
+			{
+				while (true)
+				{
+					MessageBox.Show("Received: \n\n\n" + _Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), 69), "Wait TCP Packet");
+				}
+			})).Start();
+		}
 
+		private void button2_Click(object sender, EventArgs e)
+		{
+			_Packets.SendTcpPacket("127.0.0.1", 69, "Hey mamfsdfs");
+		}
 	}
 }

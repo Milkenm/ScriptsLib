@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿#region Usings
+using System;
 using System.Windows.Forms;
-using ScriptsLib.Tools;
+#endregion Usings
+
+
 
 namespace TestingGrounds
 {
 	static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
+		/// <summary>The main entry point for the application.</summary>
 		[STAThread]
 		static void Main()
 		{
-			if (new Tools().IsApplicationRunning() == false)
-			{
-				Application.EnableVisualStyles();
-				Application.SetCompatibleTextRenderingDefault(false);
-				Application.Run(new Main());
-			}
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new Main());
 		}
 	}
 }

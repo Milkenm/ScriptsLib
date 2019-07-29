@@ -1,7 +1,13 @@
 ﻿#region Usings
 using System;
+using System.Collections.Generic;
 using System.IO;
-
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ScriptsLib.Resources.Lang;
 using static ScriptsLib.Dev.Debug;
 #endregion Usings
 
@@ -11,12 +17,18 @@ namespace ScriptsLib.Network
 {
 	public class Network
 	{
+		#region Wi-Fi
+		// # ================================================================================================ #
 		public class Wifi
 		{
 			#region Refs
+			// # ================================================================================================ #
 			Dev.Debug _Debug = new Dev.Debug();
+			// # ================================================================================================ #
 			#endregion Refs
 
+			#region Connect
+			// # ================================================================================================ #
 			public void Connect(string _SSID, string _Password)
 			{
 				try
@@ -39,6 +51,82 @@ namespace ScriptsLib.Network
 				}
 
 			}
+			// # ================================================================================================ #
+			#endregion Connect
 		}
+		// # ================================================================================================ #
+		#endregion Wi-Fi
+
+
+
+		#region Packets
+		// # ================================================================================================ #
+		public class Packets
+		{
+			#region Send TCP Packet
+			// # ================================================================================================ #
+			/// <summary>Sends a TCP packet.</summary>
+			/// <param name="_RemoteHost">The IP or Hostname of the computer to send the message to.</param>
+			/// <param name="_RemotePort">The port of the computer to send the message to.</param>
+			/// <param name="_Message">The message to send.</param>
+			public void SendTcpPacket(string _RemoteHost, int _RemotePort, string _Message)
+			{
+				try
+				{
+					// Create a TCP client.
+					TcpClient _Client = new TcpClient(_RemoteHost, _RemotePort);
+
+					// Convert the message...
+					byte[] _Data = Encoding.ASCII.GetBytes(_Message);
+					// ...and then send it.
+					NetworkStream _Stream = _Client.GetStream();
+					_Stream.Write(_Data, 0, _Data.Length);
+
+					// Close everything.
+					_Stream.Close();
+					_Client.Close();
+				}
+				catch (SocketException _SocketException)
+				{
+					MessageBox.Show(string.Format(Lang._ErrorSocketException, _SocketException.Message), Lang._ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+			// # ================================================================================================ #
+			#endregion Send TCP Packet
+
+
+			#region Wait TCP Packet
+			// # ================================================================================================ #
+			/// <summary>Waits for a TCP packet.</summary>
+			/// <param name="_LocalIp">The local IP to create the server on.</param>
+			/// <param name="_LocalPort">The local port to create the server on.</param>
+			public string WaitTcpPacket(IPAddress _LocalIp, int _LocalPort)
+			{
+				// Create the server.
+				TcpListener _Server = new TcpListener(_LocalIp, _LocalPort);
+				_Server.Start();
+
+				// Wait for a message...
+				TcpClient _Client = _Server.AcceptTcpClient();
+				// ...then store it.
+				NetworkStream _Stream = _Client.GetStream();
+
+				// Parse the message.
+				byte[] _Buffer = new byte[256];
+				string _Message = Encoding.ASCII.GetString(_Buffer, 0, _Stream.Read(_Buffer, 0, _Buffer.Length));
+
+				// Close everything.
+				_Server.Stop();
+				_Client.Close();
+				_Stream.Close();
+
+				// Return the message.
+				return _Message;
+			}
+			// # ================================================================================================ #
+			#endregion Wait TCP Packet
+		}
+		// # ================================================================================================ #
+		#endregion Packets
 	}
 }

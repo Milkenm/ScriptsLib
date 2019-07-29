@@ -112,6 +112,8 @@
 			this.button_calculateFactorial = new System.Windows.Forms.Button();
 			this.label_factorial = new System.Windows.Forms.Label();
 			this.numeric_factorial = new System.Windows.Forms.NumericUpDown();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.groupBox_database.SuspendLayout();
 			this.groupBox_tools_crash.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_passwordLength)).BeginInit();
@@ -926,11 +928,33 @@
 			this.numeric_factorial.Size = new System.Drawing.Size(188, 20);
 			this.numeric_factorial.TabIndex = 0;
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(834, 265);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 26;
+			this.button1.Text = "Start Server";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(915, 265);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 23);
+			this.button2.TabIndex = 27;
+			this.button2.Text = "Send";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1028, 379);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.groupBox_math_calculateFactorial);
 			this.Controls.Add(this.groupBox_math_calculateCombinations);
 			this.Controls.Add(this.groupBox_tools_replaceString);
@@ -1085,6 +1109,8 @@
 		private System.Windows.Forms.Button button_calculateFactorial;
 		private System.Windows.Forms.Label label_factorial;
 		private System.Windows.Forms.NumericUpDown numeric_factorial;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }
 
