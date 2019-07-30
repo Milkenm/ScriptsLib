@@ -57,7 +57,7 @@ namespace TestingGrounds
 			ScriptsLib.Dev.Debug._Debug = true;
 			ScriptsLib.Dev.Debug._ErrorsOnly = true;
 
-			fileDialog_searchGif.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+			fileDialog_tg_searchGif.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
 
 			SqlServerDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
@@ -74,24 +74,24 @@ namespace TestingGrounds
 
 
 			#region Perform Actions
-			textBox_user.Text = "User1";
-			textBox_pass.Text = "Pass1";
+			textBox_tools_databaseTools_checkLogin_user.Text = "User1";
+			textBox_tools_databaseTools_checkLogin_pass.Text = "Pass1";
 
-			textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
+			textBox_generators_generatePassword_password.Text = _Generators.GeneratePassword((int)numeric_generators_generatePassword_length.Value);
 
-			textBox_sqlFilter.Text = "ABC;DEF;GHI'JKL'MNO";
+			textBox_tools_databaseTools_filterSql_text.Text = "ABC;DEF;GHI'JKL'MNO";
 
-			comboBox_databaseType.SelectedIndex = 2;
+			comboBox_tg_databaseType.SelectedIndex = 2;
 
-			comboBox_logType.SelectedIndex = 0;
-			_ComboBox.Resize(comboBox_logType, 20);
+			comboBox_tools_log_logType.SelectedIndex = 0;
+			_ComboBox.Resize(comboBox_tools_log_logType, 20);
 
-			button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+			button_controls_comboBox_resizeComboBox_resize.Text = $"Resize {button_controls_comboBox_resizeComboBox_resize.Height} | {comboBox_controls_comboBox_resizeComboBox_resize.Height}";
 
-			textBox_table.Text = "Unique";
-			textBox_column.Text = "Value";
+			textBox_tools_databaseTools_selectUnique_table.Text = "Unique";
+			textBox_tools_databaseTools_selectUnique_column.Text = "Value";
 
-			checkBox_onlyNumbers.Checked = true;
+			checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked = true;
 			#endregion Perform Actions
 		}
 		// # ================================================================================================ #
@@ -121,7 +121,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					List<SqlServerDatabase.TableFields> _Fields = new List<SqlServerDatabase.TableFields>();
 					SqlServerDatabase.TableFields _Field = new SqlServerDatabase.TableFields();
@@ -142,7 +142,7 @@ namespace TestingGrounds
 
 					_SqlDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
-				else if (comboBox_databaseType.SelectedIndex == 1)
+				else if (comboBox_tg_databaseType.SelectedIndex == 1)
 				{
 					List<AccessDatabase.TableFields> _Fields = new List<AccessDatabase.TableFields>();
 					AccessDatabase.TableFields _Field = new AccessDatabase.TableFields();
@@ -163,7 +163,7 @@ namespace TestingGrounds
 
 					_AccessDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
-				else if (comboBox_databaseType.SelectedIndex == 2)
+				else if (comboBox_tg_databaseType.SelectedIndex == 2)
 				{
 					List<MySqlDatabase.TableFields> _Fields = new List<MySqlDatabase.TableFields>();
 					MySqlDatabase.TableFields _Field = new MySqlDatabase.TableFields();
@@ -196,7 +196,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.DeleteTable("Users").GetAwaiter();
 				}
@@ -216,7 +216,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
 				}
@@ -236,7 +236,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.CreateDatabase(@"C:\Milkenm\Data\Tests.mdf").GetAwaiter();
 				}
@@ -257,7 +257,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					foreach (var _Loop in _SqlDatabase.Select("Users"))
 					{
@@ -282,7 +282,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					_SqlDatabase.Delete("Users", "ID = 1").GetAwaiter();
 				}
@@ -321,17 +321,17 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_logType.SelectedIndex == 0) // INFO
+				if (comboBox_tools_log_logType.SelectedIndex == 0) // INFO
 				{
-					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Info).GetAwaiter();
+					_Tools.Log(textBox_tools_log_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_tools_log_logSource.Text, Tools.LogType.Info).GetAwaiter();
 				}
-				else if (comboBox_logType.SelectedIndex == 1) // ERROR
+				else if (comboBox_tools_log_logType.SelectedIndex == 1) // ERROR
 				{
-					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Error).GetAwaiter();
+					_Tools.Log(textBox_tools_log_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_tools_log_logSource.Text, Tools.LogType.Error).GetAwaiter();
 				}
-				else if (comboBox_logType.SelectedIndex == 2) // WARNING
+				else if (comboBox_tools_log_logType.SelectedIndex == 2) // WARNING
 				{
-					_Tools.Log(textBox_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_logSource.Text, Tools.LogType.Warning).GetAwaiter();
+					_Tools.Log(textBox_tools_log_logMessage.Text, @"C:\Milkenm\Data\ScriptsLib Log.txt", textBox_tools_log_logSource.Text, Tools.LogType.Warning).GetAwaiter();
 				}
 			}
 			catch (Exception _Exception)
@@ -348,13 +348,12 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_hash_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show(_Tools.Hash(textBox_hash.Text));
+			MessageBox.Show(_Tools.Hash(textBox_tools_hash_text.Text));
 		}
 		// # ================================================================================================ #
 		private void textBox_hash_TextChanged(object sender, EventArgs e)
 		{
-			statusBarPanel_label.Text = "Hash:";
-			statusBarPanel_message.Text = _Tools.Hash(textBox_hash.Text);
+			textBox_tools_hash_hashed.Text = _Tools.Hash(textBox_tools_hash_text.Text);
 		}
 		// # ================================================================================================ #
 		#endregion Tools.Hash
@@ -365,7 +364,7 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void timer_date_Tick(object sender, EventArgs e)
 		{
-			label_date.Text = _Tools.GetDate();
+			label_tools_getDate_date.Text = _Tools.GetDate();
 		}
 		// # ================================================================================================ #
 		#endregion Tools.GetDate
@@ -380,7 +379,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				fileDialog_searchGif.ShowDialog();
+				fileDialog_tg_searchGif.ShowDialog();
 			}
 			catch (Exception _Exception)
 			{
@@ -390,9 +389,9 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void fileDialog_searchGif_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if (!String.IsNullOrEmpty(fileDialog_searchGif.FileName))
+			if (!String.IsNullOrEmpty(fileDialog_tg_searchGif.FileName))
 			{
-				_Frames = _Tools.GetGifFrames(Image.FromFile(fileDialog_searchGif.FileName));
+				_Frames = _Tools.GetGifFrames(Image.FromFile(fileDialog_tg_searchGif.FileName));
 
 				UseGifFrames();
 			}
@@ -402,7 +401,7 @@ namespace TestingGrounds
 		{
 			foreach (Image _Frame in _Frames)
 			{
-				pictureBox_gif.BackgroundImage = _Frame;
+				pictureBox_tools_setWallpaper6getGifFrames_gif.BackgroundImage = _Frame;
 			}
 		}
 		// # ================================================================================================ #
@@ -430,7 +429,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				fileDialog_readFile.ShowDialog();
+				fileDialog_tg_readFile.ShowDialog();
 			}
 			catch (Exception _Exception)
 			{
@@ -442,9 +441,9 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(fileDialog_readFile.FileName))
+				if (!String.IsNullOrEmpty(fileDialog_tg_readFile.FileName))
 				{
-					MessageBox.Show(_Tools.GetTextFileContent(fileDialog_readFile.FileName), "Read File");
+					MessageBox.Show(_Tools.GetTextFileContent(fileDialog_tg_readFile.FileName), "Read File");
 				}
 			}
 			catch (Exception _Exception)
@@ -463,7 +462,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(_Tools.ReplaceString(textBox_original.Text, textBox_replace.Text, textBox_replacewith.Text));
+				MessageBox.Show(_Tools.ReplaceString(textBox_tools_replaceString_original.Text, textBox_tools_replaceString_replace.Text, textBox_tools_replaceString_replacewith.Text));
 			}
 			catch (Exception _Exception)
 			{
@@ -484,13 +483,13 @@ namespace TestingGrounds
 			try
 			{
 				bool _Success;
-				if (comboBox_databaseType.SelectedIndex == 0) // SQL Server
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
-					_Success = _DatabaseTools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.SqlServer);
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.SqlServer);
 				}
 				else
 				{
-					_Success = _DatabaseTools.CheckLogin("Users", textBox_user.Text, textBox_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.Access);
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.Access);
 				}
 
 				if (_Success == true)
@@ -518,7 +517,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				textBox_sqlFilter.Text = _DatabaseTools.FilterSql(textBox_sqlFilter.Text);
+				textBox_tools_databaseTools_filterSql_text.Text = _DatabaseTools.FilterSql(textBox_tools_databaseTools_filterSql_text.Text);
 			}
 			catch (Exception _Exception)
 			{
@@ -536,9 +535,9 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_databaseType.SelectedIndex == 1)
+				if (comboBox_tg_databaseType.SelectedIndex == 1)
 				{
-					List<string> _Select = _DatabaseTools.SelectUnique(textBox_table.Text, textBox_column.Text, Tools.DatabaseTools.DatabaseType.Access);
+					List<string> _Select = _DatabaseTools.SelectUnique(textBox_tools_databaseTools_selectUnique_table.Text, textBox_tools_databaseTools_selectUnique_column.Text, Tools.DatabaseTools.DatabaseType.Access);
 
 					string _String = null;
 					foreach (string _Value in _Select)
@@ -574,7 +573,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				textBox_generatePassword.Text = _Generators.GeneratePassword((int)numeric_passwordLength.Value);
+				textBox_generators_generatePassword_password.Text = _Generators.GeneratePassword((int)numeric_generators_generatePassword_length.Value);
 			}
 			catch (Exception _Exception)
 			{
@@ -594,16 +593,16 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (comboBox_resize.Height == 37)
+				if (comboBox_controls_comboBox_resizeComboBox_resize.Height == 37)
 				{
-					_ComboBox.Resize(comboBox_resize, 21);
+					_ComboBox.Resize(comboBox_controls_comboBox_resizeComboBox_resize, 21);
 				}
 				else
 				{
-					_ComboBox.Resize(comboBox_resize, 37);
+					_ComboBox.Resize(comboBox_controls_comboBox_resizeComboBox_resize, 37);
 				}
 
-				button_resizeCombobox.Text = $"Resize {button_resizeCombobox.Height} | {comboBox_resize.Height}";
+				button_controls_comboBox_resizeComboBox_resize.Text = $"Resize {button_controls_comboBox_resizeComboBox_resize.Height} | {comboBox_controls_comboBox_resizeComboBox_resize.Height}";
 			}
 			catch (Exception _Exception)
 			{
@@ -621,13 +620,13 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (checkBox_onlyNumbers.Checked == true)
+				if (checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked == true)
 				{
-					_TextBox.OnlyNumbers(textBox_onlyNumbers, false);
+					_TextBox.OnlyNumbers(textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false);
 				}
 				else
 				{
-					_TextBox.OnlyNumbers(textBox_onlyNumbers, false, false);
+					_TextBox.OnlyNumbers(textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false, false);
 				}
 			}
 			catch (Exception _Exception)
@@ -689,10 +688,10 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(textBox_wifiPassword.Text) && !String.IsNullOrEmpty(textBox_wifiSsid.Text))
+				if (!String.IsNullOrEmpty(textBox_network_wifi_connect_wifiPassword.Text) && !String.IsNullOrEmpty(textBox_network_wifi_connect_wifiSsid.Text))
 				{
 					Network.Wifi _Wifi = new Network.Wifi();
-					_Wifi.Connect(textBox_wifiSsid.Text, textBox_wifiPassword.Text);
+					_Wifi.Connect(textBox_network_wifi_connect_wifiSsid.Text, textBox_network_wifi_connect_wifiPassword.Text);
 				}
 				else
 				{
@@ -717,7 +716,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(_Math.CalculateCombinations((BigInteger)numeric_elements.Value, (BigInteger)numeric_group.Value).ToString(), "Result", MessageBoxButtons.OK);
+				MessageBox.Show(_Math.CalculateCombinations((BigInteger)numeric_math_calculateCombinations_elements.Value, (BigInteger)numeric_math_calculateCombinations_group.Value).ToString(), "Result", MessageBoxButtons.OK);
 			}
 			catch (Exception _Exception)
 			{
@@ -735,7 +734,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(_Math.CalculateFactorial((ulong)numeric_factorial.Value).ToString(), "Result", MessageBoxButtons.OK);
+				MessageBox.Show(_Math.CalculateFactorial((ulong)numeric_math_calculateFactorial_factorial.Value).ToString(), "Result", MessageBoxButtons.OK);
 			}
 			catch (Exception _Exception)
 			{
