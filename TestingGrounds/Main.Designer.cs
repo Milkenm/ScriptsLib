@@ -85,6 +85,13 @@
 			this.button_network_packets_sendTcpPacket_send = new System.Windows.Forms.Button();
 			this.tabs_tg = new System.Windows.Forms.TabControl();
 			this.tab_database = new System.Windows.Forms.TabPage();
+			this.tabs_database = new System.Windows.Forms.TabControl();
+			this.tab_database_createDatabase = new System.Windows.Forms.TabPage();
+			this.tab_database_createTable = new System.Windows.Forms.TabPage();
+			this.tab_database_insertInto = new System.Windows.Forms.TabPage();
+			this.tab_database_deleteTable = new System.Windows.Forms.TabPage();
+			this.tab_database_select = new System.Windows.Forms.TabPage();
+			this.tab_database_delete = new System.Windows.Forms.TabPage();
 			this.tab_tools = new System.Windows.Forms.TabPage();
 			this.tabs_tools = new System.Windows.Forms.TabControl();
 			this.tab_tools_hash = new System.Windows.Forms.TabPage();
@@ -146,13 +153,8 @@
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
 			this.tab_math_calculateFactorial = new System.Windows.Forms.TabPage();
 			this.label_tg_databaseType = new System.Windows.Forms.Label();
-			this.tabs_database = new System.Windows.Forms.TabControl();
-			this.tab_database_createDatabase = new System.Windows.Forms.TabPage();
-			this.tab_database_createTable = new System.Windows.Forms.TabPage();
-			this.tab_database_insertInto = new System.Windows.Forms.TabPage();
-			this.tab_database_deleteTable = new System.Windows.Forms.TabPage();
-			this.tab_database_select = new System.Windows.Forms.TabPage();
-			this.tab_database_delete = new System.Windows.Forms.TabPage();
+			this.label_tg_version = new System.Windows.Forms.Label();
+			this.textBox_tg_version = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -160,6 +162,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateFactorial_factorial)).BeginInit();
 			this.tabs_tg.SuspendLayout();
 			this.tab_database.SuspendLayout();
+			this.tabs_database.SuspendLayout();
+			this.tab_database_createDatabase.SuspendLayout();
+			this.tab_database_createTable.SuspendLayout();
+			this.tab_database_insertInto.SuspendLayout();
+			this.tab_database_deleteTable.SuspendLayout();
+			this.tab_database_select.SuspendLayout();
+			this.tab_database_delete.SuspendLayout();
 			this.tab_tools.SuspendLayout();
 			this.tabs_tools.SuspendLayout();
 			this.tab_tools_hash.SuspendLayout();
@@ -204,13 +213,6 @@
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
 			this.tab_math_calculateFactorial.SuspendLayout();
-			this.tabs_database.SuspendLayout();
-			this.tab_database_createDatabase.SuspendLayout();
-			this.tab_database_createTable.SuspendLayout();
-			this.tab_database_insertInto.SuspendLayout();
-			this.tab_database_deleteTable.SuspendLayout();
-			this.tab_database_select.SuspendLayout();
-			this.tab_database_delete.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -245,7 +247,7 @@
 			// 
 			// button_database_createDatabase
 			// 
-			this.button_database_createDatabase.Location = new System.Drawing.Point(361, 111);
+			this.button_database_createDatabase.Location = new System.Drawing.Point(348, 120);
 			this.button_database_createDatabase.Name = "button_database_createDatabase";
 			this.button_database_createDatabase.Size = new System.Drawing.Size(120, 23);
 			this.button_database_createDatabase.TabIndex = 3;
@@ -290,7 +292,7 @@
             "Sql Server",
             "Access",
             "MySql"});
-			this.comboBox_tg_databaseType.Location = new System.Drawing.Point(87, 351);
+			this.comboBox_tg_databaseType.Location = new System.Drawing.Point(93, 350);
 			this.comboBox_tg_databaseType.Name = "comboBox_tg_databaseType";
 			this.comboBox_tg_databaseType.Size = new System.Drawing.Size(188, 21);
 			this.comboBox_tg_databaseType.TabIndex = 5;
@@ -718,6 +720,87 @@
 			this.tab_database.TabIndex = 1;
 			this.tab_database.Text = "Database";
 			this.tab_database.UseVisualStyleBackColor = true;
+			// 
+			// tabs_database
+			// 
+			this.tabs_database.Controls.Add(this.tab_database_createDatabase);
+			this.tabs_database.Controls.Add(this.tab_database_createTable);
+			this.tabs_database.Controls.Add(this.tab_database_insertInto);
+			this.tabs_database.Controls.Add(this.tab_database_deleteTable);
+			this.tabs_database.Controls.Add(this.tab_database_select);
+			this.tabs_database.Controls.Add(this.tab_database_delete);
+			this.tabs_database.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_database.Location = new System.Drawing.Point(3, 3);
+			this.tabs_database.Name = "tabs_database";
+			this.tabs_database.SelectedIndex = 0;
+			this.tabs_database.Size = new System.Drawing.Size(838, 316);
+			this.tabs_database.TabIndex = 7;
+			// 
+			// tab_database_createDatabase
+			// 
+			this.tab_database_createDatabase.Controls.Add(this.button_database_createDatabase);
+			this.tab_database_createDatabase.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_createDatabase.Name = "tab_database_createDatabase";
+			this.tab_database_createDatabase.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_createDatabase.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_createDatabase.TabIndex = 0;
+			this.tab_database_createDatabase.Text = "Create Database";
+			this.tab_database_createDatabase.UseVisualStyleBackColor = true;
+			// 
+			// tab_database_createTable
+			// 
+			this.tab_database_createTable.Controls.Add(this.button_database_createTable);
+			this.tab_database_createTable.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_createTable.Name = "tab_database_createTable";
+			this.tab_database_createTable.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_createTable.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_createTable.TabIndex = 1;
+			this.tab_database_createTable.Text = "Create Table";
+			this.tab_database_createTable.UseVisualStyleBackColor = true;
+			// 
+			// tab_database_insertInto
+			// 
+			this.tab_database_insertInto.Controls.Add(this.button_database_insert);
+			this.tab_database_insertInto.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_insertInto.Name = "tab_database_insertInto";
+			this.tab_database_insertInto.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_insertInto.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_insertInto.TabIndex = 2;
+			this.tab_database_insertInto.Text = "Insert Into";
+			this.tab_database_insertInto.UseVisualStyleBackColor = true;
+			// 
+			// tab_database_deleteTable
+			// 
+			this.tab_database_deleteTable.Controls.Add(this.button_database_deleteTable);
+			this.tab_database_deleteTable.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_deleteTable.Name = "tab_database_deleteTable";
+			this.tab_database_deleteTable.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_deleteTable.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_deleteTable.TabIndex = 3;
+			this.tab_database_deleteTable.Text = "Delete Table";
+			this.tab_database_deleteTable.UseVisualStyleBackColor = true;
+			// 
+			// tab_database_select
+			// 
+			this.tab_database_select.Controls.Add(this.button_database_select);
+			this.tab_database_select.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_select.Name = "tab_database_select";
+			this.tab_database_select.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_select.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_select.TabIndex = 4;
+			this.tab_database_select.Text = "Select";
+			this.tab_database_select.UseVisualStyleBackColor = true;
+			// 
+			// tab_database_delete
+			// 
+			this.tab_database_delete.Controls.Add(this.button_database_delete);
+			this.tab_database_delete.Location = new System.Drawing.Point(4, 22);
+			this.tab_database_delete.Name = "tab_database_delete";
+			this.tab_database_delete.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_database_delete.Size = new System.Drawing.Size(830, 290);
+			this.tab_database_delete.TabIndex = 5;
+			this.tab_database_delete.Text = "Delete";
+			this.tab_database_delete.UseVisualStyleBackColor = true;
 			// 
 			// tab_tools
 			// 
@@ -1389,95 +1472,33 @@
 			this.label_tg_databaseType.TabIndex = 29;
 			this.label_tg_databaseType.Text = "Database Type:";
 			// 
-			// tabs_database
+			// label_tg_version
 			// 
-			this.tabs_database.Controls.Add(this.tab_database_createDatabase);
-			this.tabs_database.Controls.Add(this.tab_database_createTable);
-			this.tabs_database.Controls.Add(this.tab_database_insertInto);
-			this.tabs_database.Controls.Add(this.tab_database_deleteTable);
-			this.tabs_database.Controls.Add(this.tab_database_select);
-			this.tabs_database.Controls.Add(this.tab_database_delete);
-			this.tabs_database.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_database.Location = new System.Drawing.Point(3, 3);
-			this.tabs_database.Name = "tabs_database";
-			this.tabs_database.SelectedIndex = 0;
-			this.tabs_database.Size = new System.Drawing.Size(838, 316);
-			this.tabs_database.TabIndex = 7;
+			this.label_tg_version.AutoSize = true;
+			this.label_tg_version.Location = new System.Drawing.Point(686, 354);
+			this.label_tg_version.Name = "label_tg_version";
+			this.label_tg_version.Size = new System.Drawing.Size(94, 13);
+			this.label_tg_version.TabIndex = 30;
+			this.label_tg_version.Text = "ScriptsLib Version:";
 			// 
-			// tab_database_createDatabase
+			// textBox_tg_version
 			// 
-			this.tab_database_createDatabase.Controls.Add(this.button_database_createDatabase);
-			this.tab_database_createDatabase.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_createDatabase.Name = "tab_database_createDatabase";
-			this.tab_database_createDatabase.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_createDatabase.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_createDatabase.TabIndex = 0;
-			this.tab_database_createDatabase.Text = "Create Database";
-			this.tab_database_createDatabase.UseVisualStyleBackColor = true;
-			// 
-			// tab_database_createTable
-			// 
-			this.tab_database_createTable.Controls.Add(this.button_database_createTable);
-			this.tab_database_createTable.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_createTable.Name = "tab_database_createTable";
-			this.tab_database_createTable.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_createTable.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_createTable.TabIndex = 1;
-			this.tab_database_createTable.Text = "Create Table";
-			this.tab_database_createTable.UseVisualStyleBackColor = true;
-			// 
-			// tab_database_insertInto
-			// 
-			this.tab_database_insertInto.Controls.Add(this.button_database_insert);
-			this.tab_database_insertInto.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_insertInto.Name = "tab_database_insertInto";
-			this.tab_database_insertInto.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_insertInto.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_insertInto.TabIndex = 2;
-			this.tab_database_insertInto.Text = "Insert Into";
-			this.tab_database_insertInto.UseVisualStyleBackColor = true;
-			// 
-			// tab_database_deleteTable
-			// 
-			this.tab_database_deleteTable.Controls.Add(this.button_database_deleteTable);
-			this.tab_database_deleteTable.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_deleteTable.Name = "tab_database_deleteTable";
-			this.tab_database_deleteTable.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_deleteTable.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_deleteTable.TabIndex = 3;
-			this.tab_database_deleteTable.Text = "Delete Table";
-			this.tab_database_deleteTable.UseVisualStyleBackColor = true;
-			// 
-			// tab_database_select
-			// 
-			this.tab_database_select.Controls.Add(this.button_database_select);
-			this.tab_database_select.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_select.Name = "tab_database_select";
-			this.tab_database_select.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_select.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_select.TabIndex = 4;
-			this.tab_database_select.Text = "Select";
-			this.tab_database_select.UseVisualStyleBackColor = true;
-			// 
-			// tab_database_delete
-			// 
-			this.tab_database_delete.Controls.Add(this.button_database_delete);
-			this.tab_database_delete.Location = new System.Drawing.Point(4, 22);
-			this.tab_database_delete.Name = "tab_database_delete";
-			this.tab_database_delete.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_database_delete.Size = new System.Drawing.Size(830, 290);
-			this.tab_database_delete.TabIndex = 5;
-			this.tab_database_delete.Text = "Delete";
-			this.tab_database_delete.UseVisualStyleBackColor = true;
+			this.textBox_tg_version.Location = new System.Drawing.Point(786, 352);
+			this.textBox_tg_version.Name = "textBox_tg_version";
+			this.textBox_tg_version.ReadOnly = true;
+			this.textBox_tg_version.Size = new System.Drawing.Size(63, 20);
+			this.textBox_tg_version.TabIndex = 31;
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(854, 376);
-			this.Controls.Add(this.comboBox_tg_databaseType);
 			this.Controls.Add(this.label_tg_databaseType);
+			this.Controls.Add(this.comboBox_tg_databaseType);
 			this.Controls.Add(this.tabs_tg);
+			this.Controls.Add(this.textBox_tg_version);
+			this.Controls.Add(this.label_tg_version);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -1492,6 +1513,13 @@
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateFactorial_factorial)).EndInit();
 			this.tabs_tg.ResumeLayout(false);
 			this.tab_database.ResumeLayout(false);
+			this.tabs_database.ResumeLayout(false);
+			this.tab_database_createDatabase.ResumeLayout(false);
+			this.tab_database_createTable.ResumeLayout(false);
+			this.tab_database_insertInto.ResumeLayout(false);
+			this.tab_database_deleteTable.ResumeLayout(false);
+			this.tab_database_select.ResumeLayout(false);
+			this.tab_database_delete.ResumeLayout(false);
 			this.tab_tools.ResumeLayout(false);
 			this.tabs_tools.ResumeLayout(false);
 			this.tab_tools_hash.ResumeLayout(false);
@@ -1548,13 +1576,6 @@
 			this.tab_math_calculateCombinations.PerformLayout();
 			this.tab_math_calculateFactorial.ResumeLayout(false);
 			this.tab_math_calculateFactorial.PerformLayout();
-			this.tabs_database.ResumeLayout(false);
-			this.tab_database_createDatabase.ResumeLayout(false);
-			this.tab_database_createTable.ResumeLayout(false);
-			this.tab_database_insertInto.ResumeLayout(false);
-			this.tab_database_deleteTable.ResumeLayout(false);
-			this.tab_database_select.ResumeLayout(false);
-			this.tab_database_delete.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1685,6 +1706,8 @@
 		private System.Windows.Forms.TabPage tab_database_deleteTable;
 		private System.Windows.Forms.TabPage tab_database_select;
 		private System.Windows.Forms.TabPage tab_database_delete;
+		private System.Windows.Forms.Label label_tg_version;
+		private System.Windows.Forms.TextBox textBox_tg_version;
 	}
 }
 

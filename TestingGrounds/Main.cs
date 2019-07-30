@@ -51,7 +51,7 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void Main_Load(object sender, EventArgs e)
 		{
-			_Form.SetIntroForm(this, 0.0085, false);
+			_Form.SetIntroForm(this, 0.035, false);
 
 
 			ScriptsLib.Dev.Debug._Debug = true;
@@ -92,6 +92,8 @@ namespace TestingGrounds
 			textBox_tools_databaseTools_selectUnique_column.Text = "Value";
 
 			checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked = true;
+
+			textBox_tg_version.Text = ScriptsLib.Info.Info._Version;
 			#endregion Perform Actions
 		}
 		// # ================================================================================================ #
