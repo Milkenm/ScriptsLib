@@ -25,10 +25,9 @@ namespace TestingGrounds
 		SqlServerDatabase _SqlDatabase = new SqlServerDatabase();
 		AccessDatabase _AccessDatabase = new AccessDatabase();
 		MySqlDatabase _MySqlDatabase = new MySqlDatabase();
-
-
-
+		
 		Tools _Tools = new Tools();
+		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		Generators _Generators = new Generators();
 		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
 		Network.Packets _Packets = new Network.Packets();
@@ -37,8 +36,6 @@ namespace TestingGrounds
 		Controls.TextBox _TextBox = new Controls.TextBox();
 		Controls.Form _Form = new Controls.Form();
 		Controls.MessageBox _MessageBox = new Controls.MessageBox();
-
-		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		// # ================================================================================================ #
 		#endregion Refs
 
@@ -306,18 +303,109 @@ namespace TestingGrounds
 
 
 		#region Tools
-		#region Tools.Crash
+		#region Database Tools
+		#region Check Login
+		// # ================================================================================================ #
+		private void button_login_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				bool _Success;
+				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
+				{
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.SqlServer);
+				}
+				else
+				{
+					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.Access);
+				}
+
+				if (_Success == true)
+				{
+					MessageBox.Show("Logged in.");
+				}
+				else
+				{
+					MessageBox.Show("Invalid login credentials.");
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Check Login
+
+
+
+		#region SQL Filter
+		// # ================================================================================================ #
+		private void button_sqlFilter_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				textBox_tools_databaseTools_filterSql_text.Text = _DatabaseTools.FilterSql(textBox_tools_databaseTools_filterSql_text.Text);
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion SQL Filter
+
+
+
+		#region Select Unique
+		// # ================================================================================================ #
+		private void button_selectUnique_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (comboBox_tg_databaseType.SelectedIndex == 1)
+				{
+					List<string> _Select = _DatabaseTools.SelectUnique(textBox_tools_databaseTools_selectUnique_table.Text, textBox_tools_databaseTools_selectUnique_column.Text, Tools.DatabaseTools.DatabaseType.Access);
+
+					string _String = null;
+					foreach (string _Value in _Select)
+					{
+						if (!String.IsNullOrEmpty(_String))
+						{
+							_String = $"{_String}, {_Value}";
+						}
+						else
+						{
+							_String = _Value;
+						}
+					}
+
+					MessageBox.Show(_String);
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		// # ================================================================================================ #
+		#endregion Select Unique
+		#endregion Database Tools
+
+
+
+		#region Crash
 		// # ================================================================================================ #
 		private void button_crash_Click(object sender, EventArgs e)
 		{
 			_Tools.Crash().GetAwaiter();
 		}
 		// # ================================================================================================ #
-		#endregion Tools.Crash
+		#endregion Crash
 
 
 
-		#region Tools.Log
+		#region Log
 		// # ================================================================================================ #
 		private void button_log_Click(object sender, EventArgs e)
 		{
@@ -342,11 +430,11 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Tools.Log
+		#endregion Log
 
 
 
-		#region Tools.Hash
+		#region Hash
 		// # ================================================================================================ #
 		private void button_hash_Click(object sender, EventArgs e)
 		{
@@ -358,22 +446,22 @@ namespace TestingGrounds
 			textBox_tools_hash_hashed.Text = _Tools.Hash(textBox_tools_hash_text.Text);
 		}
 		// # ================================================================================================ #
-		#endregion Tools.Hash
+		#endregion Hash
 
 
 
-		#region Tools.GetDate
+		#region Get Date
 		// # ================================================================================================ #
 		private void timer_date_Tick(object sender, EventArgs e)
 		{
 			label_tools_getDate_date.Text = _Tools.GetDate();
 		}
 		// # ================================================================================================ #
-		#endregion Tools.GetDate
+		#endregion Get Date
 
 
 
-		#region Tools.SetWallpaper & Tools.GetGifFrames
+		#region Set Wallpaper & Get GIF Frames
 		// # ================================================================================================ #
 		static Image[] _Frames;
 		// # ================================================================================================ #
@@ -421,11 +509,11 @@ namespace TestingGrounds
 			});
 		}
 		// # ================================================================================================ #
-		#endregion Tools.SetWallpaper & Tools.GetGifFrames
+		#endregion Set Wallpaper & Get GIF Frames
 
 
 
-		#region Tools.GetTextFileContent
+		#region Get Text File Content
 		// # ================================================================================================ #
 		private void button_readfile_Click(object sender, EventArgs e)
 		{
@@ -454,11 +542,11 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Tools.GetTextFileContent
+		#endregion Get Text File Content
 
 
 
-		#region Tools.ReplaceString
+		#region Replace String
 		// # ================================================================================================ #
 		private void button_replace_Click(object sender, EventArgs e)
 		{
@@ -472,104 +560,13 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Tools.ReplaceString
+		#endregion Replace String
 		#endregion Tools
 
 
 
-		#region Tools.DatabaseTools
-		#region Tools.DatabaseTools.CheckLogin
-		// # ================================================================================================ #
-		private void button_login_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				bool _Success;
-				if (comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
-				{
-					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.SqlServer);
-				}
-				else
-				{
-					_Success = _DatabaseTools.CheckLogin("Users", textBox_tools_databaseTools_checkLogin_user.Text, textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", Tools.DatabaseTools.DatabaseType.Access);
-				}
-
-				if (_Success == true)
-				{
-					MessageBox.Show("Logged in.");
-				}
-				else
-				{
-					MessageBox.Show("Invalid login credentials.");
-				}
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Tools.DatabaseTools.CheckLogin
-
-
-
-		#region Tools.DatabaseTools.SqlFilter
-		// # ================================================================================================ #
-		private void button_sqlFilter_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				textBox_tools_databaseTools_filterSql_text.Text = _DatabaseTools.FilterSql(textBox_tools_databaseTools_filterSql_text.Text);
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Tools.DatabaseTools.SqlFilter
-
-
-
-		#region Tools.DatabaseTools.SelectUnique
-		// # ================================================================================================ #
-		private void button_selectUnique_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				if (comboBox_tg_databaseType.SelectedIndex == 1)
-				{
-					List<string> _Select = _DatabaseTools.SelectUnique(textBox_tools_databaseTools_selectUnique_table.Text, textBox_tools_databaseTools_selectUnique_column.Text, Tools.DatabaseTools.DatabaseType.Access);
-
-					string _String = null;
-					foreach (string _Value in _Select)
-					{
-						if (!String.IsNullOrEmpty(_String))
-						{
-							_String = $"{_String}, {_Value}";
-						}
-						else
-						{
-							_String = _Value;
-						}
-					}
-
-					MessageBox.Show(_String);
-				}
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Tools.DatabaseTools.SelectUnique
-		#endregion Tools.DatabaseTools
-
-
-
 		#region Generators
-		#region Generators.GeneratePassword
+		#region Generate Password
 		// # ================================================================================================ #
 		private void button_generatePassword_Click(object sender, EventArgs e)
 		{
@@ -583,13 +580,14 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Generators.GeneratePassword
+		#endregion Generate Password
 		#endregion Generators
 
 
 
 		#region Controls
-		#region Controls.ComboBox.ResizeComboBox
+		#region ComboBox
+		#region Resize ComboBox
 		// # ================================================================================================ #
 		private void button_resizeCombobox_Click(object sender, EventArgs e)
 		{
@@ -612,11 +610,13 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Controls.ComboBox.ResizeComboBox
+		#endregion Resize ComboBox
+		#endregion ComboBox
 
 
 
-		#region Controls.TextBox.OnlyNumbersTextBox
+		#region TextBox
+		#region Only Numbers TextBox
 		// # ================================================================================================ #
 		private void checkBox_onlyNumbers_CheckedChanged(object sender, EventArgs e)
 		{
@@ -637,11 +637,14 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Controls.TextBox.OnlyNumbersTextBox
+		#endregion Only Numbers TextBox
+		#endregion TextBox
 
 
 
-		#region Controls.Form.GetOpenForms
+		#region Form
+		#region Get Open Forms
+		// # ================================================================================================ #
 		private void button_controls_getOpenForms_Click(object sender, EventArgs e)
 		{
 			try
@@ -653,11 +656,15 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-		#endregion Controls.Form.GetOpenForms
+		// # ================================================================================================ #
+		#endregion Get Open Forms
+		#endregion Form
 
 
 
-		#region Controls.MessageBox.ShowConfirmationDialog
+		#region MessageBox
+		#region Show Confirmation Dialog
+		// # ================================================================================================ #
 		private void button_showConfirmationDialog_Click(object sender, EventArgs e)
 		{
 			try
@@ -678,13 +685,15 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
-		#endregion Controls.MessageBox.ShowConfirmationDialog
+		// # ================================================================================================ #
+		#endregion Show Confirmation Dialog
+		#endregion MessageBox
 		#endregion Controls
 
 
 
 		#region Network
-		#region Network.Wifi.Connect
+		#region Wifi
 		// # ================================================================================================ #
 		private void button_connect_Click(object sender, EventArgs e)
 		{
@@ -706,7 +715,59 @@ namespace TestingGrounds
 			}
 		}
 		// # ================================================================================================ #
-		#endregion Network.Wifi.Connect
+		#endregion Wifi
+
+
+
+		#region Packets
+		#region Send TCP Packet
+		// # ================================================================================================ #
+		private void button_network_packets_sendTcpPacket_Click(object sender, EventArgs e)
+		{
+			_Packets.SendTcpPacket("127.0.0.1", 69, "Hey mamfsdfs");
+		}
+		// # ================================================================================================ #
+		#endregion Send TCP Packet
+
+
+
+		#region Wait TCP Packet
+		// # ================================================================================================ #
+		private void button_network_packets_waitTcpPacket_Click(object sender, EventArgs e)
+		{
+			new Task(new Action(() =>
+			{
+				while (true)
+				{
+					MessageBox.Show("Received: \n\n\n" + _Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), 69), "Wait TCP Packet");
+				}
+			})).Start();
+		}
+		// # ================================================================================================ #
+		#endregion Wait TCP Packet
+
+
+
+		#region Send UDP Packet
+		// # ================================================================================================ #
+		private void button_network_packets_sendUdpPacket_Click(object sender, EventArgs e)
+		{
+
+		}
+		// # ================================================================================================ #
+		#endregion Send UDP Packet
+
+
+
+		#region Wait UDP Packet
+		// # ================================================================================================ #
+		private void button_network_packets_waitUdpPacket_Click(object sender, EventArgs e)
+		{
+
+		}
+		// # ================================================================================================ #
+		#endregion Wait UDP Packet
+		#endregion Packets
 		#endregion Network
 
 
@@ -743,25 +804,9 @@ namespace TestingGrounds
 				Ex(_Exception);
 			}
 		}
+
 		// # ================================================================================================ #
 		#endregion Calculate Factorial
-
 		#endregion Math
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			new Task(new Action(() =>
-			{
-				while (true)
-				{
-					MessageBox.Show("Received: \n\n\n" + _Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), 69), "Wait TCP Packet");
-				}
-			})).Start();
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-			_Packets.SendTcpPacket("127.0.0.1", 69, "Hey mamfsdfs");
-		}
 	}
 }
