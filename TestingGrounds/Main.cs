@@ -25,7 +25,7 @@ namespace TestingGrounds
 		SqlServerDatabase _SqlDatabase = new SqlServerDatabase();
 		AccessDatabase _AccessDatabase = new AccessDatabase();
 		MySqlDatabase _MySqlDatabase = new MySqlDatabase();
-		
+
 		Tools _Tools = new Tools();
 		Tools.DatabaseTools _DatabaseTools = new Tools.DatabaseTools();
 		Generators _Generators = new Generators();
@@ -722,7 +722,7 @@ namespace TestingGrounds
 		#region Packets
 		#region Send TCP Packet
 		// # ================================================================================================ #
-		private void button_network_packets_sendTcpPacket_Click(object sender, EventArgs e)
+		private void button_network_packets_sendTcpPacket_send_Click(object sender, EventArgs e)
 		{
 			_Packets.SendTcpPacket("127.0.0.1", 69, "Hey mamfsdfs");
 		}
@@ -733,8 +733,9 @@ namespace TestingGrounds
 
 		#region Wait TCP Packet
 		// # ================================================================================================ #
-		private void button_network_packets_waitTcpPacket_Click(object sender, EventArgs e)
+		private void button_network_packets_waitTcpPacket_wait_Click(object sender, EventArgs e)
 		{
+			button_network_packets_waitTcpPacket_wait.Enabled = false;
 			new Task(new Action(() =>
 			{
 				while (true)
@@ -752,7 +753,7 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_network_packets_sendUdpPacket_Click(object sender, EventArgs e)
 		{
-
+			_Packets.SendUdpPacket(textBox_network_packets_sendUdpPacket_remoteIp.Text, (int)numeric_network_packets_sendUdpPacket_remotePort.Value, textBox_network_packets_sendUdpPacket_message.Text);
 		}
 		// # ================================================================================================ #
 		#endregion Send UDP Packet
@@ -763,7 +764,15 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void button_network_packets_waitUdpPacket_Click(object sender, EventArgs e)
 		{
+			button_network_packets_waitUdpPacket_wait.Enabled = false;
+			new Task(new Action(() =>
+			{
+				while (true)
+				{
+					MessageBox.Show("Received: \n\n\n" + _Packets.WaitUdpPacket((int)numeric_network_packets_waitUdpPacket_localPort.Value), "Wait UDP Packet");
 
+				}
+			})).Start();
 		}
 		// # ================================================================================================ #
 		#endregion Wait UDP Packet
@@ -807,6 +816,7 @@ namespace TestingGrounds
 
 		// # ================================================================================================ #
 		#endregion Calculate Factorial
+
 		#endregion Math
 	}
 }

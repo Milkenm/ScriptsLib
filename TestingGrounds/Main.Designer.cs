@@ -81,8 +81,6 @@
 			this.button_math_calculateFactorial_calculate = new System.Windows.Forms.Button();
 			this.label_math_calculateFactorial_factorial = new System.Windows.Forms.Label();
 			this.numeric_math_calculateFactorial_factorial = new System.Windows.Forms.NumericUpDown();
-			this.button_network_packets_waitTcpPacket_receive = new System.Windows.Forms.Button();
-			this.button_network_packets_sendTcpPacket_send = new System.Windows.Forms.Button();
 			this.tabs_tg = new System.Windows.Forms.TabControl();
 			this.tab_database = new System.Windows.Forms.TabPage();
 			this.tabs_database = new System.Windows.Forms.TabControl();
@@ -149,9 +147,9 @@
 			this.tab_network_packets_sendTcpPacket = new System.Windows.Forms.TabPage();
 			this.tab_network_packets_waitTcpPacket = new System.Windows.Forms.TabPage();
 			this.tab_network_packets_sendUdpPacket = new System.Windows.Forms.TabPage();
-			this.button_network_packets_sendUdpPacket = new System.Windows.Forms.Button();
+			this.button_network_packets_sendUdpPacket_send = new System.Windows.Forms.Button();
 			this.tab_network_packets_waitUdpPacket = new System.Windows.Forms.TabPage();
-			this.button_network_packets_waitUdpPacket = new System.Windows.Forms.Button();
+			this.button_network_packets_waitUdpPacket_wait = new System.Windows.Forms.Button();
 			this.tab_math = new System.Windows.Forms.TabPage();
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
@@ -159,6 +157,24 @@
 			this.label_tg_databaseType = new System.Windows.Forms.Label();
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
+			this.numeric_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.NumericUpDown();
+			this.label_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.Label();
+			this.numeric_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
+			this.textBox_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.TextBox();
+			this.textBox_network_packets_sendUdpPacket_message = new System.Windows.Forms.TextBox();
+			this.label_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.Label();
+			this.label_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.Label();
+			this.label_network_packets_sendUdpPacket_message = new System.Windows.Forms.Label();
+			this.label_network_packets_sendTcpPacket_message = new System.Windows.Forms.Label();
+			this.label_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.Label();
+			this.label_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.Label();
+			this.textBox_network_packets_sendTcpPacket_message = new System.Windows.Forms.TextBox();
+			this.textBox_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.TextBox();
+			this.numeric_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
+			this.button_network_packets_sendTcpPacket_send = new System.Windows.Forms.Button();
+			this.label_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.Label();
+			this.numeric_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.NumericUpDown();
+			this.button_network_packets_waitTcpPacket_wait = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -219,6 +235,10 @@
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
 			this.tab_math_calculateFactorial.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -681,26 +701,6 @@
 			this.numeric_math_calculateFactorial_factorial.Name = "numeric_math_calculateFactorial_factorial";
 			this.numeric_math_calculateFactorial_factorial.Size = new System.Drawing.Size(188, 20);
 			this.numeric_math_calculateFactorial_factorial.TabIndex = 0;
-			// 
-			// button_network_packets_waitTcpPacket_receive
-			// 
-			this.button_network_packets_waitTcpPacket_receive.Location = new System.Drawing.Point(367, 96);
-			this.button_network_packets_waitTcpPacket_receive.Name = "button_network_packets_waitTcpPacket_receive";
-			this.button_network_packets_waitTcpPacket_receive.Size = new System.Drawing.Size(109, 23);
-			this.button_network_packets_waitTcpPacket_receive.TabIndex = 26;
-			this.button_network_packets_waitTcpPacket_receive.Text = "Start TCP Server";
-			this.button_network_packets_waitTcpPacket_receive.UseVisualStyleBackColor = true;
-			this.button_network_packets_waitTcpPacket_receive.Click += new System.EventHandler(this.button_network_packets_waitTcpPacket_Click);
-			// 
-			// button_network_packets_sendTcpPacket_send
-			// 
-			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(351, 92);
-			this.button_network_packets_sendTcpPacket_send.Name = "button_network_packets_sendTcpPacket_send";
-			this.button_network_packets_sendTcpPacket_send.Size = new System.Drawing.Size(116, 23);
-			this.button_network_packets_sendTcpPacket_send.TabIndex = 27;
-			this.button_network_packets_sendTcpPacket_send.Text = "Send TCP Packet";
-			this.button_network_packets_sendTcpPacket_send.UseVisualStyleBackColor = true;
-			this.button_network_packets_sendTcpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendTcpPacket_Click);
 			// 
 			// tabs_tg
 			// 
@@ -1401,6 +1401,12 @@
 			// 
 			// tab_network_packets_sendTcpPacket
 			// 
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.label_network_packets_sendTcpPacket_message);
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.label_network_packets_sendTcpPacket_remotePort);
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.label_network_packets_sendTcpPacket_remoteIp);
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.textBox_network_packets_sendTcpPacket_message);
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.textBox_network_packets_sendTcpPacket_remoteIp);
+			this.tab_network_packets_sendTcpPacket.Controls.Add(this.numeric_network_packets_sendTcpPacket_remotePort);
 			this.tab_network_packets_sendTcpPacket.Controls.Add(this.button_network_packets_sendTcpPacket_send);
 			this.tab_network_packets_sendTcpPacket.Location = new System.Drawing.Point(4, 22);
 			this.tab_network_packets_sendTcpPacket.Name = "tab_network_packets_sendTcpPacket";
@@ -1412,7 +1418,9 @@
 			// 
 			// tab_network_packets_waitTcpPacket
 			// 
-			this.tab_network_packets_waitTcpPacket.Controls.Add(this.button_network_packets_waitTcpPacket_receive);
+			this.tab_network_packets_waitTcpPacket.Controls.Add(this.label_network_packets_waitTcpPacket_localPort);
+			this.tab_network_packets_waitTcpPacket.Controls.Add(this.numeric_network_packets_waitTcpPacket_localPort);
+			this.tab_network_packets_waitTcpPacket.Controls.Add(this.button_network_packets_waitTcpPacket_wait);
 			this.tab_network_packets_waitTcpPacket.Location = new System.Drawing.Point(4, 22);
 			this.tab_network_packets_waitTcpPacket.Name = "tab_network_packets_waitTcpPacket";
 			this.tab_network_packets_waitTcpPacket.Padding = new System.Windows.Forms.Padding(3);
@@ -1423,7 +1431,13 @@
 			// 
 			// tab_network_packets_sendUdpPacket
 			// 
-			this.tab_network_packets_sendUdpPacket.Controls.Add(this.button_network_packets_sendUdpPacket);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.label_network_packets_sendUdpPacket_message);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.label_network_packets_sendUdpPacket_remotePort);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.label_network_packets_sendUdpPacket_remoteIp);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.textBox_network_packets_sendUdpPacket_message);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.textBox_network_packets_sendUdpPacket_remoteIp);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.numeric_network_packets_sendUdpPacket_remotePort);
+			this.tab_network_packets_sendUdpPacket.Controls.Add(this.button_network_packets_sendUdpPacket_send);
 			this.tab_network_packets_sendUdpPacket.Location = new System.Drawing.Point(4, 22);
 			this.tab_network_packets_sendUdpPacket.Name = "tab_network_packets_sendUdpPacket";
 			this.tab_network_packets_sendUdpPacket.Padding = new System.Windows.Forms.Padding(3);
@@ -1432,19 +1446,21 @@
 			this.tab_network_packets_sendUdpPacket.Text = "Send UDP Packet";
 			this.tab_network_packets_sendUdpPacket.UseVisualStyleBackColor = true;
 			// 
-			// button_network_packets_sendUdpPacket
+			// button_network_packets_sendUdpPacket_send
 			// 
-			this.button_network_packets_sendUdpPacket.Location = new System.Drawing.Point(350, 118);
-			this.button_network_packets_sendUdpPacket.Name = "button_network_packets_sendUdpPacket";
-			this.button_network_packets_sendUdpPacket.Size = new System.Drawing.Size(116, 23);
-			this.button_network_packets_sendUdpPacket.TabIndex = 28;
-			this.button_network_packets_sendUdpPacket.Text = "Send UDP Packet";
-			this.button_network_packets_sendUdpPacket.UseVisualStyleBackColor = true;
-			this.button_network_packets_sendUdpPacket.Click += new System.EventHandler(this.button_network_packets_sendUdpPacket_Click);
+			this.button_network_packets_sendUdpPacket_send.Location = new System.Drawing.Point(471, 164);
+			this.button_network_packets_sendUdpPacket_send.Name = "button_network_packets_sendUdpPacket_send";
+			this.button_network_packets_sendUdpPacket_send.Size = new System.Drawing.Size(116, 23);
+			this.button_network_packets_sendUdpPacket_send.TabIndex = 28;
+			this.button_network_packets_sendUdpPacket_send.Text = "Send UDP Packet";
+			this.button_network_packets_sendUdpPacket_send.UseVisualStyleBackColor = true;
+			this.button_network_packets_sendUdpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendUdpPacket_Click);
 			// 
 			// tab_network_packets_waitUdpPacket
 			// 
-			this.tab_network_packets_waitUdpPacket.Controls.Add(this.button_network_packets_waitUdpPacket);
+			this.tab_network_packets_waitUdpPacket.Controls.Add(this.label_network_packets_waitUdpPacket_localPort);
+			this.tab_network_packets_waitUdpPacket.Controls.Add(this.numeric_network_packets_waitUdpPacket_localPort);
+			this.tab_network_packets_waitUdpPacket.Controls.Add(this.button_network_packets_waitUdpPacket_wait);
 			this.tab_network_packets_waitUdpPacket.Location = new System.Drawing.Point(4, 22);
 			this.tab_network_packets_waitUdpPacket.Name = "tab_network_packets_waitUdpPacket";
 			this.tab_network_packets_waitUdpPacket.Padding = new System.Windows.Forms.Padding(3);
@@ -1453,15 +1469,15 @@
 			this.tab_network_packets_waitUdpPacket.Text = "Wait UDP Packet";
 			this.tab_network_packets_waitUdpPacket.UseVisualStyleBackColor = true;
 			// 
-			// button_network_packets_waitUdpPacket
+			// button_network_packets_waitUdpPacket_wait
 			// 
-			this.button_network_packets_waitUdpPacket.Location = new System.Drawing.Point(354, 118);
-			this.button_network_packets_waitUdpPacket.Name = "button_network_packets_waitUdpPacket";
-			this.button_network_packets_waitUdpPacket.Size = new System.Drawing.Size(109, 23);
-			this.button_network_packets_waitUdpPacket.TabIndex = 27;
-			this.button_network_packets_waitUdpPacket.Text = "Start UDP Server";
-			this.button_network_packets_waitUdpPacket.UseVisualStyleBackColor = true;
-			this.button_network_packets_waitUdpPacket.Click += new System.EventHandler(this.button_network_packets_waitUdpPacket_Click);
+			this.button_network_packets_waitUdpPacket_wait.Location = new System.Drawing.Point(354, 118);
+			this.button_network_packets_waitUdpPacket_wait.Name = "button_network_packets_waitUdpPacket_wait";
+			this.button_network_packets_waitUdpPacket_wait.Size = new System.Drawing.Size(109, 23);
+			this.button_network_packets_waitUdpPacket_wait.TabIndex = 27;
+			this.button_network_packets_waitUdpPacket_wait.Text = "Start UDP Server";
+			this.button_network_packets_waitUdpPacket_wait.UseVisualStyleBackColor = true;
+			this.button_network_packets_waitUdpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitUdpPacket_Click);
 			// 
 			// tab_math
 			// 
@@ -1538,6 +1554,196 @@
 			this.textBox_tg_version.ReadOnly = true;
 			this.textBox_tg_version.Size = new System.Drawing.Size(63, 20);
 			this.textBox_tg_version.TabIndex = 31;
+			// 
+			// numeric_network_packets_waitUdpPacket_localPort
+			// 
+			this.numeric_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(354, 92);
+			this.numeric_network_packets_waitUdpPacket_localPort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_waitUdpPacket_localPort.Name = "numeric_network_packets_waitUdpPacket_localPort";
+			this.numeric_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(109, 20);
+			this.numeric_network_packets_waitUdpPacket_localPort.TabIndex = 28;
+			this.numeric_network_packets_waitUdpPacket_localPort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// label_network_packets_waitUdpPacket_localPort
+			// 
+			this.label_network_packets_waitUdpPacket_localPort.AutoSize = true;
+			this.label_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(290, 94);
+			this.label_network_packets_waitUdpPacket_localPort.Name = "label_network_packets_waitUdpPacket_localPort";
+			this.label_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(58, 13);
+			this.label_network_packets_waitUdpPacket_localPort.TabIndex = 29;
+			this.label_network_packets_waitUdpPacket_localPort.Text = "Local Port:";
+			// 
+			// numeric_network_packets_sendUdpPacket_remotePort
+			// 
+			this.numeric_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(285, 78);
+			this.numeric_network_packets_sendUdpPacket_remotePort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_sendUdpPacket_remotePort.Name = "numeric_network_packets_sendUdpPacket_remotePort";
+			this.numeric_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
+			this.numeric_network_packets_sendUdpPacket_remotePort.TabIndex = 29;
+			this.numeric_network_packets_sendUdpPacket_remotePort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// textBox_network_packets_sendUdpPacket_remoteIp
+			// 
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(285, 52);
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Name = "textBox_network_packets_sendUdpPacket_remoteIp";
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
+			this.textBox_network_packets_sendUdpPacket_remoteIp.TabIndex = 30;
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Text = "127.0.0.1";
+			// 
+			// textBox_network_packets_sendUdpPacket_message
+			// 
+			this.textBox_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(285, 126);
+			this.textBox_network_packets_sendUdpPacket_message.Name = "textBox_network_packets_sendUdpPacket_message";
+			this.textBox_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(302, 20);
+			this.textBox_network_packets_sendUdpPacket_message.TabIndex = 31;
+			// 
+			// label_network_packets_sendUdpPacket_remoteIp
+			// 
+			this.label_network_packets_sendUdpPacket_remoteIp.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(219, 55);
+			this.label_network_packets_sendUdpPacket_remoteIp.Name = "label_network_packets_sendUdpPacket_remoteIp";
+			this.label_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
+			this.label_network_packets_sendUdpPacket_remoteIp.TabIndex = 32;
+			this.label_network_packets_sendUdpPacket_remoteIp.Text = "Remote IP:";
+			// 
+			// label_network_packets_sendUdpPacket_remotePort
+			// 
+			this.label_network_packets_sendUdpPacket_remotePort.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(210, 80);
+			this.label_network_packets_sendUdpPacket_remotePort.Name = "label_network_packets_sendUdpPacket_remotePort";
+			this.label_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
+			this.label_network_packets_sendUdpPacket_remotePort.TabIndex = 33;
+			this.label_network_packets_sendUdpPacket_remotePort.Text = "Remote Port:";
+			// 
+			// label_network_packets_sendUdpPacket_message
+			// 
+			this.label_network_packets_sendUdpPacket_message.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(226, 129);
+			this.label_network_packets_sendUdpPacket_message.Name = "label_network_packets_sendUdpPacket_message";
+			this.label_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_packets_sendUdpPacket_message.TabIndex = 34;
+			this.label_network_packets_sendUdpPacket_message.Text = "Message:";
+			// 
+			// label_network_packets_sendTcpPacket_message
+			// 
+			this.label_network_packets_sendTcpPacket_message.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(236, 139);
+			this.label_network_packets_sendTcpPacket_message.Name = "label_network_packets_sendTcpPacket_message";
+			this.label_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_packets_sendTcpPacket_message.TabIndex = 41;
+			this.label_network_packets_sendTcpPacket_message.Text = "Message:";
+			// 
+			// label_network_packets_sendTcpPacket_remotePort
+			// 
+			this.label_network_packets_sendTcpPacket_remotePort.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(220, 90);
+			this.label_network_packets_sendTcpPacket_remotePort.Name = "label_network_packets_sendTcpPacket_remotePort";
+			this.label_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
+			this.label_network_packets_sendTcpPacket_remotePort.TabIndex = 40;
+			this.label_network_packets_sendTcpPacket_remotePort.Text = "Remote Port:";
+			// 
+			// label_network_packets_sendTcpPacket_remoteIp
+			// 
+			this.label_network_packets_sendTcpPacket_remoteIp.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(229, 65);
+			this.label_network_packets_sendTcpPacket_remoteIp.Name = "label_network_packets_sendTcpPacket_remoteIp";
+			this.label_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
+			this.label_network_packets_sendTcpPacket_remoteIp.TabIndex = 39;
+			this.label_network_packets_sendTcpPacket_remoteIp.Text = "Remote IP:";
+			// 
+			// textBox_network_packets_sendTcpPacket_message
+			// 
+			this.textBox_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(295, 136);
+			this.textBox_network_packets_sendTcpPacket_message.Name = "textBox_network_packets_sendTcpPacket_message";
+			this.textBox_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(302, 20);
+			this.textBox_network_packets_sendTcpPacket_message.TabIndex = 38;
+			// 
+			// textBox_network_packets_sendTcpPacket_remoteIp
+			// 
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(295, 62);
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Name = "textBox_network_packets_sendTcpPacket_remoteIp";
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
+			this.textBox_network_packets_sendTcpPacket_remoteIp.TabIndex = 37;
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Text = "127.0.0.1";
+			// 
+			// numeric_network_packets_sendTcpPacket_remotePort
+			// 
+			this.numeric_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(295, 88);
+			this.numeric_network_packets_sendTcpPacket_remotePort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_sendTcpPacket_remotePort.Name = "numeric_network_packets_sendTcpPacket_remotePort";
+			this.numeric_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
+			this.numeric_network_packets_sendTcpPacket_remotePort.TabIndex = 36;
+			this.numeric_network_packets_sendTcpPacket_remotePort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// button_network_packets_sendTcpPacket_send
+			// 
+			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(481, 174);
+			this.button_network_packets_sendTcpPacket_send.Name = "button_network_packets_sendTcpPacket_send";
+			this.button_network_packets_sendTcpPacket_send.Size = new System.Drawing.Size(116, 23);
+			this.button_network_packets_sendTcpPacket_send.TabIndex = 35;
+			this.button_network_packets_sendTcpPacket_send.Text = "Send TCP Packet";
+			this.button_network_packets_sendTcpPacket_send.UseVisualStyleBackColor = true;
+			this.button_network_packets_sendTcpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendTcpPacket_send_Click);
+			// 
+			// label_network_packets_waitTcpPacket_localPort
+			// 
+			this.label_network_packets_waitTcpPacket_localPort.AutoSize = true;
+			this.label_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(302, 96);
+			this.label_network_packets_waitTcpPacket_localPort.Name = "label_network_packets_waitTcpPacket_localPort";
+			this.label_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(58, 13);
+			this.label_network_packets_waitTcpPacket_localPort.TabIndex = 32;
+			this.label_network_packets_waitTcpPacket_localPort.Text = "Local Port:";
+			// 
+			// numeric_network_packets_waitTcpPacket_localPort
+			// 
+			this.numeric_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(366, 94);
+			this.numeric_network_packets_waitTcpPacket_localPort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_waitTcpPacket_localPort.Name = "numeric_network_packets_waitTcpPacket_localPort";
+			this.numeric_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(109, 20);
+			this.numeric_network_packets_waitTcpPacket_localPort.TabIndex = 31;
+			this.numeric_network_packets_waitTcpPacket_localPort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// button_network_packets_waitTcpPacket_wait
+			// 
+			this.button_network_packets_waitTcpPacket_wait.Location = new System.Drawing.Point(366, 120);
+			this.button_network_packets_waitTcpPacket_wait.Name = "button_network_packets_waitTcpPacket_wait";
+			this.button_network_packets_waitTcpPacket_wait.Size = new System.Drawing.Size(109, 23);
+			this.button_network_packets_waitTcpPacket_wait.TabIndex = 30;
+			this.button_network_packets_waitTcpPacket_wait.Text = "Start TCP Server";
+			this.button_network_packets_waitTcpPacket_wait.UseVisualStyleBackColor = true;
+			this.button_network_packets_waitTcpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitTcpPacket_wait_Click);
 			// 
 			// Main
 			// 
@@ -1619,15 +1825,23 @@
 			this.tab_network_packets.ResumeLayout(false);
 			this.tabs_network_packets.ResumeLayout(false);
 			this.tab_network_packets_sendTcpPacket.ResumeLayout(false);
+			this.tab_network_packets_sendTcpPacket.PerformLayout();
 			this.tab_network_packets_waitTcpPacket.ResumeLayout(false);
+			this.tab_network_packets_waitTcpPacket.PerformLayout();
 			this.tab_network_packets_sendUdpPacket.ResumeLayout(false);
+			this.tab_network_packets_sendUdpPacket.PerformLayout();
 			this.tab_network_packets_waitUdpPacket.ResumeLayout(false);
+			this.tab_network_packets_waitUdpPacket.PerformLayout();
 			this.tab_math.ResumeLayout(false);
 			this.tabs_math.ResumeLayout(false);
 			this.tab_math_calculateCombinations.ResumeLayout(false);
 			this.tab_math_calculateCombinations.PerformLayout();
 			this.tab_math_calculateFactorial.ResumeLayout(false);
 			this.tab_math_calculateFactorial.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1686,8 +1900,6 @@
 		private System.Windows.Forms.Button button_math_calculateFactorial_calculate;
 		private System.Windows.Forms.Label label_math_calculateFactorial_factorial;
 		private System.Windows.Forms.NumericUpDown numeric_math_calculateFactorial_factorial;
-		private System.Windows.Forms.Button button_network_packets_waitTcpPacket_receive;
-		private System.Windows.Forms.Button button_network_packets_sendTcpPacket_send;
 		private System.Windows.Forms.TabControl tabs_tg;
 		private System.Windows.Forms.TabPage tab_database;
 		private System.Windows.Forms.TabPage tab_tools;
@@ -1761,9 +1973,27 @@
 		private System.Windows.Forms.Label label_tg_version;
 		private System.Windows.Forms.TextBox textBox_tg_version;
 		private System.Windows.Forms.TabPage tab_network_packets_sendUdpPacket;
-		private System.Windows.Forms.Button button_network_packets_sendUdpPacket;
+		private System.Windows.Forms.Button button_network_packets_sendUdpPacket_send;
 		private System.Windows.Forms.TabPage tab_network_packets_waitUdpPacket;
-		private System.Windows.Forms.Button button_network_packets_waitUdpPacket;
+		private System.Windows.Forms.Button button_network_packets_waitUdpPacket_wait;
+		private System.Windows.Forms.NumericUpDown numeric_network_packets_sendUdpPacket_remotePort;
+		private System.Windows.Forms.Label label_network_packets_waitUdpPacket_localPort;
+		private System.Windows.Forms.NumericUpDown numeric_network_packets_waitUdpPacket_localPort;
+		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_message;
+		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_remotePort;
+		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_remoteIp;
+		private System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_message;
+		private System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_remoteIp;
+		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_message;
+		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_remotePort;
+		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_remoteIp;
+		private System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_message;
+		private System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_remoteIp;
+		private System.Windows.Forms.NumericUpDown numeric_network_packets_sendTcpPacket_remotePort;
+		private System.Windows.Forms.Button button_network_packets_sendTcpPacket_send;
+		private System.Windows.Forms.Label label_network_packets_waitTcpPacket_localPort;
+		private System.Windows.Forms.NumericUpDown numeric_network_packets_waitTcpPacket_localPort;
+		private System.Windows.Forms.Button button_network_packets_waitTcpPacket_wait;
 	}
 }
 

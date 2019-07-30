@@ -95,6 +95,7 @@ namespace ScriptsLib.Network
 			#endregion Send TCP Packet
 
 
+
 			#region Wait TCP Packet
 			// # ================================================================================================ #
 			/// <summary>Waits for a TCP packet.</summary>
@@ -125,6 +126,49 @@ namespace ScriptsLib.Network
 			}
 			// # ================================================================================================ #
 			#endregion Wait TCP Packet
+
+
+
+			#region Send UDP Packet
+			public void SendUdpPacket(string _RemoteHost, int _RemotePort, string _Message)
+			{
+				// Create a UDP client.
+				UdpClient _Client = new UdpClient(_RemoteHost, _RemotePort);
+
+				// Convert the message...
+				byte[] _Data = Encoding.ASCII.GetBytes(_Message);
+				// ...and then send it.
+				_Client.Send(_Data, _Data.Length);
+
+				// Close everything.
+				_Client.Close();
+			}
+			#endregion Send UDP Packet
+
+
+
+			#region Wait UDP Packet
+			public string WaitUdpPacket(int _LocalPort)
+			{
+				// Create the server.
+				UdpClient _Client = new UdpClient(_LocalPort, AddressFamily.InterNetwork);
+				IPEndPoint _EndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 70);
+
+				// Wait for the message.
+				byte[] _Received = _Client.Receive(ref _EndPoint);
+
+				// Parse the message...
+				byte[] _Buffer = new byte[256];
+				// ...and save it.
+				string _Message = Encoding.ASCII.GetString(_Received, 0, _Received.Length);
+
+				// Close everything.
+				_Client.Close();
+
+				// Return the message.
+				return _Message;
+			}
+			#endregion Wait UDP Packet
 		}
 		// # ================================================================================================ #
 		#endregion Packets
