@@ -31,6 +31,7 @@ namespace TestingGrounds
 		Generators _Generators = new Generators();
 		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
 		Network.Packets _Packets = new Network.Packets();
+		Network.Mobile _Mobile = new Network.Mobile();
 
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
@@ -777,6 +778,19 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		#endregion Wait UDP Packet
 		#endregion Packets
+
+
+
+		#region Mobile
+		#region Send SMS
+		// # ================================================================================================ #
+		private void button_network_mobile_sendSms_sendSms_Click(object sender, EventArgs e)
+		{
+			_Mobile.SendSmsViaEmail(textBox_network_mobile_sendSms_senderEmail.Text, textBox_network_mobile_sendSms_senderEmailPassword.Text, textBox_network_mobile_sendSms_receiverPhone.Text, textBox_network_mobile_sendSms_subject.Text, textBox_network_mobile_sendSms_message.Text, textBox_network_mobile_sendSms_smsCarrier.Text, textBox_network_mobile_sendSms_smtpHost.Text, (int)numeric_network_mobile_sendSms_smtpPort.Value);
+		}
+		// # ================================================================================================ #
+		#endregion Send SMS
+		#endregion Mobile
 		#endregion Network
 
 

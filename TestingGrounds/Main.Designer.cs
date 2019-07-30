@@ -145,10 +145,28 @@
 			this.tab_network_packets = new System.Windows.Forms.TabPage();
 			this.tabs_network_packets = new System.Windows.Forms.TabControl();
 			this.tab_network_packets_sendTcpPacket = new System.Windows.Forms.TabPage();
+			this.label_network_packets_sendTcpPacket_message = new System.Windows.Forms.Label();
+			this.label_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.Label();
+			this.label_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.Label();
+			this.textBox_network_packets_sendTcpPacket_message = new System.Windows.Forms.TextBox();
+			this.textBox_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.TextBox();
+			this.numeric_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
+			this.button_network_packets_sendTcpPacket_send = new System.Windows.Forms.Button();
 			this.tab_network_packets_waitTcpPacket = new System.Windows.Forms.TabPage();
+			this.label_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.Label();
+			this.numeric_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.NumericUpDown();
+			this.button_network_packets_waitTcpPacket_wait = new System.Windows.Forms.Button();
 			this.tab_network_packets_sendUdpPacket = new System.Windows.Forms.TabPage();
+			this.label_network_packets_sendUdpPacket_message = new System.Windows.Forms.Label();
+			this.label_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.Label();
+			this.label_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.Label();
+			this.textBox_network_packets_sendUdpPacket_message = new System.Windows.Forms.TextBox();
+			this.textBox_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.TextBox();
+			this.numeric_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
 			this.button_network_packets_sendUdpPacket_send = new System.Windows.Forms.Button();
 			this.tab_network_packets_waitUdpPacket = new System.Windows.Forms.TabPage();
+			this.label_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.Label();
+			this.numeric_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.NumericUpDown();
 			this.button_network_packets_waitUdpPacket_wait = new System.Windows.Forms.Button();
 			this.tab_math = new System.Windows.Forms.TabPage();
 			this.tabs_math = new System.Windows.Forms.TabControl();
@@ -157,24 +175,26 @@
 			this.label_tg_databaseType = new System.Windows.Forms.Label();
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
-			this.numeric_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.NumericUpDown();
-			this.label_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.Label();
-			this.numeric_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
-			this.textBox_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.TextBox();
-			this.textBox_network_packets_sendUdpPacket_message = new System.Windows.Forms.TextBox();
-			this.label_network_packets_sendUdpPacket_remoteIp = new System.Windows.Forms.Label();
-			this.label_network_packets_sendUdpPacket_remotePort = new System.Windows.Forms.Label();
-			this.label_network_packets_sendUdpPacket_message = new System.Windows.Forms.Label();
-			this.label_network_packets_sendTcpPacket_message = new System.Windows.Forms.Label();
-			this.label_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.Label();
-			this.label_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.Label();
-			this.textBox_network_packets_sendTcpPacket_message = new System.Windows.Forms.TextBox();
-			this.textBox_network_packets_sendTcpPacket_remoteIp = new System.Windows.Forms.TextBox();
-			this.numeric_network_packets_sendTcpPacket_remotePort = new System.Windows.Forms.NumericUpDown();
-			this.button_network_packets_sendTcpPacket_send = new System.Windows.Forms.Button();
-			this.label_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.Label();
-			this.numeric_network_packets_waitTcpPacket_localPort = new System.Windows.Forms.NumericUpDown();
-			this.button_network_packets_waitTcpPacket_wait = new System.Windows.Forms.Button();
+			this.tab_network_mobile = new System.Windows.Forms.TabPage();
+			this.tabs_network_mobile = new System.Windows.Forms.TabControl();
+			this.tab_network_mobile_sendSms = new System.Windows.Forms.TabPage();
+			this.textBox_network_mobile_sendSms_senderEmail = new System.Windows.Forms.TextBox();
+			this.textBox_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_senderEmail = new System.Windows.Forms.Label();
+			this.label_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_subject = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_subject = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_message = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_message = new System.Windows.Forms.Label();
+			this.button_network_mobile_sendSms_sendSms = new System.Windows.Forms.Button();
+			this.textBox_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.Label();
+			this.label_network_mobile_sendSms_smtpHost = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_smtpHost = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_smtpPort = new System.Windows.Forms.Label();
+			this.numeric_network_mobile_sendSms_smtpPort = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -228,17 +248,21 @@
 			this.tab_network_packets.SuspendLayout();
 			this.tabs_network_packets.SuspendLayout();
 			this.tab_network_packets_sendTcpPacket.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).BeginInit();
 			this.tab_network_packets_waitTcpPacket.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).BeginInit();
 			this.tab_network_packets_sendUdpPacket.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).BeginInit();
 			this.tab_network_packets_waitUdpPacket.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).BeginInit();
 			this.tab_math.SuspendLayout();
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
 			this.tab_math_calculateFactorial.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).BeginInit();
+			this.tab_network_mobile.SuspendLayout();
+			this.tabs_network_mobile.SuspendLayout();
+			this.tab_network_mobile_sendSms.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1332,6 +1356,7 @@
 			// 
 			this.tabs_network.Controls.Add(this.tab_network_wifi);
 			this.tabs_network.Controls.Add(this.tab_network_packets);
+			this.tabs_network.Controls.Add(this.tab_network_mobile);
 			this.tabs_network.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabs_network.Location = new System.Drawing.Point(3, 3);
 			this.tabs_network.Name = "tabs_network";
@@ -1416,6 +1441,75 @@
 			this.tab_network_packets_sendTcpPacket.Text = "Send TCP Packet";
 			this.tab_network_packets_sendTcpPacket.UseVisualStyleBackColor = true;
 			// 
+			// label_network_packets_sendTcpPacket_message
+			// 
+			this.label_network_packets_sendTcpPacket_message.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(236, 139);
+			this.label_network_packets_sendTcpPacket_message.Name = "label_network_packets_sendTcpPacket_message";
+			this.label_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_packets_sendTcpPacket_message.TabIndex = 41;
+			this.label_network_packets_sendTcpPacket_message.Text = "Message:";
+			// 
+			// label_network_packets_sendTcpPacket_remotePort
+			// 
+			this.label_network_packets_sendTcpPacket_remotePort.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(220, 90);
+			this.label_network_packets_sendTcpPacket_remotePort.Name = "label_network_packets_sendTcpPacket_remotePort";
+			this.label_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
+			this.label_network_packets_sendTcpPacket_remotePort.TabIndex = 40;
+			this.label_network_packets_sendTcpPacket_remotePort.Text = "Remote Port:";
+			// 
+			// label_network_packets_sendTcpPacket_remoteIp
+			// 
+			this.label_network_packets_sendTcpPacket_remoteIp.AutoSize = true;
+			this.label_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(229, 65);
+			this.label_network_packets_sendTcpPacket_remoteIp.Name = "label_network_packets_sendTcpPacket_remoteIp";
+			this.label_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
+			this.label_network_packets_sendTcpPacket_remoteIp.TabIndex = 39;
+			this.label_network_packets_sendTcpPacket_remoteIp.Text = "Remote IP:";
+			// 
+			// textBox_network_packets_sendTcpPacket_message
+			// 
+			this.textBox_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(295, 136);
+			this.textBox_network_packets_sendTcpPacket_message.Name = "textBox_network_packets_sendTcpPacket_message";
+			this.textBox_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(302, 20);
+			this.textBox_network_packets_sendTcpPacket_message.TabIndex = 38;
+			// 
+			// textBox_network_packets_sendTcpPacket_remoteIp
+			// 
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(295, 62);
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Name = "textBox_network_packets_sendTcpPacket_remoteIp";
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
+			this.textBox_network_packets_sendTcpPacket_remoteIp.TabIndex = 37;
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Text = "127.0.0.1";
+			// 
+			// numeric_network_packets_sendTcpPacket_remotePort
+			// 
+			this.numeric_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(295, 88);
+			this.numeric_network_packets_sendTcpPacket_remotePort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_sendTcpPacket_remotePort.Name = "numeric_network_packets_sendTcpPacket_remotePort";
+			this.numeric_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
+			this.numeric_network_packets_sendTcpPacket_remotePort.TabIndex = 36;
+			this.numeric_network_packets_sendTcpPacket_remotePort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// button_network_packets_sendTcpPacket_send
+			// 
+			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(481, 174);
+			this.button_network_packets_sendTcpPacket_send.Name = "button_network_packets_sendTcpPacket_send";
+			this.button_network_packets_sendTcpPacket_send.Size = new System.Drawing.Size(116, 23);
+			this.button_network_packets_sendTcpPacket_send.TabIndex = 35;
+			this.button_network_packets_sendTcpPacket_send.Text = "Send TCP Packet";
+			this.button_network_packets_sendTcpPacket_send.UseVisualStyleBackColor = true;
+			this.button_network_packets_sendTcpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendTcpPacket_send_Click);
+			// 
 			// tab_network_packets_waitTcpPacket
 			// 
 			this.tab_network_packets_waitTcpPacket.Controls.Add(this.label_network_packets_waitTcpPacket_localPort);
@@ -1428,6 +1522,42 @@
 			this.tab_network_packets_waitTcpPacket.TabIndex = 1;
 			this.tab_network_packets_waitTcpPacket.Text = "Wait TCP Packet";
 			this.tab_network_packets_waitTcpPacket.UseVisualStyleBackColor = true;
+			// 
+			// label_network_packets_waitTcpPacket_localPort
+			// 
+			this.label_network_packets_waitTcpPacket_localPort.AutoSize = true;
+			this.label_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(302, 96);
+			this.label_network_packets_waitTcpPacket_localPort.Name = "label_network_packets_waitTcpPacket_localPort";
+			this.label_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(58, 13);
+			this.label_network_packets_waitTcpPacket_localPort.TabIndex = 32;
+			this.label_network_packets_waitTcpPacket_localPort.Text = "Local Port:";
+			// 
+			// numeric_network_packets_waitTcpPacket_localPort
+			// 
+			this.numeric_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(366, 94);
+			this.numeric_network_packets_waitTcpPacket_localPort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_waitTcpPacket_localPort.Name = "numeric_network_packets_waitTcpPacket_localPort";
+			this.numeric_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(109, 20);
+			this.numeric_network_packets_waitTcpPacket_localPort.TabIndex = 31;
+			this.numeric_network_packets_waitTcpPacket_localPort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
+			// 
+			// button_network_packets_waitTcpPacket_wait
+			// 
+			this.button_network_packets_waitTcpPacket_wait.Location = new System.Drawing.Point(366, 120);
+			this.button_network_packets_waitTcpPacket_wait.Name = "button_network_packets_waitTcpPacket_wait";
+			this.button_network_packets_waitTcpPacket_wait.Size = new System.Drawing.Size(109, 23);
+			this.button_network_packets_waitTcpPacket_wait.TabIndex = 30;
+			this.button_network_packets_waitTcpPacket_wait.Text = "Start TCP Server";
+			this.button_network_packets_waitTcpPacket_wait.UseVisualStyleBackColor = true;
+			this.button_network_packets_waitTcpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitTcpPacket_wait_Click);
 			// 
 			// tab_network_packets_sendUdpPacket
 			// 
@@ -1445,6 +1575,65 @@
 			this.tab_network_packets_sendUdpPacket.TabIndex = 2;
 			this.tab_network_packets_sendUdpPacket.Text = "Send UDP Packet";
 			this.tab_network_packets_sendUdpPacket.UseVisualStyleBackColor = true;
+			// 
+			// label_network_packets_sendUdpPacket_message
+			// 
+			this.label_network_packets_sendUdpPacket_message.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(226, 129);
+			this.label_network_packets_sendUdpPacket_message.Name = "label_network_packets_sendUdpPacket_message";
+			this.label_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_packets_sendUdpPacket_message.TabIndex = 34;
+			this.label_network_packets_sendUdpPacket_message.Text = "Message:";
+			// 
+			// label_network_packets_sendUdpPacket_remotePort
+			// 
+			this.label_network_packets_sendUdpPacket_remotePort.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(210, 80);
+			this.label_network_packets_sendUdpPacket_remotePort.Name = "label_network_packets_sendUdpPacket_remotePort";
+			this.label_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
+			this.label_network_packets_sendUdpPacket_remotePort.TabIndex = 33;
+			this.label_network_packets_sendUdpPacket_remotePort.Text = "Remote Port:";
+			// 
+			// label_network_packets_sendUdpPacket_remoteIp
+			// 
+			this.label_network_packets_sendUdpPacket_remoteIp.AutoSize = true;
+			this.label_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(219, 55);
+			this.label_network_packets_sendUdpPacket_remoteIp.Name = "label_network_packets_sendUdpPacket_remoteIp";
+			this.label_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
+			this.label_network_packets_sendUdpPacket_remoteIp.TabIndex = 32;
+			this.label_network_packets_sendUdpPacket_remoteIp.Text = "Remote IP:";
+			// 
+			// textBox_network_packets_sendUdpPacket_message
+			// 
+			this.textBox_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(285, 126);
+			this.textBox_network_packets_sendUdpPacket_message.Name = "textBox_network_packets_sendUdpPacket_message";
+			this.textBox_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(302, 20);
+			this.textBox_network_packets_sendUdpPacket_message.TabIndex = 31;
+			// 
+			// textBox_network_packets_sendUdpPacket_remoteIp
+			// 
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(285, 52);
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Name = "textBox_network_packets_sendUdpPacket_remoteIp";
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
+			this.textBox_network_packets_sendUdpPacket_remoteIp.TabIndex = 30;
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Text = "127.0.0.1";
+			// 
+			// numeric_network_packets_sendUdpPacket_remotePort
+			// 
+			this.numeric_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(285, 78);
+			this.numeric_network_packets_sendUdpPacket_remotePort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_sendUdpPacket_remotePort.Name = "numeric_network_packets_sendUdpPacket_remotePort";
+			this.numeric_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
+			this.numeric_network_packets_sendUdpPacket_remotePort.TabIndex = 29;
+			this.numeric_network_packets_sendUdpPacket_remotePort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
 			// 
 			// button_network_packets_sendUdpPacket_send
 			// 
@@ -1468,6 +1657,32 @@
 			this.tab_network_packets_waitUdpPacket.TabIndex = 3;
 			this.tab_network_packets_waitUdpPacket.Text = "Wait UDP Packet";
 			this.tab_network_packets_waitUdpPacket.UseVisualStyleBackColor = true;
+			// 
+			// label_network_packets_waitUdpPacket_localPort
+			// 
+			this.label_network_packets_waitUdpPacket_localPort.AutoSize = true;
+			this.label_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(290, 94);
+			this.label_network_packets_waitUdpPacket_localPort.Name = "label_network_packets_waitUdpPacket_localPort";
+			this.label_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(58, 13);
+			this.label_network_packets_waitUdpPacket_localPort.TabIndex = 29;
+			this.label_network_packets_waitUdpPacket_localPort.Text = "Local Port:";
+			// 
+			// numeric_network_packets_waitUdpPacket_localPort
+			// 
+			this.numeric_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(354, 92);
+			this.numeric_network_packets_waitUdpPacket_localPort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_packets_waitUdpPacket_localPort.Name = "numeric_network_packets_waitUdpPacket_localPort";
+			this.numeric_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(109, 20);
+			this.numeric_network_packets_waitUdpPacket_localPort.TabIndex = 28;
+			this.numeric_network_packets_waitUdpPacket_localPort.Value = new decimal(new int[] {
+            70,
+            0,
+            0,
+            0});
 			// 
 			// button_network_packets_waitUdpPacket_wait
 			// 
@@ -1555,195 +1770,203 @@
 			this.textBox_tg_version.Size = new System.Drawing.Size(63, 20);
 			this.textBox_tg_version.TabIndex = 31;
 			// 
-			// numeric_network_packets_waitUdpPacket_localPort
+			// tab_network_mobile
 			// 
-			this.numeric_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(354, 92);
-			this.numeric_network_packets_waitUdpPacket_localPort.Maximum = new decimal(new int[] {
+			this.tab_network_mobile.Controls.Add(this.tabs_network_mobile);
+			this.tab_network_mobile.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_mobile.Name = "tab_network_mobile";
+			this.tab_network_mobile.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_mobile.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_mobile.TabIndex = 2;
+			this.tab_network_mobile.Text = "Mobile";
+			this.tab_network_mobile.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_mobile
+			// 
+			this.tabs_network_mobile.Controls.Add(this.tab_network_mobile_sendSms);
+			this.tabs_network_mobile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_mobile.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_mobile.Name = "tabs_network_mobile";
+			this.tabs_network_mobile.SelectedIndex = 0;
+			this.tabs_network_mobile.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_mobile.TabIndex = 0;
+			// 
+			// tab_network_mobile_sendSms
+			// 
+			this.tab_network_mobile_sendSms.Controls.Add(this.numeric_network_mobile_sendSms_smtpPort);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpPort);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpHost);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smtpHost);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smsCarrier);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smsCarrier);
+			this.tab_network_mobile_sendSms.Controls.Add(this.button_network_mobile_sendSms_sendSms);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_message);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_message);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_subject);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_subject);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_receiverPhone);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_receiverPhone);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmailPassword);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmail);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmailPassword);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmail);
+			this.tab_network_mobile_sendSms.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_mobile_sendSms.Name = "tab_network_mobile_sendSms";
+			this.tab_network_mobile_sendSms.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_mobile_sendSms.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_mobile_sendSms.TabIndex = 0;
+			this.tab_network_mobile_sendSms.Text = "Send SMS";
+			this.tab_network_mobile_sendSms.UseVisualStyleBackColor = true;
+			// 
+			// textBox_network_mobile_sendSms_senderEmail
+			// 
+			this.textBox_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(243, 28);
+			this.textBox_network_mobile_sendSms_senderEmail.Name = "textBox_network_mobile_sendSms_senderEmail";
+			this.textBox_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_senderEmail.TabIndex = 0;
+			// 
+			// textBox_network_mobile_sendSms_senderEmailPassword
+			// 
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 54);
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Name = "textBox_network_mobile_sendSms_senderEmailPassword";
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_senderEmailPassword.TabIndex = 1;
+			// 
+			// label_network_mobile_sendSms_senderEmail
+			// 
+			this.label_network_mobile_sendSms_senderEmail.AutoSize = true;
+			this.label_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(158, 31);
+			this.label_network_mobile_sendSms_senderEmail.Name = "label_network_mobile_sendSms_senderEmail";
+			this.label_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(79, 13);
+			this.label_network_mobile_sendSms_senderEmail.TabIndex = 2;
+			this.label_network_mobile_sendSms_senderEmail.Text = "Sender\'s Email:";
+			// 
+			// label_network_mobile_sendSms_senderEmailPassword
+			// 
+			this.label_network_mobile_sendSms_senderEmailPassword.AutoSize = true;
+			this.label_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(109, 57);
+			this.label_network_mobile_sendSms_senderEmailPassword.Name = "label_network_mobile_sendSms_senderEmailPassword";
+			this.label_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(128, 13);
+			this.label_network_mobile_sendSms_senderEmailPassword.TabIndex = 3;
+			this.label_network_mobile_sendSms_senderEmailPassword.Text = "Sender\'s Email Password:";
+			// 
+			// textBox_network_mobile_sendSms_receiverPhone
+			// 
+			this.textBox_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(243, 92);
+			this.textBox_network_mobile_sendSms_receiverPhone.Name = "textBox_network_mobile_sendSms_receiverPhone";
+			this.textBox_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_receiverPhone.TabIndex = 4;
+			// 
+			// label_network_mobile_sendSms_receiverPhone
+			// 
+			this.label_network_mobile_sendSms_receiverPhone.AutoSize = true;
+			this.label_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(103, 95);
+			this.label_network_mobile_sendSms_receiverPhone.Name = "label_network_mobile_sendSms_receiverPhone";
+			this.label_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(134, 13);
+			this.label_network_mobile_sendSms_receiverPhone.TabIndex = 5;
+			this.label_network_mobile_sendSms_receiverPhone.Text = "Receiver\'s Phone Number:";
+			// 
+			// textBox_network_mobile_sendSms_subject
+			// 
+			this.textBox_network_mobile_sendSms_subject.Location = new System.Drawing.Point(243, 131);
+			this.textBox_network_mobile_sendSms_subject.Name = "textBox_network_mobile_sendSms_subject";
+			this.textBox_network_mobile_sendSms_subject.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_subject.TabIndex = 6;
+			// 
+			// label_network_mobile_sendSms_subject
+			// 
+			this.label_network_mobile_sendSms_subject.AutoSize = true;
+			this.label_network_mobile_sendSms_subject.Location = new System.Drawing.Point(191, 134);
+			this.label_network_mobile_sendSms_subject.Name = "label_network_mobile_sendSms_subject";
+			this.label_network_mobile_sendSms_subject.Size = new System.Drawing.Size(46, 13);
+			this.label_network_mobile_sendSms_subject.TabIndex = 7;
+			this.label_network_mobile_sendSms_subject.Text = "Subject:";
+			// 
+			// textBox_network_mobile_sendSms_message
+			// 
+			this.textBox_network_mobile_sendSms_message.Location = new System.Drawing.Point(243, 157);
+			this.textBox_network_mobile_sendSms_message.Name = "textBox_network_mobile_sendSms_message";
+			this.textBox_network_mobile_sendSms_message.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_message.TabIndex = 8;
+			// 
+			// label_network_mobile_sendSms_message
+			// 
+			this.label_network_mobile_sendSms_message.AutoSize = true;
+			this.label_network_mobile_sendSms_message.Location = new System.Drawing.Point(184, 160);
+			this.label_network_mobile_sendSms_message.Name = "label_network_mobile_sendSms_message";
+			this.label_network_mobile_sendSms_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_mobile_sendSms_message.TabIndex = 9;
+			this.label_network_mobile_sendSms_message.Text = "Message:";
+			// 
+			// button_network_mobile_sendSms_sendSms
+			// 
+			this.button_network_mobile_sendSms_sendSms.Location = new System.Drawing.Point(359, 193);
+			this.button_network_mobile_sendSms_sendSms.Name = "button_network_mobile_sendSms_sendSms";
+			this.button_network_mobile_sendSms_sendSms.Size = new System.Drawing.Size(94, 23);
+			this.button_network_mobile_sendSms_sendSms.TabIndex = 10;
+			this.button_network_mobile_sendSms_sendSms.Text = "Send SMS";
+			this.button_network_mobile_sendSms_sendSms.UseVisualStyleBackColor = true;
+			this.button_network_mobile_sendSms_sendSms.Click += new System.EventHandler(this.button_network_mobile_sendSms_sendSms_Click);
+			// 
+			// textBox_network_mobile_sendSms_smsCarrier
+			// 
+			this.textBox_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(578, 28);
+			this.textBox_network_mobile_sendSms_smsCarrier.Name = "textBox_network_mobile_sendSms_smsCarrier";
+			this.textBox_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(136, 20);
+			this.textBox_network_mobile_sendSms_smsCarrier.TabIndex = 11;
+			this.textBox_network_mobile_sendSms_smsCarrier.Text = "txt.att.net";
+			// 
+			// label_network_mobile_sendSms_smsCarrier
+			// 
+			this.label_network_mobile_sendSms_smsCarrier.AutoSize = true;
+			this.label_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(506, 31);
+			this.label_network_mobile_sendSms_smsCarrier.Name = "label_network_mobile_sendSms_smsCarrier";
+			this.label_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(66, 13);
+			this.label_network_mobile_sendSms_smsCarrier.TabIndex = 12;
+			this.label_network_mobile_sendSms_smsCarrier.Text = "SMS Carrier:";
+			// 
+			// label_network_mobile_sendSms_smtpHost
+			// 
+			this.label_network_mobile_sendSms_smtpHost.AutoSize = true;
+			this.label_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(507, 68);
+			this.label_network_mobile_sendSms_smtpHost.Name = "label_network_mobile_sendSms_smtpHost";
+			this.label_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(65, 13);
+			this.label_network_mobile_sendSms_smtpHost.TabIndex = 14;
+			this.label_network_mobile_sendSms_smtpHost.Text = "SMTP Host:";
+			// 
+			// textBox_network_mobile_sendSms_smtpHost
+			// 
+			this.textBox_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(578, 65);
+			this.textBox_network_mobile_sendSms_smtpHost.Name = "textBox_network_mobile_sendSms_smtpHost";
+			this.textBox_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(136, 20);
+			this.textBox_network_mobile_sendSms_smtpHost.TabIndex = 13;
+			this.textBox_network_mobile_sendSms_smtpHost.Text = "smtp.gmail.com";
+			// 
+			// label_network_mobile_sendSms_smtpPort
+			// 
+			this.label_network_mobile_sendSms_smtpPort.AutoSize = true;
+			this.label_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(510, 93);
+			this.label_network_mobile_sendSms_smtpPort.Name = "label_network_mobile_sendSms_smtpPort";
+			this.label_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(62, 13);
+			this.label_network_mobile_sendSms_smtpPort.TabIndex = 16;
+			this.label_network_mobile_sendSms_smtpPort.Text = "SMTP Port:";
+			// 
+			// numeric_network_mobile_sendSms_smtpPort
+			// 
+			this.numeric_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(578, 91);
+			this.numeric_network_mobile_sendSms_smtpPort.Maximum = new decimal(new int[] {
             5000,
             0,
             0,
             0});
-			this.numeric_network_packets_waitUdpPacket_localPort.Name = "numeric_network_packets_waitUdpPacket_localPort";
-			this.numeric_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(109, 20);
-			this.numeric_network_packets_waitUdpPacket_localPort.TabIndex = 28;
-			this.numeric_network_packets_waitUdpPacket_localPort.Value = new decimal(new int[] {
-            70,
+			this.numeric_network_mobile_sendSms_smtpPort.Name = "numeric_network_mobile_sendSms_smtpPort";
+			this.numeric_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(136, 20);
+			this.numeric_network_mobile_sendSms_smtpPort.TabIndex = 17;
+			this.numeric_network_mobile_sendSms_smtpPort.Value = new decimal(new int[] {
+            587,
             0,
             0,
             0});
-			// 
-			// label_network_packets_waitUdpPacket_localPort
-			// 
-			this.label_network_packets_waitUdpPacket_localPort.AutoSize = true;
-			this.label_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(290, 94);
-			this.label_network_packets_waitUdpPacket_localPort.Name = "label_network_packets_waitUdpPacket_localPort";
-			this.label_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(58, 13);
-			this.label_network_packets_waitUdpPacket_localPort.TabIndex = 29;
-			this.label_network_packets_waitUdpPacket_localPort.Text = "Local Port:";
-			// 
-			// numeric_network_packets_sendUdpPacket_remotePort
-			// 
-			this.numeric_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(285, 78);
-			this.numeric_network_packets_sendUdpPacket_remotePort.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-			this.numeric_network_packets_sendUdpPacket_remotePort.Name = "numeric_network_packets_sendUdpPacket_remotePort";
-			this.numeric_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
-			this.numeric_network_packets_sendUdpPacket_remotePort.TabIndex = 29;
-			this.numeric_network_packets_sendUdpPacket_remotePort.Value = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
-			// 
-			// textBox_network_packets_sendUdpPacket_remoteIp
-			// 
-			this.textBox_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(285, 52);
-			this.textBox_network_packets_sendUdpPacket_remoteIp.Name = "textBox_network_packets_sendUdpPacket_remoteIp";
-			this.textBox_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
-			this.textBox_network_packets_sendUdpPacket_remoteIp.TabIndex = 30;
-			this.textBox_network_packets_sendUdpPacket_remoteIp.Text = "127.0.0.1";
-			// 
-			// textBox_network_packets_sendUdpPacket_message
-			// 
-			this.textBox_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(285, 126);
-			this.textBox_network_packets_sendUdpPacket_message.Name = "textBox_network_packets_sendUdpPacket_message";
-			this.textBox_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(302, 20);
-			this.textBox_network_packets_sendUdpPacket_message.TabIndex = 31;
-			// 
-			// label_network_packets_sendUdpPacket_remoteIp
-			// 
-			this.label_network_packets_sendUdpPacket_remoteIp.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(219, 55);
-			this.label_network_packets_sendUdpPacket_remoteIp.Name = "label_network_packets_sendUdpPacket_remoteIp";
-			this.label_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
-			this.label_network_packets_sendUdpPacket_remoteIp.TabIndex = 32;
-			this.label_network_packets_sendUdpPacket_remoteIp.Text = "Remote IP:";
-			// 
-			// label_network_packets_sendUdpPacket_remotePort
-			// 
-			this.label_network_packets_sendUdpPacket_remotePort.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(210, 80);
-			this.label_network_packets_sendUdpPacket_remotePort.Name = "label_network_packets_sendUdpPacket_remotePort";
-			this.label_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
-			this.label_network_packets_sendUdpPacket_remotePort.TabIndex = 33;
-			this.label_network_packets_sendUdpPacket_remotePort.Text = "Remote Port:";
-			// 
-			// label_network_packets_sendUdpPacket_message
-			// 
-			this.label_network_packets_sendUdpPacket_message.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(226, 129);
-			this.label_network_packets_sendUdpPacket_message.Name = "label_network_packets_sendUdpPacket_message";
-			this.label_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(53, 13);
-			this.label_network_packets_sendUdpPacket_message.TabIndex = 34;
-			this.label_network_packets_sendUdpPacket_message.Text = "Message:";
-			// 
-			// label_network_packets_sendTcpPacket_message
-			// 
-			this.label_network_packets_sendTcpPacket_message.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(236, 139);
-			this.label_network_packets_sendTcpPacket_message.Name = "label_network_packets_sendTcpPacket_message";
-			this.label_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(53, 13);
-			this.label_network_packets_sendTcpPacket_message.TabIndex = 41;
-			this.label_network_packets_sendTcpPacket_message.Text = "Message:";
-			// 
-			// label_network_packets_sendTcpPacket_remotePort
-			// 
-			this.label_network_packets_sendTcpPacket_remotePort.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(220, 90);
-			this.label_network_packets_sendTcpPacket_remotePort.Name = "label_network_packets_sendTcpPacket_remotePort";
-			this.label_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
-			this.label_network_packets_sendTcpPacket_remotePort.TabIndex = 40;
-			this.label_network_packets_sendTcpPacket_remotePort.Text = "Remote Port:";
-			// 
-			// label_network_packets_sendTcpPacket_remoteIp
-			// 
-			this.label_network_packets_sendTcpPacket_remoteIp.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(229, 65);
-			this.label_network_packets_sendTcpPacket_remoteIp.Name = "label_network_packets_sendTcpPacket_remoteIp";
-			this.label_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
-			this.label_network_packets_sendTcpPacket_remoteIp.TabIndex = 39;
-			this.label_network_packets_sendTcpPacket_remoteIp.Text = "Remote IP:";
-			// 
-			// textBox_network_packets_sendTcpPacket_message
-			// 
-			this.textBox_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(295, 136);
-			this.textBox_network_packets_sendTcpPacket_message.Name = "textBox_network_packets_sendTcpPacket_message";
-			this.textBox_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(302, 20);
-			this.textBox_network_packets_sendTcpPacket_message.TabIndex = 38;
-			// 
-			// textBox_network_packets_sendTcpPacket_remoteIp
-			// 
-			this.textBox_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(295, 62);
-			this.textBox_network_packets_sendTcpPacket_remoteIp.Name = "textBox_network_packets_sendTcpPacket_remoteIp";
-			this.textBox_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
-			this.textBox_network_packets_sendTcpPacket_remoteIp.TabIndex = 37;
-			this.textBox_network_packets_sendTcpPacket_remoteIp.Text = "127.0.0.1";
-			// 
-			// numeric_network_packets_sendTcpPacket_remotePort
-			// 
-			this.numeric_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(295, 88);
-			this.numeric_network_packets_sendTcpPacket_remotePort.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-			this.numeric_network_packets_sendTcpPacket_remotePort.Name = "numeric_network_packets_sendTcpPacket_remotePort";
-			this.numeric_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(146, 20);
-			this.numeric_network_packets_sendTcpPacket_remotePort.TabIndex = 36;
-			this.numeric_network_packets_sendTcpPacket_remotePort.Value = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
-			// 
-			// button_network_packets_sendTcpPacket_send
-			// 
-			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(481, 174);
-			this.button_network_packets_sendTcpPacket_send.Name = "button_network_packets_sendTcpPacket_send";
-			this.button_network_packets_sendTcpPacket_send.Size = new System.Drawing.Size(116, 23);
-			this.button_network_packets_sendTcpPacket_send.TabIndex = 35;
-			this.button_network_packets_sendTcpPacket_send.Text = "Send TCP Packet";
-			this.button_network_packets_sendTcpPacket_send.UseVisualStyleBackColor = true;
-			this.button_network_packets_sendTcpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendTcpPacket_send_Click);
-			// 
-			// label_network_packets_waitTcpPacket_localPort
-			// 
-			this.label_network_packets_waitTcpPacket_localPort.AutoSize = true;
-			this.label_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(302, 96);
-			this.label_network_packets_waitTcpPacket_localPort.Name = "label_network_packets_waitTcpPacket_localPort";
-			this.label_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(58, 13);
-			this.label_network_packets_waitTcpPacket_localPort.TabIndex = 32;
-			this.label_network_packets_waitTcpPacket_localPort.Text = "Local Port:";
-			// 
-			// numeric_network_packets_waitTcpPacket_localPort
-			// 
-			this.numeric_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(366, 94);
-			this.numeric_network_packets_waitTcpPacket_localPort.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-			this.numeric_network_packets_waitTcpPacket_localPort.Name = "numeric_network_packets_waitTcpPacket_localPort";
-			this.numeric_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(109, 20);
-			this.numeric_network_packets_waitTcpPacket_localPort.TabIndex = 31;
-			this.numeric_network_packets_waitTcpPacket_localPort.Value = new decimal(new int[] {
-            70,
-            0,
-            0,
-            0});
-			// 
-			// button_network_packets_waitTcpPacket_wait
-			// 
-			this.button_network_packets_waitTcpPacket_wait.Location = new System.Drawing.Point(366, 120);
-			this.button_network_packets_waitTcpPacket_wait.Name = "button_network_packets_waitTcpPacket_wait";
-			this.button_network_packets_waitTcpPacket_wait.Size = new System.Drawing.Size(109, 23);
-			this.button_network_packets_waitTcpPacket_wait.TabIndex = 30;
-			this.button_network_packets_waitTcpPacket_wait.Text = "Start TCP Server";
-			this.button_network_packets_waitTcpPacket_wait.UseVisualStyleBackColor = true;
-			this.button_network_packets_waitTcpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitTcpPacket_wait_Click);
 			// 
 			// Main
 			// 
@@ -1826,22 +2049,27 @@
 			this.tabs_network_packets.ResumeLayout(false);
 			this.tab_network_packets_sendTcpPacket.ResumeLayout(false);
 			this.tab_network_packets_sendTcpPacket.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).EndInit();
 			this.tab_network_packets_waitTcpPacket.ResumeLayout(false);
 			this.tab_network_packets_waitTcpPacket.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).EndInit();
 			this.tab_network_packets_sendUdpPacket.ResumeLayout(false);
 			this.tab_network_packets_sendUdpPacket.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).EndInit();
 			this.tab_network_packets_waitUdpPacket.ResumeLayout(false);
 			this.tab_network_packets_waitUdpPacket.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).EndInit();
 			this.tab_math.ResumeLayout(false);
 			this.tabs_math.ResumeLayout(false);
 			this.tab_math_calculateCombinations.ResumeLayout(false);
 			this.tab_math_calculateCombinations.PerformLayout();
 			this.tab_math_calculateFactorial.ResumeLayout(false);
 			this.tab_math_calculateFactorial.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendTcpPacket_remotePort)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitTcpPacket_localPort)).EndInit();
+			this.tab_network_mobile.ResumeLayout(false);
+			this.tabs_network_mobile.ResumeLayout(false);
+			this.tab_network_mobile_sendSms.ResumeLayout(false);
+			this.tab_network_mobile_sendSms.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1994,6 +2222,26 @@
 		private System.Windows.Forms.Label label_network_packets_waitTcpPacket_localPort;
 		private System.Windows.Forms.NumericUpDown numeric_network_packets_waitTcpPacket_localPort;
 		private System.Windows.Forms.Button button_network_packets_waitTcpPacket_wait;
+		private System.Windows.Forms.TabPage tab_network_mobile;
+		private System.Windows.Forms.TabControl tabs_network_mobile;
+		private System.Windows.Forms.TabPage tab_network_mobile_sendSms;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmail;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_senderEmailPassword;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_senderEmail;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmailPassword;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_receiverPhone;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_receiverPhone;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_message;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_message;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_subject;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_subject;
+		private System.Windows.Forms.Button button_network_mobile_sendSms_sendSms;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_smtpHost;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smtpHost;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_smsCarrier;
+		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smsCarrier;
+		private System.Windows.Forms.NumericUpDown numeric_network_mobile_sendSms_smtpPort;
+		private System.Windows.Forms.Label label_network_mobile_sendSms_smtpPort;
 	}
 }
 
