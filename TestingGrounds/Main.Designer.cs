@@ -168,6 +168,26 @@
 			this.label_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.Label();
 			this.numeric_network_packets_waitUdpPacket_localPort = new System.Windows.Forms.NumericUpDown();
 			this.button_network_packets_waitUdpPacket_wait = new System.Windows.Forms.Button();
+			this.tab_network_mobile = new System.Windows.Forms.TabPage();
+			this.tabs_network_mobile = new System.Windows.Forms.TabControl();
+			this.tab_network_mobile_sendSms = new System.Windows.Forms.TabPage();
+			this.numeric_network_mobile_sendSms_smtpPort = new System.Windows.Forms.NumericUpDown();
+			this.label_network_mobile_sendSms_smtpPort = new System.Windows.Forms.Label();
+			this.label_network_mobile_sendSms_smtpHost = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_smtpHost = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.TextBox();
+			this.button_network_mobile_sendSms_sendSms = new System.Windows.Forms.Button();
+			this.label_network_mobile_sendSms_message = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_message = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_subject = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_subject = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.TextBox();
+			this.label_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.Label();
+			this.label_network_mobile_sendSms_senderEmail = new System.Windows.Forms.Label();
+			this.textBox_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.TextBox();
+			this.textBox_network_mobile_sendSms_senderEmail = new System.Windows.Forms.TextBox();
 			this.tab_math = new System.Windows.Forms.TabPage();
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
@@ -175,26 +195,13 @@
 			this.label_tg_databaseType = new System.Windows.Forms.Label();
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
-			this.tab_network_mobile = new System.Windows.Forms.TabPage();
-			this.tabs_network_mobile = new System.Windows.Forms.TabControl();
-			this.tab_network_mobile_sendSms = new System.Windows.Forms.TabPage();
-			this.textBox_network_mobile_sendSms_senderEmail = new System.Windows.Forms.TextBox();
-			this.textBox_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_senderEmail = new System.Windows.Forms.Label();
-			this.label_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.Label();
-			this.textBox_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_receiverPhone = new System.Windows.Forms.Label();
-			this.textBox_network_mobile_sendSms_subject = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_subject = new System.Windows.Forms.Label();
-			this.textBox_network_mobile_sendSms_message = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_message = new System.Windows.Forms.Label();
-			this.button_network_mobile_sendSms_sendSms = new System.Windows.Forms.Button();
-			this.textBox_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_smsCarrier = new System.Windows.Forms.Label();
-			this.label_network_mobile_sendSms_smtpHost = new System.Windows.Forms.Label();
-			this.textBox_network_mobile_sendSms_smtpHost = new System.Windows.Forms.TextBox();
-			this.label_network_mobile_sendSms_smtpPort = new System.Windows.Forms.Label();
-			this.numeric_network_mobile_sendSms_smtpPort = new System.Windows.Forms.NumericUpDown();
+			this.button_tg_test = new System.Windows.Forms.Button();
+			this.tab_dynvars = new System.Windows.Forms.TabPage();
+			this.textBox_dynvars_variable = new System.Windows.Forms.TextBox();
+			this.textBox_dynvars_value = new System.Windows.Forms.TextBox();
+			this.button_dynvars_run = new System.Windows.Forms.Button();
+			this.label_dynvars_variable = new System.Windows.Forms.Label();
+			this.label_dynvars_value = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -255,14 +262,15 @@
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_sendUdpPacket_remotePort)).BeginInit();
 			this.tab_network_packets_waitUdpPacket.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).BeginInit();
-			this.tab_math.SuspendLayout();
-			this.tabs_math.SuspendLayout();
-			this.tab_math_calculateCombinations.SuspendLayout();
-			this.tab_math_calculateFactorial.SuspendLayout();
 			this.tab_network_mobile.SuspendLayout();
 			this.tabs_network_mobile.SuspendLayout();
 			this.tab_network_mobile_sendSms.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).BeginInit();
+			this.tab_math.SuspendLayout();
+			this.tabs_math.SuspendLayout();
+			this.tab_math_calculateCombinations.SuspendLayout();
+			this.tab_math_calculateFactorial.SuspendLayout();
+			this.tab_dynvars.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -734,6 +742,7 @@
 			this.tabs_tg.Controls.Add(this.tab_controls);
 			this.tabs_tg.Controls.Add(this.tab_network);
 			this.tabs_tg.Controls.Add(this.tab_math);
+			this.tabs_tg.Controls.Add(this.tab_dynvars);
 			this.tabs_tg.Location = new System.Drawing.Point(0, 0);
 			this.tabs_tg.Name = "tabs_tg";
 			this.tabs_tg.SelectedIndex = 0;
@@ -1694,6 +1703,204 @@
 			this.button_network_packets_waitUdpPacket_wait.UseVisualStyleBackColor = true;
 			this.button_network_packets_waitUdpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitUdpPacket_Click);
 			// 
+			// tab_network_mobile
+			// 
+			this.tab_network_mobile.Controls.Add(this.tabs_network_mobile);
+			this.tab_network_mobile.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_mobile.Name = "tab_network_mobile";
+			this.tab_network_mobile.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_mobile.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_mobile.TabIndex = 2;
+			this.tab_network_mobile.Text = "Mobile";
+			this.tab_network_mobile.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_mobile
+			// 
+			this.tabs_network_mobile.Controls.Add(this.tab_network_mobile_sendSms);
+			this.tabs_network_mobile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_mobile.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_mobile.Name = "tabs_network_mobile";
+			this.tabs_network_mobile.SelectedIndex = 0;
+			this.tabs_network_mobile.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_mobile.TabIndex = 0;
+			// 
+			// tab_network_mobile_sendSms
+			// 
+			this.tab_network_mobile_sendSms.Controls.Add(this.numeric_network_mobile_sendSms_smtpPort);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpPort);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpHost);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smtpHost);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smsCarrier);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smsCarrier);
+			this.tab_network_mobile_sendSms.Controls.Add(this.button_network_mobile_sendSms_sendSms);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_message);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_message);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_subject);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_subject);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_receiverPhone);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_receiverPhone);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmailPassword);
+			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmail);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmailPassword);
+			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmail);
+			this.tab_network_mobile_sendSms.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_mobile_sendSms.Name = "tab_network_mobile_sendSms";
+			this.tab_network_mobile_sendSms.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_mobile_sendSms.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_mobile_sendSms.TabIndex = 0;
+			this.tab_network_mobile_sendSms.Text = "Send SMS";
+			this.tab_network_mobile_sendSms.UseVisualStyleBackColor = true;
+			// 
+			// numeric_network_mobile_sendSms_smtpPort
+			// 
+			this.numeric_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(578, 91);
+			this.numeric_network_mobile_sendSms_smtpPort.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+			this.numeric_network_mobile_sendSms_smtpPort.Name = "numeric_network_mobile_sendSms_smtpPort";
+			this.numeric_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(136, 20);
+			this.numeric_network_mobile_sendSms_smtpPort.TabIndex = 17;
+			this.numeric_network_mobile_sendSms_smtpPort.Value = new decimal(new int[] {
+            587,
+            0,
+            0,
+            0});
+			// 
+			// label_network_mobile_sendSms_smtpPort
+			// 
+			this.label_network_mobile_sendSms_smtpPort.AutoSize = true;
+			this.label_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(510, 93);
+			this.label_network_mobile_sendSms_smtpPort.Name = "label_network_mobile_sendSms_smtpPort";
+			this.label_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(62, 13);
+			this.label_network_mobile_sendSms_smtpPort.TabIndex = 16;
+			this.label_network_mobile_sendSms_smtpPort.Text = "SMTP Port:";
+			// 
+			// label_network_mobile_sendSms_smtpHost
+			// 
+			this.label_network_mobile_sendSms_smtpHost.AutoSize = true;
+			this.label_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(507, 68);
+			this.label_network_mobile_sendSms_smtpHost.Name = "label_network_mobile_sendSms_smtpHost";
+			this.label_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(65, 13);
+			this.label_network_mobile_sendSms_smtpHost.TabIndex = 14;
+			this.label_network_mobile_sendSms_smtpHost.Text = "SMTP Host:";
+			// 
+			// textBox_network_mobile_sendSms_smtpHost
+			// 
+			this.textBox_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(578, 65);
+			this.textBox_network_mobile_sendSms_smtpHost.Name = "textBox_network_mobile_sendSms_smtpHost";
+			this.textBox_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(136, 20);
+			this.textBox_network_mobile_sendSms_smtpHost.TabIndex = 13;
+			this.textBox_network_mobile_sendSms_smtpHost.Text = "smtp.gmail.com";
+			// 
+			// label_network_mobile_sendSms_smsCarrier
+			// 
+			this.label_network_mobile_sendSms_smsCarrier.AutoSize = true;
+			this.label_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(506, 31);
+			this.label_network_mobile_sendSms_smsCarrier.Name = "label_network_mobile_sendSms_smsCarrier";
+			this.label_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(66, 13);
+			this.label_network_mobile_sendSms_smsCarrier.TabIndex = 12;
+			this.label_network_mobile_sendSms_smsCarrier.Text = "SMS Carrier:";
+			// 
+			// textBox_network_mobile_sendSms_smsCarrier
+			// 
+			this.textBox_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(578, 28);
+			this.textBox_network_mobile_sendSms_smsCarrier.Name = "textBox_network_mobile_sendSms_smsCarrier";
+			this.textBox_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(136, 20);
+			this.textBox_network_mobile_sendSms_smsCarrier.TabIndex = 11;
+			this.textBox_network_mobile_sendSms_smsCarrier.Text = "txt.att.net";
+			// 
+			// button_network_mobile_sendSms_sendSms
+			// 
+			this.button_network_mobile_sendSms_sendSms.Location = new System.Drawing.Point(359, 193);
+			this.button_network_mobile_sendSms_sendSms.Name = "button_network_mobile_sendSms_sendSms";
+			this.button_network_mobile_sendSms_sendSms.Size = new System.Drawing.Size(94, 23);
+			this.button_network_mobile_sendSms_sendSms.TabIndex = 10;
+			this.button_network_mobile_sendSms_sendSms.Text = "Send SMS";
+			this.button_network_mobile_sendSms_sendSms.UseVisualStyleBackColor = true;
+			this.button_network_mobile_sendSms_sendSms.Click += new System.EventHandler(this.button_network_mobile_sendSms_sendSms_Click);
+			// 
+			// label_network_mobile_sendSms_message
+			// 
+			this.label_network_mobile_sendSms_message.AutoSize = true;
+			this.label_network_mobile_sendSms_message.Location = new System.Drawing.Point(184, 160);
+			this.label_network_mobile_sendSms_message.Name = "label_network_mobile_sendSms_message";
+			this.label_network_mobile_sendSms_message.Size = new System.Drawing.Size(53, 13);
+			this.label_network_mobile_sendSms_message.TabIndex = 9;
+			this.label_network_mobile_sendSms_message.Text = "Message:";
+			// 
+			// textBox_network_mobile_sendSms_message
+			// 
+			this.textBox_network_mobile_sendSms_message.Location = new System.Drawing.Point(243, 157);
+			this.textBox_network_mobile_sendSms_message.Name = "textBox_network_mobile_sendSms_message";
+			this.textBox_network_mobile_sendSms_message.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_message.TabIndex = 8;
+			// 
+			// label_network_mobile_sendSms_subject
+			// 
+			this.label_network_mobile_sendSms_subject.AutoSize = true;
+			this.label_network_mobile_sendSms_subject.Location = new System.Drawing.Point(191, 134);
+			this.label_network_mobile_sendSms_subject.Name = "label_network_mobile_sendSms_subject";
+			this.label_network_mobile_sendSms_subject.Size = new System.Drawing.Size(46, 13);
+			this.label_network_mobile_sendSms_subject.TabIndex = 7;
+			this.label_network_mobile_sendSms_subject.Text = "Subject:";
+			// 
+			// textBox_network_mobile_sendSms_subject
+			// 
+			this.textBox_network_mobile_sendSms_subject.Location = new System.Drawing.Point(243, 131);
+			this.textBox_network_mobile_sendSms_subject.Name = "textBox_network_mobile_sendSms_subject";
+			this.textBox_network_mobile_sendSms_subject.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_subject.TabIndex = 6;
+			// 
+			// label_network_mobile_sendSms_receiverPhone
+			// 
+			this.label_network_mobile_sendSms_receiverPhone.AutoSize = true;
+			this.label_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(103, 95);
+			this.label_network_mobile_sendSms_receiverPhone.Name = "label_network_mobile_sendSms_receiverPhone";
+			this.label_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(134, 13);
+			this.label_network_mobile_sendSms_receiverPhone.TabIndex = 5;
+			this.label_network_mobile_sendSms_receiverPhone.Text = "Receiver\'s Phone Number:";
+			// 
+			// textBox_network_mobile_sendSms_receiverPhone
+			// 
+			this.textBox_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(243, 92);
+			this.textBox_network_mobile_sendSms_receiverPhone.Name = "textBox_network_mobile_sendSms_receiverPhone";
+			this.textBox_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_receiverPhone.TabIndex = 4;
+			// 
+			// label_network_mobile_sendSms_senderEmailPassword
+			// 
+			this.label_network_mobile_sendSms_senderEmailPassword.AutoSize = true;
+			this.label_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(109, 57);
+			this.label_network_mobile_sendSms_senderEmailPassword.Name = "label_network_mobile_sendSms_senderEmailPassword";
+			this.label_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(128, 13);
+			this.label_network_mobile_sendSms_senderEmailPassword.TabIndex = 3;
+			this.label_network_mobile_sendSms_senderEmailPassword.Text = "Sender\'s Email Password:";
+			// 
+			// label_network_mobile_sendSms_senderEmail
+			// 
+			this.label_network_mobile_sendSms_senderEmail.AutoSize = true;
+			this.label_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(158, 31);
+			this.label_network_mobile_sendSms_senderEmail.Name = "label_network_mobile_sendSms_senderEmail";
+			this.label_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(79, 13);
+			this.label_network_mobile_sendSms_senderEmail.TabIndex = 2;
+			this.label_network_mobile_sendSms_senderEmail.Text = "Sender\'s Email:";
+			// 
+			// textBox_network_mobile_sendSms_senderEmailPassword
+			// 
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 54);
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Name = "textBox_network_mobile_sendSms_senderEmailPassword";
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_senderEmailPassword.TabIndex = 1;
+			// 
+			// textBox_network_mobile_sendSms_senderEmail
+			// 
+			this.textBox_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(243, 28);
+			this.textBox_network_mobile_sendSms_senderEmail.Name = "textBox_network_mobile_sendSms_senderEmail";
+			this.textBox_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(210, 20);
+			this.textBox_network_mobile_sendSms_senderEmail.TabIndex = 0;
+			// 
 			// tab_math
 			// 
 			this.tab_math.Controls.Add(this.tabs_math);
@@ -1747,7 +1954,7 @@
 			// label_tg_databaseType
 			// 
 			this.label_tg_databaseType.AutoSize = true;
-			this.label_tg_databaseType.Location = new System.Drawing.Point(4, 354);
+			this.label_tg_databaseType.Location = new System.Drawing.Point(8, 353);
 			this.label_tg_databaseType.Name = "label_tg_databaseType";
 			this.label_tg_databaseType.Size = new System.Drawing.Size(83, 13);
 			this.label_tg_databaseType.TabIndex = 29;
@@ -1756,7 +1963,7 @@
 			// label_tg_version
 			// 
 			this.label_tg_version.AutoSize = true;
-			this.label_tg_version.Location = new System.Drawing.Point(686, 354);
+			this.label_tg_version.Location = new System.Drawing.Point(639, 353);
 			this.label_tg_version.Name = "label_tg_version";
 			this.label_tg_version.Size = new System.Drawing.Size(94, 13);
 			this.label_tg_version.TabIndex = 30;
@@ -1764,215 +1971,85 @@
 			// 
 			// textBox_tg_version
 			// 
-			this.textBox_tg_version.Location = new System.Drawing.Point(786, 352);
+			this.textBox_tg_version.Location = new System.Drawing.Point(739, 350);
 			this.textBox_tg_version.Name = "textBox_tg_version";
 			this.textBox_tg_version.ReadOnly = true;
 			this.textBox_tg_version.Size = new System.Drawing.Size(63, 20);
 			this.textBox_tg_version.TabIndex = 31;
 			// 
-			// tab_network_mobile
+			// button_tg_test
 			// 
-			this.tab_network_mobile.Controls.Add(this.tabs_network_mobile);
-			this.tab_network_mobile.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_mobile.Name = "tab_network_mobile";
-			this.tab_network_mobile.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_mobile.Size = new System.Drawing.Size(830, 290);
-			this.tab_network_mobile.TabIndex = 2;
-			this.tab_network_mobile.Text = "Mobile";
-			this.tab_network_mobile.UseVisualStyleBackColor = true;
+			this.button_tg_test.Location = new System.Drawing.Point(808, 349);
+			this.button_tg_test.Name = "button_tg_test";
+			this.button_tg_test.Size = new System.Drawing.Size(40, 22);
+			this.button_tg_test.TabIndex = 32;
+			this.button_tg_test.Text = "Test";
+			this.button_tg_test.UseVisualStyleBackColor = true;
+			this.button_tg_test.Click += new System.EventHandler(this.button_tg_test_Click);
 			// 
-			// tabs_network_mobile
+			// tab_dynvars
 			// 
-			this.tabs_network_mobile.Controls.Add(this.tab_network_mobile_sendSms);
-			this.tabs_network_mobile.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_network_mobile.Location = new System.Drawing.Point(3, 3);
-			this.tabs_network_mobile.Name = "tabs_network_mobile";
-			this.tabs_network_mobile.SelectedIndex = 0;
-			this.tabs_network_mobile.Size = new System.Drawing.Size(824, 284);
-			this.tabs_network_mobile.TabIndex = 0;
+			this.tab_dynvars.Controls.Add(this.label_dynvars_value);
+			this.tab_dynvars.Controls.Add(this.label_dynvars_variable);
+			this.tab_dynvars.Controls.Add(this.button_dynvars_run);
+			this.tab_dynvars.Controls.Add(this.textBox_dynvars_value);
+			this.tab_dynvars.Controls.Add(this.textBox_dynvars_variable);
+			this.tab_dynvars.Location = new System.Drawing.Point(4, 22);
+			this.tab_dynvars.Name = "tab_dynvars";
+			this.tab_dynvars.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_dynvars.Size = new System.Drawing.Size(844, 322);
+			this.tab_dynvars.TabIndex = 7;
+			this.tab_dynvars.Text = "DynVars";
+			this.tab_dynvars.UseVisualStyleBackColor = true;
 			// 
-			// tab_network_mobile_sendSms
+			// textBox_dynvars_variable
 			// 
-			this.tab_network_mobile_sendSms.Controls.Add(this.numeric_network_mobile_sendSms_smtpPort);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpPort);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smtpHost);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smtpHost);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_smsCarrier);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_smsCarrier);
-			this.tab_network_mobile_sendSms.Controls.Add(this.button_network_mobile_sendSms_sendSms);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_message);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_message);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_subject);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_subject);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_receiverPhone);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_receiverPhone);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmailPassword);
-			this.tab_network_mobile_sendSms.Controls.Add(this.label_network_mobile_sendSms_senderEmail);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmailPassword);
-			this.tab_network_mobile_sendSms.Controls.Add(this.textBox_network_mobile_sendSms_senderEmail);
-			this.tab_network_mobile_sendSms.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_mobile_sendSms.Name = "tab_network_mobile_sendSms";
-			this.tab_network_mobile_sendSms.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_mobile_sendSms.Size = new System.Drawing.Size(816, 258);
-			this.tab_network_mobile_sendSms.TabIndex = 0;
-			this.tab_network_mobile_sendSms.Text = "Send SMS";
-			this.tab_network_mobile_sendSms.UseVisualStyleBackColor = true;
+			this.textBox_dynvars_variable.Location = new System.Drawing.Point(297, 108);
+			this.textBox_dynvars_variable.Name = "textBox_dynvars_variable";
+			this.textBox_dynvars_variable.Size = new System.Drawing.Size(286, 20);
+			this.textBox_dynvars_variable.TabIndex = 0;
 			// 
-			// textBox_network_mobile_sendSms_senderEmail
+			// textBox_dynvars_value
 			// 
-			this.textBox_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(243, 28);
-			this.textBox_network_mobile_sendSms_senderEmail.Name = "textBox_network_mobile_sendSms_senderEmail";
-			this.textBox_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(210, 20);
-			this.textBox_network_mobile_sendSms_senderEmail.TabIndex = 0;
+			this.textBox_dynvars_value.Location = new System.Drawing.Point(297, 134);
+			this.textBox_dynvars_value.Name = "textBox_dynvars_value";
+			this.textBox_dynvars_value.Size = new System.Drawing.Size(286, 20);
+			this.textBox_dynvars_value.TabIndex = 1;
 			// 
-			// textBox_network_mobile_sendSms_senderEmailPassword
+			// button_dynvars_run
 			// 
-			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 54);
-			this.textBox_network_mobile_sendSms_senderEmailPassword.Name = "textBox_network_mobile_sendSms_senderEmailPassword";
-			this.textBox_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(210, 20);
-			this.textBox_network_mobile_sendSms_senderEmailPassword.TabIndex = 1;
+			this.button_dynvars_run.Location = new System.Drawing.Point(508, 160);
+			this.button_dynvars_run.Name = "button_dynvars_run";
+			this.button_dynvars_run.Size = new System.Drawing.Size(75, 23);
+			this.button_dynvars_run.TabIndex = 2;
+			this.button_dynvars_run.Text = "Run";
+			this.button_dynvars_run.UseVisualStyleBackColor = true;
+			this.button_dynvars_run.Click += new System.EventHandler(this.button_dynvars_update_Click);
 			// 
-			// label_network_mobile_sendSms_senderEmail
+			// label_dynvars_variable
 			// 
-			this.label_network_mobile_sendSms_senderEmail.AutoSize = true;
-			this.label_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(158, 31);
-			this.label_network_mobile_sendSms_senderEmail.Name = "label_network_mobile_sendSms_senderEmail";
-			this.label_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(79, 13);
-			this.label_network_mobile_sendSms_senderEmail.TabIndex = 2;
-			this.label_network_mobile_sendSms_senderEmail.Text = "Sender\'s Email:";
+			this.label_dynvars_variable.AutoSize = true;
+			this.label_dynvars_variable.Location = new System.Drawing.Point(243, 111);
+			this.label_dynvars_variable.Name = "label_dynvars_variable";
+			this.label_dynvars_variable.Size = new System.Drawing.Size(48, 13);
+			this.label_dynvars_variable.TabIndex = 3;
+			this.label_dynvars_variable.Text = "Variable:";
 			// 
-			// label_network_mobile_sendSms_senderEmailPassword
+			// label_dynvars_value
 			// 
-			this.label_network_mobile_sendSms_senderEmailPassword.AutoSize = true;
-			this.label_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(109, 57);
-			this.label_network_mobile_sendSms_senderEmailPassword.Name = "label_network_mobile_sendSms_senderEmailPassword";
-			this.label_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(128, 13);
-			this.label_network_mobile_sendSms_senderEmailPassword.TabIndex = 3;
-			this.label_network_mobile_sendSms_senderEmailPassword.Text = "Sender\'s Email Password:";
-			// 
-			// textBox_network_mobile_sendSms_receiverPhone
-			// 
-			this.textBox_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(243, 92);
-			this.textBox_network_mobile_sendSms_receiverPhone.Name = "textBox_network_mobile_sendSms_receiverPhone";
-			this.textBox_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(210, 20);
-			this.textBox_network_mobile_sendSms_receiverPhone.TabIndex = 4;
-			// 
-			// label_network_mobile_sendSms_receiverPhone
-			// 
-			this.label_network_mobile_sendSms_receiverPhone.AutoSize = true;
-			this.label_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(103, 95);
-			this.label_network_mobile_sendSms_receiverPhone.Name = "label_network_mobile_sendSms_receiverPhone";
-			this.label_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(134, 13);
-			this.label_network_mobile_sendSms_receiverPhone.TabIndex = 5;
-			this.label_network_mobile_sendSms_receiverPhone.Text = "Receiver\'s Phone Number:";
-			// 
-			// textBox_network_mobile_sendSms_subject
-			// 
-			this.textBox_network_mobile_sendSms_subject.Location = new System.Drawing.Point(243, 131);
-			this.textBox_network_mobile_sendSms_subject.Name = "textBox_network_mobile_sendSms_subject";
-			this.textBox_network_mobile_sendSms_subject.Size = new System.Drawing.Size(210, 20);
-			this.textBox_network_mobile_sendSms_subject.TabIndex = 6;
-			// 
-			// label_network_mobile_sendSms_subject
-			// 
-			this.label_network_mobile_sendSms_subject.AutoSize = true;
-			this.label_network_mobile_sendSms_subject.Location = new System.Drawing.Point(191, 134);
-			this.label_network_mobile_sendSms_subject.Name = "label_network_mobile_sendSms_subject";
-			this.label_network_mobile_sendSms_subject.Size = new System.Drawing.Size(46, 13);
-			this.label_network_mobile_sendSms_subject.TabIndex = 7;
-			this.label_network_mobile_sendSms_subject.Text = "Subject:";
-			// 
-			// textBox_network_mobile_sendSms_message
-			// 
-			this.textBox_network_mobile_sendSms_message.Location = new System.Drawing.Point(243, 157);
-			this.textBox_network_mobile_sendSms_message.Name = "textBox_network_mobile_sendSms_message";
-			this.textBox_network_mobile_sendSms_message.Size = new System.Drawing.Size(210, 20);
-			this.textBox_network_mobile_sendSms_message.TabIndex = 8;
-			// 
-			// label_network_mobile_sendSms_message
-			// 
-			this.label_network_mobile_sendSms_message.AutoSize = true;
-			this.label_network_mobile_sendSms_message.Location = new System.Drawing.Point(184, 160);
-			this.label_network_mobile_sendSms_message.Name = "label_network_mobile_sendSms_message";
-			this.label_network_mobile_sendSms_message.Size = new System.Drawing.Size(53, 13);
-			this.label_network_mobile_sendSms_message.TabIndex = 9;
-			this.label_network_mobile_sendSms_message.Text = "Message:";
-			// 
-			// button_network_mobile_sendSms_sendSms
-			// 
-			this.button_network_mobile_sendSms_sendSms.Location = new System.Drawing.Point(359, 193);
-			this.button_network_mobile_sendSms_sendSms.Name = "button_network_mobile_sendSms_sendSms";
-			this.button_network_mobile_sendSms_sendSms.Size = new System.Drawing.Size(94, 23);
-			this.button_network_mobile_sendSms_sendSms.TabIndex = 10;
-			this.button_network_mobile_sendSms_sendSms.Text = "Send SMS";
-			this.button_network_mobile_sendSms_sendSms.UseVisualStyleBackColor = true;
-			this.button_network_mobile_sendSms_sendSms.Click += new System.EventHandler(this.button_network_mobile_sendSms_sendSms_Click);
-			// 
-			// textBox_network_mobile_sendSms_smsCarrier
-			// 
-			this.textBox_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(578, 28);
-			this.textBox_network_mobile_sendSms_smsCarrier.Name = "textBox_network_mobile_sendSms_smsCarrier";
-			this.textBox_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(136, 20);
-			this.textBox_network_mobile_sendSms_smsCarrier.TabIndex = 11;
-			this.textBox_network_mobile_sendSms_smsCarrier.Text = "txt.att.net";
-			// 
-			// label_network_mobile_sendSms_smsCarrier
-			// 
-			this.label_network_mobile_sendSms_smsCarrier.AutoSize = true;
-			this.label_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(506, 31);
-			this.label_network_mobile_sendSms_smsCarrier.Name = "label_network_mobile_sendSms_smsCarrier";
-			this.label_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(66, 13);
-			this.label_network_mobile_sendSms_smsCarrier.TabIndex = 12;
-			this.label_network_mobile_sendSms_smsCarrier.Text = "SMS Carrier:";
-			// 
-			// label_network_mobile_sendSms_smtpHost
-			// 
-			this.label_network_mobile_sendSms_smtpHost.AutoSize = true;
-			this.label_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(507, 68);
-			this.label_network_mobile_sendSms_smtpHost.Name = "label_network_mobile_sendSms_smtpHost";
-			this.label_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(65, 13);
-			this.label_network_mobile_sendSms_smtpHost.TabIndex = 14;
-			this.label_network_mobile_sendSms_smtpHost.Text = "SMTP Host:";
-			// 
-			// textBox_network_mobile_sendSms_smtpHost
-			// 
-			this.textBox_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(578, 65);
-			this.textBox_network_mobile_sendSms_smtpHost.Name = "textBox_network_mobile_sendSms_smtpHost";
-			this.textBox_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(136, 20);
-			this.textBox_network_mobile_sendSms_smtpHost.TabIndex = 13;
-			this.textBox_network_mobile_sendSms_smtpHost.Text = "smtp.gmail.com";
-			// 
-			// label_network_mobile_sendSms_smtpPort
-			// 
-			this.label_network_mobile_sendSms_smtpPort.AutoSize = true;
-			this.label_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(510, 93);
-			this.label_network_mobile_sendSms_smtpPort.Name = "label_network_mobile_sendSms_smtpPort";
-			this.label_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(62, 13);
-			this.label_network_mobile_sendSms_smtpPort.TabIndex = 16;
-			this.label_network_mobile_sendSms_smtpPort.Text = "SMTP Port:";
-			// 
-			// numeric_network_mobile_sendSms_smtpPort
-			// 
-			this.numeric_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(578, 91);
-			this.numeric_network_mobile_sendSms_smtpPort.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-			this.numeric_network_mobile_sendSms_smtpPort.Name = "numeric_network_mobile_sendSms_smtpPort";
-			this.numeric_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(136, 20);
-			this.numeric_network_mobile_sendSms_smtpPort.TabIndex = 17;
-			this.numeric_network_mobile_sendSms_smtpPort.Value = new decimal(new int[] {
-            587,
-            0,
-            0,
-            0});
+			this.label_dynvars_value.AutoSize = true;
+			this.label_dynvars_value.Location = new System.Drawing.Point(254, 137);
+			this.label_dynvars_value.Name = "label_dynvars_value";
+			this.label_dynvars_value.Size = new System.Drawing.Size(37, 13);
+			this.label_dynvars_value.TabIndex = 4;
+			this.label_dynvars_value.Text = "Value:";
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(854, 376);
+			this.ClientSize = new System.Drawing.Size(854, 374);
+			this.Controls.Add(this.button_tg_test);
 			this.Controls.Add(this.label_tg_databaseType);
 			this.Controls.Add(this.comboBox_tg_databaseType);
 			this.Controls.Add(this.tabs_tg);
@@ -2059,17 +2136,19 @@
 			this.tab_network_packets_waitUdpPacket.ResumeLayout(false);
 			this.tab_network_packets_waitUdpPacket.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_packets_waitUdpPacket_localPort)).EndInit();
+			this.tab_network_mobile.ResumeLayout(false);
+			this.tabs_network_mobile.ResumeLayout(false);
+			this.tab_network_mobile_sendSms.ResumeLayout(false);
+			this.tab_network_mobile_sendSms.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).EndInit();
 			this.tab_math.ResumeLayout(false);
 			this.tabs_math.ResumeLayout(false);
 			this.tab_math_calculateCombinations.ResumeLayout(false);
 			this.tab_math_calculateCombinations.PerformLayout();
 			this.tab_math_calculateFactorial.ResumeLayout(false);
 			this.tab_math_calculateFactorial.PerformLayout();
-			this.tab_network_mobile.ResumeLayout(false);
-			this.tabs_network_mobile.ResumeLayout(false);
-			this.tab_network_mobile_sendSms.ResumeLayout(false);
-			this.tab_network_mobile_sendSms.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).EndInit();
+			this.tab_dynvars.ResumeLayout(false);
+			this.tab_dynvars.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2242,6 +2321,13 @@
 		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smsCarrier;
 		private System.Windows.Forms.NumericUpDown numeric_network_mobile_sendSms_smtpPort;
 		private System.Windows.Forms.Label label_network_mobile_sendSms_smtpPort;
+		private System.Windows.Forms.Button button_tg_test;
+		private System.Windows.Forms.TabPage tab_dynvars;
+		private System.Windows.Forms.Label label_dynvars_value;
+		private System.Windows.Forms.Label label_dynvars_variable;
+		private System.Windows.Forms.Button button_dynvars_run;
+		private System.Windows.Forms.TextBox textBox_dynvars_value;
+		private System.Windows.Forms.TextBox textBox_dynvars_variable;
 	}
 }
 

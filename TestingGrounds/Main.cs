@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Numerics;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ScriptsLib;
 using ScriptsLib.Controls;
 using ScriptsLib.Databases;
 using ScriptsLib.Generators;
@@ -32,6 +35,7 @@ namespace TestingGrounds
 		ScriptsLib.Math.Math _Math = new ScriptsLib.Math.Math();
 		Network.Packets _Packets = new Network.Packets();
 		Network.Mobile _Mobile = new Network.Mobile();
+		DynVars _DynVars = new DynVars();
 
 		Controls.ComboBox _ComboBox = new Controls.ComboBox();
 		Controls.TextBox _TextBox = new Controls.TextBox();
@@ -69,6 +73,8 @@ namespace TestingGrounds
 			MySqlDatabase._Password = "";
 			MySqlDatabase._SslMode = "none";
 
+			DynVars._DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
+
 
 
 			#region Perform Actions
@@ -101,10 +107,19 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		private void Ex(Exception _Exception)
 		{
-			MessageBox.Show(_Exception.Message, _Exception.Source);
+			_Tools.Exception(_Exception);
 		}
 		// # ================================================================================================ #
 		#endregion Stuff
+
+		#region Test Button
+		// # ================================================================================================ #
+		private void button_tg_test_Click(object sender, EventArgs e)
+		{
+			
+		}
+		// # ================================================================================================ #
+		#endregion Test Button
 
 
 
@@ -832,5 +847,40 @@ namespace TestingGrounds
 		#endregion Calculate Factorial
 
 		#endregion Math
+
+
+
+		#region DynVars
+		private void button_dynvars_update_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (String.IsNullOrEmpty(textBox_dynvars_variable.Text))
+				{
+					MessageBox.Show("The variable field cannot be empty.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				else
+				{
+					string _Return = _DynVars.DynVar(textBox_dynvars_variable.Text, textBox_dynvars_value.Text);
+					if (!String.IsNullOrEmpty(_Return))
+					{
+						MessageBox.Show(_Return, "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+					else if (String.IsNullOrEmpty(_Return) && String.IsNullOrEmpty(textBox_dynvars_value.Text))
+					{
+						MessageBox.Show($"The variable '{textBox_dynvars_variable.Text}' doesn't exist.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					}
+					else
+					{
+						MessageBox.Show($"Variable '{textBox_dynvars_variable.Text}' set to '{textBox_dynvars_value.Text}'.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+				}
+			}
+			catch (Exception _Exception)
+			{
+				Ex(_Exception);
+			}
+		}
+		#endregion DynVars
 	}
 }

@@ -91,6 +91,7 @@
     <Compile Include="Database\MySql.cs" />
     <Compile Include="Database\SqlServer.cs" />
     <Compile Include="Dev.cs" />
+    <Compile Include="DynVars.cs" />
     <Compile Include="Generators.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Database\Access.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Lang\en_EN.cs" />
     <Compile Include="Resources\Lang\Lang.cs" />
-    <Compile Include="Resources\Values.cs" />
     <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>

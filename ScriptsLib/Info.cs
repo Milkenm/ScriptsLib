@@ -1,4 +1,10 @@
-﻿namespace ScriptsLib.Info
+﻿#region Usings
+using System;
+#endregion Usings
+
+
+
+namespace ScriptsLib.Info
 {
 	/// <summary>Info about ScriptsLib.</summary>
 	public class Info
@@ -14,6 +20,13 @@
 		public static readonly string _ReleaseDate = "30/04/2019 - 21:12";
 		/// <summary>Lattest release date.</summary>
 		public static readonly string _UpdateDate = "29/05/2019 - 12:20";
+		// # ================================================================================================ #
+		/// <summary>AppData Path.</summary>
+		internal static readonly string _AppdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\";
+		/// <summary>AppData Temp Path.</summary>
+		internal static readonly string _TempPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\Temp\";
+		/// <summary>AppData User Data Path.</summary>
+		internal static readonly string _UserdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\UserData\";
 		// # ================================================================================================ #
 	}
 }
