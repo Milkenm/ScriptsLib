@@ -529,39 +529,6 @@ namespace TestingGrounds
 
 
 
-		#region Get Text File Content
-		// # ================================================================================================ #
-		private void button_readfile_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				fileDialog_tg_readFile.ShowDialog();
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		private void fileDialog_readFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			try
-			{
-				if (!String.IsNullOrEmpty(fileDialog_tg_readFile.FileName))
-				{
-					MessageBox.Show(_Tools.GetTextFileContent(fileDialog_tg_readFile.FileName), "Read File");
-				}
-			}
-			catch (Exception _Exception)
-			{
-				Ex(_Exception);
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Get Text File Content
-
-
-
 		#region Replace String
 		// # ================================================================================================ #
 		private void button_replace_Click(object sender, EventArgs e)

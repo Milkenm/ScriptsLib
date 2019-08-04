@@ -522,35 +522,6 @@ namespace ScriptsLib.Tools
 
 
 
-		#region Get Text File Content
-		// # ================================================================================================ #
-		/// <summary>Reads a text file and returns its content in a single string.</summary>
-		/// <param name="_Path">The path of the text file.</param>
-		public string GetTextFileContent(string _Path)
-		{
-			try
-			{
-				if (File.Exists(_Path))
-				{
-					return String.Join("\n", File.ReadAllLines($@"{_Path}"));
-				}
-				else
-				{
-					_Debug.Msg("The file does not exist", MsgType.Error, "GetTextFileContent()");
-					return null;
-				}
-			}
-			catch (Exception _Exception)
-			{
-				_Debug.Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return null;
-			}
-		}
-		// # ================================================================================================ #
-		#endregion Get Text File Content
-
-
-
 		#region Replace String
 		// # ================================================================================================ #
 		/// <summary>Replaces values from a string with new ones.</summary>

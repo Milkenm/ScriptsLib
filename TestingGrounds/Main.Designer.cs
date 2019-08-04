@@ -64,7 +64,6 @@
 			this.label_network_wifi_connect_ssid = new System.Windows.Forms.Label();
 			this.textBox_network_wifi_connect_wifiPassword = new System.Windows.Forms.TextBox();
 			this.textBox_network_wifi_connect_wifiSsid = new System.Windows.Forms.TextBox();
-			this.button_tools_getTextFileContent_readfile = new System.Windows.Forms.Button();
 			this.fileDialog_tg_readFile = new System.Windows.Forms.OpenFileDialog();
 			this.label_tools_replaceString_replacewith = new System.Windows.Forms.Label();
 			this.button_tools_replaceString_replace = new System.Windows.Forms.Button();
@@ -115,7 +114,6 @@
 			this.label_tools_log_source = new System.Windows.Forms.Label();
 			this.tab_tools_getDate = new System.Windows.Forms.TabPage();
 			this.tab_tools_setWallpaper6getGifFrames = new System.Windows.Forms.TabPage();
-			this.tab_tools_getTextFileContent = new System.Windows.Forms.TabPage();
 			this.tab_tools_replaceString = new System.Windows.Forms.TabPage();
 			this.tab_generators = new System.Windows.Forms.TabPage();
 			this.tabs_generators = new System.Windows.Forms.TabControl();
@@ -192,16 +190,16 @@
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
 			this.tab_math_calculateFactorial = new System.Windows.Forms.TabPage();
+			this.tab_dynvars = new System.Windows.Forms.TabPage();
+			this.label_dynvars_value = new System.Windows.Forms.Label();
+			this.label_dynvars_variable = new System.Windows.Forms.Label();
+			this.button_dynvars_run = new System.Windows.Forms.Button();
+			this.textBox_dynvars_value = new System.Windows.Forms.TextBox();
+			this.textBox_dynvars_variable = new System.Windows.Forms.TextBox();
 			this.label_tg_databaseType = new System.Windows.Forms.Label();
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
 			this.button_tg_test = new System.Windows.Forms.Button();
-			this.tab_dynvars = new System.Windows.Forms.TabPage();
-			this.textBox_dynvars_variable = new System.Windows.Forms.TextBox();
-			this.textBox_dynvars_value = new System.Windows.Forms.TextBox();
-			this.button_dynvars_run = new System.Windows.Forms.Button();
-			this.label_dynvars_variable = new System.Windows.Forms.Label();
-			this.label_dynvars_value = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -228,7 +226,6 @@
 			this.tab_tools_log.SuspendLayout();
 			this.tab_tools_getDate.SuspendLayout();
 			this.tab_tools_setWallpaper6getGifFrames.SuspendLayout();
-			this.tab_tools_getTextFileContent.SuspendLayout();
 			this.tab_tools_replaceString.SuspendLayout();
 			this.tab_generators.SuspendLayout();
 			this.tabs_generators.SuspendLayout();
@@ -594,16 +591,6 @@
 			this.textBox_network_wifi_connect_wifiSsid.Size = new System.Drawing.Size(185, 20);
 			this.textBox_network_wifi_connect_wifiSsid.TabIndex = 0;
 			// 
-			// button_tools_getTextFileContent_readfile
-			// 
-			this.button_tools_getTextFileContent_readfile.Location = new System.Drawing.Point(338, 117);
-			this.button_tools_getTextFileContent_readfile.Name = "button_tools_getTextFileContent_readfile";
-			this.button_tools_getTextFileContent_readfile.Size = new System.Drawing.Size(185, 23);
-			this.button_tools_getTextFileContent_readfile.TabIndex = 0;
-			this.button_tools_getTextFileContent_readfile.Text = "Read File";
-			this.button_tools_getTextFileContent_readfile.UseVisualStyleBackColor = true;
-			this.button_tools_getTextFileContent_readfile.Click += new System.EventHandler(this.button_readfile_Click);
-			// 
 			// fileDialog_tg_readFile
 			// 
 			this.fileDialog_tg_readFile.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_readFile_FileOk);
@@ -860,7 +847,6 @@
 			this.tabs_tools.Controls.Add(this.tab_tools_log);
 			this.tabs_tools.Controls.Add(this.tab_tools_getDate);
 			this.tabs_tools.Controls.Add(this.tab_tools_setWallpaper6getGifFrames);
-			this.tabs_tools.Controls.Add(this.tab_tools_getTextFileContent);
 			this.tabs_tools.Controls.Add(this.tab_tools_replaceString);
 			this.tabs_tools.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabs_tools.Location = new System.Drawing.Point(3, 3);
@@ -1106,17 +1092,6 @@
 			this.tab_tools_setWallpaper6getGifFrames.TabIndex = 6;
 			this.tab_tools_setWallpaper6getGifFrames.Text = "Set Wallpaper && Get GIF Frames";
 			this.tab_tools_setWallpaper6getGifFrames.UseVisualStyleBackColor = true;
-			// 
-			// tab_tools_getTextFileContent
-			// 
-			this.tab_tools_getTextFileContent.Controls.Add(this.button_tools_getTextFileContent_readfile);
-			this.tab_tools_getTextFileContent.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_getTextFileContent.Name = "tab_tools_getTextFileContent";
-			this.tab_tools_getTextFileContent.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_getTextFileContent.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_getTextFileContent.TabIndex = 7;
-			this.tab_tools_getTextFileContent.Text = "Get Text File Content";
-			this.tab_tools_getTextFileContent.UseVisualStyleBackColor = true;
 			// 
 			// tab_tools_replaceString
 			// 
@@ -1951,6 +1926,63 @@
 			this.tab_math_calculateFactorial.Text = "Calculate Factorial";
 			this.tab_math_calculateFactorial.UseVisualStyleBackColor = true;
 			// 
+			// tab_dynvars
+			// 
+			this.tab_dynvars.Controls.Add(this.label_dynvars_value);
+			this.tab_dynvars.Controls.Add(this.label_dynvars_variable);
+			this.tab_dynvars.Controls.Add(this.button_dynvars_run);
+			this.tab_dynvars.Controls.Add(this.textBox_dynvars_value);
+			this.tab_dynvars.Controls.Add(this.textBox_dynvars_variable);
+			this.tab_dynvars.Location = new System.Drawing.Point(4, 22);
+			this.tab_dynvars.Name = "tab_dynvars";
+			this.tab_dynvars.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_dynvars.Size = new System.Drawing.Size(844, 322);
+			this.tab_dynvars.TabIndex = 7;
+			this.tab_dynvars.Text = "DynVars";
+			this.tab_dynvars.UseVisualStyleBackColor = true;
+			// 
+			// label_dynvars_value
+			// 
+			this.label_dynvars_value.AutoSize = true;
+			this.label_dynvars_value.Location = new System.Drawing.Point(254, 137);
+			this.label_dynvars_value.Name = "label_dynvars_value";
+			this.label_dynvars_value.Size = new System.Drawing.Size(37, 13);
+			this.label_dynvars_value.TabIndex = 4;
+			this.label_dynvars_value.Text = "Value:";
+			// 
+			// label_dynvars_variable
+			// 
+			this.label_dynvars_variable.AutoSize = true;
+			this.label_dynvars_variable.Location = new System.Drawing.Point(243, 111);
+			this.label_dynvars_variable.Name = "label_dynvars_variable";
+			this.label_dynvars_variable.Size = new System.Drawing.Size(48, 13);
+			this.label_dynvars_variable.TabIndex = 3;
+			this.label_dynvars_variable.Text = "Variable:";
+			// 
+			// button_dynvars_run
+			// 
+			this.button_dynvars_run.Location = new System.Drawing.Point(508, 160);
+			this.button_dynvars_run.Name = "button_dynvars_run";
+			this.button_dynvars_run.Size = new System.Drawing.Size(75, 23);
+			this.button_dynvars_run.TabIndex = 2;
+			this.button_dynvars_run.Text = "Run";
+			this.button_dynvars_run.UseVisualStyleBackColor = true;
+			this.button_dynvars_run.Click += new System.EventHandler(this.button_dynvars_update_Click);
+			// 
+			// textBox_dynvars_value
+			// 
+			this.textBox_dynvars_value.Location = new System.Drawing.Point(297, 134);
+			this.textBox_dynvars_value.Name = "textBox_dynvars_value";
+			this.textBox_dynvars_value.Size = new System.Drawing.Size(286, 20);
+			this.textBox_dynvars_value.TabIndex = 1;
+			// 
+			// textBox_dynvars_variable
+			// 
+			this.textBox_dynvars_variable.Location = new System.Drawing.Point(297, 108);
+			this.textBox_dynvars_variable.Name = "textBox_dynvars_variable";
+			this.textBox_dynvars_variable.Size = new System.Drawing.Size(286, 20);
+			this.textBox_dynvars_variable.TabIndex = 0;
+			// 
 			// label_tg_databaseType
 			// 
 			this.label_tg_databaseType.AutoSize = true;
@@ -1986,63 +2018,6 @@
 			this.button_tg_test.Text = "Test";
 			this.button_tg_test.UseVisualStyleBackColor = true;
 			this.button_tg_test.Click += new System.EventHandler(this.button_tg_test_Click);
-			// 
-			// tab_dynvars
-			// 
-			this.tab_dynvars.Controls.Add(this.label_dynvars_value);
-			this.tab_dynvars.Controls.Add(this.label_dynvars_variable);
-			this.tab_dynvars.Controls.Add(this.button_dynvars_run);
-			this.tab_dynvars.Controls.Add(this.textBox_dynvars_value);
-			this.tab_dynvars.Controls.Add(this.textBox_dynvars_variable);
-			this.tab_dynvars.Location = new System.Drawing.Point(4, 22);
-			this.tab_dynvars.Name = "tab_dynvars";
-			this.tab_dynvars.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_dynvars.Size = new System.Drawing.Size(844, 322);
-			this.tab_dynvars.TabIndex = 7;
-			this.tab_dynvars.Text = "DynVars";
-			this.tab_dynvars.UseVisualStyleBackColor = true;
-			// 
-			// textBox_dynvars_variable
-			// 
-			this.textBox_dynvars_variable.Location = new System.Drawing.Point(297, 108);
-			this.textBox_dynvars_variable.Name = "textBox_dynvars_variable";
-			this.textBox_dynvars_variable.Size = new System.Drawing.Size(286, 20);
-			this.textBox_dynvars_variable.TabIndex = 0;
-			// 
-			// textBox_dynvars_value
-			// 
-			this.textBox_dynvars_value.Location = new System.Drawing.Point(297, 134);
-			this.textBox_dynvars_value.Name = "textBox_dynvars_value";
-			this.textBox_dynvars_value.Size = new System.Drawing.Size(286, 20);
-			this.textBox_dynvars_value.TabIndex = 1;
-			// 
-			// button_dynvars_run
-			// 
-			this.button_dynvars_run.Location = new System.Drawing.Point(508, 160);
-			this.button_dynvars_run.Name = "button_dynvars_run";
-			this.button_dynvars_run.Size = new System.Drawing.Size(75, 23);
-			this.button_dynvars_run.TabIndex = 2;
-			this.button_dynvars_run.Text = "Run";
-			this.button_dynvars_run.UseVisualStyleBackColor = true;
-			this.button_dynvars_run.Click += new System.EventHandler(this.button_dynvars_update_Click);
-			// 
-			// label_dynvars_variable
-			// 
-			this.label_dynvars_variable.AutoSize = true;
-			this.label_dynvars_variable.Location = new System.Drawing.Point(243, 111);
-			this.label_dynvars_variable.Name = "label_dynvars_variable";
-			this.label_dynvars_variable.Size = new System.Drawing.Size(48, 13);
-			this.label_dynvars_variable.TabIndex = 3;
-			this.label_dynvars_variable.Text = "Variable:";
-			// 
-			// label_dynvars_value
-			// 
-			this.label_dynvars_value.AutoSize = true;
-			this.label_dynvars_value.Location = new System.Drawing.Point(254, 137);
-			this.label_dynvars_value.Name = "label_dynvars_value";
-			this.label_dynvars_value.Size = new System.Drawing.Size(37, 13);
-			this.label_dynvars_value.TabIndex = 4;
-			this.label_dynvars_value.Text = "Value:";
 			// 
 			// Main
 			// 
@@ -2094,7 +2069,6 @@
 			this.tab_tools_getDate.ResumeLayout(false);
 			this.tab_tools_getDate.PerformLayout();
 			this.tab_tools_setWallpaper6getGifFrames.ResumeLayout(false);
-			this.tab_tools_getTextFileContent.ResumeLayout(false);
 			this.tab_tools_replaceString.ResumeLayout(false);
 			this.tab_tools_replaceString.PerformLayout();
 			this.tab_generators.ResumeLayout(false);
@@ -2190,7 +2164,6 @@
 		private System.Windows.Forms.Label label_network_wifi_connect_ssid;
 		private System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiPassword;
 		private System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiSsid;
-		private System.Windows.Forms.Button button_tools_getTextFileContent_readfile;
 		private System.Windows.Forms.OpenFileDialog fileDialog_tg_readFile;
 		private System.Windows.Forms.Label label_tools_replaceString_replacewith;
 		private System.Windows.Forms.Button button_tools_replaceString_replace;
@@ -2248,7 +2221,6 @@
 		private System.Windows.Forms.TabPage tab_controls_form;
 		private System.Windows.Forms.TabControl tabs_controls_form;
 		private System.Windows.Forms.TabPage tab_controls_form_getOpenForms;
-		private System.Windows.Forms.TabPage tab_tools_getTextFileContent;
 		private System.Windows.Forms.TabPage tab_tools_replaceString;
 		private System.Windows.Forms.TabPage tab_controls_messageBox;
 		private System.Windows.Forms.TabControl tabs_controls_messageBox;
