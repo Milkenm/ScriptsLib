@@ -591,10 +591,6 @@
 			this.textBox_network_wifi_connect_wifiSsid.Size = new System.Drawing.Size(185, 20);
 			this.textBox_network_wifi_connect_wifiSsid.TabIndex = 0;
 			// 
-			// fileDialog_tg_readFile
-			// 
-			this.fileDialog_tg_readFile.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_readFile_FileOk);
-			// 
 			// label_tools_replaceString_replacewith
 			// 
 			this.label_tools_replaceString_replacewith.AutoSize = true;
