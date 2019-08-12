@@ -361,10 +361,19 @@ namespace ScriptsLib.Tools
 
 		#region Get Date
 		// # ================================================================================================ #
-		/// <summary>Get current time and date. Format: [day]/[month]/[year] - [hour]:[minute]:[second] (.[millisecond])</summary>
-		public string GetDate()
+		/// <summary>Get current time and date. ([DD] Day || [MM] Month || [YYYY] Year || [hh] - Hour || [mm] Minute || [ss] Second || [ms] Millisecond.</summary>
+		/// <param name="_Format">The format to return the date.</param>
+		public string GetDate(string _Format = "DD/MM/YYYY - hh:mm:ss (.ms)")
 		{
-			string _Day = DateTime.Now.Day.ToString(), _Month = DateTime.Now.Month.ToString(), _Year = DateTime.Now.Year.ToString(), _Hour = DateTime.Now.Hour.ToString(), _Minute = DateTime.Now.Minute.ToString(), _Second = DateTime.Now.Second.ToString(), _Millisecond = DateTime.Now.Millisecond.ToString();
+			string _Day = DateTime.Now.Day.ToString();
+			string _Month = DateTime.Now.Month.ToString();
+			string _Year = DateTime.Now.Year.ToString();
+			string _Hour = DateTime.Now.Hour.ToString();
+			string _Minute = DateTime.Now.Minute.ToString();
+			string _Second = DateTime.Now.Second.ToString();
+			string _Millisecond = DateTime.Now.Millisecond.ToString();
+
+
 
 			if (_Day.Length < 2)
 			{
@@ -398,7 +407,13 @@ namespace ScriptsLib.Tools
 
 
 
-			return $"{_Day}/{_Month}/{_Year} - {_Hour}:{_Minute}:{_Second} (.{_Millisecond})";
+			string _Return = ReplaceString(_Format, "DD", _Day);
+			_Return = ReplaceString(_Return, "MM", _Month);
+			_Return = ReplaceString(_Return, "YYYY", _Year);
+			_Return = ReplaceString(_Return, "hh", _Hour);
+			_Return = ReplaceString(_Return, "mm", _Minute);
+			_Return = ReplaceString(_Return, "ss", _Second);
+			return ReplaceString(_Return, "ms", _Millisecond);
 		}
 		// # ================================================================================================ #
 		#endregion Get Date
