@@ -200,6 +200,10 @@
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
 			this.button_tg_test = new System.Windows.Forms.Button();
+			this.tab_math_isPrimeNumber = new System.Windows.Forms.TabPage();
+			this.button_math_isPrimeNumber_check = new System.Windows.Forms.Button();
+			this.textBox_math_isPrimeNumber_number = new System.Windows.Forms.TextBox();
+			this.label_math_isPrimeNumber_number = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -268,6 +272,7 @@
 			this.tab_math_calculateCombinations.SuspendLayout();
 			this.tab_math_calculateFactorial.SuspendLayout();
 			this.tab_dynvars.SuspendLayout();
+			this.tab_math_isPrimeNumber.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1887,6 +1892,7 @@
 			// 
 			this.tabs_math.Controls.Add(this.tab_math_calculateCombinations);
 			this.tabs_math.Controls.Add(this.tab_math_calculateFactorial);
+			this.tabs_math.Controls.Add(this.tab_math_isPrimeNumber);
 			this.tabs_math.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabs_math.Location = new System.Drawing.Point(3, 3);
 			this.tabs_math.Name = "tabs_math";
@@ -2015,6 +2021,45 @@
 			this.button_tg_test.UseVisualStyleBackColor = true;
 			this.button_tg_test.Click += new System.EventHandler(this.button_tg_test_Click);
 			// 
+			// tab_math_isPrimeNumber
+			// 
+			this.tab_math_isPrimeNumber.Controls.Add(this.label_math_isPrimeNumber_number);
+			this.tab_math_isPrimeNumber.Controls.Add(this.textBox_math_isPrimeNumber_number);
+			this.tab_math_isPrimeNumber.Controls.Add(this.button_math_isPrimeNumber_check);
+			this.tab_math_isPrimeNumber.Location = new System.Drawing.Point(4, 22);
+			this.tab_math_isPrimeNumber.Name = "tab_math_isPrimeNumber";
+			this.tab_math_isPrimeNumber.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_math_isPrimeNumber.Size = new System.Drawing.Size(830, 290);
+			this.tab_math_isPrimeNumber.TabIndex = 2;
+			this.tab_math_isPrimeNumber.Text = "Is Prime Number";
+			this.tab_math_isPrimeNumber.UseVisualStyleBackColor = true;
+			// 
+			// button_math_isPrimeNumber_check
+			// 
+			this.button_math_isPrimeNumber_check.Location = new System.Drawing.Point(426, 136);
+			this.button_math_isPrimeNumber_check.Name = "button_math_isPrimeNumber_check";
+			this.button_math_isPrimeNumber_check.Size = new System.Drawing.Size(75, 23);
+			this.button_math_isPrimeNumber_check.TabIndex = 0;
+			this.button_math_isPrimeNumber_check.Text = "Check";
+			this.button_math_isPrimeNumber_check.UseVisualStyleBackColor = true;
+			this.button_math_isPrimeNumber_check.Click += new System.EventHandler(this.button_math_isPrimeNumber_check_Click);
+			// 
+			// textBox_math_isPrimeNumber_number
+			// 
+			this.textBox_math_isPrimeNumber_number.Location = new System.Drawing.Point(364, 110);
+			this.textBox_math_isPrimeNumber_number.Name = "textBox_math_isPrimeNumber_number";
+			this.textBox_math_isPrimeNumber_number.Size = new System.Drawing.Size(137, 20);
+			this.textBox_math_isPrimeNumber_number.TabIndex = 1;
+			// 
+			// label_math_isPrimeNumber_number
+			// 
+			this.label_math_isPrimeNumber_number.AutoSize = true;
+			this.label_math_isPrimeNumber_number.Location = new System.Drawing.Point(311, 113);
+			this.label_math_isPrimeNumber_number.Name = "label_math_isPrimeNumber_number";
+			this.label_math_isPrimeNumber_number.Size = new System.Drawing.Size(47, 13);
+			this.label_math_isPrimeNumber_number.TabIndex = 2;
+			this.label_math_isPrimeNumber_number.Text = "Number:";
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2119,6 +2164,8 @@
 			this.tab_math_calculateFactorial.PerformLayout();
 			this.tab_dynvars.ResumeLayout(false);
 			this.tab_dynvars.PerformLayout();
+			this.tab_math_isPrimeNumber.ResumeLayout(false);
+			this.tab_math_isPrimeNumber.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2296,6 +2343,10 @@
 		private System.Windows.Forms.Button button_dynvars_run;
 		private System.Windows.Forms.TextBox textBox_dynvars_value;
 		private System.Windows.Forms.TextBox textBox_dynvars_variable;
+		private System.Windows.Forms.TabPage tab_math_isPrimeNumber;
+		private System.Windows.Forms.Label label_math_isPrimeNumber_number;
+		private System.Windows.Forms.TextBox textBox_math_isPrimeNumber_number;
+		private System.Windows.Forms.Button button_math_isPrimeNumber_check;
 	}
 }
 

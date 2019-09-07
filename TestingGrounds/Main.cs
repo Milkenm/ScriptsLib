@@ -919,6 +919,14 @@ namespace TestingGrounds
 		// # ================================================================================================ #
 		#endregion Calculate Factorial
 
+
+
+		#region Is Prime Number
+		private void button_math_isPrimeNumber_check_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(_Math.IsPrimeNumber(Convert.ToInt32(textBox_math_isPrimeNumber_number.Text)).ToString());
+		}
+		#endregion Is Prime Number
 		#endregion Math
 
 
