@@ -13,8 +13,17 @@ namespace ScriptsLib
 	{
 		public static string _DynvarsFilePath { get; set; }
 
-		public dynamic DynVar(string _Variable, dynamic _Value = null)
+		/// <summary>[WIP] A little trick to store values. Usefull to store values that can be seen by the user (like settings?)</summary>
+		/// <param name="_Variable">The 'variable' name (or DynVar name).</param>
+		/// <param name="_Value">The value to store in the given variable (leave empty to get the current value).</param>
+		/// <param name="_DynvarsFilePath">If you want this thing to not use the default path, input the one you want here.</param>
+		public dynamic DynVar(string _Variable, dynamic _Value = null, string _DynvarsFilePath = null)
 		{
+			if (String.IsNullOrEmpty(_DynvarsFilePath))
+			{
+				_DynvarsFilePath = DynVars._DynvarsFilePath;
+			}
+
 			#region Exceptions
 			if (!String.IsNullOrEmpty(_Variable) && _Variable.Contains("=") || !String.IsNullOrEmpty(_Value) && _Value.Contains("="))
 			{
