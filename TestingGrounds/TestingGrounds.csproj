@@ -51,6 +51,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions\Events\Controls\ComboBox\ResizeComboBox.cs" />
+    <Compile Include="Functions\Events\Controls\Form\GetOpenForms.cs" />
+    <Compile Include="Functions\Events\Controls\MessageBox\ShowConfirmationDialog.cs" />
+    <Compile Include="Functions\Events\Controls\TextBox\OnlyNumbersTextBox.cs" />
+    <Compile Include="Functions\Events\Database\CreateDatabase.cs" />
+    <Compile Include="Functions\Events\Database\CreateTable.cs" />
+    <Compile Include="Functions\Events\Database\Delete.cs" />
+    <Compile Include="Functions\Events\Database\DeleteTable.cs" />
+    <Compile Include="Functions\Events\Database\InsertInto.cs" />
+    <Compile Include="Functions\Events\Database\Select.cs" />
+    <Compile Include="Functions\Events\DebugCheckBox.cs" />
+    <Compile Include="Functions\Events\DebugErrorsCheckBox.cs" />
+    <Compile Include="Functions\Events\DynVars\DynVars.cs" />
+    <Compile Include="Functions\Events\Generators\GeneratePassword.cs" />
+    <Compile Include="Functions\Events\Math\CalculateCombinations.cs" />
+    <Compile Include="Functions\Events\Math\CalculateFactorial.cs" />
+    <Compile Include="Functions\Events\Math\IsPrimeNumber.cs" />
+    <Compile Include="Functions\Events\Network\Mobile\SendSms.cs" />
+    <Compile Include="Functions\Events\Network\Packets\SendTcpPacket.cs" />
+    <Compile Include="Functions\Events\Network\Packets\SendUdpPacket.cs" />
+    <Compile Include="Functions\Events\Network\Packets\WaitTcpPacket.cs" />
+    <Compile Include="Functions\Events\Network\Packets\WaitUdpPacket.cs" />
+    <Compile Include="Functions\Events\Network\Wi-Fi\ConnectToWifi.cs" />
+    <Compile Include="Functions\Events\Tools\Crash.cs" />
+    <Compile Include="Functions\Events\Tools\Database Tools\CheckLogin.cs" />
+    <Compile Include="Functions\Events\Tools\Database Tools\SelectUnique.cs" />
+    <Compile Include="Functions\Events\Tools\Database Tools\SqlFilter.cs" />
+    <Compile Include="Functions\Events\Tools\GetDate.cs" />
+    <Compile Include="Functions\Events\Tools\Hash.cs" />
+    <Compile Include="Functions\Events\Tools\Log.cs" />
+    <Compile Include="Functions\Events\Tools\ReplaceString.cs" />
+    <Compile Include="Functions\Events\Tools\SetWallpaper_GetGifFrames.cs" />
+    <Compile Include="Functions\Ex.cs" />
+    <Compile Include="Functions\MainInitEvents.cs" />
+    <Compile Include="Functions\MainLoad.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +94,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Values.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,7 +118,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Properties\App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ScriptsLib\ScriptsLib.csproj">
@@ -93,5 +129,6 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

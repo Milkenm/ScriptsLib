@@ -7,11 +7,11 @@ using System.Windows.Forms;
 
 namespace TestingGrounds
 {
-	static class Program
+	internal static class Program
 	{
 		/// <summary>The main entry point for the application.</summary>
 		[STAThread]
-		static void Main()
+		internal static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

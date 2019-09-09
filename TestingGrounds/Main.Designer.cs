@@ -190,6 +190,10 @@
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
 			this.tab_math_calculateFactorial = new System.Windows.Forms.TabPage();
+			this.tab_math_isPrimeNumber = new System.Windows.Forms.TabPage();
+			this.label_math_isPrimeNumber_number = new System.Windows.Forms.Label();
+			this.textBox_math_isPrimeNumber_number = new System.Windows.Forms.TextBox();
+			this.button_math_isPrimeNumber_check = new System.Windows.Forms.Button();
 			this.tab_dynvars = new System.Windows.Forms.TabPage();
 			this.label_dynvars_value = new System.Windows.Forms.Label();
 			this.label_dynvars_variable = new System.Windows.Forms.Label();
@@ -200,10 +204,9 @@
 			this.label_tg_version = new System.Windows.Forms.Label();
 			this.textBox_tg_version = new System.Windows.Forms.TextBox();
 			this.button_tg_test = new System.Windows.Forms.Button();
-			this.tab_math_isPrimeNumber = new System.Windows.Forms.TabPage();
-			this.button_math_isPrimeNumber_check = new System.Windows.Forms.Button();
-			this.textBox_math_isPrimeNumber_number = new System.Windows.Forms.TextBox();
-			this.label_math_isPrimeNumber_number = new System.Windows.Forms.Label();
+			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
+			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
+			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -271,8 +274,9 @@
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
 			this.tab_math_calculateFactorial.SuspendLayout();
-			this.tab_dynvars.SuspendLayout();
 			this.tab_math_isPrimeNumber.SuspendLayout();
+			this.tab_dynvars.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -283,7 +287,6 @@
 			this.button_database_createTable.TabIndex = 0;
 			this.button_database_createTable.Text = "Create Table";
 			this.button_database_createTable.UseVisualStyleBackColor = true;
-			this.button_database_createTable.Click += new System.EventHandler(this.button_criarTabela_Click);
 			// 
 			// button_database_deleteTable
 			// 
@@ -293,7 +296,6 @@
 			this.button_database_deleteTable.TabIndex = 1;
 			this.button_database_deleteTable.Text = "Delete Table";
 			this.button_database_deleteTable.UseVisualStyleBackColor = true;
-			this.button_database_deleteTable.Click += new System.EventHandler(this.button_apagarTabela_Click);
 			// 
 			// button_database_insert
 			// 
@@ -303,7 +305,6 @@
 			this.button_database_insert.TabIndex = 2;
 			this.button_database_insert.Text = "Insert Into";
 			this.button_database_insert.UseVisualStyleBackColor = true;
-			this.button_database_insert.Click += new System.EventHandler(this.button_insert_Click);
 			// 
 			// button_database_createDatabase
 			// 
@@ -313,7 +314,6 @@
 			this.button_database_createDatabase.TabIndex = 3;
 			this.button_database_createDatabase.Text = "Create Database";
 			this.button_database_createDatabase.UseVisualStyleBackColor = true;
-			this.button_database_createDatabase.Click += new System.EventHandler(this.button_criarBd_Click);
 			// 
 			// button_tools_crash_crash
 			// 
@@ -323,7 +323,6 @@
 			this.button_tools_crash_crash.TabIndex = 4;
 			this.button_tools_crash_crash.Text = "Crash";
 			this.button_tools_crash_crash.UseVisualStyleBackColor = true;
-			this.button_tools_crash_crash.Click += new System.EventHandler(this.button_crash_Click);
 			// 
 			// button_database_delete
 			// 
@@ -333,7 +332,6 @@
 			this.button_database_delete.TabIndex = 6;
 			this.button_database_delete.Text = "Delete";
 			this.button_database_delete.UseVisualStyleBackColor = true;
-			this.button_database_delete.Click += new System.EventHandler(this.button_delete_Click);
 			// 
 			// button_database_select
 			// 
@@ -343,7 +341,6 @@
 			this.button_database_select.TabIndex = 4;
 			this.button_database_select.Text = "Select";
 			this.button_database_select.UseVisualStyleBackColor = true;
-			this.button_database_select.Click += new System.EventHandler(this.button_select_Click);
 			// 
 			// comboBox_tg_databaseType
 			// 
@@ -352,7 +349,7 @@
             "Sql Server",
             "Access",
             "MySql"});
-			this.comboBox_tg_databaseType.Location = new System.Drawing.Point(93, 350);
+			this.comboBox_tg_databaseType.Location = new System.Drawing.Point(91, 350);
 			this.comboBox_tg_databaseType.Name = "comboBox_tg_databaseType";
 			this.comboBox_tg_databaseType.Size = new System.Drawing.Size(188, 21);
 			this.comboBox_tg_databaseType.TabIndex = 5;
@@ -396,7 +393,6 @@
 			this.button_generators_generatePassword_generate.TabIndex = 10;
 			this.button_generators_generatePassword_generate.Text = "Generate Password";
 			this.button_generators_generatePassword_generate.UseVisualStyleBackColor = true;
-			this.button_generators_generatePassword_generate.Click += new System.EventHandler(this.button_generatePassword_Click);
 			// 
 			// textBox_tools_log_logMessage
 			// 
@@ -413,7 +409,6 @@
 			this.button_tools_log_log.TabIndex = 15;
 			this.button_tools_log_log.Text = "Log";
 			this.button_tools_log_log.UseVisualStyleBackColor = true;
-			this.button_tools_log_log.Click += new System.EventHandler(this.button_log_Click);
 			// 
 			// textBox_tools_log_logSource
 			// 
@@ -440,7 +435,6 @@
 			this.textBox_tools_hash_text.Name = "textBox_tools_hash_text";
 			this.textBox_tools_hash_text.Size = new System.Drawing.Size(519, 20);
 			this.textBox_tools_hash_text.TabIndex = 0;
-			this.textBox_tools_hash_text.TextChanged += new System.EventHandler(this.textBox_hash_TextChanged);
 			// 
 			// checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
 			// 
@@ -451,7 +445,6 @@
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 1;
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Text = "Only accept numbers";
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.UseVisualStyleBackColor = true;
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.CheckedChanged += new System.EventHandler(this.checkBox_onlyNumbers_CheckedChanged);
 			// 
 			// textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
 			// 
@@ -468,7 +461,6 @@
 			this.button_tools_databaseTools_selectUnique_select.TabIndex = 13;
 			this.button_tools_databaseTools_selectUnique_select.Text = "Select";
 			this.button_tools_databaseTools_selectUnique_select.UseVisualStyleBackColor = true;
-			this.button_tools_databaseTools_selectUnique_select.Click += new System.EventHandler(this.button_selectUnique_Click);
 			// 
 			// textBox_tools_databaseTools_selectUnique_column
 			// 
@@ -497,7 +489,6 @@
 			// 
 			this.timer_tg_date.Enabled = true;
 			this.timer_tg_date.Interval = 1;
-			this.timer_tg_date.Tick += new System.EventHandler(this.timer_date_Tick);
 			// 
 			// button_controls_form_getOpenForms_getOpenForms
 			// 
@@ -507,7 +498,6 @@
 			this.button_controls_form_getOpenForms_getOpenForms.TabIndex = 0;
 			this.button_controls_form_getOpenForms_getOpenForms.Text = "Get Open Forms";
 			this.button_controls_form_getOpenForms_getOpenForms.UseVisualStyleBackColor = true;
-			this.button_controls_form_getOpenForms_getOpenForms.Click += new System.EventHandler(this.button_controls_getOpenForms_Click);
 			// 
 			// button_tools_setWallpaper6getGifFrames_searchGif
 			// 
@@ -517,7 +507,6 @@
 			this.button_tools_setWallpaper6getGifFrames_searchGif.TabIndex = 2;
 			this.button_tools_setWallpaper6getGifFrames_searchGif.Text = "Search GIF";
 			this.button_tools_setWallpaper6getGifFrames_searchGif.UseVisualStyleBackColor = true;
-			this.button_tools_setWallpaper6getGifFrames_searchGif.Click += new System.EventHandler(this.button_searchGif_Click);
 			// 
 			// pictureBox_tools_setWallpaper6getGifFrames_gif
 			// 
@@ -537,12 +526,10 @@
 			this.button_tools_setWallpaper6getGifFrames_setWallpaper.TabIndex = 0;
 			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Text = "Set Wallpaper";
 			this.button_tools_setWallpaper6getGifFrames_setWallpaper.UseVisualStyleBackColor = true;
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Click += new System.EventHandler(this.button_setWallpaper_Click);
 			// 
 			// fileDialog_tg_searchGif
 			// 
 			this.fileDialog_tg_searchGif.Filter = "GIF Image|*.gif";
-			this.fileDialog_tg_searchGif.FileOk += new System.ComponentModel.CancelEventHandler(this.fileDialog_searchGif_FileOk);
 			// 
 			// button_controls_messageBox_showConfirmationDialog_show
 			// 
@@ -552,7 +539,6 @@
 			this.button_controls_messageBox_showConfirmationDialog_show.TabIndex = 0;
 			this.button_controls_messageBox_showConfirmationDialog_show.Text = "Show Confirmation Dialog";
 			this.button_controls_messageBox_showConfirmationDialog_show.UseVisualStyleBackColor = true;
-			this.button_controls_messageBox_showConfirmationDialog_show.Click += new System.EventHandler(this.button_showConfirmationDialog_Click);
 			// 
 			// button_network_wifi_connect_connect
 			// 
@@ -562,7 +548,6 @@
 			this.button_network_wifi_connect_connect.TabIndex = 4;
 			this.button_network_wifi_connect_connect.Text = "Connect";
 			this.button_network_wifi_connect_connect.UseVisualStyleBackColor = true;
-			this.button_network_wifi_connect_connect.Click += new System.EventHandler(this.button_connect_Click);
 			// 
 			// label_network_wifi_connect_password
 			// 
@@ -613,7 +598,6 @@
 			this.button_tools_replaceString_replace.TabIndex = 24;
 			this.button_tools_replaceString_replace.Text = "Replace";
 			this.button_tools_replaceString_replace.UseVisualStyleBackColor = true;
-			this.button_tools_replaceString_replace.Click += new System.EventHandler(this.button_replace_Click);
 			// 
 			// label_tools_replaceString_replace
 			// 
@@ -662,7 +646,6 @@
 			this.button_math_calculateCombinations_calculate.TabIndex = 24;
 			this.button_math_calculateCombinations_calculate.Text = "Calculate";
 			this.button_math_calculateCombinations_calculate.UseVisualStyleBackColor = true;
-			this.button_math_calculateCombinations_calculate.Click += new System.EventHandler(this.button_calculate_Click);
 			// 
 			// numeric_math_calculateCombinations_group
 			// 
@@ -704,7 +687,6 @@
 			this.button_math_calculateFactorial_calculate.TabIndex = 24;
 			this.button_math_calculateFactorial_calculate.Text = "Calculate";
 			this.button_math_calculateFactorial_calculate.UseVisualStyleBackColor = true;
-			this.button_math_calculateFactorial_calculate.Click += new System.EventHandler(this.button_calculateFactorial_Click);
 			// 
 			// label_math_calculateFactorial_factorial
 			// 
@@ -1493,7 +1475,6 @@
 			this.button_network_packets_sendTcpPacket_send.TabIndex = 35;
 			this.button_network_packets_sendTcpPacket_send.Text = "Send TCP Packet";
 			this.button_network_packets_sendTcpPacket_send.UseVisualStyleBackColor = true;
-			this.button_network_packets_sendTcpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendTcpPacket_send_Click);
 			// 
 			// tab_network_packets_waitTcpPacket
 			// 
@@ -1542,7 +1523,6 @@
 			this.button_network_packets_waitTcpPacket_wait.TabIndex = 30;
 			this.button_network_packets_waitTcpPacket_wait.Text = "Start TCP Server";
 			this.button_network_packets_waitTcpPacket_wait.UseVisualStyleBackColor = true;
-			this.button_network_packets_waitTcpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitTcpPacket_wait_Click);
 			// 
 			// tab_network_packets_sendUdpPacket
 			// 
@@ -1628,7 +1608,6 @@
 			this.button_network_packets_sendUdpPacket_send.TabIndex = 28;
 			this.button_network_packets_sendUdpPacket_send.Text = "Send UDP Packet";
 			this.button_network_packets_sendUdpPacket_send.UseVisualStyleBackColor = true;
-			this.button_network_packets_sendUdpPacket_send.Click += new System.EventHandler(this.button_network_packets_sendUdpPacket_Click);
 			// 
 			// tab_network_packets_waitUdpPacket
 			// 
@@ -1677,7 +1656,6 @@
 			this.button_network_packets_waitUdpPacket_wait.TabIndex = 27;
 			this.button_network_packets_waitUdpPacket_wait.Text = "Start UDP Server";
 			this.button_network_packets_waitUdpPacket_wait.UseVisualStyleBackColor = true;
-			this.button_network_packets_waitUdpPacket_wait.Click += new System.EventHandler(this.button_network_packets_waitUdpPacket_Click);
 			// 
 			// tab_network_mobile
 			// 
@@ -1795,7 +1773,6 @@
 			this.button_network_mobile_sendSms_sendSms.TabIndex = 10;
 			this.button_network_mobile_sendSms_sendSms.Text = "Send SMS";
 			this.button_network_mobile_sendSms_sendSms.UseVisualStyleBackColor = true;
-			this.button_network_mobile_sendSms_sendSms.Click += new System.EventHandler(this.button_network_mobile_sendSms_sendSms_Click);
 			// 
 			// label_network_mobile_sendSms_message
 			// 
@@ -1928,6 +1905,44 @@
 			this.tab_math_calculateFactorial.Text = "Calculate Factorial";
 			this.tab_math_calculateFactorial.UseVisualStyleBackColor = true;
 			// 
+			// tab_math_isPrimeNumber
+			// 
+			this.tab_math_isPrimeNumber.Controls.Add(this.label_math_isPrimeNumber_number);
+			this.tab_math_isPrimeNumber.Controls.Add(this.textBox_math_isPrimeNumber_number);
+			this.tab_math_isPrimeNumber.Controls.Add(this.button_math_isPrimeNumber_check);
+			this.tab_math_isPrimeNumber.Location = new System.Drawing.Point(4, 22);
+			this.tab_math_isPrimeNumber.Name = "tab_math_isPrimeNumber";
+			this.tab_math_isPrimeNumber.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_math_isPrimeNumber.Size = new System.Drawing.Size(830, 290);
+			this.tab_math_isPrimeNumber.TabIndex = 2;
+			this.tab_math_isPrimeNumber.Text = "Is Prime Number";
+			this.tab_math_isPrimeNumber.UseVisualStyleBackColor = true;
+			// 
+			// label_math_isPrimeNumber_number
+			// 
+			this.label_math_isPrimeNumber_number.AutoSize = true;
+			this.label_math_isPrimeNumber_number.Location = new System.Drawing.Point(311, 113);
+			this.label_math_isPrimeNumber_number.Name = "label_math_isPrimeNumber_number";
+			this.label_math_isPrimeNumber_number.Size = new System.Drawing.Size(47, 13);
+			this.label_math_isPrimeNumber_number.TabIndex = 2;
+			this.label_math_isPrimeNumber_number.Text = "Number:";
+			// 
+			// textBox_math_isPrimeNumber_number
+			// 
+			this.textBox_math_isPrimeNumber_number.Location = new System.Drawing.Point(364, 110);
+			this.textBox_math_isPrimeNumber_number.Name = "textBox_math_isPrimeNumber_number";
+			this.textBox_math_isPrimeNumber_number.Size = new System.Drawing.Size(137, 20);
+			this.textBox_math_isPrimeNumber_number.TabIndex = 1;
+			// 
+			// button_math_isPrimeNumber_check
+			// 
+			this.button_math_isPrimeNumber_check.Location = new System.Drawing.Point(426, 136);
+			this.button_math_isPrimeNumber_check.Name = "button_math_isPrimeNumber_check";
+			this.button_math_isPrimeNumber_check.Size = new System.Drawing.Size(75, 23);
+			this.button_math_isPrimeNumber_check.TabIndex = 0;
+			this.button_math_isPrimeNumber_check.Text = "Check";
+			this.button_math_isPrimeNumber_check.UseVisualStyleBackColor = true;
+			// 
 			// tab_dynvars
 			// 
 			this.tab_dynvars.Controls.Add(this.label_dynvars_value);
@@ -1969,7 +1984,6 @@
 			this.button_dynvars_run.TabIndex = 2;
 			this.button_dynvars_run.Text = "Run";
 			this.button_dynvars_run.UseVisualStyleBackColor = true;
-			this.button_dynvars_run.Click += new System.EventHandler(this.button_dynvars_update_Click);
 			// 
 			// textBox_dynvars_value
 			// 
@@ -1997,7 +2011,7 @@
 			// label_tg_version
 			// 
 			this.label_tg_version.AutoSize = true;
-			this.label_tg_version.Location = new System.Drawing.Point(639, 353);
+			this.label_tg_version.Location = new System.Drawing.Point(603, 353);
 			this.label_tg_version.Name = "label_tg_version";
 			this.label_tg_version.Size = new System.Drawing.Size(94, 13);
 			this.label_tg_version.TabIndex = 30;
@@ -2005,7 +2019,7 @@
 			// 
 			// textBox_tg_version
 			// 
-			this.textBox_tg_version.Location = new System.Drawing.Point(739, 350);
+			this.textBox_tg_version.Location = new System.Drawing.Point(698, 350);
 			this.textBox_tg_version.Name = "textBox_tg_version";
 			this.textBox_tg_version.ReadOnly = true;
 			this.textBox_tg_version.Size = new System.Drawing.Size(63, 20);
@@ -2013,7 +2027,7 @@
 			// 
 			// button_tg_test
 			// 
-			this.button_tg_test.Location = new System.Drawing.Point(808, 349);
+			this.button_tg_test.Location = new System.Drawing.Point(763, 349);
 			this.button_tg_test.Name = "button_tg_test";
 			this.button_tg_test.Size = new System.Drawing.Size(40, 22);
 			this.button_tg_test.TabIndex = 32;
@@ -2021,50 +2035,56 @@
 			this.button_tg_test.UseVisualStyleBackColor = true;
 			this.button_tg_test.Click += new System.EventHandler(this.button_tg_test_Click);
 			// 
-			// tab_math_isPrimeNumber
+			// checkBox_tg_debug
 			// 
-			this.tab_math_isPrimeNumber.Controls.Add(this.label_math_isPrimeNumber_number);
-			this.tab_math_isPrimeNumber.Controls.Add(this.textBox_math_isPrimeNumber_number);
-			this.tab_math_isPrimeNumber.Controls.Add(this.button_math_isPrimeNumber_check);
-			this.tab_math_isPrimeNumber.Location = new System.Drawing.Point(4, 22);
-			this.tab_math_isPrimeNumber.Name = "tab_math_isPrimeNumber";
-			this.tab_math_isPrimeNumber.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_math_isPrimeNumber.Size = new System.Drawing.Size(830, 290);
-			this.tab_math_isPrimeNumber.TabIndex = 2;
-			this.tab_math_isPrimeNumber.Text = "Is Prime Number";
-			this.tab_math_isPrimeNumber.UseVisualStyleBackColor = true;
+			this.checkBox_tg_debug.AutoSize = true;
+			this.checkBox_tg_debug.Location = new System.Drawing.Point(285, 353);
+			this.checkBox_tg_debug.Name = "checkBox_tg_debug";
+			this.checkBox_tg_debug.Size = new System.Drawing.Size(74, 17);
+			this.checkBox_tg_debug.TabIndex = 33;
+			this.checkBox_tg_debug.Text = "SL Debug";
+			this.checkBox_tg_debug.UseVisualStyleBackColor = true;
 			// 
-			// button_math_isPrimeNumber_check
+			// checkBox_tg_debugErrors
 			// 
-			this.button_math_isPrimeNumber_check.Location = new System.Drawing.Point(426, 136);
-			this.button_math_isPrimeNumber_check.Name = "button_math_isPrimeNumber_check";
-			this.button_math_isPrimeNumber_check.Size = new System.Drawing.Size(75, 23);
-			this.button_math_isPrimeNumber_check.TabIndex = 0;
-			this.button_math_isPrimeNumber_check.Text = "Check";
-			this.button_math_isPrimeNumber_check.UseVisualStyleBackColor = true;
-			this.button_math_isPrimeNumber_check.Click += new System.EventHandler(this.button_math_isPrimeNumber_check_Click);
+			this.checkBox_tg_debugErrors.AutoSize = true;
+			this.checkBox_tg_debugErrors.Location = new System.Drawing.Point(361, 353);
+			this.checkBox_tg_debugErrors.Name = "checkBox_tg_debugErrors";
+			this.checkBox_tg_debugErrors.Size = new System.Drawing.Size(77, 17);
+			this.checkBox_tg_debugErrors.TabIndex = 34;
+			this.checkBox_tg_debugErrors.Text = "Only Errors";
+			this.checkBox_tg_debugErrors.UseVisualStyleBackColor = true;
 			// 
-			// textBox_math_isPrimeNumber_number
+			// numeric_tg_testingIndex
 			// 
-			this.textBox_math_isPrimeNumber_number.Location = new System.Drawing.Point(364, 110);
-			this.textBox_math_isPrimeNumber_number.Name = "textBox_math_isPrimeNumber_number";
-			this.textBox_math_isPrimeNumber_number.Size = new System.Drawing.Size(137, 20);
-			this.textBox_math_isPrimeNumber_number.TabIndex = 1;
-			// 
-			// label_math_isPrimeNumber_number
-			// 
-			this.label_math_isPrimeNumber_number.AutoSize = true;
-			this.label_math_isPrimeNumber_number.Location = new System.Drawing.Point(311, 113);
-			this.label_math_isPrimeNumber_number.Name = "label_math_isPrimeNumber_number";
-			this.label_math_isPrimeNumber_number.Size = new System.Drawing.Size(47, 13);
-			this.label_math_isPrimeNumber_number.TabIndex = 2;
-			this.label_math_isPrimeNumber_number.Text = "Number:";
+			this.numeric_tg_testingIndex.Location = new System.Drawing.Point(805, 350);
+			this.numeric_tg_testingIndex.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+			this.numeric_tg_testingIndex.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numeric_tg_testingIndex.Name = "numeric_tg_testingIndex";
+			this.numeric_tg_testingIndex.Size = new System.Drawing.Size(43, 20);
+			this.numeric_tg_testingIndex.TabIndex = 35;
+			this.numeric_tg_testingIndex.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(854, 374);
+			this.Controls.Add(this.numeric_tg_testingIndex);
+			this.Controls.Add(this.checkBox_tg_debugErrors);
+			this.Controls.Add(this.checkBox_tg_debug);
 			this.Controls.Add(this.button_tg_test);
 			this.Controls.Add(this.label_tg_databaseType);
 			this.Controls.Add(this.comboBox_tg_databaseType);
@@ -2077,7 +2097,6 @@
 			this.Name = "Main";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Testing Grounds";
-			this.Load += new System.EventHandler(this.Main_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).EndInit();
@@ -2162,10 +2181,11 @@
 			this.tab_math_calculateCombinations.PerformLayout();
 			this.tab_math_calculateFactorial.ResumeLayout(false);
 			this.tab_math_calculateFactorial.PerformLayout();
-			this.tab_dynvars.ResumeLayout(false);
-			this.tab_dynvars.PerformLayout();
 			this.tab_math_isPrimeNumber.ResumeLayout(false);
 			this.tab_math_isPrimeNumber.PerformLayout();
+			this.tab_dynvars.ResumeLayout(false);
+			this.tab_dynvars.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2173,180 +2193,182 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button_database_createTable;
-		private System.Windows.Forms.Button button_database_deleteTable;
-		private System.Windows.Forms.Button button_database_insert;
-		private System.Windows.Forms.Button button_database_createDatabase;
-		private System.Windows.Forms.Button button_tools_crash_crash;
-		private System.Windows.Forms.Button button_database_select;
-		private System.Windows.Forms.TextBox textBox_generators_generatePassword_password;
-		private System.Windows.Forms.NumericUpDown numeric_generators_generatePassword_length;
-		private System.Windows.Forms.ComboBox comboBox_tg_databaseType;
-		private System.Windows.Forms.Button button_database_delete;
-		private System.Windows.Forms.Button button_generators_generatePassword_generate;
-		private System.Windows.Forms.TextBox textBox_tools_log_logMessage;
-		private System.Windows.Forms.Button button_tools_log_log;
-		private System.Windows.Forms.TextBox textBox_tools_log_logSource;
-		private System.Windows.Forms.ComboBox comboBox_tools_log_logType;
-		private System.Windows.Forms.TextBox textBox_tools_hash_text;
-		private System.Windows.Forms.CheckBox checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers;
-		private System.Windows.Forms.TextBox textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers;
-		private System.Windows.Forms.Button button_tools_databaseTools_selectUnique_select;
-		private System.Windows.Forms.TextBox textBox_tools_databaseTools_selectUnique_column;
-		private System.Windows.Forms.TextBox textBox_tools_databaseTools_selectUnique_table;
-		private System.Windows.Forms.Label label_tools_getDate_date;
-		private System.Windows.Forms.Timer timer_tg_date;
-		private System.Windows.Forms.Button button_controls_form_getOpenForms_getOpenForms;
-		private System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_searchGif;
-		private System.Windows.Forms.PictureBox pictureBox_tools_setWallpaper6getGifFrames_gif;
-		private System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_setWallpaper;
-		private System.Windows.Forms.OpenFileDialog fileDialog_tg_searchGif;
-		private System.Windows.Forms.Button button_controls_messageBox_showConfirmationDialog_show;
-		private System.Windows.Forms.Button button_network_wifi_connect_connect;
-		private System.Windows.Forms.Label label_network_wifi_connect_password;
-		private System.Windows.Forms.Label label_network_wifi_connect_ssid;
-		private System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiPassword;
-		private System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiSsid;
-		private System.Windows.Forms.OpenFileDialog fileDialog_tg_readFile;
-		private System.Windows.Forms.Label label_tools_replaceString_replacewith;
-		private System.Windows.Forms.Button button_tools_replaceString_replace;
-		private System.Windows.Forms.Label label_tools_replaceString_replace;
-		private System.Windows.Forms.Label label_tools_replaceString_original;
-		private System.Windows.Forms.TextBox textBox_tools_replaceString_replacewith;
-		private System.Windows.Forms.TextBox textBox_tools_replaceString_replace;
-		private System.Windows.Forms.TextBox textBox_tools_replaceString_original;
-		private System.Windows.Forms.Button button_math_calculateCombinations_calculate;
-		private System.Windows.Forms.NumericUpDown numeric_math_calculateCombinations_elements;
-		private System.Windows.Forms.NumericUpDown numeric_math_calculateCombinations_group;
-		private System.Windows.Forms.Label label_math_calculateCombinations_group;
-		private System.Windows.Forms.Label label_math_calculateCombinations_elements;
-		private System.Windows.Forms.Button button_math_calculateFactorial_calculate;
-		private System.Windows.Forms.Label label_math_calculateFactorial_factorial;
-		private System.Windows.Forms.NumericUpDown numeric_math_calculateFactorial_factorial;
-		private System.Windows.Forms.TabControl tabs_tg;
-		private System.Windows.Forms.TabPage tab_database;
-		private System.Windows.Forms.TabPage tab_tools;
-		private System.Windows.Forms.TabControl tabs_tools;
-		private System.Windows.Forms.TabPage tab_tools_hash;
-		private System.Windows.Forms.Label label_tools_hash_hashed;
-		private System.Windows.Forms.Label label_tools_hash_text;
-		private System.Windows.Forms.TextBox textBox_tools_hash_hashed;
-		private System.Windows.Forms.TabPage tab_tools_databaseTools;
-		private System.Windows.Forms.TabControl tabs_tools_databaseTools;
-		private System.Windows.Forms.TabPage tab_tools_databaseTools_checkLogin;
-		private System.Windows.Forms.TabPage tab_tools_databaseTools_filterSql;
-		private System.Windows.Forms.TextBox textBox_tools_databaseTools_checkLogin_user;
-		private System.Windows.Forms.Button button_tools_databaseTools_checkLogin_login;
-		private System.Windows.Forms.Label label_tools_databaseTools_checkLogin_pass;
-		private System.Windows.Forms.Label label_tools_databaseTools_checkLogin_user;
-		private System.Windows.Forms.TextBox textBox_tools_databaseTools_checkLogin_pass;
-		private System.Windows.Forms.Button button_tools_databaseTools_filterSql_filter;
-		private System.Windows.Forms.TextBox textBox_tools_databaseTools_filterSql_text;
-		private System.Windows.Forms.TabPage tab_tools_databaseTools_selectUnique;
-		private System.Windows.Forms.TabPage tab_tools_crash;
-		private System.Windows.Forms.TabPage tab_tools_log;
-		private System.Windows.Forms.TabPage tab_tools_getDate;
-		private System.Windows.Forms.TabPage tab_tools_setWallpaper6getGifFrames;
-		private System.Windows.Forms.TabPage tab_generators;
-		private System.Windows.Forms.TabControl tabs_generators;
-		private System.Windows.Forms.TabPage tab_generators_generatePassword;
-		private System.Windows.Forms.Label _generators_generatePassword_length;
-		private System.Windows.Forms.TabPage tab_controls;
-		private System.Windows.Forms.TabControl tabs_controls;
-		private System.Windows.Forms.TabPage tab_controls_comboBox;
-		private System.Windows.Forms.TabControl tabs_controls_comboBox;
-		private System.Windows.Forms.TabPage tab_controls_comboBox_resizeComboBox;
-		private System.Windows.Forms.TabPage tab_controls_textBox;
-		private System.Windows.Forms.TabControl tabs_controls_textBox;
-		private System.Windows.Forms.TabPage tab_controls_textBox_onlyNumbersTextBox;
-		private System.Windows.Forms.ComboBox comboBox_controls_comboBox_resizeComboBox_resize;
-		private System.Windows.Forms.Button button_controls_comboBox_resizeComboBox_resize;
-		private System.Windows.Forms.TabPage tab_controls_form;
-		private System.Windows.Forms.TabControl tabs_controls_form;
-		private System.Windows.Forms.TabPage tab_controls_form_getOpenForms;
-		private System.Windows.Forms.TabPage tab_tools_replaceString;
-		private System.Windows.Forms.TabPage tab_controls_messageBox;
-		private System.Windows.Forms.TabControl tabs_controls_messageBox;
-		private System.Windows.Forms.TabPage tab_controls_messageBox_showConfirmationDialog;
-		private System.Windows.Forms.TabPage tab_network;
-		private System.Windows.Forms.TabControl tabs_network;
-		private System.Windows.Forms.TabPage tab_network_wifi;
-		private System.Windows.Forms.TabControl tabs_network_wifi;
-		private System.Windows.Forms.TabPage tab_network_wifi_connect;
-		private System.Windows.Forms.TabPage tab_network_packets;
-		private System.Windows.Forms.TabControl tabs_network_packets;
-		private System.Windows.Forms.TabPage tab_network_packets_sendTcpPacket;
-		private System.Windows.Forms.TabPage tab_network_packets_waitTcpPacket;
-		private System.Windows.Forms.TabPage tab_math;
-		private System.Windows.Forms.TabControl tabs_math;
-		private System.Windows.Forms.TabPage tab_math_calculateCombinations;
-		private System.Windows.Forms.TabPage tab_math_calculateFactorial;
-		private System.Windows.Forms.Label label_tg_databaseType;
-		private System.Windows.Forms.Label label_tools_log_message;
-		private System.Windows.Forms.Label label_tools_log_type;
-		private System.Windows.Forms.Label label_tools_log_source;
-		private System.Windows.Forms.TabControl tabs_database;
-		private System.Windows.Forms.TabPage tab_database_createDatabase;
-		private System.Windows.Forms.TabPage tab_database_createTable;
-		private System.Windows.Forms.TabPage tab_database_insertInto;
-		private System.Windows.Forms.TabPage tab_database_deleteTable;
-		private System.Windows.Forms.TabPage tab_database_select;
-		private System.Windows.Forms.TabPage tab_database_delete;
-		private System.Windows.Forms.Label label_tg_version;
-		private System.Windows.Forms.TextBox textBox_tg_version;
-		private System.Windows.Forms.TabPage tab_network_packets_sendUdpPacket;
-		private System.Windows.Forms.Button button_network_packets_sendUdpPacket_send;
-		private System.Windows.Forms.TabPage tab_network_packets_waitUdpPacket;
-		private System.Windows.Forms.Button button_network_packets_waitUdpPacket_wait;
-		private System.Windows.Forms.NumericUpDown numeric_network_packets_sendUdpPacket_remotePort;
-		private System.Windows.Forms.Label label_network_packets_waitUdpPacket_localPort;
-		private System.Windows.Forms.NumericUpDown numeric_network_packets_waitUdpPacket_localPort;
-		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_message;
-		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_remotePort;
-		private System.Windows.Forms.Label label_network_packets_sendUdpPacket_remoteIp;
-		private System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_message;
-		private System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_remoteIp;
-		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_message;
-		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_remotePort;
-		private System.Windows.Forms.Label label_network_packets_sendTcpPacket_remoteIp;
-		private System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_message;
-		private System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_remoteIp;
-		private System.Windows.Forms.NumericUpDown numeric_network_packets_sendTcpPacket_remotePort;
-		private System.Windows.Forms.Button button_network_packets_sendTcpPacket_send;
-		private System.Windows.Forms.Label label_network_packets_waitTcpPacket_localPort;
-		private System.Windows.Forms.NumericUpDown numeric_network_packets_waitTcpPacket_localPort;
-		private System.Windows.Forms.Button button_network_packets_waitTcpPacket_wait;
-		private System.Windows.Forms.TabPage tab_network_mobile;
-		private System.Windows.Forms.TabControl tabs_network_mobile;
-		private System.Windows.Forms.TabPage tab_network_mobile_sendSms;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmail;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_senderEmailPassword;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_senderEmail;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmailPassword;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_receiverPhone;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_receiverPhone;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_message;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_message;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_subject;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_subject;
-		private System.Windows.Forms.Button button_network_mobile_sendSms_sendSms;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_smtpHost;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smtpHost;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_smsCarrier;
-		private System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smsCarrier;
-		private System.Windows.Forms.NumericUpDown numeric_network_mobile_sendSms_smtpPort;
-		private System.Windows.Forms.Label label_network_mobile_sendSms_smtpPort;
-		private System.Windows.Forms.Button button_tg_test;
-		private System.Windows.Forms.TabPage tab_dynvars;
-		private System.Windows.Forms.Label label_dynvars_value;
-		private System.Windows.Forms.Label label_dynvars_variable;
-		private System.Windows.Forms.Button button_dynvars_run;
-		private System.Windows.Forms.TextBox textBox_dynvars_value;
-		private System.Windows.Forms.TextBox textBox_dynvars_variable;
-		private System.Windows.Forms.TabPage tab_math_isPrimeNumber;
-		private System.Windows.Forms.Label label_math_isPrimeNumber_number;
-		private System.Windows.Forms.TextBox textBox_math_isPrimeNumber_number;
-		private System.Windows.Forms.Button button_math_isPrimeNumber_check;
+		internal System.Windows.Forms.Button button_database_createTable;
+		internal System.Windows.Forms.Button button_database_deleteTable;
+		internal System.Windows.Forms.Button button_database_insert;
+		internal System.Windows.Forms.Button button_database_createDatabase;
+		internal System.Windows.Forms.Button button_tools_crash_crash;
+		internal System.Windows.Forms.Button button_database_select;
+		internal System.Windows.Forms.TextBox textBox_generators_generatePassword_password;
+		internal System.Windows.Forms.NumericUpDown numeric_generators_generatePassword_length;
+		internal System.Windows.Forms.ComboBox comboBox_tg_databaseType;
+		internal System.Windows.Forms.Button button_database_delete;
+		internal System.Windows.Forms.Button button_generators_generatePassword_generate;
+		internal System.Windows.Forms.TextBox textBox_tools_log_logMessage;
+		internal System.Windows.Forms.Button button_tools_log_log;
+		internal System.Windows.Forms.TextBox textBox_tools_log_logSource;
+		internal System.Windows.Forms.ComboBox comboBox_tools_log_logType;
+		internal System.Windows.Forms.TextBox textBox_tools_hash_text;
+		internal System.Windows.Forms.CheckBox checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers;
+		internal System.Windows.Forms.TextBox textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers;
+		internal System.Windows.Forms.Button button_tools_databaseTools_selectUnique_select;
+		internal System.Windows.Forms.TextBox textBox_tools_databaseTools_selectUnique_column;
+		internal System.Windows.Forms.TextBox textBox_tools_databaseTools_selectUnique_table;
+		internal System.Windows.Forms.Label label_tools_getDate_date;
+		internal System.Windows.Forms.Timer timer_tg_date;
+		internal System.Windows.Forms.Button button_controls_form_getOpenForms_getOpenForms;
+		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_searchGif;
+		internal System.Windows.Forms.PictureBox pictureBox_tools_setWallpaper6getGifFrames_gif;
+		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_setWallpaper;
+		internal System.Windows.Forms.OpenFileDialog fileDialog_tg_searchGif;
+		internal System.Windows.Forms.Button button_controls_messageBox_showConfirmationDialog_show;
+		internal System.Windows.Forms.Button button_network_wifi_connect_connect;
+		internal System.Windows.Forms.Label label_network_wifi_connect_password;
+		internal System.Windows.Forms.Label label_network_wifi_connect_ssid;
+		internal System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiPassword;
+		internal System.Windows.Forms.TextBox textBox_network_wifi_connect_wifiSsid;
+		internal System.Windows.Forms.OpenFileDialog fileDialog_tg_readFile;
+		internal System.Windows.Forms.Label label_tools_replaceString_replacewith;
+		internal System.Windows.Forms.Button button_tools_replaceString_replace;
+		internal System.Windows.Forms.Label label_tools_replaceString_replace;
+		internal System.Windows.Forms.Label label_tools_replaceString_original;
+		internal System.Windows.Forms.TextBox textBox_tools_replaceString_replacewith;
+		internal System.Windows.Forms.TextBox textBox_tools_replaceString_replace;
+		internal System.Windows.Forms.TextBox textBox_tools_replaceString_original;
+		internal System.Windows.Forms.Button button_math_calculateCombinations_calculate;
+		internal System.Windows.Forms.NumericUpDown numeric_math_calculateCombinations_elements;
+		internal System.Windows.Forms.NumericUpDown numeric_math_calculateCombinations_group;
+		internal System.Windows.Forms.Label label_math_calculateCombinations_group;
+		internal System.Windows.Forms.Label label_math_calculateCombinations_elements;
+		internal System.Windows.Forms.Button button_math_calculateFactorial_calculate;
+		internal System.Windows.Forms.Label label_math_calculateFactorial_factorial;
+		internal System.Windows.Forms.NumericUpDown numeric_math_calculateFactorial_factorial;
+		internal System.Windows.Forms.TabControl tabs_tg;
+		internal System.Windows.Forms.TabPage tab_database;
+		internal System.Windows.Forms.TabPage tab_tools;
+		internal System.Windows.Forms.TabControl tabs_tools;
+		internal System.Windows.Forms.TabPage tab_tools_hash;
+		internal System.Windows.Forms.Label label_tools_hash_hashed;
+		internal System.Windows.Forms.Label label_tools_hash_text;
+		internal System.Windows.Forms.TextBox textBox_tools_hash_hashed;
+		internal System.Windows.Forms.TabPage tab_tools_databaseTools;
+		internal System.Windows.Forms.TabControl tabs_tools_databaseTools;
+		internal System.Windows.Forms.TabPage tab_tools_databaseTools_checkLogin;
+		internal System.Windows.Forms.TabPage tab_tools_databaseTools_filterSql;
+		internal System.Windows.Forms.TextBox textBox_tools_databaseTools_checkLogin_user;
+		internal System.Windows.Forms.Button button_tools_databaseTools_checkLogin_login;
+		internal System.Windows.Forms.Label label_tools_databaseTools_checkLogin_pass;
+		internal System.Windows.Forms.Label label_tools_databaseTools_checkLogin_user;
+		internal System.Windows.Forms.TextBox textBox_tools_databaseTools_checkLogin_pass;
+		internal System.Windows.Forms.Button button_tools_databaseTools_filterSql_filter;
+		internal System.Windows.Forms.TextBox textBox_tools_databaseTools_filterSql_text;
+		internal System.Windows.Forms.TabPage tab_tools_databaseTools_selectUnique;
+		internal System.Windows.Forms.TabPage tab_tools_crash;
+		internal System.Windows.Forms.TabPage tab_tools_log;
+		internal System.Windows.Forms.TabPage tab_tools_getDate;
+		internal System.Windows.Forms.TabPage tab_tools_setWallpaper6getGifFrames;
+		internal System.Windows.Forms.TabPage tab_generators;
+		internal System.Windows.Forms.TabControl tabs_generators;
+		internal System.Windows.Forms.TabPage tab_generators_generatePassword;
+		internal System.Windows.Forms.Label _generators_generatePassword_length;
+		internal System.Windows.Forms.TabPage tab_controls;
+		internal System.Windows.Forms.TabControl tabs_controls;
+		internal System.Windows.Forms.TabPage tab_controls_comboBox;
+		internal System.Windows.Forms.TabControl tabs_controls_comboBox;
+		internal System.Windows.Forms.TabPage tab_controls_comboBox_resizeComboBox;
+		internal System.Windows.Forms.TabPage tab_controls_textBox;
+		internal System.Windows.Forms.TabControl tabs_controls_textBox;
+		internal System.Windows.Forms.TabPage tab_controls_textBox_onlyNumbersTextBox;
+		internal System.Windows.Forms.ComboBox comboBox_controls_comboBox_resizeComboBox_resize;
+		internal System.Windows.Forms.Button button_controls_comboBox_resizeComboBox_resize;
+		internal System.Windows.Forms.TabPage tab_controls_form;
+		internal System.Windows.Forms.TabControl tabs_controls_form;
+		internal System.Windows.Forms.TabPage tab_controls_form_getOpenForms;
+		internal System.Windows.Forms.TabPage tab_tools_replaceString;
+		internal System.Windows.Forms.TabPage tab_controls_messageBox;
+		internal System.Windows.Forms.TabControl tabs_controls_messageBox;
+		internal System.Windows.Forms.TabPage tab_controls_messageBox_showConfirmationDialog;
+		internal System.Windows.Forms.TabPage tab_network;
+		internal System.Windows.Forms.TabControl tabs_network;
+		internal System.Windows.Forms.TabPage tab_network_wifi;
+		internal System.Windows.Forms.TabControl tabs_network_wifi;
+		internal System.Windows.Forms.TabPage tab_network_wifi_connect;
+		internal System.Windows.Forms.TabPage tab_network_packets;
+		internal System.Windows.Forms.TabControl tabs_network_packets;
+		internal System.Windows.Forms.TabPage tab_network_packets_sendTcpPacket;
+		internal System.Windows.Forms.TabPage tab_network_packets_waitTcpPacket;
+		internal System.Windows.Forms.TabPage tab_math;
+		internal System.Windows.Forms.TabControl tabs_math;
+		internal System.Windows.Forms.TabPage tab_math_calculateCombinations;
+		internal System.Windows.Forms.TabPage tab_math_calculateFactorial;
+		internal System.Windows.Forms.Label label_tg_databaseType;
+		internal System.Windows.Forms.Label label_tools_log_message;
+		internal System.Windows.Forms.Label label_tools_log_type;
+		internal System.Windows.Forms.Label label_tools_log_source;
+		internal System.Windows.Forms.TabControl tabs_database;
+		internal System.Windows.Forms.TabPage tab_database_createDatabase;
+		internal System.Windows.Forms.TabPage tab_database_createTable;
+		internal System.Windows.Forms.TabPage tab_database_insertInto;
+		internal System.Windows.Forms.TabPage tab_database_deleteTable;
+		internal System.Windows.Forms.TabPage tab_database_select;
+		internal System.Windows.Forms.TabPage tab_database_delete;
+		internal System.Windows.Forms.Label label_tg_version;
+		internal System.Windows.Forms.TextBox textBox_tg_version;
+		internal System.Windows.Forms.TabPage tab_network_packets_sendUdpPacket;
+		internal System.Windows.Forms.Button button_network_packets_sendUdpPacket_send;
+		internal System.Windows.Forms.TabPage tab_network_packets_waitUdpPacket;
+		internal System.Windows.Forms.Button button_network_packets_waitUdpPacket_wait;
+		internal System.Windows.Forms.NumericUpDown numeric_network_packets_sendUdpPacket_remotePort;
+		internal System.Windows.Forms.Label label_network_packets_waitUdpPacket_localPort;
+		internal System.Windows.Forms.NumericUpDown numeric_network_packets_waitUdpPacket_localPort;
+		internal System.Windows.Forms.Label label_network_packets_sendUdpPacket_message;
+		internal System.Windows.Forms.Label label_network_packets_sendUdpPacket_remotePort;
+		internal System.Windows.Forms.Label label_network_packets_sendUdpPacket_remoteIp;
+		internal System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_message;
+		internal System.Windows.Forms.TextBox textBox_network_packets_sendUdpPacket_remoteIp;
+		internal System.Windows.Forms.Label label_network_packets_sendTcpPacket_message;
+		internal System.Windows.Forms.Label label_network_packets_sendTcpPacket_remotePort;
+		internal System.Windows.Forms.Label label_network_packets_sendTcpPacket_remoteIp;
+		internal System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_message;
+		internal System.Windows.Forms.TextBox textBox_network_packets_sendTcpPacket_remoteIp;
+		internal System.Windows.Forms.NumericUpDown numeric_network_packets_sendTcpPacket_remotePort;
+		internal System.Windows.Forms.Button button_network_packets_sendTcpPacket_send;
+		internal System.Windows.Forms.Label label_network_packets_waitTcpPacket_localPort;
+		internal System.Windows.Forms.NumericUpDown numeric_network_packets_waitTcpPacket_localPort;
+		internal System.Windows.Forms.Button button_network_packets_waitTcpPacket_wait;
+		internal System.Windows.Forms.TabPage tab_network_mobile;
+		internal System.Windows.Forms.TabControl tabs_network_mobile;
+		internal System.Windows.Forms.TabPage tab_network_mobile_sendSms;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmail;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_senderEmailPassword;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_senderEmail;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_senderEmailPassword;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_receiverPhone;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_receiverPhone;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_message;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_message;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_subject;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_subject;
+		internal System.Windows.Forms.Button button_network_mobile_sendSms_sendSms;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_smtpHost;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smtpHost;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_smsCarrier;
+		internal System.Windows.Forms.TextBox textBox_network_mobile_sendSms_smsCarrier;
+		internal System.Windows.Forms.NumericUpDown numeric_network_mobile_sendSms_smtpPort;
+		internal System.Windows.Forms.Label label_network_mobile_sendSms_smtpPort;
+		internal System.Windows.Forms.Button button_tg_test;
+		internal System.Windows.Forms.TabPage tab_dynvars;
+		internal System.Windows.Forms.Label label_dynvars_value;
+		internal System.Windows.Forms.Label label_dynvars_variable;
+		internal System.Windows.Forms.Button button_dynvars_run;
+		internal System.Windows.Forms.TextBox textBox_dynvars_value;
+		internal System.Windows.Forms.TextBox textBox_dynvars_variable;
+		internal System.Windows.Forms.TabPage tab_math_isPrimeNumber;
+		internal System.Windows.Forms.Label label_math_isPrimeNumber_number;
+		internal System.Windows.Forms.TextBox textBox_math_isPrimeNumber_number;
+		internal System.Windows.Forms.Button button_math_isPrimeNumber_check;
+		internal System.Windows.Forms.CheckBox checkBox_tg_debug;
+		internal System.Windows.Forms.CheckBox checkBox_tg_debugErrors;
+		private System.Windows.Forms.NumericUpDown numeric_tg_testingIndex;
 	}
 }
-

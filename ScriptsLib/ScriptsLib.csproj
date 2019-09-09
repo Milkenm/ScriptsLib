@@ -80,22 +80,67 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNet.cs" />
-    <Compile Include="Controls.cs" />
-    <Compile Include="Database\MySql.cs" />
-    <Compile Include="Database\SqlServer.cs" />
-    <Compile Include="Dev.cs" />
-    <Compile Include="DynVars.cs" />
-    <Compile Include="Generators.cs" />
-    <Compile Include="Info.cs" />
-    <Compile Include="Database\Access.cs" />
-    <Compile Include="Math.cs" />
-    <Compile Include="Network.cs" />
+    <Compile Include="AspNet\ShowPopup.cs" />
+    <Compile Include="Controls\SlComboBox\ResizeComboBox.cs" />
+    <Compile Include="Controls\SlForm\BringFormToFront.cs" />
+    <Compile Include="Controls\SlForm\GetOpenForms.cs" />
+    <Compile Include="Controls\SlForm\IsFormOpen.cs" />
+    <Compile Include="Controls\SlForm\SetIntroForm.cs" />
+    <Compile Include="Controls\SlMessageBox\ShowConfirmationDialog.cs" />
+    <Compile Include="Controls\SlTextBox\OnlyNumbersTextBox.cs" />
+    <Compile Include="Databases\Access\CreateDatabase.cs" />
+    <Compile Include="Databases\Access\CreateTable.cs" />
+    <Compile Include="Databases\Access\Delete.cs" />
+    <Compile Include="Databases\Access\DeleteTable.cs" />
+    <Compile Include="Databases\Access\InsertInto.cs" />
+    <Compile Include="Databases\Access\Select.cs" />
+    <Compile Include="Databases\Access\Update.cs" />
+    <Compile Include="Databases\MySql\CreateTable.cs" />
+    <Compile Include="Databases\MySql\DeleteTable.cs" />
+    <Compile Include="Databases\MySql\_MySql.cs" />
+    <Compile Include="Databases\SqlServer\CreateDatabase.cs" />
+    <Compile Include="Databases\SqlServer\CreateTable.cs" />
+    <Compile Include="Databases\SqlServer\Delete.cs" />
+    <Compile Include="Databases\SqlServer\DeleteTable.cs" />
+    <Compile Include="Databases\SqlServer\InsertInto.cs" />
+    <Compile Include="Databases\SqlServer\Select.cs" />
+    <Compile Include="Databases\SqlServer\Update.cs" />
+    <Compile Include="Databases\SqlServer\_SqlServer.cs" />
+    <Compile Include="Dev\DebugMsg.cs" />
+    <Compile Include="Dev\_Dev.cs" />
+    <Compile Include="DynVars\DynVar.cs" />
+    <Compile Include="DynVars\_DynVars.cs" />
+    <Compile Include="Generators\GeneratePassword.cs" />
+    <Compile Include="Properties\Info.cs" />
+    <Compile Include="Databases\Access\_Access.cs" />
+    <Compile Include="Math\CalculateCombinations.cs" />
+    <Compile Include="Math\CalculateFactorial.cs" />
+    <Compile Include="Math\IsPrimeNumber.cs" />
+    <Compile Include="Network\Mobile\SendSmsViaEmail.cs" />
+    <Compile Include="Network\Packets\SendTcpPacket.cs" />
+    <Compile Include="Network\Packets\SendUdpPacket.cs" />
+    <Compile Include="Network\Packets\WaitTcpPacket.cs" />
+    <Compile Include="Network\Packets\WaitUdpPacket.cs" />
+    <Compile Include="Network\Wi-Fi\ConnectToWifi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Lang\en_EN.cs" />
-    <Compile Include="Resources\Lang\Lang.cs" />
-    <Compile Include="Tools.cs" />
-    <Compile Include="Unity\Unity2D.cs" />
+    <Compile Include="Properties\Resources\Lang\en_EN.cs" />
+    <Compile Include="Properties\Resources\Lang\Lang.cs" />
+    <Compile Include="Tools\Crash.cs" />
+    <Compile Include="Tools\Database Tools\CheckLogin.cs" />
+    <Compile Include="Tools\Database Tools\FilterSql.cs" />
+    <Compile Include="Tools\Database Tools\SelectUnique.cs" />
+    <Compile Include="Tools\Database Tools\_DatabaseTools.cs" />
+    <Compile Include="Tools\ExecuteCmdCommand.cs" />
+    <Compile Include="Tools\GetDate.cs" />
+    <Compile Include="Tools\GetGifFrames.cs" />
+    <Compile Include="Tools\Hash.cs" />
+    <Compile Include="Tools\IsThisApplicationAlreadyRunning.cs" />
+    <Compile Include="Tools\Log.cs" />
+    <Compile Include="Tools\ReplaceString.cs" />
+    <Compile Include="Tools\SetDesktopWallpaper.cs" />
+    <Compile Include="Tools\ShowException.cs" />
+    <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
+    <Compile Include="Unity\Unity2d\MakeObjectPointAtMouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -110,17 +155,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Icon\Icon.ico" />
-    <Content Include="Resources\Icon\Icon.png" />
-    <Content Include="Resources\Libs\MySql.Data.dll" />
-    <Content Include="Resources\Libs\UnityEngine.dll" />
-    <Content Include="Resources\Templates\Network\Wifi\EES_WPA2PSK_AES.xml">
+    <Content Include="Properties\Resources\Icon\Icon.ico" />
+    <Content Include="Properties\Resources\Icon\Icon.png" />
+    <Content Include="Properties\Resources\Libs\MySql.Data.dll" />
+    <Content Include="Properties\Resources\Libs\UnityEngine.dll" />
+    <Content Include="Properties\Resources\Templates\Network\Wifi\EES_WPA2PSK_AES.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="Properties\App.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
