@@ -57,7 +57,7 @@ namespace TestingGrounds
 
 			_MainForm.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked = true;
 
-			_MainForm.textBox_tg_version.Text = ScriptsLib.Info.Info._Version;
+			_MainForm.textBox_tg_version.Text = Info._Version;
 			#endregion Perform Actions
 		}
 	}

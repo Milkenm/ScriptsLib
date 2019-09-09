@@ -34,11 +34,11 @@ namespace ScriptsLib
 			#region Generate DynVars File and Path
 			if (String.IsNullOrEmpty(_DynvarsFilePath))
 			{
-				_DynvarsFilePath = Info.Info._UserdataPath + "DynVars.txt";
+				_DynvarsFilePath = Info._UserdataPath + "DynVars.txt";
 			}
 			if (!File.Exists(_DynvarsFilePath))
 			{
-				File.WriteAllText(_DynvarsFilePath, $"ScriptsLib (v{Info.Info._Version}) DynVars File. Please do not modify.\n\n\n\n");
+				File.WriteAllText(_DynvarsFilePath, $"ScriptsLib (v{Info._Version}) DynVars File. Please do not modify.\n\n\n\n");
 			}
 			#endregion Generate DynVars File and Path
 
