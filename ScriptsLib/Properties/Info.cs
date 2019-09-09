@@ -4,7 +4,7 @@ using System;
 
 
 
-namespace ScriptsLib.Info
+namespace ScriptsLib
 {
 	/// <summary>Info about ScriptsLib.</summary>
 	public class Info
