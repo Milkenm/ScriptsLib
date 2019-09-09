@@ -15,7 +15,7 @@ namespace ScriptsLib
 		/// <summary>ScriptsLib contibutors.</summary>
 		public static readonly string _Contributors = null;
 		/// <summary>Current ScriptsLib version.</summary>
-		public static readonly string _Version = "4.0.0";
+		public static readonly string _Version = "5.0.0";
 		/// <summary>First release date.</summary>
 		public static readonly string _ReleaseDate = "30/04/2019 - 21:12";
 		/// <summary>Lattest release date.</summary>
