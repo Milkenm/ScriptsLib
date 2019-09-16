@@ -22,7 +22,7 @@ namespace TestingGrounds
 			{
 				while (true)
 				{
-					MessageBox.Show("Received: \n\n\n" + Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), 69), "Wait TCP Packet");
+					MessageBox.Show("Received: \n\n\n" + Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), (int)Values._MainForm.numeric_network_packets_waitTcpPacket_localPort.Value), "Wait TCP Packet");
 				}
 			})).Start();
 		}
