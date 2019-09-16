@@ -1860,6 +1860,7 @@
 			// 
 			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 54);
 			this.textBox_network_mobile_sendSms_senderEmailPassword.Name = "textBox_network_mobile_sendSms_senderEmailPassword";
+			this.textBox_network_mobile_sendSms_senderEmailPassword.PasswordChar = '•';
 			this.textBox_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_senderEmailPassword.TabIndex = 1;
 			// 
