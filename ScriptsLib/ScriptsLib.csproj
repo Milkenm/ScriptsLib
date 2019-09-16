@@ -111,6 +111,7 @@
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="DynVars\_DynVars.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
+    <Compile Include="Network\Security\OpenFirewallPort.cs" />
     <Compile Include="Properties\Info.cs" />
     <Compile Include="Databases\Access\_Access.cs" />
     <Compile Include="Math\CalculateCombinations.cs" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <Content Include="Properties\Resources\Icon\Icon.ico" />
     <Content Include="Properties\Resources\Icon\Icon.png" />
+    <Content Include="Properties\Resources\Libs\FirewallAPI.dll" />
     <Content Include="Properties\Resources\Libs\MySql.Data.dll" />
     <Content Include="Properties\Resources\Libs\UnityEngine.dll" />
     <Content Include="Properties\Resources\Templates\Network\Wifi\EES_WPA2PSK_AES.xml">
@@ -167,6 +169,16 @@
   <ItemGroup>
     <None Include="Properties\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

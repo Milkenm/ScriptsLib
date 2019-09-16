@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows.Forms;
-
+using NetFwTypeLib;
 using Newtonsoft.Json;
 
 using static TestingGrounds.Functions;
@@ -34,17 +34,18 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (numeric_tg_testingIndex.Value == 1)
+				switch (numeric_tg_testingIndex.Value)
 				{
-					Testing1();
-				}
-				else if (numeric_tg_testingIndex.Value == 2)
-				{
-					Testing2();
-				}
-				else if (numeric_tg_testingIndex.Value == 3)
-				{
-					Testing3();
+					case 1:
+						Testing1(); break;
+					case 2:
+						Testing2(); break;
+					case 3:
+						Testing3(); break;
+					case 4:
+						Testing4(); break;
+					case 5:
+						Testing5(); break;
 				}
 			}
 			catch (Exception _Exception)
@@ -136,6 +137,28 @@ namespace TestingGrounds
 		}
 		// # ================================================================================================ #
 		#endregion Testing 3 - Packets 2
+
+		#region Testing 4 - Create Firewall Rule
+		// # ================================================================================================ #
+		void Testing4()
+		{
+			// Moved to ScriptsLib.
+		}
+		// # ================================================================================================ #
+		#endregion Testing 4 - Create Firewall Rule
+
+		#region Testing 5 - Get Type (for DynVars)
+		// # ================================================================================================ #
+		void Testing5()
+		{
+			Type _Type1 = Type.GetType("int");
+			Type _Type2 = Type.GetType("System.Int32");
+			Type _Type3 = Type.GetType("System.String");
+
+			MessageBox.Show($"Types:\n	1 > {_Type1}\n	2 > {_Type2}\n	3 > {_Type3}");
+		}
+		// # ================================================================================================ #
+		#endregion Testing 5 - Get Type (for DynVars)
 		// # ================================================================================================ #
 		#endregion Test Button
 	}
