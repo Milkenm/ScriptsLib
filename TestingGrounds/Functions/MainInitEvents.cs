@@ -63,6 +63,9 @@ namespace TestingGrounds
 			_MainForm.button_network_packets_sendUdpPacket_send.Click += new EventHandler((_Sender, _Event) => Event_SendUdpPacket());
 			_MainForm.button_network_packets_waitUdpPacket_wait.Click += new EventHandler((_Sender, _Event) => Event_WaitUdpPacket());
 
+			// Network (Mobile)
+			_MainForm.button_network_mobile_sendSms_sendSms.Click += new EventHandler((_Sender, _Event) => Event_SendSms());
+
 			// Network (Security)
 			_MainForm.button_network_security_openFirewallPort_open.Click += new EventHandler((_Sender, _Event) => Event_OpenFirewallPort());
 
