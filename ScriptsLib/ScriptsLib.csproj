@@ -156,6 +156,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Properties\Resources\Changelog.txt" />
     <Content Include="Properties\Resources\Icon\Icon.ico" />
     <Content Include="Properties\Resources\Icon\Icon.png" />
     <Content Include="Properties\Resources\Libs\FirewallAPI.dll" />

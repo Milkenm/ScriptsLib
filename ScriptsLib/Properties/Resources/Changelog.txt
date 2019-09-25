@@ -1,0 +1,5 @@
+## [+] New
+ * `Tools.ShowException()` now accepts a title.
+
+## [*] Fix
+ * THIS IS NOT A FIX: `DynVars` is broken.
