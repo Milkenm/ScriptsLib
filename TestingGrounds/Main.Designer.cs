@@ -186,6 +186,17 @@
 			this.label_network_mobile_sendSms_senderEmail = new System.Windows.Forms.Label();
 			this.textBox_network_mobile_sendSms_senderEmailPassword = new System.Windows.Forms.TextBox();
 			this.textBox_network_mobile_sendSms_senderEmail = new System.Windows.Forms.TextBox();
+			this.tab_network_security = new System.Windows.Forms.TabPage();
+			this.tabs_network_security = new System.Windows.Forms.TabControl();
+			this.tab_network_security_openFirewallPort = new System.Windows.Forms.TabPage();
+			this.label_network_security_openFirewallPort_warningAdmin = new System.Windows.Forms.Label();
+			this.button_network_security_openFirewallPort_open = new System.Windows.Forms.Button();
+			this.label_network_security_openFirewallPort_portType = new System.Windows.Forms.Label();
+			this.comboBox_network_security_openFirewallPort_portType = new System.Windows.Forms.ComboBox();
+			this.label_network_security_openFirewallPort_description = new System.Windows.Forms.Label();
+			this.label_network_security_openFirewallPort_portNumber = new System.Windows.Forms.Label();
+			this.numeric_network_security_openFirewallPort_portNumber = new System.Windows.Forms.NumericUpDown();
+			this.textBox_network_security_openFirewallPort_description = new System.Windows.Forms.TextBox();
 			this.tab_math = new System.Windows.Forms.TabPage();
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
@@ -207,17 +218,6 @@
 			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-			this.tab_network_security = new System.Windows.Forms.TabPage();
-			this.tabs_network_security = new System.Windows.Forms.TabControl();
-			this.tab_network_security_openFirewallPort = new System.Windows.Forms.TabPage();
-			this.textBox_network_security_openFirewallPort_description = new System.Windows.Forms.TextBox();
-			this.numeric_network_security_openFirewallPort_portNumber = new System.Windows.Forms.NumericUpDown();
-			this.label_network_security_openFirewallPort_portNumber = new System.Windows.Forms.Label();
-			this.label_network_security_openFirewallPort_description = new System.Windows.Forms.Label();
-			this.comboBox_network_security_openFirewallPort_portType = new System.Windows.Forms.ComboBox();
-			this.label_network_security_openFirewallPort_portType = new System.Windows.Forms.Label();
-			this.button_network_security_openFirewallPort_open = new System.Windows.Forms.Button();
-			this.label_network_security_openFirewallPort_warningAdmin = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -281,6 +281,10 @@
 			this.tabs_network_mobile.SuspendLayout();
 			this.tab_network_mobile_sendSms.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).BeginInit();
+			this.tab_network_security.SuspendLayout();
+			this.tabs_network_security.SuspendLayout();
+			this.tab_network_security_openFirewallPort.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).BeginInit();
 			this.tab_math.SuspendLayout();
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
@@ -288,10 +292,6 @@
 			this.tab_math_isPrimeNumber.SuspendLayout();
 			this.tab_dynvars.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
-			this.tab_network_security.SuspendLayout();
-			this.tabs_network_security.SuspendLayout();
-			this.tab_network_security_openFirewallPort.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1871,6 +1871,113 @@
 			this.textBox_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_senderEmail.TabIndex = 0;
 			// 
+			// tab_network_security
+			// 
+			this.tab_network_security.Controls.Add(this.tabs_network_security);
+			this.tab_network_security.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_security.Name = "tab_network_security";
+			this.tab_network_security.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_security.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_security.TabIndex = 3;
+			this.tab_network_security.Text = "Security";
+			this.tab_network_security.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_security
+			// 
+			this.tabs_network_security.Controls.Add(this.tab_network_security_openFirewallPort);
+			this.tabs_network_security.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_security.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_security.Name = "tabs_network_security";
+			this.tabs_network_security.SelectedIndex = 0;
+			this.tabs_network_security.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_security.TabIndex = 0;
+			// 
+			// tab_network_security_openFirewallPort
+			// 
+			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_warningAdmin);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.button_network_security_openFirewallPort_open);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_portType);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.comboBox_network_security_openFirewallPort_portType);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_description);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_portNumber);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.numeric_network_security_openFirewallPort_portNumber);
+			this.tab_network_security_openFirewallPort.Controls.Add(this.textBox_network_security_openFirewallPort_description);
+			this.tab_network_security_openFirewallPort.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_security_openFirewallPort.Name = "tab_network_security_openFirewallPort";
+			this.tab_network_security_openFirewallPort.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_security_openFirewallPort.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_security_openFirewallPort.TabIndex = 1;
+			this.tab_network_security_openFirewallPort.Text = "Open Firewall Port";
+			this.tab_network_security_openFirewallPort.UseVisualStyleBackColor = true;
+			// 
+			// label_network_security_openFirewallPort_warningAdmin
+			// 
+			this.label_network_security_openFirewallPort_warningAdmin.AutoSize = true;
+			this.label_network_security_openFirewallPort_warningAdmin.ForeColor = System.Drawing.Color.Red;
+			this.label_network_security_openFirewallPort_warningAdmin.Location = new System.Drawing.Point(297, 155);
+			this.label_network_security_openFirewallPort_warningAdmin.Name = "label_network_security_openFirewallPort_warningAdmin";
+			this.label_network_security_openFirewallPort_warningAdmin.Size = new System.Drawing.Size(216, 13);
+			this.label_network_security_openFirewallPort_warningAdmin.TabIndex = 9;
+			this.label_network_security_openFirewallPort_warningAdmin.Text = "You need admin permissions to execute this.";
+			// 
+			// button_network_security_openFirewallPort_open
+			// 
+			this.button_network_security_openFirewallPort_open.Location = new System.Drawing.Point(490, 113);
+			this.button_network_security_openFirewallPort_open.Name = "button_network_security_openFirewallPort_open";
+			this.button_network_security_openFirewallPort_open.Size = new System.Drawing.Size(75, 22);
+			this.button_network_security_openFirewallPort_open.TabIndex = 8;
+			this.button_network_security_openFirewallPort_open.Text = "Add Port";
+			this.button_network_security_openFirewallPort_open.UseVisualStyleBackColor = true;
+			// 
+			// label_network_security_openFirewallPort_portType
+			// 
+			this.label_network_security_openFirewallPort_portType.AutoSize = true;
+			this.label_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(265, 90);
+			this.label_network_security_openFirewallPort_portType.Name = "label_network_security_openFirewallPort_portType";
+			this.label_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(56, 13);
+			this.label_network_security_openFirewallPort_portType.TabIndex = 7;
+			this.label_network_security_openFirewallPort_portType.Text = "Port Type:";
+			// 
+			// comboBox_network_security_openFirewallPort_portType
+			// 
+			this.comboBox_network_security_openFirewallPort_portType.FormattingEnabled = true;
+			this.comboBox_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(327, 87);
+			this.comboBox_network_security_openFirewallPort_portType.Name = "comboBox_network_security_openFirewallPort_portType";
+			this.comboBox_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(157, 21);
+			this.comboBox_network_security_openFirewallPort_portType.TabIndex = 6;
+			// 
+			// label_network_security_openFirewallPort_description
+			// 
+			this.label_network_security_openFirewallPort_description.AutoSize = true;
+			this.label_network_security_openFirewallPort_description.Location = new System.Drawing.Point(258, 118);
+			this.label_network_security_openFirewallPort_description.Name = "label_network_security_openFirewallPort_description";
+			this.label_network_security_openFirewallPort_description.Size = new System.Drawing.Size(63, 13);
+			this.label_network_security_openFirewallPort_description.TabIndex = 5;
+			this.label_network_security_openFirewallPort_description.Text = "Rule Name:";
+			// 
+			// label_network_security_openFirewallPort_portNumber
+			// 
+			this.label_network_security_openFirewallPort_portNumber.AutoSize = true;
+			this.label_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(252, 63);
+			this.label_network_security_openFirewallPort_portNumber.Name = "label_network_security_openFirewallPort_portNumber";
+			this.label_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(69, 13);
+			this.label_network_security_openFirewallPort_portNumber.TabIndex = 4;
+			this.label_network_security_openFirewallPort_portNumber.Text = "Port Number:";
+			// 
+			// numeric_network_security_openFirewallPort_portNumber
+			// 
+			this.numeric_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(327, 61);
+			this.numeric_network_security_openFirewallPort_portNumber.Name = "numeric_network_security_openFirewallPort_portNumber";
+			this.numeric_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(157, 20);
+			this.numeric_network_security_openFirewallPort_portNumber.TabIndex = 3;
+			// 
+			// textBox_network_security_openFirewallPort_description
+			// 
+			this.textBox_network_security_openFirewallPort_description.Location = new System.Drawing.Point(327, 114);
+			this.textBox_network_security_openFirewallPort_description.Name = "textBox_network_security_openFirewallPort_description";
+			this.textBox_network_security_openFirewallPort_description.Size = new System.Drawing.Size(157, 20);
+			this.textBox_network_security_openFirewallPort_description.TabIndex = 2;
+			// 
 			// tab_math
 			// 
 			this.tab_math.Controls.Add(this.tabs_math);
@@ -2094,113 +2201,6 @@
             0,
             0});
 			// 
-			// tab_network_security
-			// 
-			this.tab_network_security.Controls.Add(this.tabs_network_security);
-			this.tab_network_security.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_security.Name = "tab_network_security";
-			this.tab_network_security.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_security.Size = new System.Drawing.Size(830, 290);
-			this.tab_network_security.TabIndex = 3;
-			this.tab_network_security.Text = "Security";
-			this.tab_network_security.UseVisualStyleBackColor = true;
-			// 
-			// tabs_network_security
-			// 
-			this.tabs_network_security.Controls.Add(this.tab_network_security_openFirewallPort);
-			this.tabs_network_security.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_network_security.Location = new System.Drawing.Point(3, 3);
-			this.tabs_network_security.Name = "tabs_network_security";
-			this.tabs_network_security.SelectedIndex = 0;
-			this.tabs_network_security.Size = new System.Drawing.Size(824, 284);
-			this.tabs_network_security.TabIndex = 0;
-			// 
-			// tab_network_security_openFirewallPort
-			// 
-			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_warningAdmin);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.button_network_security_openFirewallPort_open);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_portType);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.comboBox_network_security_openFirewallPort_portType);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_description);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.label_network_security_openFirewallPort_portNumber);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.numeric_network_security_openFirewallPort_portNumber);
-			this.tab_network_security_openFirewallPort.Controls.Add(this.textBox_network_security_openFirewallPort_description);
-			this.tab_network_security_openFirewallPort.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_security_openFirewallPort.Name = "tab_network_security_openFirewallPort";
-			this.tab_network_security_openFirewallPort.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_security_openFirewallPort.Size = new System.Drawing.Size(816, 258);
-			this.tab_network_security_openFirewallPort.TabIndex = 1;
-			this.tab_network_security_openFirewallPort.Text = "Open Firewall Port";
-			this.tab_network_security_openFirewallPort.UseVisualStyleBackColor = true;
-			// 
-			// textBox_network_security_openFirewallPort_description
-			// 
-			this.textBox_network_security_openFirewallPort_description.Location = new System.Drawing.Point(327, 114);
-			this.textBox_network_security_openFirewallPort_description.Name = "textBox_network_security_openFirewallPort_description";
-			this.textBox_network_security_openFirewallPort_description.Size = new System.Drawing.Size(157, 20);
-			this.textBox_network_security_openFirewallPort_description.TabIndex = 2;
-			// 
-			// numeric_network_security_openFirewallPort_portNumber
-			// 
-			this.numeric_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(327, 61);
-			this.numeric_network_security_openFirewallPort_portNumber.Name = "numeric_network_security_openFirewallPort_portNumber";
-			this.numeric_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(157, 20);
-			this.numeric_network_security_openFirewallPort_portNumber.TabIndex = 3;
-			// 
-			// label_network_security_openFirewallPort_portNumber
-			// 
-			this.label_network_security_openFirewallPort_portNumber.AutoSize = true;
-			this.label_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(252, 63);
-			this.label_network_security_openFirewallPort_portNumber.Name = "label_network_security_openFirewallPort_portNumber";
-			this.label_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(69, 13);
-			this.label_network_security_openFirewallPort_portNumber.TabIndex = 4;
-			this.label_network_security_openFirewallPort_portNumber.Text = "Port Number:";
-			// 
-			// label_network_security_openFirewallPort_description
-			// 
-			this.label_network_security_openFirewallPort_description.AutoSize = true;
-			this.label_network_security_openFirewallPort_description.Location = new System.Drawing.Point(258, 118);
-			this.label_network_security_openFirewallPort_description.Name = "label_network_security_openFirewallPort_description";
-			this.label_network_security_openFirewallPort_description.Size = new System.Drawing.Size(63, 13);
-			this.label_network_security_openFirewallPort_description.TabIndex = 5;
-			this.label_network_security_openFirewallPort_description.Text = "Rule Name:";
-			// 
-			// comboBox_network_security_openFirewallPort_portType
-			// 
-			this.comboBox_network_security_openFirewallPort_portType.FormattingEnabled = true;
-			this.comboBox_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(327, 87);
-			this.comboBox_network_security_openFirewallPort_portType.Name = "comboBox_network_security_openFirewallPort_portType";
-			this.comboBox_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(157, 21);
-			this.comboBox_network_security_openFirewallPort_portType.TabIndex = 6;
-			// 
-			// label_network_security_openFirewallPort_portType
-			// 
-			this.label_network_security_openFirewallPort_portType.AutoSize = true;
-			this.label_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(265, 90);
-			this.label_network_security_openFirewallPort_portType.Name = "label_network_security_openFirewallPort_portType";
-			this.label_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(56, 13);
-			this.label_network_security_openFirewallPort_portType.TabIndex = 7;
-			this.label_network_security_openFirewallPort_portType.Text = "Port Type:";
-			// 
-			// button_network_security_openFirewallPort_open
-			// 
-			this.button_network_security_openFirewallPort_open.Location = new System.Drawing.Point(490, 113);
-			this.button_network_security_openFirewallPort_open.Name = "button_network_security_openFirewallPort_open";
-			this.button_network_security_openFirewallPort_open.Size = new System.Drawing.Size(75, 22);
-			this.button_network_security_openFirewallPort_open.TabIndex = 8;
-			this.button_network_security_openFirewallPort_open.Text = "Add Port";
-			this.button_network_security_openFirewallPort_open.UseVisualStyleBackColor = true;
-			// 
-			// label_network_security_openFirewallPort_warningAdmin
-			// 
-			this.label_network_security_openFirewallPort_warningAdmin.AutoSize = true;
-			this.label_network_security_openFirewallPort_warningAdmin.ForeColor = System.Drawing.Color.Red;
-			this.label_network_security_openFirewallPort_warningAdmin.Location = new System.Drawing.Point(297, 155);
-			this.label_network_security_openFirewallPort_warningAdmin.Name = "label_network_security_openFirewallPort_warningAdmin";
-			this.label_network_security_openFirewallPort_warningAdmin.Size = new System.Drawing.Size(216, 13);
-			this.label_network_security_openFirewallPort_warningAdmin.TabIndex = 9;
-			this.label_network_security_openFirewallPort_warningAdmin.Text = "You need admin permissions to execute this.";
-			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2299,6 +2299,11 @@
 			this.tab_network_mobile_sendSms.ResumeLayout(false);
 			this.tab_network_mobile_sendSms.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_mobile_sendSms_smtpPort)).EndInit();
+			this.tab_network_security.ResumeLayout(false);
+			this.tabs_network_security.ResumeLayout(false);
+			this.tab_network_security_openFirewallPort.ResumeLayout(false);
+			this.tab_network_security_openFirewallPort.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).EndInit();
 			this.tab_math.ResumeLayout(false);
 			this.tabs_math.ResumeLayout(false);
 			this.tab_math_calculateCombinations.ResumeLayout(false);
@@ -2310,11 +2315,6 @@
 			this.tab_dynvars.ResumeLayout(false);
 			this.tab_dynvars.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
-			this.tab_network_security.ResumeLayout(false);
-			this.tabs_network_security.ResumeLayout(false);
-			this.tab_network_security_openFirewallPort.ResumeLayout(false);
-			this.tab_network_security_openFirewallPort.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

@@ -21,7 +21,7 @@ namespace ScriptsLib
 			}
 
 			#region Exceptions
-			if (!String.IsNullOrEmpty(_Variable) && _Variable.Contains("=") || !String.IsNullOrEmpty(_Value) && _Value.Contains("="))
+			if ((!String.IsNullOrEmpty(_Variable) && _Variable.Contains("=")) || (!String.IsNullOrEmpty(_Value.ToString()) && _Value.ToString().Contains("=")))
 			{
 				throw new Exception("DynVars: Variables/Values cannot contain equal signs.");
 			}

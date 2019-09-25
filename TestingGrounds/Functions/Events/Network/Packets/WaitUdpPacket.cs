@@ -22,7 +22,6 @@ namespace TestingGrounds
 				while (true)
 				{
 					MessageBox.Show("Received: \n\n\n" + Packets.WaitUdpPacket((int)_MainForm.numeric_network_packets_waitUdpPacket_localPort.Value), "Wait UDP Packet");
-
 				}
 			})).Start();
 		}

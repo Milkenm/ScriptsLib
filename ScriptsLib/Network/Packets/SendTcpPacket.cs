@@ -21,7 +21,7 @@ namespace ScriptsLib.nNetwork
 			{
 				// Create a TCP client.
 				TcpClient _Client = new TcpClient(_RemoteHost, _RemotePort);
-
+				
 				// Convert the message...
 				byte[] _Data = Encoding.ASCII.GetBytes(_Message);
 				// ...and then send it.
