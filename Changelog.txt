@@ -1,0 +1,4 @@
+._` [ FIX DYNVARS ] ´_.
+
+## [+] New
+ * Tools.ShowException now accepts a title.
