@@ -1,5 +1,6 @@
 ## [+] New
  * `Tools.ShowException()` now accepts a title.
+ * New thing: `Device.GetRAM()` returns Max/Free/Used RAM in GB.
 
 ## [*] Fix
  * THIS IS NOT A FIX: `DynVars` is broken.

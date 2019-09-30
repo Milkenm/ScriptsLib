@@ -1,4 +1,5 @@
 ﻿#region Usings
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,9 +7,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows.Forms;
-using NetFwTypeLib;
-using Newtonsoft.Json;
-
+using static TestingGrounds.Events;
 using static TestingGrounds.Functions;
 using static TestingGrounds.Values;
 #endregion Usings
@@ -17,7 +16,7 @@ using static TestingGrounds.Values;
 
 namespace TestingGrounds
 {
-	public partial class Main : Form
+    public partial class Main : Form
 	{
 		public Main()
 		{
@@ -25,6 +24,10 @@ namespace TestingGrounds
 			_MainForm = this;
 			MainInitEvents();
 		}
+
+
+
+
 
 
 
@@ -161,5 +164,15 @@ namespace TestingGrounds
         #endregion Testing 5 - Get Type (for DynVars)
         // # ================================================================================================ #
         #endregion Test Button
+
+
+
+
+
+
+
+        private void button_device_getRam_update_Click(object sender, EventArgs e) => GetRAM();
+
+        private void comboBox_device_getRam_ramType_SelectedIndexChanged(object sender, EventArgs e) => GetRAM();
     }
 }

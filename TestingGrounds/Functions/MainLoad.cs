@@ -4,6 +4,7 @@ using System;
 using ScriptsLib;
 using ScriptsLib.nControls;
 using ScriptsLib.nDatabases;
+using static ScriptsLib.Device;
 using static ScriptsLib.nNetwork.Security;
 using static TestingGrounds.Values;
 #endregion Usings
@@ -35,12 +36,16 @@ namespace TestingGrounds
 
 			DynVars._DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
 
-
-			Array _PortTypeList = Enum.GetValues(typeof(PortType));
-			foreach (PortType _Type in _PortTypeList)
+            
+			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))
 			{
 				_MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
 			}
+            foreach (RAMType _Type in Enum.GetValues(typeof(RAMType)))
+            {
+                _MainForm.comboBox_device_getRam_ramType.Items.Add(_Type.ToString());
+            }
+
 			_MainForm.comboBox_network_security_openFirewallPort_portType.SelectedIndex = 0;
 			_MainForm.numeric_network_security_openFirewallPort_portNumber.Value = 70;
 
@@ -53,6 +58,8 @@ namespace TestingGrounds
 			_MainForm.textBox_tools_databaseTools_filterSql_text.Text = "ABC;DEF;GHI'JKL'MNO";
 
 			_MainForm.comboBox_tg_databaseType.SelectedIndex = 2;
+
+            _MainForm.comboBox_device_getRam_ramType.SelectedIndex = 0;
 
 			_MainForm.comboBox_tools_log_logType.SelectedIndex = 0;
 			SlComboBox.ResizeComboBox(_MainForm.comboBox_tools_log_logType, 20);

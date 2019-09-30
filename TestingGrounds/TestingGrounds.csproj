@@ -63,6 +63,7 @@
     <Compile Include="Functions\Events\Database\Select.cs" />
     <Compile Include="Functions\Events\DebugCheckBox.cs" />
     <Compile Include="Functions\Events\DebugErrorsCheckBox.cs" />
+    <Compile Include="Functions\Events\Device\GetRAM.cs" />
     <Compile Include="Functions\Events\DynVars\DynVars.cs" />
     <Compile Include="Functions\Events\Generators\GeneratePassword.cs" />
     <Compile Include="Functions\Events\Math\CalculateCombinations.cs" />
