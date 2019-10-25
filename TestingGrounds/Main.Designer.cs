@@ -213,6 +213,13 @@
             this.button_dynvars_run = new System.Windows.Forms.Button();
             this.textBox_dynvars_value = new System.Windows.Forms.TextBox();
             this.textBox_dynvars_variable = new System.Windows.Forms.TextBox();
+            this.tab_device = new System.Windows.Forms.TabPage();
+            this.tabs_device = new System.Windows.Forms.TabControl();
+            this.tab_device_getRam = new System.Windows.Forms.TabPage();
+            this.label_device_getRam_gb = new System.Windows.Forms.Label();
+            this.button_device_getRam_update = new System.Windows.Forms.Button();
+            this.comboBox_device_getRam_ramType = new System.Windows.Forms.ComboBox();
+            this.textBox_device_getRam_value = new System.Windows.Forms.TextBox();
             this.label_tg_databaseType = new System.Windows.Forms.Label();
             this.label_tg_version = new System.Windows.Forms.Label();
             this.textBox_tg_version = new System.Windows.Forms.TextBox();
@@ -220,13 +227,6 @@
             this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
             this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
             this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-            this.tab_device = new System.Windows.Forms.TabPage();
-            this.tabs_device = new System.Windows.Forms.TabControl();
-            this.tab_device_getRam = new System.Windows.Forms.TabPage();
-            this.textBox_device_getRam_value = new System.Windows.Forms.TextBox();
-            this.comboBox_device_getRam_ramType = new System.Windows.Forms.ComboBox();
-            this.button_device_getRam_update = new System.Windows.Forms.Button();
-            this.label_device_getRam_gb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -300,10 +300,10 @@
             this.tab_math_calculateFactorial.SuspendLayout();
             this.tab_math_isPrimeNumber.SuspendLayout();
             this.tab_dynvars.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
             this.tab_device.SuspendLayout();
             this.tabs_device.SuspendLayout();
             this.tab_device_getRam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
             this.SuspendLayout();
             // 
             // button_database_createTable
@@ -1999,6 +1999,11 @@
             // numeric_network_security_openFirewallPort_portNumber
             // 
             this.numeric_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(327, 61);
+            this.numeric_network_security_openFirewallPort_portNumber.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.numeric_network_security_openFirewallPort_portNumber.Name = "numeric_network_security_openFirewallPort_portNumber";
             this.numeric_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(157, 20);
             this.numeric_network_security_openFirewallPort_portNumber.TabIndex = 3;
@@ -2155,6 +2160,76 @@
             this.textBox_dynvars_variable.Size = new System.Drawing.Size(286, 20);
             this.textBox_dynvars_variable.TabIndex = 0;
             // 
+            // tab_device
+            // 
+            this.tab_device.Controls.Add(this.tabs_device);
+            this.tab_device.Location = new System.Drawing.Point(4, 22);
+            this.tab_device.Name = "tab_device";
+            this.tab_device.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_device.Size = new System.Drawing.Size(844, 322);
+            this.tab_device.TabIndex = 8;
+            this.tab_device.Text = "Device";
+            this.tab_device.UseVisualStyleBackColor = true;
+            // 
+            // tabs_device
+            // 
+            this.tabs_device.Controls.Add(this.tab_device_getRam);
+            this.tabs_device.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs_device.Location = new System.Drawing.Point(3, 3);
+            this.tabs_device.Name = "tabs_device";
+            this.tabs_device.SelectedIndex = 0;
+            this.tabs_device.Size = new System.Drawing.Size(838, 316);
+            this.tabs_device.TabIndex = 0;
+            // 
+            // tab_device_getRam
+            // 
+            this.tab_device_getRam.Controls.Add(this.label_device_getRam_gb);
+            this.tab_device_getRam.Controls.Add(this.button_device_getRam_update);
+            this.tab_device_getRam.Controls.Add(this.comboBox_device_getRam_ramType);
+            this.tab_device_getRam.Controls.Add(this.textBox_device_getRam_value);
+            this.tab_device_getRam.Location = new System.Drawing.Point(4, 22);
+            this.tab_device_getRam.Name = "tab_device_getRam";
+            this.tab_device_getRam.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_device_getRam.Size = new System.Drawing.Size(830, 290);
+            this.tab_device_getRam.TabIndex = 1;
+            this.tab_device_getRam.Text = "Get RAM";
+            this.tab_device_getRam.UseVisualStyleBackColor = true;
+            // 
+            // label_device_getRam_gb
+            // 
+            this.label_device_getRam_gb.AutoSize = true;
+            this.label_device_getRam_gb.Location = new System.Drawing.Point(530, 144);
+            this.label_device_getRam_gb.Name = "label_device_getRam_gb";
+            this.label_device_getRam_gb.Size = new System.Drawing.Size(22, 13);
+            this.label_device_getRam_gb.TabIndex = 3;
+            this.label_device_getRam_gb.Text = "GB";
+            // 
+            // button_device_getRam_update
+            // 
+            this.button_device_getRam_update.Location = new System.Drawing.Point(449, 167);
+            this.button_device_getRam_update.Name = "button_device_getRam_update";
+            this.button_device_getRam_update.Size = new System.Drawing.Size(75, 23);
+            this.button_device_getRam_update.TabIndex = 2;
+            this.button_device_getRam_update.Text = "Update";
+            this.button_device_getRam_update.UseVisualStyleBackColor = true;
+            this.button_device_getRam_update.Click += new System.EventHandler(this.button_device_getRam_update_Click);
+            // 
+            // comboBox_device_getRam_ramType
+            // 
+            this.comboBox_device_getRam_ramType.FormattingEnabled = true;
+            this.comboBox_device_getRam_ramType.Location = new System.Drawing.Point(291, 114);
+            this.comboBox_device_getRam_ramType.Name = "comboBox_device_getRam_ramType";
+            this.comboBox_device_getRam_ramType.Size = new System.Drawing.Size(233, 21);
+            this.comboBox_device_getRam_ramType.TabIndex = 1;
+            this.comboBox_device_getRam_ramType.SelectedIndexChanged += new System.EventHandler(this.comboBox_device_getRam_ramType_SelectedIndexChanged);
+            // 
+            // textBox_device_getRam_value
+            // 
+            this.textBox_device_getRam_value.Location = new System.Drawing.Point(291, 141);
+            this.textBox_device_getRam_value.Name = "textBox_device_getRam_value";
+            this.textBox_device_getRam_value.Size = new System.Drawing.Size(233, 20);
+            this.textBox_device_getRam_value.TabIndex = 0;
+            // 
             // label_tg_databaseType
             // 
             this.label_tg_databaseType.AutoSize = true;
@@ -2232,76 +2307,6 @@
             0,
             0,
             0});
-            // 
-            // tab_device
-            // 
-            this.tab_device.Controls.Add(this.tabs_device);
-            this.tab_device.Location = new System.Drawing.Point(4, 22);
-            this.tab_device.Name = "tab_device";
-            this.tab_device.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_device.Size = new System.Drawing.Size(844, 322);
-            this.tab_device.TabIndex = 8;
-            this.tab_device.Text = "Device";
-            this.tab_device.UseVisualStyleBackColor = true;
-            // 
-            // tabs_device
-            // 
-            this.tabs_device.Controls.Add(this.tab_device_getRam);
-            this.tabs_device.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabs_device.Location = new System.Drawing.Point(3, 3);
-            this.tabs_device.Name = "tabs_device";
-            this.tabs_device.SelectedIndex = 0;
-            this.tabs_device.Size = new System.Drawing.Size(838, 316);
-            this.tabs_device.TabIndex = 0;
-            // 
-            // tab_device_getRam
-            // 
-            this.tab_device_getRam.Controls.Add(this.label_device_getRam_gb);
-            this.tab_device_getRam.Controls.Add(this.button_device_getRam_update);
-            this.tab_device_getRam.Controls.Add(this.comboBox_device_getRam_ramType);
-            this.tab_device_getRam.Controls.Add(this.textBox_device_getRam_value);
-            this.tab_device_getRam.Location = new System.Drawing.Point(4, 22);
-            this.tab_device_getRam.Name = "tab_device_getRam";
-            this.tab_device_getRam.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_device_getRam.Size = new System.Drawing.Size(830, 290);
-            this.tab_device_getRam.TabIndex = 1;
-            this.tab_device_getRam.Text = "Get RAM";
-            this.tab_device_getRam.UseVisualStyleBackColor = true;
-            // 
-            // textBox_device_getRam_value
-            // 
-            this.textBox_device_getRam_value.Location = new System.Drawing.Point(291, 141);
-            this.textBox_device_getRam_value.Name = "textBox_device_getRam_value";
-            this.textBox_device_getRam_value.Size = new System.Drawing.Size(233, 20);
-            this.textBox_device_getRam_value.TabIndex = 0;
-            // 
-            // comboBox_device_getRam_ramType
-            // 
-            this.comboBox_device_getRam_ramType.FormattingEnabled = true;
-            this.comboBox_device_getRam_ramType.Location = new System.Drawing.Point(291, 114);
-            this.comboBox_device_getRam_ramType.Name = "comboBox_device_getRam_ramType";
-            this.comboBox_device_getRam_ramType.Size = new System.Drawing.Size(233, 21);
-            this.comboBox_device_getRam_ramType.TabIndex = 1;
-            this.comboBox_device_getRam_ramType.SelectedIndexChanged += new System.EventHandler(this.comboBox_device_getRam_ramType_SelectedIndexChanged);
-            // 
-            // button_device_getRam_update
-            // 
-            this.button_device_getRam_update.Location = new System.Drawing.Point(449, 167);
-            this.button_device_getRam_update.Name = "button_device_getRam_update";
-            this.button_device_getRam_update.Size = new System.Drawing.Size(75, 23);
-            this.button_device_getRam_update.TabIndex = 2;
-            this.button_device_getRam_update.Text = "Update";
-            this.button_device_getRam_update.UseVisualStyleBackColor = true;
-            this.button_device_getRam_update.Click += new System.EventHandler(this.button_device_getRam_update_Click);
-            // 
-            // label_device_getRam_gb
-            // 
-            this.label_device_getRam_gb.AutoSize = true;
-            this.label_device_getRam_gb.Location = new System.Drawing.Point(530, 144);
-            this.label_device_getRam_gb.Name = "label_device_getRam_gb";
-            this.label_device_getRam_gb.Size = new System.Drawing.Size(22, 13);
-            this.label_device_getRam_gb.TabIndex = 3;
-            this.label_device_getRam_gb.Text = "GB";
             // 
             // Main
             // 
@@ -2416,11 +2421,11 @@
             this.tab_math_isPrimeNumber.PerformLayout();
             this.tab_dynvars.ResumeLayout(false);
             this.tab_dynvars.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
             this.tab_device.ResumeLayout(false);
             this.tabs_device.ResumeLayout(false);
             this.tab_device_getRam.ResumeLayout(false);
             this.tab_device_getRam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
