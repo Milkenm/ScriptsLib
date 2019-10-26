@@ -127,7 +127,6 @@
     <Compile Include="Network\Wi-Fi\ConnectToWifi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources\Lang\en_EN.cs" />
-    <Compile Include="Properties\Resources\Lang\Lang.cs" />
     <Compile Include="Tools\Crash.cs" />
     <Compile Include="Tools\Database Tools\CheckLogin.cs" />
     <Compile Include="Tools\Database Tools\FilterSql.cs" />
