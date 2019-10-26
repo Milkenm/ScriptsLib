@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace ScriptsLib
 {
-	public static partial class AspNet
+	public static class AspNet
 	{
 		#region Show Pop-up
 		///
