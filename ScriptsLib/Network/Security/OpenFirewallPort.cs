@@ -8,7 +8,7 @@ using NetFwTypeLib;
 // https://social.msdn.microsoft.com/Forums/vstudio/en-US/a3e390d1-4383-4f23-bad9-b725bef33499/add-firewall-rule-programatically?forum=wcf
 // # = #
 
-namespace ScriptsLib.nNetwork
+namespace ScriptsLib.Network
 {
 	public static partial class Security
 	{

@@ -4,7 +4,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ScriptsLib.nNetwork;
+using ScriptsLib.Network;
 
 using static TestingGrounds.Values;
 #endregion Usings

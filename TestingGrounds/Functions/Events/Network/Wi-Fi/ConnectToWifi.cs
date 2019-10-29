@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-using ScriptsLib.nNetwork;
+using ScriptsLib.Network;
 
 using static TestingGrounds.Functions;
 using static TestingGrounds.Values;

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace ScriptsLib.nNetwork
+namespace ScriptsLib.Network
 {
 	public static partial class Mobile
 	{

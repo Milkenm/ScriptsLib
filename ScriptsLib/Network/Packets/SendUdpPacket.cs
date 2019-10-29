@@ -5,7 +5,7 @@ using System.Text;
 
 
 
-namespace ScriptsLib.nNetwork
+namespace ScriptsLib.Network
 {
 	public static partial class Packets
 	{

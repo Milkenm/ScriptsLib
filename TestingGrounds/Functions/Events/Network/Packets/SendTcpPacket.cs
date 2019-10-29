@@ -1,5 +1,5 @@
 ﻿#region Usings
-using ScriptsLib.nNetwork;
+using ScriptsLib.Network;
 #endregion Usings
 
 

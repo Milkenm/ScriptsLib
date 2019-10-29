@@ -7,7 +7,7 @@ using static ScriptsLib.Dev;
 
 
 
-namespace ScriptsLib.nNetwork
+namespace ScriptsLib.Network
 {
 	public static partial class Wifi
 	{

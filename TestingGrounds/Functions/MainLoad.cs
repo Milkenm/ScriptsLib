@@ -5,7 +5,7 @@ using ScriptsLib;
 using ScriptsLib.Controls;
 using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
-using static ScriptsLib.nNetwork.Security;
+using static ScriptsLib.Network.Security;
 using static TestingGrounds.Values;
 #endregion Usings
 

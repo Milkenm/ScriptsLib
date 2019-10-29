@@ -1,6 +1,6 @@
 ﻿#region Usings
 using System.Windows.Forms;
-using static ScriptsLib.nNetwork.Security;
+using static ScriptsLib.Network.Security;
 using static TestingGrounds.Values;
 #endregion Usings
 

@@ -7,7 +7,7 @@ using ScriptsLib.Resources.Lang;
 
 
 
-namespace ScriptsLib.nNetwork
+namespace ScriptsLib.Network
 {
 	public static partial class Packets
 	{
