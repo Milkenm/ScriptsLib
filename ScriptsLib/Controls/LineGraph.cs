@@ -15,7 +15,7 @@ namespace Testing.LineGraph
 	{
 		private  List<Line> lines = new List<Line>();
 		private Graphics g;
-		private int CurrentX, CurrentY;
+		private int currentX, currentY;
 
 		public LineGraph()
 		{
@@ -28,26 +28,26 @@ namespace Testing.LineGraph
 		{
 			g.Clear(Color.White);
 
-			foreach (Line l in lines)
+			foreach (Line _Line in lines)
 			{
-				DrawLine(l, false);
+				DrawLine(_Line, false);
 			}
 		}
 
 		public struct Line
 		{
-			public Pen P;
+			public Pen Pen;
 			public int StartX, StartY, EndX, EndY;
 			public PositionList Position;
 
-			public Line(Pen _P, int _StartX, int _StartY, int _EndX, int _EndY, PositionList _Pos)
+			public Line(Pen p, int startX, int startY, int endX, int endY, PositionList pos)
 			{
-				P = _P;
-				StartX = _StartX;
-				StartY = _StartY;
-				EndX = _EndX;
-				EndY = _EndY;
-				Position = _Pos;
+				this.Pen = p;
+				this.StartX = startX;
+				this.StartY = startY;
+				this.EndX = endX;
+				this.EndY = endY;
+				this.Position = pos;
 			}
 		}
 
@@ -59,70 +59,70 @@ namespace Testing.LineGraph
 			TopRight,
 		}
 		
-		public void DrawLine(Line line) => DrawLine(line.P, line.StartX, line.StartY, line.EndX, line.EndY, line.Position, true);
-		public void DrawLine(Line line, bool SaveLine) => DrawLine(line.P, line.StartX, line.StartY, line.EndX, line.EndY, line.Position, SaveLine);
-		public void DrawLine(Pen pen, int StartX, int StartY, int EndX, int EndY, PositionList Pos, bool SaveLine)
+		public void DrawLine(Line line) => DrawLine(line.Pen, line.StartX, line.StartY, line.EndX, line.EndY, line.Position, true);
+		public void DrawLine(Line line, bool saveLine) => DrawLine(line.Pen, line.StartX, line.StartY, line.EndX, line.EndY, line.Position, saveLine);
+		public void DrawLine(Pen p, int startX, int startY, int endX, int endY, PositionList position, bool saveLine)
 		{
-			switch (Pos)
+			switch (position)
 			{
 				case PositionList.BottomLeft:
 					{
-						g.DrawLine(pen, StartX, this.Size.Height - StartY, EndX, this.Size.Height - EndY);
+						g.DrawLine(p, startX, this.Size.Height - startY, endX, this.Size.Height - endY);
 						break;
 					}
 				case PositionList.BottomRight:
 					{
-						g.DrawLine(pen, this.Size.Width - StartX, this.Size.Height - StartY, this.Size.Width - EndX, this.Size.Height - EndY);
+						g.DrawLine(p, this.Size.Width - startX, this.Size.Height - startY, this.Size.Width - endX, this.Size.Height - endY);
 						break;
 					}
 				case PositionList.TopLeft:
 					{
-						g.DrawLine(pen, StartX, StartY, EndX, EndY);
+						g.DrawLine(p, startX, startY, endX, endY);
 						break;
 					}
 				case PositionList.TopRight:
 					{
-						g.DrawLine(pen, this.Size.Width - StartX, StartY, this.Size.Width - EndX, EndY);
+						g.DrawLine(p, this.Size.Width - startX, startY, this.Size.Width - endX, endY);
 						break;
 					}
 			}
 
-			if (SaveLine) lines.Add(new Line(pen, StartX, StartY, EndX, EndY, Pos));
+			if (saveLine) lines.Add(new Line(p, startX, startY, endX, endY, position));
 
-			CurrentX = EndX;
-			CurrentY = EndY;
+			currentX = endX;
+			currentY = endY;
 		}
 
-		public void IncrementLine(Pen pen, int EndX, int EndY, PositionList Pos, bool SaveLine)
+		public void IncrementLine(Pen pen, int endX, int endY, PositionList pos, bool saveLine)
 		{
-			switch (Pos)
+			switch (pos)
 			{
 				case PositionList.BottomLeft:
 					{
-						g.DrawLine(pen, CurrentX, this.Size.Height - CurrentY, EndX, this.Size.Height - EndY);
+						g.DrawLine(pen, currentX, this.Size.Height - currentY, endX, this.Size.Height - endY);
 						break;
 					}
 				case PositionList.BottomRight:
 					{
-						g.DrawLine(pen, this.Size.Width - CurrentX, this.Size.Height - CurrentY, this.Size.Width - EndX, this.Size.Height - EndY);
+						g.DrawLine(pen, this.Size.Width - currentX, this.Size.Height - currentY, this.Size.Width - endX, this.Size.Height - endY);
 						break;
 					}
 				case PositionList.TopLeft:
 					{
-						g.DrawLine(pen, CurrentX, CurrentY, EndX, EndY);
+						g.DrawLine(pen, currentX, currentY, endX, endY);
 						break;
 					}
 				case PositionList.TopRight:
 					{
-						g.DrawLine(pen, this.Size.Width - CurrentX, CurrentY, this.Size.Width - EndX, EndY);
+						g.DrawLine(pen, this.Size.Width - currentX, currentY, this.Size.Width - endX, endY);
 						break;
 					}
 			}
 
-			if (SaveLine) lines.Add(new Line(pen, CurrentX, CurrentY, EndX, EndY, Pos));
+			if (saveLine) lines.Add(new Line(pen, currentX, currentY, endX, endY, pos));
 
-			CurrentX = EndX;
-			CurrentY = EndY;
+			currentX = endX;
+			currentY = endY;
 		}
 	}
 }
