@@ -88,6 +88,7 @@
     <Compile Include="Functions\Ex.cs" />
     <Compile Include="Functions\MainInitEvents.cs" />
     <Compile Include="Functions\MainLoad.cs" />
+    <Compile Include="Functions\TestingButton.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\RandomTesting.cs" />
     <Compile Include="Tests\Testing2.cs" />
     <Compile Include="Tests\Testing3.cs" />
     <Compile Include="Tests\Testing4.cs" />

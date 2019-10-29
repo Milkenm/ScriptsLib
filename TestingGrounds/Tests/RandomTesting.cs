@@ -12,8 +12,8 @@ namespace TestingGrounds
 {
 	internal static partial class Testing
 	{
-		/// <summary>Empty!</summary>
-		internal static void Testing4()
+		/// <summary>Temp. testing function.</summary>
+		internal static void RandomTesting()
 		{
 
 		}

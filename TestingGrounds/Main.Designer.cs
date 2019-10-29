@@ -2294,11 +2294,6 @@
             0,
             0,
             0});
-			this.numeric_tg_testingIndex.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			this.numeric_tg_testingIndex.Name = "numeric_tg_testingIndex";
 			this.numeric_tg_testingIndex.Size = new System.Drawing.Size(43, 20);
 			this.numeric_tg_testingIndex.TabIndex = 35;
