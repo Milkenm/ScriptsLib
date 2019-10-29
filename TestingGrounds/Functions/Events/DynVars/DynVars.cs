@@ -18,24 +18,24 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (String.IsNullOrEmpty(_MainForm.textBox_dynvars_variable.Text))
+				if (String.IsNullOrEmpty(MainForm.textBox_dynvars_variable.Text))
 				{
 					MessageBox.Show("The variable field cannot be empty.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 				else
 				{
-					string _Return = DynVars.DynVar(_MainForm.textBox_dynvars_variable.Text, _MainForm.textBox_dynvars_value.Text);
+					string _Return = DynVars.DynVar(MainForm.textBox_dynvars_variable.Text, MainForm.textBox_dynvars_value.Text);
 					if (!String.IsNullOrEmpty(_Return))
 					{
 						MessageBox.Show(_Return, "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
-					else if (String.IsNullOrEmpty(_Return) && String.IsNullOrEmpty(_MainForm.textBox_dynvars_value.Text))
+					else if (String.IsNullOrEmpty(_Return) && String.IsNullOrEmpty(MainForm.textBox_dynvars_value.Text))
 					{
-						MessageBox.Show($"The variable '{_MainForm.textBox_dynvars_variable.Text}' doesn't exist.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						MessageBox.Show($"The variable '{MainForm.textBox_dynvars_variable.Text}' doesn't exist.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					}
 					else
 					{
-						MessageBox.Show($"Variable '{_MainForm.textBox_dynvars_variable.Text}' set to '{_MainForm.textBox_dynvars_value.Text}'.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show($"Variable '{MainForm.textBox_dynvars_variable.Text}' set to '{MainForm.textBox_dynvars_value.Text}'.", "DynVars", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 				}
 			}

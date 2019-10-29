@@ -18,7 +18,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(QuickMath.CalculateFactorial((ulong)_MainForm.numeric_math_calculateFactorial_factorial.Value).ToString(), "Result", MessageBoxButtons.OK);
+				MessageBox.Show(QuickMath.CalculateFactorial((ulong)MainForm.numeric_math_calculateFactorial_factorial.Value).ToString(), "Result", MessageBoxButtons.OK);
 			}
 			catch (Exception _Exception)
 			{

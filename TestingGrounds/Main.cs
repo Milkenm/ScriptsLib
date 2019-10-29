@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using static TestingGrounds.Events;
 using static TestingGrounds.Functions;
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 using static TestingGrounds.Testing;
 #endregion Usings
 
@@ -22,7 +22,7 @@ namespace TestingGrounds
 		public Main()
 		{
 			InitializeComponent();
-			_MainForm = this;
+			MainForm = this;
 			MainInitEvents();
 		}
 

@@ -17,13 +17,13 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked == true)
+				if (MainForm.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked == true)
 				{
-					SlTextBox.OnlyNumbersTextBox(_MainForm.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false);
+					SlTextBox.OnlyNumbersTextBox(MainForm.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false);
 				}
 				else
 				{
-					SlTextBox.OnlyNumbersTextBox(_MainForm.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false, false);
+					SlTextBox.OnlyNumbersTextBox(MainForm.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers, false, false);
 				}
 			}
 			catch (Exception _Exception)

@@ -18,7 +18,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(Tools.ReplaceString(_MainForm.textBox_tools_replaceString_original.Text, _MainForm.textBox_tools_replaceString_replace.Text, _MainForm.textBox_tools_replaceString_replacewith.Text));
+				MessageBox.Show(Tools.ReplaceString(MainForm.textBox_tools_replaceString_original.Text, MainForm.textBox_tools_replaceString_replace.Text, MainForm.textBox_tools_replaceString_replacewith.Text));
 			}
 			catch (Exception _Exception)
 			{

@@ -13,7 +13,7 @@ namespace TestingGrounds
 		internal static void Event_OpenFirewallPort()
 		{
 			PortType _PortType = new PortType();
-			switch (_MainForm.comboBox_network_security_openFirewallPort_portType.Text)
+			switch (MainForm.comboBox_network_security_openFirewallPort_portType.Text)
 			{
 				case "TCP":
 					_PortType = PortType.TCP; break;
@@ -22,7 +22,7 @@ namespace TestingGrounds
 				case "Any":
 					_PortType = PortType.Any; break;
 			}
-			OpenFirewallPort((int)_MainForm.numeric_network_security_openFirewallPort_portNumber.Value, _PortType, _MainForm.textBox_network_security_openFirewallPort_description.Text);
+			OpenFirewallPort((int)MainForm.numeric_network_security_openFirewallPort_portNumber.Value, _PortType, MainForm.textBox_network_security_openFirewallPort_description.Text);
 
 			MessageBox.Show("Port added!");
 		}

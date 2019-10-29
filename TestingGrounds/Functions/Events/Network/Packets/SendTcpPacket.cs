@@ -10,7 +10,7 @@ namespace TestingGrounds
 	{
 		internal static void Event_SendTcpPacket()
 		{
-			Packets.SendTcpPacket(Static._MainForm.textBox_network_packets_sendTcpPacket_remoteIp.Text, (int)Static._MainForm.numeric_network_packets_sendTcpPacket_remotePort.Value, Static._MainForm.textBox_network_packets_sendTcpPacket_message.Text);
+			Packets.SendTcpPacket(Static.MainForm.textBox_network_packets_sendTcpPacket_remoteIp.Text, (int)Static.MainForm.numeric_network_packets_sendTcpPacket_remotePort.Value, Static.MainForm.textBox_network_packets_sendTcpPacket_message.Text);
 		}
 	}
 }

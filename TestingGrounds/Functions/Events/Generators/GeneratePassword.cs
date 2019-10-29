@@ -17,7 +17,7 @@ namespace TestingGrounds
         {
             try
             {
-                _MainForm.textBox_generators_generatePassword_password.Text = Generators.GeneratePassword((int)_MainForm.numeric_generators_generatePassword_length.Value, _MainForm.textBox_generators_generatePassword_allowedChars.Text);
+                MainForm.textBox_generators_generatePassword_password.Text = Generators.GeneratePassword((int)MainForm.numeric_generators_generatePassword_length.Value, MainForm.textBox_generators_generatePassword_allowedChars.Text);
             }
             catch (Exception _Exception)
             {

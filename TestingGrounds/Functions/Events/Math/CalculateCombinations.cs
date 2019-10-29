@@ -19,7 +19,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				MessageBox.Show(QuickMath.CalculateCombinations((BigInteger)_MainForm.numeric_math_calculateCombinations_elements.Value, (BigInteger)_MainForm.numeric_math_calculateCombinations_group.Value).ToString(), "Result", MessageBoxButtons.OK);
+				MessageBox.Show(QuickMath.CalculateCombinations((BigInteger)MainForm.numeric_math_calculateCombinations_elements.Value, (BigInteger)MainForm.numeric_math_calculateCombinations_group.Value).ToString(), "Result", MessageBoxButtons.OK);
 			}
 			catch (Exception _Exception)
 			{

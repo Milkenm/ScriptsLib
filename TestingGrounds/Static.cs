@@ -6,8 +6,8 @@ using System.Windows.Forms;
 
 namespace TestingGrounds
 {
-	internal static class Values
+	internal static class Static
 	{
-		internal static Main _MainForm { get; set; }
+		internal static Main MainForm { get; set; }
 	}
 }

@@ -12,7 +12,7 @@ namespace TestingGrounds
 	{
 		internal static void Event_ToolsHash()
 		{
-			_MainForm.textBox_tools_hash_hashed.Text = Tools.Hash(_MainForm.textBox_tools_hash_text.Text);
+			MainForm.textBox_tools_hash_hashed.Text = Tools.Hash(MainForm.textBox_tools_hash_text.Text);
 		}
 	}
 }

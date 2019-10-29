@@ -15,7 +15,7 @@ namespace TestingGrounds
 	{
 		internal static void Event_IsPrimeNumber()
 		{
-			MessageBox.Show(QuickMath.IsPrimeNumber(Convert.ToInt32(_MainForm.textBox_math_isPrimeNumber_number.Text)).ToString());
+			MessageBox.Show(QuickMath.IsPrimeNumber(Convert.ToInt32(MainForm.textBox_math_isPrimeNumber_number.Text)).ToString());
 		}
 	}
 }

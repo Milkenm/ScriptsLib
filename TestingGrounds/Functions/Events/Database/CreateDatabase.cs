@@ -18,7 +18,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
+				if (MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
 					SqlServerDatabase.CreateDatabase(@"C:\Milkenm\Data\Tests.mdf").GetAwaiter();
 				}

@@ -19,7 +19,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server Database
+				if (MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server Database
 				{
 					List<SqlServerDatabase.TableFields> _Fields = new List<SqlServerDatabase.TableFields>();
 					SqlServerDatabase.TableFields _Field = new SqlServerDatabase.TableFields();
@@ -40,7 +40,7 @@ namespace TestingGrounds
 
 					SqlServerDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
-				else if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 1) // Access Database
+				else if (MainForm.comboBox_tg_databaseType.SelectedIndex == 1) // Access Database
 				{
 					List<AccessDatabase.TableFields> _Fields = new List<AccessDatabase.TableFields>();
 					AccessDatabase.TableFields _Field = new AccessDatabase.TableFields();
@@ -61,7 +61,7 @@ namespace TestingGrounds
 
 					AccessDatabase.CreateTable("Users", _Fields).GetAwaiter();
 				}
-				else if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 2) // MySql Server
+				else if (MainForm.comboBox_tg_databaseType.SelectedIndex == 2) // MySql Server
 				{
 					List<MySqlDatabase.TableFields> _Fields = new List<MySqlDatabase.TableFields>();
 					MySqlDatabase.TableFields _Field = new MySqlDatabase.TableFields();

@@ -19,9 +19,9 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 1)
+				if (MainForm.comboBox_tg_databaseType.SelectedIndex == 1)
 				{
-					List<string> _Select = DatabaseTools.SelectUnique(_MainForm.textBox_tools_databaseTools_selectUnique_table.Text, _MainForm.textBox_tools_databaseTools_selectUnique_column.Text, DatabaseTools.DatabaseType.Access);
+					List<string> _Select = DatabaseTools.SelectUnique(MainForm.textBox_tools_databaseTools_selectUnique_table.Text, MainForm.textBox_tools_databaseTools_selectUnique_column.Text, DatabaseTools.DatabaseType.Access);
 
 					string _String = null;
 					foreach (string _Value in _Select)

@@ -17,16 +17,16 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.comboBox_controls_comboBox_resizeComboBox_resize.Height == 37)
+				if (MainForm.comboBox_controls_comboBox_resizeComboBox_resize.Height == 37)
 				{
-					SlComboBox.ResizeComboBox(_MainForm.comboBox_controls_comboBox_resizeComboBox_resize, 21);
+					SlComboBox.ResizeComboBox(MainForm.comboBox_controls_comboBox_resizeComboBox_resize, 21);
 				}
 				else
 				{
-					SlComboBox.ResizeComboBox(_MainForm.comboBox_controls_comboBox_resizeComboBox_resize, 37);
+					SlComboBox.ResizeComboBox(MainForm.comboBox_controls_comboBox_resizeComboBox_resize, 37);
 				}
 
-				_MainForm.button_controls_comboBox_resizeComboBox_resize.Text = $"Resize {_MainForm.button_controls_comboBox_resizeComboBox_resize.Height} | {_MainForm.comboBox_controls_comboBox_resizeComboBox_resize.Height}";
+				MainForm.button_controls_comboBox_resizeComboBox_resize.Text = $"Resize {MainForm.button_controls_comboBox_resizeComboBox_resize.Height} | {MainForm.comboBox_controls_comboBox_resizeComboBox_resize.Height}";
 			}
 			catch (Exception _Exception)
 			{

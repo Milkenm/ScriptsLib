@@ -18,7 +18,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server Database
+				if (MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server Database
 				{
 					SqlServerDatabase.InsertInto("Users", "ID, Name, Password", "1, 'User1', 'Pass1'").GetAwaiter();
 				}

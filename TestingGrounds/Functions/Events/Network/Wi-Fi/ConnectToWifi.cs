@@ -18,9 +18,9 @@ namespace TestingGrounds
 		{
 			try
 			{
-				if (!String.IsNullOrEmpty(_MainForm.textBox_network_wifi_connect_wifiPassword.Text) && !String.IsNullOrEmpty(_MainForm.textBox_network_wifi_connect_wifiSsid.Text))
+				if (!String.IsNullOrEmpty(MainForm.textBox_network_wifi_connect_wifiPassword.Text) && !String.IsNullOrEmpty(MainForm.textBox_network_wifi_connect_wifiSsid.Text))
 				{
-					Wifi.Connect(_MainForm.textBox_network_wifi_connect_wifiSsid.Text, _MainForm.textBox_network_wifi_connect_wifiPassword.Text);
+					Wifi.Connect(MainForm.textBox_network_wifi_connect_wifiSsid.Text, MainForm.textBox_network_wifi_connect_wifiPassword.Text);
 				}
 				else
 				{

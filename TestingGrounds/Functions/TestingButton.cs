@@ -1,7 +1,7 @@
 ﻿#region Usings
 using System;
 
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 using static TestingGrounds.Testing;
 #endregion Usings
 
@@ -15,7 +15,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				switch (_MainForm.numeric_tg_testingIndex.Value)
+				switch (MainForm.numeric_tg_testingIndex.Value)
 				{
 					case 0:
 						RandomTesting(); break;

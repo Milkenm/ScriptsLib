@@ -21,7 +21,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_MainForm.fileDialog_tg_searchGif.ShowDialog();
+				MainForm.fileDialog_tg_searchGif.ShowDialog();
 			}
 			catch (Exception _Exception)
 			{
@@ -31,13 +31,13 @@ namespace TestingGrounds
 
 		internal static void Event_FileDialogSearchGifOk()
 		{
-			if (!String.IsNullOrEmpty(_MainForm.fileDialog_tg_searchGif.FileName))
+			if (!String.IsNullOrEmpty(MainForm.fileDialog_tg_searchGif.FileName))
 			{
-				_Frames = Tools.GetGifFrames(Image.FromFile(_MainForm.fileDialog_tg_searchGif.FileName));
+				_Frames = Tools.GetGifFrames(Image.FromFile(MainForm.fileDialog_tg_searchGif.FileName));
 
 				foreach (Image _Frame in _Frames)
 				{
-					_MainForm.pictureBox_tools_setWallpaper6getGifFrames_gif.BackgroundImage = _Frame;
+					MainForm.pictureBox_tools_setWallpaper6getGifFrames_gif.BackgroundImage = _Frame;
 				}
 			}
 		}

@@ -12,7 +12,7 @@ namespace TestingGrounds
 	{
 		internal static void Event_ToolsGetDate()
 		{
-			_MainForm.label_tools_getDate_date.Text = Tools.GetDate();
+			MainForm.label_tools_getDate_date.Text = Tools.GetDate();
 		}
 	}
 }

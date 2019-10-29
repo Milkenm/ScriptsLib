@@ -12,7 +12,7 @@ namespace TestingGrounds
 	{
 		internal static void Event_SendUdpPacket()
 		{
-			Packets.SendUdpPacket(_MainForm.textBox_network_packets_sendUdpPacket_remoteIp.Text, (int)_MainForm.numeric_network_packets_sendUdpPacket_remotePort.Value, _MainForm.textBox_network_packets_sendUdpPacket_message.Text);
+			Packets.SendUdpPacket(MainForm.textBox_network_packets_sendUdpPacket_remoteIp.Text, (int)MainForm.numeric_network_packets_sendUdpPacket_remotePort.Value, MainForm.textBox_network_packets_sendUdpPacket_message.Text);
 		}
 	}
 }

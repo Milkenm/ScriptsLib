@@ -17,7 +17,7 @@ namespace TestingGrounds
 		{
 			try
 			{
-				_MainForm.textBox_tools_databaseTools_filterSql_text.Text = DatabaseTools.FilterSql(_MainForm.textBox_tools_databaseTools_filterSql_text.Text);
+				MainForm.textBox_tools_databaseTools_filterSql_text.Text = DatabaseTools.FilterSql(MainForm.textBox_tools_databaseTools_filterSql_text.Text);
 			}
 			catch (Exception _Exception)
 			{

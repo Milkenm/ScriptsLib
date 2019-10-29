@@ -19,13 +19,13 @@ namespace TestingGrounds
 			try
 			{
 				bool _Success;
-				if (_MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
+				if (MainForm.comboBox_tg_databaseType.SelectedIndex == 0) // SQL Server
 				{
-					_Success = DatabaseTools.CheckLogin("Users", _MainForm.textBox_tools_databaseTools_checkLogin_user.Text, _MainForm.textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", DatabaseTools.DatabaseType.SqlServer);
+					_Success = DatabaseTools.CheckLogin("Users", MainForm.textBox_tools_databaseTools_checkLogin_user.Text, MainForm.textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", DatabaseTools.DatabaseType.SqlServer);
 				}
 				else
 				{
-					_Success = DatabaseTools.CheckLogin("Users", _MainForm.textBox_tools_databaseTools_checkLogin_user.Text, _MainForm.textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", DatabaseTools.DatabaseType.Access);
+					_Success = DatabaseTools.CheckLogin("Users", MainForm.textBox_tools_databaseTools_checkLogin_user.Text, MainForm.textBox_tools_databaseTools_checkLogin_pass.Text, "Name", "Password", DatabaseTools.DatabaseType.Access);
 				}
 
 				if (_Success == true)

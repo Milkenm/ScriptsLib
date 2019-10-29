@@ -16,16 +16,16 @@ namespace TestingGrounds
 	{
 		internal static void Event_DebugErrorsCheckBox()
 		{
-			if (_MainForm.checkBox_tg_debugErrors.Checked == true)
+			if (MainForm.checkBox_tg_debugErrors.Checked == true)
 			{
-				_MainForm.checkBox_tg_debug.Enabled = false;
+				MainForm.checkBox_tg_debug.Enabled = false;
 			}
 			else
 			{
-				_MainForm.checkBox_tg_debugErrors.Enabled = true;
+				MainForm.checkBox_tg_debugErrors.Enabled = true;
 			}
 
-			Dev._ErrorsOnly = _MainForm.checkBox_tg_debugErrors.Checked;
+			Dev._ErrorsOnly = MainForm.checkBox_tg_debugErrors.Checked;
 		}
 	}
 }
