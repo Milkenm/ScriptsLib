@@ -22,8 +22,6 @@ namespace Testing.LineGraph
 			InitializeComponent();
 
 			g = this.CreateGraphics();
-
-
 		}
 
 		private void LineGraph_Paint(object sender, PaintEventArgs e)
