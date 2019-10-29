@@ -2,7 +2,6 @@
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
-using ScriptsLib.Resources.Lang;
 #endregion Usings
 
 
@@ -21,7 +20,7 @@ namespace ScriptsLib.Network
 			{
 				// Create a TCP client.
 				TcpClient _Client = new TcpClient(_RemoteHost, _RemotePort);
-				
+
 				// Convert the message...
 				byte[] _Data = Encoding.ASCII.GetBytes(_Message);
 				// ...and then send it.
@@ -34,7 +33,7 @@ namespace ScriptsLib.Network
 			}
 			catch (SocketException _SocketException)
 			{
-				MessageBox.Show(string.Format(Lang._ErrorSocketException, _SocketException.Message), Lang._ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(string.Format(Lang.ErrorSocketException, _SocketException.Message), Lang.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}
