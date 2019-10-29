@@ -96,6 +96,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Testing2.cs" />
+    <Compile Include="Tests\Testing3.cs" />
+    <Compile Include="Tests\Testing4.cs" />
+    <Compile Include="Tests\Testing5.cs" />
+    <Compile Include="Tests\Testing8.cs" />
+    <Compile Include="Tests\Testing9.cs" />
+    <Compile Include="Tests\Testing7.cs" />
+    <Compile Include="Tests\Testing6.cs" />
+    <Compile Include="Tests\Testing1.cs" />
     <Compile Include="Values.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
