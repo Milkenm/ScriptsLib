@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 using ScriptsLib.Network;
 
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 #endregion Usings
 
 
@@ -22,7 +22,7 @@ namespace TestingGrounds
 			{
 				while (true)
 				{
-					MessageBox.Show("Received: \n\n\n" + Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), (int)Values._MainForm.numeric_network_packets_waitTcpPacket_localPort.Value), "Wait TCP Packet");
+					MessageBox.Show("Received: \n\n\n" + Packets.WaitTcpPacket(IPAddress.Parse("127.0.0.1"), (int)Static._MainForm.numeric_network_packets_waitTcpPacket_localPort.Value), "Wait TCP Packet");
 				}
 			})).Start();
 		}

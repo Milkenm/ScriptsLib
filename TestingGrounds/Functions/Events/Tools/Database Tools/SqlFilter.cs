@@ -4,7 +4,7 @@ using System;
 using ScriptsLib.nTools;
 
 using static TestingGrounds.Functions;
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 #endregion Usings
 
 

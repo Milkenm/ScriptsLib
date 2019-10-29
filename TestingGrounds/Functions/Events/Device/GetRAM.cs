@@ -1,6 +1,6 @@
 ﻿#region Usings
 using static ScriptsLib.Device;
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 #endregion Usings
 
 

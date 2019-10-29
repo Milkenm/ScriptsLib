@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 
 using static TestingGrounds.Events;
-using static TestingGrounds.Values;
+using static TestingGrounds.Static;
 #endregion Usings
 
 
