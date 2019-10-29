@@ -107,7 +107,7 @@
     <Compile Include="Tests\Testing7.cs" />
     <Compile Include="Tests\Testing6.cs" />
     <Compile Include="Tests\Testing1.cs" />
-    <Compile Include="Values.cs" />
+    <Compile Include="Static.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
