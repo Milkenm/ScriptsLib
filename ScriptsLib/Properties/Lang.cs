@@ -33,8 +33,10 @@ namespace ScriptsLib
 			Português,
 		}
 
-		internal static readonly string ScriptsLibTitle = "ScriptsLib";
+
+
 		internal static string Language { get; set; }
+		internal static string ScriptsLibTitle { get; set; }
 		internal static string ErrorTitle { get; set; }
 		internal static string ErrorSocketException { get; set; }
 	}
