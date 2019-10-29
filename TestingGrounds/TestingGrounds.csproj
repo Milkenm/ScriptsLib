@@ -123,12 +123,6 @@
     <None Include="Properties\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScriptsLib\ScriptsLib.csproj">
-      <Project>{9bc8d814-e401-4fdf-aea2-b2aa39a59067}</Project>
-      <Name>ScriptsLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +135,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScriptsLib\ScriptsLib.csproj">
+      <Project>{9bc8d814-e401-4fdf-aea2-b2aa39a59067}</Project>
+      <Name>ScriptsLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,7 +2,7 @@
 using System;
 
 using ScriptsLib;
-using ScriptsLib.Controls;
+using ScriptsLib.Controls.Tweaks;
 using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
 using static ScriptsLib.Network.Security;

@@ -1,7 +1,7 @@
 ﻿#region Usings
 using System;
 
-using ScriptsLib.Controls;
+using ScriptsLib.Controls.Tweaks;
 
 using static TestingGrounds.Functions;
 #endregion Usings
