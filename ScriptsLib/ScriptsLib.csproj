@@ -82,13 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspNet\ShowPopup.cs" />
-    <Compile Include="Controls\SlComboBox\ResizeComboBox.cs" />
-    <Compile Include="Controls\SlForm\BringFormToFront.cs" />
-    <Compile Include="Controls\SlForm\GetOpenForms.cs" />
-    <Compile Include="Controls\SlForm\IsFormOpen.cs" />
-    <Compile Include="Controls\SlForm\SetIntroForm.cs" />
-    <Compile Include="Controls\SlMessageBox\ShowConfirmationDialog.cs" />
-    <Compile Include="Controls\SlTextBox\OnlyNumbersTextBox.cs" />
+    <Compile Include="Controls\Tweaks\ComboBox\ResizeComboBox.cs" />
+    <Compile Include="Controls\Tweaks\Form\BringFormToFront.cs" />
+    <Compile Include="Controls\Tweaks\Form\GetOpenForms.cs" />
+    <Compile Include="Controls\Tweaks\Form\IsFormOpen.cs" />
+    <Compile Include="Controls\Tweaks\Form\SetIntroForm.cs" />
+    <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
+    <Compile Include="Controls\Tweaks\TextBox\OnlyNumbersTextBox.cs" />
     <Compile Include="Databases\Access\CreateDatabase.cs" />
     <Compile Include="Databases\Access\CreateTable.cs" />
     <Compile Include="Databases\Access\Delete.cs" />

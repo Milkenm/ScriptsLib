@@ -10,7 +10,7 @@ using static ScriptsLib.Dev;
 // https://stackoverflow.com/questions/3158004/how-do-i-set-the-height-of-a-combobox
 // # = #
 
-namespace ScriptsLib.nControls
+namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlComboBox
 	{

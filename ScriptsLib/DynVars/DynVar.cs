@@ -17,7 +17,7 @@ namespace ScriptsLib
 		{
 			if (String.IsNullOrEmpty(_DynvarsFilePath))
 			{
-				_DynvarsFilePath = DynVars._DynvarsFilePath;
+				_DynvarsFilePath = DynVars.DynvarsFilePath;
 			}
 
 			#region Exceptions
@@ -41,9 +41,7 @@ namespace ScriptsLib
 				File.WriteAllText(_DynvarsFilePath, $"ScriptsLib (v{Info._Version}) DynVars File. Please do not modify.\n\n\n\n");
 			}
 			#endregion Generate DynVars File and Path
-
-
-
+			
 			if (String.IsNullOrEmpty(_Value)) // Get variable value.
 			{
 				if (File.ReadAllText(_DynvarsFilePath).Contains($"\n{_Variable}=")) // If the variable exists.

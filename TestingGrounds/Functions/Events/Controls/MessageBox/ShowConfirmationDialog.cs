@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-using ScriptsLib.nControls;
+using ScriptsLib.Controls;
 
 using static TestingGrounds.Functions;
 #endregion Usings

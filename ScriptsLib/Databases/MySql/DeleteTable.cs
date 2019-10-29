@@ -29,10 +29,7 @@ namespace ScriptsLib.nDatabases
 					_MySqlConnection.Close();
 				});
 			}
-			catch (Exception _Exception)
-			{
-				Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-			}
+			catch (Exception _Exception) { Msg(_Exception.Message, MsgType.Error, _Exception.Source); }
 		}
 	}
 }

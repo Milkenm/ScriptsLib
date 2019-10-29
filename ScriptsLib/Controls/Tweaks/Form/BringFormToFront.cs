@@ -7,7 +7,7 @@ using static ScriptsLib.Dev;
 
 
 
-namespace ScriptsLib.nControls
+namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlForm
 	{

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 
 
-namespace ScriptsLib.nControls
+namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlTextBox
 	{

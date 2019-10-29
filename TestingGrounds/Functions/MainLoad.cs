@@ -2,7 +2,7 @@
 using System;
 
 using ScriptsLib;
-using ScriptsLib.nControls;
+using ScriptsLib.Controls;
 using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
 using static ScriptsLib.nNetwork.Security;
@@ -34,7 +34,7 @@ namespace TestingGrounds
 			MySqlDatabase._Password = "";
 			MySqlDatabase._SslMode = "none";
 
-			DynVars._DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
+			DynVars.DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
 
             
 			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))

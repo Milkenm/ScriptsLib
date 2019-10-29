@@ -1,7 +1,7 @@
 ﻿#region Usings
 using System;
 
-using ScriptsLib.nControls;
+using ScriptsLib.Controls;
 
 using static TestingGrounds.Functions;
 using static TestingGrounds.Values;
