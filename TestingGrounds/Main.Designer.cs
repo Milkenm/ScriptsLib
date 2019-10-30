@@ -320,7 +320,7 @@
 			// 
 			// button_database_createTable
 			// 
-			this.button_database_createTable.Location = new System.Drawing.Point(363, 109);
+			this.button_database_createTable.Location = new System.Drawing.Point(364, 134);
 			this.button_database_createTable.Name = "button_database_createTable";
 			this.button_database_createTable.Size = new System.Drawing.Size(103, 23);
 			this.button_database_createTable.TabIndex = 0;
@@ -329,7 +329,7 @@
 			// 
 			// button_database_deleteTable
 			// 
-			this.button_database_deleteTable.Location = new System.Drawing.Point(347, 118);
+			this.button_database_deleteTable.Location = new System.Drawing.Point(343, 134);
 			this.button_database_deleteTable.Name = "button_database_deleteTable";
 			this.button_database_deleteTable.Size = new System.Drawing.Size(145, 23);
 			this.button_database_deleteTable.TabIndex = 1;
@@ -338,7 +338,7 @@
 			// 
 			// button_database_insert
 			// 
-			this.button_database_insert.Location = new System.Drawing.Point(351, 116);
+			this.button_database_insert.Location = new System.Drawing.Point(356, 134);
 			this.button_database_insert.Name = "button_database_insert";
 			this.button_database_insert.Size = new System.Drawing.Size(119, 23);
 			this.button_database_insert.TabIndex = 2;
@@ -347,7 +347,7 @@
 			// 
 			// button_database_createDatabase
 			// 
-			this.button_database_createDatabase.Location = new System.Drawing.Point(348, 120);
+			this.button_database_createDatabase.Location = new System.Drawing.Point(355, 134);
 			this.button_database_createDatabase.Name = "button_database_createDatabase";
 			this.button_database_createDatabase.Size = new System.Drawing.Size(120, 23);
 			this.button_database_createDatabase.TabIndex = 3;
@@ -356,7 +356,7 @@
 			// 
 			// button_tools_crash_crash
 			// 
-			this.button_tools_crash_crash.Location = new System.Drawing.Point(315, 109);
+			this.button_tools_crash_crash.Location = new System.Drawing.Point(311, 124);
 			this.button_tools_crash_crash.Name = "button_tools_crash_crash";
 			this.button_tools_crash_crash.Size = new System.Drawing.Size(209, 43);
 			this.button_tools_crash_crash.TabIndex = 4;
@@ -365,7 +365,7 @@
 			// 
 			// button_database_delete
 			// 
-			this.button_database_delete.Location = new System.Drawing.Point(344, 117);
+			this.button_database_delete.Location = new System.Drawing.Point(347, 134);
 			this.button_database_delete.Name = "button_database_delete";
 			this.button_database_delete.Size = new System.Drawing.Size(136, 23);
 			this.button_database_delete.TabIndex = 6;
@@ -374,7 +374,7 @@
 			// 
 			// button_database_select
 			// 
-			this.button_database_select.Location = new System.Drawing.Point(359, 111);
+			this.button_database_select.Location = new System.Drawing.Point(343, 134);
 			this.button_database_select.Name = "button_database_select";
 			this.button_database_select.Size = new System.Drawing.Size(145, 23);
 			this.button_database_select.TabIndex = 4;
@@ -395,7 +395,7 @@
 			// 
 			// numeric_generators_generatePassword_length
 			// 
-			this.numeric_generators_generatePassword_length.Location = new System.Drawing.Point(332, 152);
+			this.numeric_generators_generatePassword_length.Location = new System.Drawing.Point(331, 173);
 			this.numeric_generators_generatePassword_length.Maximum = new decimal(new int[] {
             24,
             0,
@@ -418,7 +418,7 @@
 			// 
 			// textBox_generators_generatePassword_password
 			// 
-			this.textBox_generators_generatePassword_password.Location = new System.Drawing.Point(288, 74);
+			this.textBox_generators_generatePassword_password.Location = new System.Drawing.Point(287, 95);
 			this.textBox_generators_generatePassword_password.Name = "textBox_generators_generatePassword_password";
 			this.textBox_generators_generatePassword_password.ReadOnly = true;
 			this.textBox_generators_generatePassword_password.Size = new System.Drawing.Size(256, 20);
@@ -426,7 +426,7 @@
 			// 
 			// button_generators_generatePassword_generate
 			// 
-			this.button_generators_generatePassword_generate.Location = new System.Drawing.Point(431, 152);
+			this.button_generators_generatePassword_generate.Location = new System.Drawing.Point(430, 173);
 			this.button_generators_generatePassword_generate.Name = "button_generators_generatePassword_generate";
 			this.button_generators_generatePassword_generate.Size = new System.Drawing.Size(113, 22);
 			this.button_generators_generatePassword_generate.TabIndex = 10;
@@ -435,14 +435,14 @@
 			// 
 			// textBox_tools_log_logMessage
 			// 
-			this.textBox_tools_log_logMessage.Location = new System.Drawing.Point(326, 87);
+			this.textBox_tools_log_logMessage.Location = new System.Drawing.Point(348, 95);
 			this.textBox_tools_log_logMessage.Name = "textBox_tools_log_logMessage";
 			this.textBox_tools_log_logMessage.Size = new System.Drawing.Size(193, 20);
 			this.textBox_tools_log_logMessage.TabIndex = 16;
 			// 
 			// button_tools_log_log
 			// 
-			this.button_tools_log_log.Location = new System.Drawing.Point(433, 166);
+			this.button_tools_log_log.Location = new System.Drawing.Point(455, 174);
 			this.button_tools_log_log.Name = "button_tools_log_log";
 			this.button_tools_log_log.Size = new System.Drawing.Size(86, 22);
 			this.button_tools_log_log.TabIndex = 15;
@@ -451,7 +451,7 @@
 			// 
 			// textBox_tools_log_logSource
 			// 
-			this.textBox_tools_log_logSource.Location = new System.Drawing.Point(326, 113);
+			this.textBox_tools_log_logSource.Location = new System.Drawing.Point(348, 121);
 			this.textBox_tools_log_logSource.Name = "textBox_tools_log_logSource";
 			this.textBox_tools_log_logSource.Size = new System.Drawing.Size(193, 20);
 			this.textBox_tools_log_logSource.TabIndex = 17;
@@ -463,21 +463,21 @@
             "INFO",
             "ERROR",
             "WARNING"});
-			this.comboBox_tools_log_logType.Location = new System.Drawing.Point(326, 139);
+			this.comboBox_tools_log_logType.Location = new System.Drawing.Point(348, 147);
 			this.comboBox_tools_log_logType.Name = "comboBox_tools_log_logType";
 			this.comboBox_tools_log_logType.Size = new System.Drawing.Size(193, 21);
 			this.comboBox_tools_log_logType.TabIndex = 18;
 			// 
 			// textBox_tools_hash_text
 			// 
-			this.textBox_tools_hash_text.Location = new System.Drawing.Point(160, 94);
+			this.textBox_tools_hash_text.Location = new System.Drawing.Point(157, 118);
 			this.textBox_tools_hash_text.Name = "textBox_tools_hash_text";
 			this.textBox_tools_hash_text.Size = new System.Drawing.Size(519, 20);
 			this.textBox_tools_hash_text.TabIndex = 0;
 			// 
 			// button_tools_databaseTools_selectUnique_select
 			// 
-			this.button_tools_databaseTools_selectUnique_select.Location = new System.Drawing.Point(505, 129);
+			this.button_tools_databaseTools_selectUnique_select.Location = new System.Drawing.Point(501, 144);
 			this.button_tools_databaseTools_selectUnique_select.Name = "button_tools_databaseTools_selectUnique_select";
 			this.button_tools_databaseTools_selectUnique_select.Size = new System.Drawing.Size(75, 23);
 			this.button_tools_databaseTools_selectUnique_select.TabIndex = 13;
@@ -486,14 +486,14 @@
 			// 
 			// textBox_tools_databaseTools_selectUnique_column
 			// 
-			this.textBox_tools_databaseTools_selectUnique_column.Location = new System.Drawing.Point(244, 103);
+			this.textBox_tools_databaseTools_selectUnique_column.Location = new System.Drawing.Point(240, 118);
 			this.textBox_tools_databaseTools_selectUnique_column.Name = "textBox_tools_databaseTools_selectUnique_column";
 			this.textBox_tools_databaseTools_selectUnique_column.Size = new System.Drawing.Size(336, 20);
 			this.textBox_tools_databaseTools_selectUnique_column.TabIndex = 12;
 			// 
 			// textBox_tools_databaseTools_selectUnique_table
 			// 
-			this.textBox_tools_databaseTools_selectUnique_table.Location = new System.Drawing.Point(244, 77);
+			this.textBox_tools_databaseTools_selectUnique_table.Location = new System.Drawing.Point(240, 92);
 			this.textBox_tools_databaseTools_selectUnique_table.Name = "textBox_tools_databaseTools_selectUnique_table";
 			this.textBox_tools_databaseTools_selectUnique_table.Size = new System.Drawing.Size(336, 20);
 			this.textBox_tools_databaseTools_selectUnique_table.TabIndex = 11;
@@ -501,7 +501,7 @@
 			// label_tools_getDate_date
 			// 
 			this.label_tools_getDate_date.AutoSize = true;
-			this.label_tools_getDate_date.Location = new System.Drawing.Point(347, 120);
+			this.label_tools_getDate_date.Location = new System.Drawing.Point(351, 139);
 			this.label_tools_getDate_date.Name = "label_tools_getDate_date";
 			this.label_tools_getDate_date.Size = new System.Drawing.Size(129, 13);
 			this.label_tools_getDate_date.TabIndex = 16;
@@ -546,7 +546,7 @@
 			// 
 			// button_network_wifi_connect_connect
 			// 
-			this.button_network_wifi_connect_connect.Location = new System.Drawing.Point(443, 149);
+			this.button_network_wifi_connect_connect.Location = new System.Drawing.Point(427, 161);
 			this.button_network_wifi_connect_connect.Name = "button_network_wifi_connect_connect";
 			this.button_network_wifi_connect_connect.Size = new System.Drawing.Size(75, 23);
 			this.button_network_wifi_connect_connect.TabIndex = 4;
@@ -556,7 +556,7 @@
 			// label_network_wifi_connect_password
 			// 
 			this.label_network_wifi_connect_password.AutoSize = true;
-			this.label_network_wifi_connect_password.Location = new System.Drawing.Point(330, 106);
+			this.label_network_wifi_connect_password.Location = new System.Drawing.Point(314, 118);
 			this.label_network_wifi_connect_password.Name = "label_network_wifi_connect_password";
 			this.label_network_wifi_connect_password.Size = new System.Drawing.Size(53, 13);
 			this.label_network_wifi_connect_password.TabIndex = 3;
@@ -565,7 +565,7 @@
 			// label_network_wifi_connect_ssid
 			// 
 			this.label_network_wifi_connect_ssid.AutoSize = true;
-			this.label_network_wifi_connect_ssid.Location = new System.Drawing.Point(330, 63);
+			this.label_network_wifi_connect_ssid.Location = new System.Drawing.Point(314, 75);
 			this.label_network_wifi_connect_ssid.Name = "label_network_wifi_connect_ssid";
 			this.label_network_wifi_connect_ssid.Size = new System.Drawing.Size(32, 13);
 			this.label_network_wifi_connect_ssid.TabIndex = 2;
@@ -573,14 +573,14 @@
 			// 
 			// textBox_network_wifi_connect_wifiPassword
 			// 
-			this.textBox_network_wifi_connect_wifiPassword.Location = new System.Drawing.Point(333, 122);
+			this.textBox_network_wifi_connect_wifiPassword.Location = new System.Drawing.Point(317, 134);
 			this.textBox_network_wifi_connect_wifiPassword.Name = "textBox_network_wifi_connect_wifiPassword";
 			this.textBox_network_wifi_connect_wifiPassword.Size = new System.Drawing.Size(185, 20);
 			this.textBox_network_wifi_connect_wifiPassword.TabIndex = 1;
 			// 
 			// textBox_network_wifi_connect_wifiSsid
 			// 
-			this.textBox_network_wifi_connect_wifiSsid.Location = new System.Drawing.Point(333, 79);
+			this.textBox_network_wifi_connect_wifiSsid.Location = new System.Drawing.Point(317, 91);
 			this.textBox_network_wifi_connect_wifiSsid.Name = "textBox_network_wifi_connect_wifiSsid";
 			this.textBox_network_wifi_connect_wifiSsid.Size = new System.Drawing.Size(185, 20);
 			this.textBox_network_wifi_connect_wifiSsid.TabIndex = 0;
@@ -588,7 +588,7 @@
 			// label_tools_replaceString_replacewith
 			// 
 			this.label_tools_replaceString_replacewith.AutoSize = true;
-			this.label_tools_replaceString_replacewith.Location = new System.Drawing.Point(416, 138);
+			this.label_tools_replaceString_replacewith.Location = new System.Drawing.Point(450, 143);
 			this.label_tools_replaceString_replacewith.Name = "label_tools_replaceString_replacewith";
 			this.label_tools_replaceString_replacewith.Size = new System.Drawing.Size(29, 13);
 			this.label_tools_replaceString_replacewith.TabIndex = 27;
@@ -596,9 +596,9 @@
 			// 
 			// button_tools_replaceString_replace
 			// 
-			this.button_tools_replaceString_replace.Location = new System.Drawing.Point(466, 172);
+			this.button_tools_replaceString_replace.Location = new System.Drawing.Point(485, 166);
 			this.button_tools_replaceString_replace.Name = "button_tools_replaceString_replace";
-			this.button_tools_replaceString_replace.Size = new System.Drawing.Size(75, 23);
+			this.button_tools_replaceString_replace.Size = new System.Drawing.Size(90, 23);
 			this.button_tools_replaceString_replace.TabIndex = 24;
 			this.button_tools_replaceString_replace.Text = "Replace";
 			this.button_tools_replaceString_replace.UseVisualStyleBackColor = true;
@@ -606,7 +606,7 @@
 			// label_tools_replaceString_replace
 			// 
 			this.label_tools_replaceString_replace.AutoSize = true;
-			this.label_tools_replaceString_replace.Location = new System.Drawing.Point(222, 138);
+			this.label_tools_replaceString_replace.Location = new System.Drawing.Point(256, 143);
 			this.label_tools_replaceString_replace.Name = "label_tools_replaceString_replace";
 			this.label_tools_replaceString_replace.Size = new System.Drawing.Size(50, 13);
 			this.label_tools_replaceString_replace.TabIndex = 26;
@@ -615,7 +615,7 @@
 			// label_tools_replaceString_original
 			// 
 			this.label_tools_replaceString_original.AutoSize = true;
-			this.label_tools_replaceString_original.Location = new System.Drawing.Point(227, 100);
+			this.label_tools_replaceString_original.Location = new System.Drawing.Point(261, 105);
 			this.label_tools_replaceString_original.Name = "label_tools_replaceString_original";
 			this.label_tools_replaceString_original.Size = new System.Drawing.Size(45, 13);
 			this.label_tools_replaceString_original.TabIndex = 25;
@@ -623,28 +623,28 @@
 			// 
 			// textBox_tools_replaceString_replacewith
 			// 
-			this.textBox_tools_replaceString_replacewith.Location = new System.Drawing.Point(451, 135);
+			this.textBox_tools_replaceString_replacewith.Location = new System.Drawing.Point(485, 140);
 			this.textBox_tools_replaceString_replacewith.Name = "textBox_tools_replaceString_replacewith";
 			this.textBox_tools_replaceString_replacewith.Size = new System.Drawing.Size(90, 20);
 			this.textBox_tools_replaceString_replacewith.TabIndex = 2;
 			// 
 			// textBox_tools_replaceString_replace
 			// 
-			this.textBox_tools_replaceString_replace.Location = new System.Drawing.Point(278, 135);
+			this.textBox_tools_replaceString_replace.Location = new System.Drawing.Point(312, 140);
 			this.textBox_tools_replaceString_replace.Name = "textBox_tools_replaceString_replace";
 			this.textBox_tools_replaceString_replace.Size = new System.Drawing.Size(132, 20);
 			this.textBox_tools_replaceString_replace.TabIndex = 1;
 			// 
 			// textBox_tools_replaceString_original
 			// 
-			this.textBox_tools_replaceString_original.Location = new System.Drawing.Point(278, 97);
+			this.textBox_tools_replaceString_original.Location = new System.Drawing.Point(312, 102);
 			this.textBox_tools_replaceString_original.Name = "textBox_tools_replaceString_original";
 			this.textBox_tools_replaceString_original.Size = new System.Drawing.Size(263, 20);
 			this.textBox_tools_replaceString_original.TabIndex = 0;
 			// 
 			// button_math_calculateCombinations_calculate
 			// 
-			this.button_math_calculateCombinations_calculate.Location = new System.Drawing.Point(424, 150);
+			this.button_math_calculateCombinations_calculate.Location = new System.Drawing.Point(464, 160);
 			this.button_math_calculateCombinations_calculate.Name = "button_math_calculateCombinations_calculate";
 			this.button_math_calculateCombinations_calculate.Size = new System.Drawing.Size(75, 23);
 			this.button_math_calculateCombinations_calculate.TabIndex = 24;
@@ -653,7 +653,7 @@
 			// 
 			// numeric_math_calculateCombinations_group
 			// 
-			this.numeric_math_calculateCombinations_group.Location = new System.Drawing.Point(311, 124);
+			this.numeric_math_calculateCombinations_group.Location = new System.Drawing.Point(351, 134);
 			this.numeric_math_calculateCombinations_group.Name = "numeric_math_calculateCombinations_group";
 			this.numeric_math_calculateCombinations_group.Size = new System.Drawing.Size(188, 20);
 			this.numeric_math_calculateCombinations_group.TabIndex = 3;
@@ -661,7 +661,7 @@
 			// label_math_calculateCombinations_group
 			// 
 			this.label_math_calculateCombinations_group.AutoSize = true;
-			this.label_math_calculateCombinations_group.Location = new System.Drawing.Point(266, 126);
+			this.label_math_calculateCombinations_group.Location = new System.Drawing.Point(306, 136);
 			this.label_math_calculateCombinations_group.Name = "label_math_calculateCombinations_group";
 			this.label_math_calculateCombinations_group.Size = new System.Drawing.Size(39, 13);
 			this.label_math_calculateCombinations_group.TabIndex = 2;
@@ -670,7 +670,7 @@
 			// label_math_calculateCombinations_elements
 			// 
 			this.label_math_calculateCombinations_elements.AutoSize = true;
-			this.label_math_calculateCombinations_elements.Location = new System.Drawing.Point(252, 100);
+			this.label_math_calculateCombinations_elements.Location = new System.Drawing.Point(292, 110);
 			this.label_math_calculateCombinations_elements.Name = "label_math_calculateCombinations_elements";
 			this.label_math_calculateCombinations_elements.Size = new System.Drawing.Size(53, 13);
 			this.label_math_calculateCombinations_elements.TabIndex = 1;
@@ -678,14 +678,14 @@
 			// 
 			// numeric_math_calculateCombinations_elements
 			// 
-			this.numeric_math_calculateCombinations_elements.Location = new System.Drawing.Point(311, 98);
+			this.numeric_math_calculateCombinations_elements.Location = new System.Drawing.Point(351, 108);
 			this.numeric_math_calculateCombinations_elements.Name = "numeric_math_calculateCombinations_elements";
 			this.numeric_math_calculateCombinations_elements.Size = new System.Drawing.Size(188, 20);
 			this.numeric_math_calculateCombinations_elements.TabIndex = 0;
 			// 
 			// button_math_calculateFactorial_calculate
 			// 
-			this.button_math_calculateFactorial_calculate.Location = new System.Drawing.Point(429, 132);
+			this.button_math_calculateFactorial_calculate.Location = new System.Drawing.Point(461, 146);
 			this.button_math_calculateFactorial_calculate.Name = "button_math_calculateFactorial_calculate";
 			this.button_math_calculateFactorial_calculate.Size = new System.Drawing.Size(75, 23);
 			this.button_math_calculateFactorial_calculate.TabIndex = 24;
@@ -695,7 +695,7 @@
 			// label_math_calculateFactorial_factorial
 			// 
 			this.label_math_calculateFactorial_factorial.AutoSize = true;
-			this.label_math_calculateFactorial_factorial.Location = new System.Drawing.Point(263, 109);
+			this.label_math_calculateFactorial_factorial.Location = new System.Drawing.Point(295, 123);
 			this.label_math_calculateFactorial_factorial.Name = "label_math_calculateFactorial_factorial";
 			this.label_math_calculateFactorial_factorial.Size = new System.Drawing.Size(47, 13);
 			this.label_math_calculateFactorial_factorial.TabIndex = 1;
@@ -703,7 +703,7 @@
 			// 
 			// numeric_math_calculateFactorial_factorial
 			// 
-			this.numeric_math_calculateFactorial_factorial.Location = new System.Drawing.Point(316, 107);
+			this.numeric_math_calculateFactorial_factorial.Location = new System.Drawing.Point(348, 121);
 			this.numeric_math_calculateFactorial_factorial.Name = "numeric_math_calculateFactorial_factorial";
 			this.numeric_math_calculateFactorial_factorial.Size = new System.Drawing.Size(188, 20);
 			this.numeric_math_calculateFactorial_factorial.TabIndex = 0;
@@ -860,7 +860,7 @@
 			// label_tools_hash_hashed
 			// 
 			this.label_tools_hash_hashed.AutoSize = true;
-			this.label_tools_hash_hashed.Location = new System.Drawing.Point(157, 129);
+			this.label_tools_hash_hashed.Location = new System.Drawing.Point(154, 153);
 			this.label_tools_hash_hashed.Name = "label_tools_hash_hashed";
 			this.label_tools_hash_hashed.Size = new System.Drawing.Size(44, 13);
 			this.label_tools_hash_hashed.TabIndex = 3;
@@ -869,7 +869,7 @@
 			// label_tools_hash_text
 			// 
 			this.label_tools_hash_text.AutoSize = true;
-			this.label_tools_hash_text.Location = new System.Drawing.Point(157, 78);
+			this.label_tools_hash_text.Location = new System.Drawing.Point(154, 102);
 			this.label_tools_hash_text.Name = "label_tools_hash_text";
 			this.label_tools_hash_text.Size = new System.Drawing.Size(28, 13);
 			this.label_tools_hash_text.TabIndex = 2;
@@ -877,7 +877,7 @@
 			// 
 			// textBox_tools_hash_hashed
 			// 
-			this.textBox_tools_hash_hashed.Location = new System.Drawing.Point(160, 145);
+			this.textBox_tools_hash_hashed.Location = new System.Drawing.Point(157, 169);
 			this.textBox_tools_hash_hashed.Name = "textBox_tools_hash_hashed";
 			this.textBox_tools_hash_hashed.Size = new System.Drawing.Size(519, 20);
 			this.textBox_tools_hash_hashed.TabIndex = 1;
@@ -922,14 +922,14 @@
 			// 
 			// textBox_tools_databaseTools_checkLogin_user
 			// 
-			this.textBox_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(222, 69);
+			this.textBox_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(238, 92);
 			this.textBox_tools_databaseTools_checkLogin_user.Name = "textBox_tools_databaseTools_checkLogin_user";
 			this.textBox_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(380, 20);
 			this.textBox_tools_databaseTools_checkLogin_user.TabIndex = 16;
 			// 
 			// button_tools_databaseTools_checkLogin_login
 			// 
-			this.button_tools_databaseTools_checkLogin_login.Location = new System.Drawing.Point(484, 121);
+			this.button_tools_databaseTools_checkLogin_login.Location = new System.Drawing.Point(500, 144);
 			this.button_tools_databaseTools_checkLogin_login.Name = "button_tools_databaseTools_checkLogin_login";
 			this.button_tools_databaseTools_checkLogin_login.Size = new System.Drawing.Size(118, 23);
 			this.button_tools_databaseTools_checkLogin_login.TabIndex = 15;
@@ -939,7 +939,7 @@
 			// label_tools_databaseTools_checkLogin_pass
 			// 
 			this.label_tools_databaseTools_checkLogin_pass.AutoSize = true;
-			this.label_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(183, 98);
+			this.label_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(199, 121);
 			this.label_tools_databaseTools_checkLogin_pass.Name = "label_tools_databaseTools_checkLogin_pass";
 			this.label_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(33, 13);
 			this.label_tools_databaseTools_checkLogin_pass.TabIndex = 19;
@@ -948,7 +948,7 @@
 			// label_tools_databaseTools_checkLogin_user
 			// 
 			this.label_tools_databaseTools_checkLogin_user.AutoSize = true;
-			this.label_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(184, 72);
+			this.label_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(200, 95);
 			this.label_tools_databaseTools_checkLogin_user.Name = "label_tools_databaseTools_checkLogin_user";
 			this.label_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(32, 13);
 			this.label_tools_databaseTools_checkLogin_user.TabIndex = 18;
@@ -956,7 +956,7 @@
 			// 
 			// textBox_tools_databaseTools_checkLogin_pass
 			// 
-			this.textBox_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(222, 95);
+			this.textBox_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(238, 118);
 			this.textBox_tools_databaseTools_checkLogin_pass.Name = "textBox_tools_databaseTools_checkLogin_pass";
 			this.textBox_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(380, 20);
 			this.textBox_tools_databaseTools_checkLogin_pass.TabIndex = 17;
@@ -975,7 +975,7 @@
 			// 
 			// button_tools_databaseTools_filterSql_filter
 			// 
-			this.button_tools_databaseTools_filterSql_filter.Location = new System.Drawing.Point(584, 123);
+			this.button_tools_databaseTools_filterSql_filter.Location = new System.Drawing.Point(584, 131);
 			this.button_tools_databaseTools_filterSql_filter.Name = "button_tools_databaseTools_filterSql_filter";
 			this.button_tools_databaseTools_filterSql_filter.Size = new System.Drawing.Size(97, 22);
 			this.button_tools_databaseTools_filterSql_filter.TabIndex = 18;
@@ -984,7 +984,7 @@
 			// 
 			// textBox_tools_databaseTools_filterSql_text
 			// 
-			this.textBox_tools_databaseTools_filterSql_text.Location = new System.Drawing.Point(136, 97);
+			this.textBox_tools_databaseTools_filterSql_text.Location = new System.Drawing.Point(136, 105);
 			this.textBox_tools_databaseTools_filterSql_text.Name = "textBox_tools_databaseTools_filterSql_text";
 			this.textBox_tools_databaseTools_filterSql_text.Size = new System.Drawing.Size(545, 20);
 			this.textBox_tools_databaseTools_filterSql_text.TabIndex = 17;
@@ -1033,7 +1033,7 @@
 			// label_tools_log_message
 			// 
 			this.label_tools_log_message.AutoSize = true;
-			this.label_tools_log_message.Location = new System.Drawing.Point(267, 90);
+			this.label_tools_log_message.Location = new System.Drawing.Point(289, 98);
 			this.label_tools_log_message.Name = "label_tools_log_message";
 			this.label_tools_log_message.Size = new System.Drawing.Size(53, 13);
 			this.label_tools_log_message.TabIndex = 19;
@@ -1042,7 +1042,7 @@
 			// label_tools_log_type
 			// 
 			this.label_tools_log_type.AutoSize = true;
-			this.label_tools_log_type.Location = new System.Drawing.Point(286, 142);
+			this.label_tools_log_type.Location = new System.Drawing.Point(308, 150);
 			this.label_tools_log_type.Name = "label_tools_log_type";
 			this.label_tools_log_type.Size = new System.Drawing.Size(34, 13);
 			this.label_tools_log_type.TabIndex = 21;
@@ -1051,7 +1051,7 @@
 			// label_tools_log_source
 			// 
 			this.label_tools_log_source.AutoSize = true;
-			this.label_tools_log_source.Location = new System.Drawing.Point(276, 116);
+			this.label_tools_log_source.Location = new System.Drawing.Point(298, 124);
 			this.label_tools_log_source.Name = "label_tools_log_source";
 			this.label_tools_log_source.Size = new System.Drawing.Size(44, 13);
 			this.label_tools_log_source.TabIndex = 20;
@@ -1138,7 +1138,7 @@
 			// label_generators_generatePassword_allowedChars
 			// 
 			this.label_generators_generatePassword_allowedChars.AutoSize = true;
-			this.label_generators_generatePassword_allowedChars.Location = new System.Drawing.Point(289, 110);
+			this.label_generators_generatePassword_allowedChars.Location = new System.Drawing.Point(288, 131);
 			this.label_generators_generatePassword_allowedChars.Name = "label_generators_generatePassword_allowedChars";
 			this.label_generators_generatePassword_allowedChars.Size = new System.Drawing.Size(77, 13);
 			this.label_generators_generatePassword_allowedChars.TabIndex = 15;
@@ -1146,7 +1146,7 @@
 			// 
 			// textBox_generators_generatePassword_allowedChars
 			// 
-			this.textBox_generators_generatePassword_allowedChars.Location = new System.Drawing.Point(288, 126);
+			this.textBox_generators_generatePassword_allowedChars.Location = new System.Drawing.Point(287, 147);
 			this.textBox_generators_generatePassword_allowedChars.Name = "textBox_generators_generatePassword_allowedChars";
 			this.textBox_generators_generatePassword_allowedChars.Size = new System.Drawing.Size(256, 20);
 			this.textBox_generators_generatePassword_allowedChars.TabIndex = 14;
@@ -1155,7 +1155,7 @@
 			// _generators_generatePassword_length
 			// 
 			this._generators_generatePassword_length.AutoSize = true;
-			this._generators_generatePassword_length.Location = new System.Drawing.Point(289, 155);
+			this._generators_generatePassword_length.Location = new System.Drawing.Point(288, 176);
 			this._generators_generatePassword_length.Name = "_generators_generatePassword_length";
 			this._generators_generatePassword_length.Size = new System.Drawing.Size(43, 13);
 			this._generators_generatePassword_length.TabIndex = 13;
@@ -1286,14 +1286,14 @@
 			// comboBox_controls_comboBox_resizeComboBox_resize
 			// 
 			this.comboBox_controls_comboBox_resizeComboBox_resize.FormattingEnabled = true;
-			this.comboBox_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(386, 92);
+			this.comboBox_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(354, 95);
 			this.comboBox_controls_comboBox_resizeComboBox_resize.Name = "comboBox_controls_comboBox_resizeComboBox_resize";
 			this.comboBox_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(141, 21);
 			this.comboBox_controls_comboBox_resizeComboBox_resize.TabIndex = 16;
 			// 
 			// button_controls_comboBox_resizeComboBox_resize
 			// 
-			this.button_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(339, 91);
+			this.button_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(307, 94);
 			this.button_controls_comboBox_resizeComboBox_resize.Name = "button_controls_comboBox_resizeComboBox_resize";
 			this.button_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(47, 39);
 			this.button_controls_comboBox_resizeComboBox_resize.TabIndex = 15;
@@ -1336,7 +1336,7 @@
 			// checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
 			// 
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.AutoSize = true;
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 125);
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(308, 118);
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(126, 17);
 			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 1;
@@ -1345,7 +1345,7 @@
 			// 
 			// textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
 			// 
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 99);
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(308, 92);
 			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
 			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
 			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 0;
@@ -1384,7 +1384,7 @@
 			// 
 			// button_controls_form_getOpenForms_getOpenForms
 			// 
-			this.button_controls_form_getOpenForms_getOpenForms.Location = new System.Drawing.Point(346, 102);
+			this.button_controls_form_getOpenForms_getOpenForms.Location = new System.Drawing.Point(307, 102);
 			this.button_controls_form_getOpenForms_getOpenForms.Name = "button_controls_form_getOpenForms_getOpenForms";
 			this.button_controls_form_getOpenForms_getOpenForms.Size = new System.Drawing.Size(188, 23);
 			this.button_controls_form_getOpenForms_getOpenForms.TabIndex = 0;
@@ -1425,7 +1425,7 @@
 			// 
 			// button_controls_messageBox_showConfirmationDialog_show
 			// 
-			this.button_controls_messageBox_showConfirmationDialog_show.Location = new System.Drawing.Point(324, 114);
+			this.button_controls_messageBox_showConfirmationDialog_show.Location = new System.Drawing.Point(307, 102);
 			this.button_controls_messageBox_showConfirmationDialog_show.Name = "button_controls_messageBox_showConfirmationDialog_show";
 			this.button_controls_messageBox_showConfirmationDialog_show.Size = new System.Drawing.Size(188, 23);
 			this.button_controls_messageBox_showConfirmationDialog_show.TabIndex = 0;
@@ -1536,7 +1536,7 @@
 			// label_network_packets_sendTcpPacket_message
 			// 
 			this.label_network_packets_sendTcpPacket_message.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(236, 139);
+			this.label_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(236, 145);
 			this.label_network_packets_sendTcpPacket_message.Name = "label_network_packets_sendTcpPacket_message";
 			this.label_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(53, 13);
 			this.label_network_packets_sendTcpPacket_message.TabIndex = 41;
@@ -1545,7 +1545,7 @@
 			// label_network_packets_sendTcpPacket_remotePort
 			// 
 			this.label_network_packets_sendTcpPacket_remotePort.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(220, 90);
+			this.label_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(220, 96);
 			this.label_network_packets_sendTcpPacket_remotePort.Name = "label_network_packets_sendTcpPacket_remotePort";
 			this.label_network_packets_sendTcpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
 			this.label_network_packets_sendTcpPacket_remotePort.TabIndex = 40;
@@ -1554,7 +1554,7 @@
 			// label_network_packets_sendTcpPacket_remoteIp
 			// 
 			this.label_network_packets_sendTcpPacket_remoteIp.AutoSize = true;
-			this.label_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(229, 65);
+			this.label_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(229, 71);
 			this.label_network_packets_sendTcpPacket_remoteIp.Name = "label_network_packets_sendTcpPacket_remoteIp";
 			this.label_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
 			this.label_network_packets_sendTcpPacket_remoteIp.TabIndex = 39;
@@ -1562,14 +1562,14 @@
 			// 
 			// textBox_network_packets_sendTcpPacket_message
 			// 
-			this.textBox_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(295, 136);
+			this.textBox_network_packets_sendTcpPacket_message.Location = new System.Drawing.Point(295, 142);
 			this.textBox_network_packets_sendTcpPacket_message.Name = "textBox_network_packets_sendTcpPacket_message";
 			this.textBox_network_packets_sendTcpPacket_message.Size = new System.Drawing.Size(302, 20);
 			this.textBox_network_packets_sendTcpPacket_message.TabIndex = 38;
 			// 
 			// textBox_network_packets_sendTcpPacket_remoteIp
 			// 
-			this.textBox_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(295, 62);
+			this.textBox_network_packets_sendTcpPacket_remoteIp.Location = new System.Drawing.Point(295, 68);
 			this.textBox_network_packets_sendTcpPacket_remoteIp.Name = "textBox_network_packets_sendTcpPacket_remoteIp";
 			this.textBox_network_packets_sendTcpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
 			this.textBox_network_packets_sendTcpPacket_remoteIp.TabIndex = 37;
@@ -1577,7 +1577,7 @@
 			// 
 			// numeric_network_packets_sendTcpPacket_remotePort
 			// 
-			this.numeric_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(295, 88);
+			this.numeric_network_packets_sendTcpPacket_remotePort.Location = new System.Drawing.Point(295, 94);
 			this.numeric_network_packets_sendTcpPacket_remotePort.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -1594,7 +1594,7 @@
 			// 
 			// button_network_packets_sendTcpPacket_send
 			// 
-			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(481, 174);
+			this.button_network_packets_sendTcpPacket_send.Location = new System.Drawing.Point(481, 168);
 			this.button_network_packets_sendTcpPacket_send.Name = "button_network_packets_sendTcpPacket_send";
 			this.button_network_packets_sendTcpPacket_send.Size = new System.Drawing.Size(116, 23);
 			this.button_network_packets_sendTcpPacket_send.TabIndex = 35;
@@ -1617,7 +1617,7 @@
 			// label_network_packets_waitTcpPacket_localPort
 			// 
 			this.label_network_packets_waitTcpPacket_localPort.AutoSize = true;
-			this.label_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(302, 96);
+			this.label_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(322, 107);
 			this.label_network_packets_waitTcpPacket_localPort.Name = "label_network_packets_waitTcpPacket_localPort";
 			this.label_network_packets_waitTcpPacket_localPort.Size = new System.Drawing.Size(58, 13);
 			this.label_network_packets_waitTcpPacket_localPort.TabIndex = 32;
@@ -1625,7 +1625,7 @@
 			// 
 			// numeric_network_packets_waitTcpPacket_localPort
 			// 
-			this.numeric_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(366, 94);
+			this.numeric_network_packets_waitTcpPacket_localPort.Location = new System.Drawing.Point(386, 105);
 			this.numeric_network_packets_waitTcpPacket_localPort.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -1642,7 +1642,7 @@
 			// 
 			// button_network_packets_waitTcpPacket_wait
 			// 
-			this.button_network_packets_waitTcpPacket_wait.Location = new System.Drawing.Point(366, 120);
+			this.button_network_packets_waitTcpPacket_wait.Location = new System.Drawing.Point(386, 131);
 			this.button_network_packets_waitTcpPacket_wait.Name = "button_network_packets_waitTcpPacket_wait";
 			this.button_network_packets_waitTcpPacket_wait.Size = new System.Drawing.Size(109, 23);
 			this.button_network_packets_waitTcpPacket_wait.TabIndex = 30;
@@ -1669,7 +1669,7 @@
 			// label_network_packets_sendUdpPacket_message
 			// 
 			this.label_network_packets_sendUdpPacket_message.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(226, 129);
+			this.label_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(236, 145);
 			this.label_network_packets_sendUdpPacket_message.Name = "label_network_packets_sendUdpPacket_message";
 			this.label_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(53, 13);
 			this.label_network_packets_sendUdpPacket_message.TabIndex = 34;
@@ -1678,7 +1678,7 @@
 			// label_network_packets_sendUdpPacket_remotePort
 			// 
 			this.label_network_packets_sendUdpPacket_remotePort.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(210, 80);
+			this.label_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(220, 96);
 			this.label_network_packets_sendUdpPacket_remotePort.Name = "label_network_packets_sendUdpPacket_remotePort";
 			this.label_network_packets_sendUdpPacket_remotePort.Size = new System.Drawing.Size(69, 13);
 			this.label_network_packets_sendUdpPacket_remotePort.TabIndex = 33;
@@ -1687,7 +1687,7 @@
 			// label_network_packets_sendUdpPacket_remoteIp
 			// 
 			this.label_network_packets_sendUdpPacket_remoteIp.AutoSize = true;
-			this.label_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(219, 55);
+			this.label_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(229, 71);
 			this.label_network_packets_sendUdpPacket_remoteIp.Name = "label_network_packets_sendUdpPacket_remoteIp";
 			this.label_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(60, 13);
 			this.label_network_packets_sendUdpPacket_remoteIp.TabIndex = 32;
@@ -1695,14 +1695,14 @@
 			// 
 			// textBox_network_packets_sendUdpPacket_message
 			// 
-			this.textBox_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(285, 126);
+			this.textBox_network_packets_sendUdpPacket_message.Location = new System.Drawing.Point(295, 142);
 			this.textBox_network_packets_sendUdpPacket_message.Name = "textBox_network_packets_sendUdpPacket_message";
 			this.textBox_network_packets_sendUdpPacket_message.Size = new System.Drawing.Size(302, 20);
 			this.textBox_network_packets_sendUdpPacket_message.TabIndex = 31;
 			// 
 			// textBox_network_packets_sendUdpPacket_remoteIp
 			// 
-			this.textBox_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(285, 52);
+			this.textBox_network_packets_sendUdpPacket_remoteIp.Location = new System.Drawing.Point(295, 68);
 			this.textBox_network_packets_sendUdpPacket_remoteIp.Name = "textBox_network_packets_sendUdpPacket_remoteIp";
 			this.textBox_network_packets_sendUdpPacket_remoteIp.Size = new System.Drawing.Size(146, 20);
 			this.textBox_network_packets_sendUdpPacket_remoteIp.TabIndex = 30;
@@ -1710,7 +1710,7 @@
 			// 
 			// numeric_network_packets_sendUdpPacket_remotePort
 			// 
-			this.numeric_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(285, 78);
+			this.numeric_network_packets_sendUdpPacket_remotePort.Location = new System.Drawing.Point(295, 94);
 			this.numeric_network_packets_sendUdpPacket_remotePort.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -1727,7 +1727,7 @@
 			// 
 			// button_network_packets_sendUdpPacket_send
 			// 
-			this.button_network_packets_sendUdpPacket_send.Location = new System.Drawing.Point(471, 164);
+			this.button_network_packets_sendUdpPacket_send.Location = new System.Drawing.Point(481, 168);
 			this.button_network_packets_sendUdpPacket_send.Name = "button_network_packets_sendUdpPacket_send";
 			this.button_network_packets_sendUdpPacket_send.Size = new System.Drawing.Size(116, 23);
 			this.button_network_packets_sendUdpPacket_send.TabIndex = 28;
@@ -1750,7 +1750,7 @@
 			// label_network_packets_waitUdpPacket_localPort
 			// 
 			this.label_network_packets_waitUdpPacket_localPort.AutoSize = true;
-			this.label_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(290, 94);
+			this.label_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(322, 107);
 			this.label_network_packets_waitUdpPacket_localPort.Name = "label_network_packets_waitUdpPacket_localPort";
 			this.label_network_packets_waitUdpPacket_localPort.Size = new System.Drawing.Size(58, 13);
 			this.label_network_packets_waitUdpPacket_localPort.TabIndex = 29;
@@ -1758,7 +1758,7 @@
 			// 
 			// numeric_network_packets_waitUdpPacket_localPort
 			// 
-			this.numeric_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(354, 92);
+			this.numeric_network_packets_waitUdpPacket_localPort.Location = new System.Drawing.Point(386, 105);
 			this.numeric_network_packets_waitUdpPacket_localPort.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -1775,7 +1775,7 @@
 			// 
 			// button_network_packets_waitUdpPacket_wait
 			// 
-			this.button_network_packets_waitUdpPacket_wait.Location = new System.Drawing.Point(354, 118);
+			this.button_network_packets_waitUdpPacket_wait.Location = new System.Drawing.Point(386, 131);
 			this.button_network_packets_waitUdpPacket_wait.Name = "button_network_packets_waitUdpPacket_wait";
 			this.button_network_packets_waitUdpPacket_wait.Size = new System.Drawing.Size(109, 23);
 			this.button_network_packets_waitUdpPacket_wait.TabIndex = 27;
@@ -1832,7 +1832,7 @@
 			// 
 			// numeric_network_mobile_sendSms_smtpPort
 			// 
-			this.numeric_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(578, 91);
+			this.numeric_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(578, 98);
 			this.numeric_network_mobile_sendSms_smtpPort.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -1850,7 +1850,7 @@
 			// label_network_mobile_sendSms_smtpPort
 			// 
 			this.label_network_mobile_sendSms_smtpPort.AutoSize = true;
-			this.label_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(510, 93);
+			this.label_network_mobile_sendSms_smtpPort.Location = new System.Drawing.Point(510, 100);
 			this.label_network_mobile_sendSms_smtpPort.Name = "label_network_mobile_sendSms_smtpPort";
 			this.label_network_mobile_sendSms_smtpPort.Size = new System.Drawing.Size(62, 13);
 			this.label_network_mobile_sendSms_smtpPort.TabIndex = 16;
@@ -1859,7 +1859,7 @@
 			// label_network_mobile_sendSms_smtpHost
 			// 
 			this.label_network_mobile_sendSms_smtpHost.AutoSize = true;
-			this.label_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(507, 68);
+			this.label_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(507, 75);
 			this.label_network_mobile_sendSms_smtpHost.Name = "label_network_mobile_sendSms_smtpHost";
 			this.label_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(65, 13);
 			this.label_network_mobile_sendSms_smtpHost.TabIndex = 14;
@@ -1867,7 +1867,7 @@
 			// 
 			// textBox_network_mobile_sendSms_smtpHost
 			// 
-			this.textBox_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(578, 65);
+			this.textBox_network_mobile_sendSms_smtpHost.Location = new System.Drawing.Point(578, 72);
 			this.textBox_network_mobile_sendSms_smtpHost.Name = "textBox_network_mobile_sendSms_smtpHost";
 			this.textBox_network_mobile_sendSms_smtpHost.Size = new System.Drawing.Size(136, 20);
 			this.textBox_network_mobile_sendSms_smtpHost.TabIndex = 13;
@@ -1876,7 +1876,7 @@
 			// label_network_mobile_sendSms_smsCarrier
 			// 
 			this.label_network_mobile_sendSms_smsCarrier.AutoSize = true;
-			this.label_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(506, 31);
+			this.label_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(506, 38);
 			this.label_network_mobile_sendSms_smsCarrier.Name = "label_network_mobile_sendSms_smsCarrier";
 			this.label_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(66, 13);
 			this.label_network_mobile_sendSms_smsCarrier.TabIndex = 12;
@@ -1884,7 +1884,7 @@
 			// 
 			// textBox_network_mobile_sendSms_smsCarrier
 			// 
-			this.textBox_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(578, 28);
+			this.textBox_network_mobile_sendSms_smsCarrier.Location = new System.Drawing.Point(578, 35);
 			this.textBox_network_mobile_sendSms_smsCarrier.Name = "textBox_network_mobile_sendSms_smsCarrier";
 			this.textBox_network_mobile_sendSms_smsCarrier.Size = new System.Drawing.Size(136, 20);
 			this.textBox_network_mobile_sendSms_smsCarrier.TabIndex = 11;
@@ -1892,7 +1892,7 @@
 			// 
 			// button_network_mobile_sendSms_sendSms
 			// 
-			this.button_network_mobile_sendSms_sendSms.Location = new System.Drawing.Point(359, 193);
+			this.button_network_mobile_sendSms_sendSms.Location = new System.Drawing.Point(359, 200);
 			this.button_network_mobile_sendSms_sendSms.Name = "button_network_mobile_sendSms_sendSms";
 			this.button_network_mobile_sendSms_sendSms.Size = new System.Drawing.Size(94, 23);
 			this.button_network_mobile_sendSms_sendSms.TabIndex = 10;
@@ -1902,7 +1902,7 @@
 			// label_network_mobile_sendSms_message
 			// 
 			this.label_network_mobile_sendSms_message.AutoSize = true;
-			this.label_network_mobile_sendSms_message.Location = new System.Drawing.Point(184, 160);
+			this.label_network_mobile_sendSms_message.Location = new System.Drawing.Point(184, 167);
 			this.label_network_mobile_sendSms_message.Name = "label_network_mobile_sendSms_message";
 			this.label_network_mobile_sendSms_message.Size = new System.Drawing.Size(53, 13);
 			this.label_network_mobile_sendSms_message.TabIndex = 9;
@@ -1910,7 +1910,7 @@
 			// 
 			// textBox_network_mobile_sendSms_message
 			// 
-			this.textBox_network_mobile_sendSms_message.Location = new System.Drawing.Point(243, 157);
+			this.textBox_network_mobile_sendSms_message.Location = new System.Drawing.Point(243, 164);
 			this.textBox_network_mobile_sendSms_message.Name = "textBox_network_mobile_sendSms_message";
 			this.textBox_network_mobile_sendSms_message.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_message.TabIndex = 8;
@@ -1918,7 +1918,7 @@
 			// label_network_mobile_sendSms_subject
 			// 
 			this.label_network_mobile_sendSms_subject.AutoSize = true;
-			this.label_network_mobile_sendSms_subject.Location = new System.Drawing.Point(191, 134);
+			this.label_network_mobile_sendSms_subject.Location = new System.Drawing.Point(191, 141);
 			this.label_network_mobile_sendSms_subject.Name = "label_network_mobile_sendSms_subject";
 			this.label_network_mobile_sendSms_subject.Size = new System.Drawing.Size(46, 13);
 			this.label_network_mobile_sendSms_subject.TabIndex = 7;
@@ -1926,7 +1926,7 @@
 			// 
 			// textBox_network_mobile_sendSms_subject
 			// 
-			this.textBox_network_mobile_sendSms_subject.Location = new System.Drawing.Point(243, 131);
+			this.textBox_network_mobile_sendSms_subject.Location = new System.Drawing.Point(243, 138);
 			this.textBox_network_mobile_sendSms_subject.Name = "textBox_network_mobile_sendSms_subject";
 			this.textBox_network_mobile_sendSms_subject.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_subject.TabIndex = 6;
@@ -1934,7 +1934,7 @@
 			// label_network_mobile_sendSms_receiverPhone
 			// 
 			this.label_network_mobile_sendSms_receiverPhone.AutoSize = true;
-			this.label_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(103, 95);
+			this.label_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(103, 102);
 			this.label_network_mobile_sendSms_receiverPhone.Name = "label_network_mobile_sendSms_receiverPhone";
 			this.label_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(134, 13);
 			this.label_network_mobile_sendSms_receiverPhone.TabIndex = 5;
@@ -1942,7 +1942,7 @@
 			// 
 			// textBox_network_mobile_sendSms_receiverPhone
 			// 
-			this.textBox_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(243, 92);
+			this.textBox_network_mobile_sendSms_receiverPhone.Location = new System.Drawing.Point(243, 99);
 			this.textBox_network_mobile_sendSms_receiverPhone.Name = "textBox_network_mobile_sendSms_receiverPhone";
 			this.textBox_network_mobile_sendSms_receiverPhone.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_receiverPhone.TabIndex = 4;
@@ -1950,7 +1950,7 @@
 			// label_network_mobile_sendSms_senderEmailPassword
 			// 
 			this.label_network_mobile_sendSms_senderEmailPassword.AutoSize = true;
-			this.label_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(109, 57);
+			this.label_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(109, 64);
 			this.label_network_mobile_sendSms_senderEmailPassword.Name = "label_network_mobile_sendSms_senderEmailPassword";
 			this.label_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(128, 13);
 			this.label_network_mobile_sendSms_senderEmailPassword.TabIndex = 3;
@@ -1959,7 +1959,7 @@
 			// label_network_mobile_sendSms_senderEmail
 			// 
 			this.label_network_mobile_sendSms_senderEmail.AutoSize = true;
-			this.label_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(158, 31);
+			this.label_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(158, 38);
 			this.label_network_mobile_sendSms_senderEmail.Name = "label_network_mobile_sendSms_senderEmail";
 			this.label_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(79, 13);
 			this.label_network_mobile_sendSms_senderEmail.TabIndex = 2;
@@ -1967,7 +1967,7 @@
 			// 
 			// textBox_network_mobile_sendSms_senderEmailPassword
 			// 
-			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 54);
+			this.textBox_network_mobile_sendSms_senderEmailPassword.Location = new System.Drawing.Point(243, 61);
 			this.textBox_network_mobile_sendSms_senderEmailPassword.Name = "textBox_network_mobile_sendSms_senderEmailPassword";
 			this.textBox_network_mobile_sendSms_senderEmailPassword.PasswordChar = '•';
 			this.textBox_network_mobile_sendSms_senderEmailPassword.Size = new System.Drawing.Size(210, 20);
@@ -1975,7 +1975,7 @@
 			// 
 			// textBox_network_mobile_sendSms_senderEmail
 			// 
-			this.textBox_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(243, 28);
+			this.textBox_network_mobile_sendSms_senderEmail.Location = new System.Drawing.Point(243, 35);
 			this.textBox_network_mobile_sendSms_senderEmail.Name = "textBox_network_mobile_sendSms_senderEmail";
 			this.textBox_network_mobile_sendSms_senderEmail.Size = new System.Drawing.Size(210, 20);
 			this.textBox_network_mobile_sendSms_senderEmail.TabIndex = 0;
@@ -2023,7 +2023,7 @@
 			// 
 			this.label_network_security_openFirewallPort_warningAdmin.AutoSize = true;
 			this.label_network_security_openFirewallPort_warningAdmin.ForeColor = System.Drawing.Color.Red;
-			this.label_network_security_openFirewallPort_warningAdmin.Location = new System.Drawing.Point(297, 155);
+			this.label_network_security_openFirewallPort_warningAdmin.Location = new System.Drawing.Point(297, 170);
 			this.label_network_security_openFirewallPort_warningAdmin.Name = "label_network_security_openFirewallPort_warningAdmin";
 			this.label_network_security_openFirewallPort_warningAdmin.Size = new System.Drawing.Size(216, 13);
 			this.label_network_security_openFirewallPort_warningAdmin.TabIndex = 9;
@@ -2031,7 +2031,7 @@
 			// 
 			// button_network_security_openFirewallPort_open
 			// 
-			this.button_network_security_openFirewallPort_open.Location = new System.Drawing.Point(490, 113);
+			this.button_network_security_openFirewallPort_open.Location = new System.Drawing.Point(490, 128);
 			this.button_network_security_openFirewallPort_open.Name = "button_network_security_openFirewallPort_open";
 			this.button_network_security_openFirewallPort_open.Size = new System.Drawing.Size(75, 22);
 			this.button_network_security_openFirewallPort_open.TabIndex = 8;
@@ -2041,7 +2041,7 @@
 			// label_network_security_openFirewallPort_portType
 			// 
 			this.label_network_security_openFirewallPort_portType.AutoSize = true;
-			this.label_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(265, 90);
+			this.label_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(265, 105);
 			this.label_network_security_openFirewallPort_portType.Name = "label_network_security_openFirewallPort_portType";
 			this.label_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(56, 13);
 			this.label_network_security_openFirewallPort_portType.TabIndex = 7;
@@ -2050,7 +2050,7 @@
 			// comboBox_network_security_openFirewallPort_portType
 			// 
 			this.comboBox_network_security_openFirewallPort_portType.FormattingEnabled = true;
-			this.comboBox_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(327, 87);
+			this.comboBox_network_security_openFirewallPort_portType.Location = new System.Drawing.Point(327, 102);
 			this.comboBox_network_security_openFirewallPort_portType.Name = "comboBox_network_security_openFirewallPort_portType";
 			this.comboBox_network_security_openFirewallPort_portType.Size = new System.Drawing.Size(157, 21);
 			this.comboBox_network_security_openFirewallPort_portType.TabIndex = 6;
@@ -2058,7 +2058,7 @@
 			// label_network_security_openFirewallPort_description
 			// 
 			this.label_network_security_openFirewallPort_description.AutoSize = true;
-			this.label_network_security_openFirewallPort_description.Location = new System.Drawing.Point(258, 118);
+			this.label_network_security_openFirewallPort_description.Location = new System.Drawing.Point(258, 133);
 			this.label_network_security_openFirewallPort_description.Name = "label_network_security_openFirewallPort_description";
 			this.label_network_security_openFirewallPort_description.Size = new System.Drawing.Size(63, 13);
 			this.label_network_security_openFirewallPort_description.TabIndex = 5;
@@ -2067,7 +2067,7 @@
 			// label_network_security_openFirewallPort_portNumber
 			// 
 			this.label_network_security_openFirewallPort_portNumber.AutoSize = true;
-			this.label_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(252, 63);
+			this.label_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(252, 78);
 			this.label_network_security_openFirewallPort_portNumber.Name = "label_network_security_openFirewallPort_portNumber";
 			this.label_network_security_openFirewallPort_portNumber.Size = new System.Drawing.Size(69, 13);
 			this.label_network_security_openFirewallPort_portNumber.TabIndex = 4;
@@ -2075,7 +2075,7 @@
 			// 
 			// numeric_network_security_openFirewallPort_portNumber
 			// 
-			this.numeric_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(327, 61);
+			this.numeric_network_security_openFirewallPort_portNumber.Location = new System.Drawing.Point(327, 76);
 			this.numeric_network_security_openFirewallPort_portNumber.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -2087,7 +2087,7 @@
 			// 
 			// textBox_network_security_openFirewallPort_description
 			// 
-			this.textBox_network_security_openFirewallPort_description.Location = new System.Drawing.Point(327, 114);
+			this.textBox_network_security_openFirewallPort_description.Location = new System.Drawing.Point(327, 129);
 			this.textBox_network_security_openFirewallPort_description.Name = "textBox_network_security_openFirewallPort_description";
 			this.textBox_network_security_openFirewallPort_description.Size = new System.Drawing.Size(157, 20);
 			this.textBox_network_security_openFirewallPort_description.TabIndex = 2;
@@ -2159,7 +2159,7 @@
 			// label_math_isPrimeNumber_number
 			// 
 			this.label_math_isPrimeNumber_number.AutoSize = true;
-			this.label_math_isPrimeNumber_number.Location = new System.Drawing.Point(311, 113);
+			this.label_math_isPrimeNumber_number.Location = new System.Drawing.Point(320, 124);
 			this.label_math_isPrimeNumber_number.Name = "label_math_isPrimeNumber_number";
 			this.label_math_isPrimeNumber_number.Size = new System.Drawing.Size(47, 13);
 			this.label_math_isPrimeNumber_number.TabIndex = 2;
@@ -2167,14 +2167,14 @@
 			// 
 			// textBox_math_isPrimeNumber_number
 			// 
-			this.textBox_math_isPrimeNumber_number.Location = new System.Drawing.Point(364, 110);
+			this.textBox_math_isPrimeNumber_number.Location = new System.Drawing.Point(373, 121);
 			this.textBox_math_isPrimeNumber_number.Name = "textBox_math_isPrimeNumber_number";
 			this.textBox_math_isPrimeNumber_number.Size = new System.Drawing.Size(137, 20);
 			this.textBox_math_isPrimeNumber_number.TabIndex = 1;
 			// 
 			// button_math_isPrimeNumber_check
 			// 
-			this.button_math_isPrimeNumber_check.Location = new System.Drawing.Point(426, 136);
+			this.button_math_isPrimeNumber_check.Location = new System.Drawing.Point(435, 147);
 			this.button_math_isPrimeNumber_check.Name = "button_math_isPrimeNumber_check";
 			this.button_math_isPrimeNumber_check.Size = new System.Drawing.Size(75, 23);
 			this.button_math_isPrimeNumber_check.TabIndex = 0;
@@ -2199,7 +2199,7 @@
 			// label_dynvars_value
 			// 
 			this.label_dynvars_value.AutoSize = true;
-			this.label_dynvars_value.Location = new System.Drawing.Point(254, 137);
+			this.label_dynvars_value.Location = new System.Drawing.Point(263, 153);
 			this.label_dynvars_value.Name = "label_dynvars_value";
 			this.label_dynvars_value.Size = new System.Drawing.Size(37, 13);
 			this.label_dynvars_value.TabIndex = 4;
@@ -2208,7 +2208,7 @@
 			// label_dynvars_variable
 			// 
 			this.label_dynvars_variable.AutoSize = true;
-			this.label_dynvars_variable.Location = new System.Drawing.Point(243, 111);
+			this.label_dynvars_variable.Location = new System.Drawing.Point(252, 127);
 			this.label_dynvars_variable.Name = "label_dynvars_variable";
 			this.label_dynvars_variable.Size = new System.Drawing.Size(48, 13);
 			this.label_dynvars_variable.TabIndex = 3;
@@ -2216,7 +2216,7 @@
 			// 
 			// button_dynvars_run
 			// 
-			this.button_dynvars_run.Location = new System.Drawing.Point(508, 160);
+			this.button_dynvars_run.Location = new System.Drawing.Point(517, 176);
 			this.button_dynvars_run.Name = "button_dynvars_run";
 			this.button_dynvars_run.Size = new System.Drawing.Size(75, 23);
 			this.button_dynvars_run.TabIndex = 2;
@@ -2225,14 +2225,14 @@
 			// 
 			// textBox_dynvars_value
 			// 
-			this.textBox_dynvars_value.Location = new System.Drawing.Point(297, 134);
+			this.textBox_dynvars_value.Location = new System.Drawing.Point(306, 150);
 			this.textBox_dynvars_value.Name = "textBox_dynvars_value";
 			this.textBox_dynvars_value.Size = new System.Drawing.Size(286, 20);
 			this.textBox_dynvars_value.TabIndex = 1;
 			// 
 			// textBox_dynvars_variable
 			// 
-			this.textBox_dynvars_variable.Location = new System.Drawing.Point(297, 108);
+			this.textBox_dynvars_variable.Location = new System.Drawing.Point(306, 124);
 			this.textBox_dynvars_variable.Name = "textBox_dynvars_variable";
 			this.textBox_dynvars_variable.Size = new System.Drawing.Size(286, 20);
 			this.textBox_dynvars_variable.TabIndex = 0;
@@ -2275,7 +2275,7 @@
 			// label_device_getRam_gb
 			// 
 			this.label_device_getRam_gb.AutoSize = true;
-			this.label_device_getRam_gb.Location = new System.Drawing.Point(530, 144);
+			this.label_device_getRam_gb.Location = new System.Drawing.Point(524, 137);
 			this.label_device_getRam_gb.Name = "label_device_getRam_gb";
 			this.label_device_getRam_gb.Size = new System.Drawing.Size(22, 13);
 			this.label_device_getRam_gb.TabIndex = 3;
@@ -2283,7 +2283,7 @@
 			// 
 			// button_device_getRam_update
 			// 
-			this.button_device_getRam_update.Location = new System.Drawing.Point(449, 167);
+			this.button_device_getRam_update.Location = new System.Drawing.Point(443, 160);
 			this.button_device_getRam_update.Name = "button_device_getRam_update";
 			this.button_device_getRam_update.Size = new System.Drawing.Size(75, 23);
 			this.button_device_getRam_update.TabIndex = 2;
@@ -2294,7 +2294,7 @@
 			// comboBox_device_getRam_ramType
 			// 
 			this.comboBox_device_getRam_ramType.FormattingEnabled = true;
-			this.comboBox_device_getRam_ramType.Location = new System.Drawing.Point(291, 114);
+			this.comboBox_device_getRam_ramType.Location = new System.Drawing.Point(285, 107);
 			this.comboBox_device_getRam_ramType.Name = "comboBox_device_getRam_ramType";
 			this.comboBox_device_getRam_ramType.Size = new System.Drawing.Size(233, 21);
 			this.comboBox_device_getRam_ramType.TabIndex = 1;
@@ -2302,7 +2302,7 @@
 			// 
 			// textBox_device_getRam_value
 			// 
-			this.textBox_device_getRam_value.Location = new System.Drawing.Point(291, 141);
+			this.textBox_device_getRam_value.Location = new System.Drawing.Point(285, 134);
 			this.textBox_device_getRam_value.Name = "textBox_device_getRam_value";
 			this.textBox_device_getRam_value.Size = new System.Drawing.Size(233, 20);
 			this.textBox_device_getRam_value.TabIndex = 0;
