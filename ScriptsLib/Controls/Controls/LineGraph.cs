@@ -1,4 +1,5 @@
 ﻿#region Usings
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace ScriptsLib.Controls
 
 		private void LineGraph_Paint(object sender, PaintEventArgs e) => t.Start();
 
-		private void T_Tick(object sender, System.EventArgs e)
+		private void T_Tick(object sender, EventArgs e)
 		{
 			g.Clear(this.BackColor == Color.Transparent ? Color.White : this.BackColor);
 			foreach (Line _Line in lines) DrawLine(_Line, false);
@@ -94,7 +95,12 @@ namespace ScriptsLib.Controls
 			currentX = endX;
 			currentY = endY;
 		}
-		
+
+		private void LineGraph_Resize(object sender, EventArgs e)
+		{
+			g = this.CreateGraphics();
+		}
+
 		public void IncrementLine(Pen pen, int endX, int endY, PositionList pos, bool saveLine)
 		{
 			switch (pos)

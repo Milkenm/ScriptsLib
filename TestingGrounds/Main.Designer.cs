@@ -122,6 +122,7 @@
 			this.tab_controls_controls = new System.Windows.Forms.TabPage();
 			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
 			this.tab_lineGraph = new System.Windows.Forms.TabPage();
+			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
 			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
 			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
 			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
@@ -233,7 +234,6 @@
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
 			this.lineGraph = new ScriptsLib.Controls.LineGraph();
-			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -1215,6 +1215,16 @@
 			this.tab_lineGraph.TabIndex = 0;
 			this.tab_lineGraph.Text = "Line Graph";
 			this.tab_lineGraph.UseVisualStyleBackColor = true;
+			// 
+			// button_lineGraph_drawTest
+			// 
+			this.button_lineGraph_drawTest.Location = new System.Drawing.Point(308, 220);
+			this.button_lineGraph_drawTest.Name = "button_lineGraph_drawTest";
+			this.button_lineGraph_drawTest.Size = new System.Drawing.Size(200, 23);
+			this.button_lineGraph_drawTest.TabIndex = 1;
+			this.button_lineGraph_drawTest.Text = "Draw Test";
+			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
+			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
 			// 
 			// tab_controls_tweaks
 			// 
@@ -2373,20 +2383,10 @@
 			// lineGraph
 			// 
 			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph.Location = new System.Drawing.Point(105, 48);
+			this.lineGraph.Location = new System.Drawing.Point(308, 16);
 			this.lineGraph.Name = "lineGraph";
-			this.lineGraph.Size = new System.Drawing.Size(606, 134);
+			this.lineGraph.Size = new System.Drawing.Size(200, 200);
 			this.lineGraph.TabIndex = 0;
-			// 
-			// button_lineGraph_drawTest
-			// 
-			this.button_lineGraph_drawTest.Location = new System.Drawing.Point(105, 188);
-			this.button_lineGraph_drawTest.Name = "button_lineGraph_drawTest";
-			this.button_lineGraph_drawTest.Size = new System.Drawing.Size(75, 23);
-			this.button_lineGraph_drawTest.TabIndex = 1;
-			this.button_lineGraph_drawTest.Text = "Draw Test";
-			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
-			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
 			// 
 			// Main
 			// 

@@ -36,8 +36,9 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Name = "LineGraph";
-			this.Size = new System.Drawing.Size(198, 98);
+			this.Size = new System.Drawing.Size(200, 100);
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.LineGraph_Paint);
+			this.Resize += new System.EventHandler(this.LineGraph_Resize);
 			this.ResumeLayout(false);
 
 		}
