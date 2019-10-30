@@ -1,4 +1,4 @@
-﻿namespace Testing.LineGraph
+﻿namespace ScriptsLib.Controls
 {
 	partial class LineGraph
 	{

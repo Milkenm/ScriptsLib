@@ -82,10 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspNet\ShowPopup.cs" />
-    <Compile Include="Controls\LineGraph.cs">
+    <Compile Include="Controls\Controls\LineGraph.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\LineGraph.designer.cs">
+    <Compile Include="Controls\Controls\LineGraph.designer.cs">
       <DependentUpon>LineGraph.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Tweaks\ComboBox\ResizeComboBox.cs" />
@@ -191,7 +191,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\LineGraph.resx">
+    <EmbeddedResource Include="Controls\Controls\LineGraph.resx">
       <DependentUpon>LineGraph.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,37 +1,39 @@
 ﻿#region Usings
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 #endregion Usings
 
 
 
-namespace Testing.LineGraph
+namespace ScriptsLib.Controls
 {
 	public partial class LineGraph : UserControl
 	{
-		private  List<Line> lines = new List<Line>();
+		private List<Line> lines = new List<Line>();
 		private Graphics g;
 		private int currentX, currentY;
+		private Timer t = new Timer();
 
 		public LineGraph()
 		{
 			InitializeComponent();
 
 			g = this.CreateGraphics();
+
+			t.Interval = 500;
+			t.Tick += this.T_Tick;
+			t.Start();
 		}
 
-		private void LineGraph_Paint(object sender, PaintEventArgs e)
-		{
-			g.Clear(Color.White);
+		private void LineGraph_Paint(object sender, PaintEventArgs e) => t.Start();
 
-			foreach (Line _Line in lines)
-			{
-				DrawLine(_Line, false);
-			}
+		private void T_Tick(object sender, System.EventArgs e)
+		{
+			g.Clear(this.BackColor == Color.Transparent ? Color.White : this.BackColor);
+			foreach (Line _Line in lines) DrawLine(_Line, false);
+
+			t.Stop();
 		}
 
 		public struct Line
@@ -92,7 +94,7 @@ namespace Testing.LineGraph
 			currentX = endX;
 			currentY = endY;
 		}
-
+		
 		public void IncrementLine(Pen pen, int endX, int endY, PositionList pos, bool saveLine)
 		{
 			switch (pos)

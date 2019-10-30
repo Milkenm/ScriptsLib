@@ -118,6 +118,30 @@
 			this.textBox_generators_generatePassword_allowedChars = new System.Windows.Forms.TextBox();
 			this._generators_generatePassword_length = new System.Windows.Forms.Label();
 			this.tab_controls = new System.Windows.Forms.TabPage();
+			this.tabs_controls = new System.Windows.Forms.TabControl();
+			this.tab_controls_controls = new System.Windows.Forms.TabPage();
+			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
+			this.tab_lineGraph = new System.Windows.Forms.TabPage();
+			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
+			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
+			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
+			this.tabs_controls_comboBox = new System.Windows.Forms.TabControl();
+			this.tab_controls_comboBox_resizeComboBox = new System.Windows.Forms.TabPage();
+			this.comboBox_controls_comboBox_resizeComboBox_resize = new System.Windows.Forms.ComboBox();
+			this.button_controls_comboBox_resizeComboBox_resize = new System.Windows.Forms.Button();
+			this.tab_controls_textBox = new System.Windows.Forms.TabPage();
+			this.tabs_controls_textBox = new System.Windows.Forms.TabControl();
+			this.tab_controls_textBox_onlyNumbersTextBox = new System.Windows.Forms.TabPage();
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers = new System.Windows.Forms.CheckBox();
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers = new System.Windows.Forms.TextBox();
+			this.tab_controls_form = new System.Windows.Forms.TabPage();
+			this.tabs_controls_form = new System.Windows.Forms.TabControl();
+			this.tab_controls_form_getOpenForms = new System.Windows.Forms.TabPage();
+			this.button_controls_form_getOpenForms_getOpenForms = new System.Windows.Forms.Button();
+			this.tab_controls_messageBox = new System.Windows.Forms.TabPage();
+			this.tabs_controls_messageBox = new System.Windows.Forms.TabControl();
+			this.tab_controls_messageBox_showConfirmationDialog = new System.Windows.Forms.TabPage();
+			this.button_controls_messageBox_showConfirmationDialog_show = new System.Windows.Forms.Button();
 			this.tab_network = new System.Windows.Forms.TabPage();
 			this.tabs_network = new System.Windows.Forms.TabControl();
 			this.tab_network_wifi = new System.Windows.Forms.TabPage();
@@ -208,31 +232,7 @@
 			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-			this.tabs_controls = new System.Windows.Forms.TabControl();
-			this.tab_controls_controls = new System.Windows.Forms.TabPage();
-			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
-			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
-			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
-			this.tabs_controls_comboBox = new System.Windows.Forms.TabControl();
-			this.tab_controls_comboBox_resizeComboBox = new System.Windows.Forms.TabPage();
-			this.comboBox_controls_comboBox_resizeComboBox_resize = new System.Windows.Forms.ComboBox();
-			this.button_controls_comboBox_resizeComboBox_resize = new System.Windows.Forms.Button();
-			this.tab_controls_textBox = new System.Windows.Forms.TabPage();
-			this.tabs_controls_textBox = new System.Windows.Forms.TabControl();
-			this.tab_controls_textBox_onlyNumbersTextBox = new System.Windows.Forms.TabPage();
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers = new System.Windows.Forms.CheckBox();
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers = new System.Windows.Forms.TextBox();
-			this.tab_controls_form = new System.Windows.Forms.TabPage();
-			this.tabs_controls_form = new System.Windows.Forms.TabControl();
-			this.tab_controls_form_getOpenForms = new System.Windows.Forms.TabPage();
-			this.button_controls_form_getOpenForms_getOpenForms = new System.Windows.Forms.Button();
-			this.tab_controls_messageBox = new System.Windows.Forms.TabPage();
-			this.tabs_controls_messageBox = new System.Windows.Forms.TabControl();
-			this.tab_controls_messageBox_showConfirmationDialog = new System.Windows.Forms.TabPage();
-			this.button_controls_messageBox_showConfirmationDialog_show = new System.Windows.Forms.Button();
-			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
-			this.tab_lineGraph = new System.Windows.Forms.TabPage();
-			this.lineGraph = new Testing.LineGraph.LineGraph();
+			this.lineGraph1 = new ScriptsLib.Controls.LineGraph();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -264,6 +264,24 @@
 			this.tabs_generators.SuspendLayout();
 			this.tab_generators_generatePassword.SuspendLayout();
 			this.tab_controls.SuspendLayout();
+			this.tabs_controls.SuspendLayout();
+			this.tab_controls_controls.SuspendLayout();
+			this.tabs_controls_controls.SuspendLayout();
+			this.tab_lineGraph.SuspendLayout();
+			this.tab_controls_tweaks.SuspendLayout();
+			this.tabs_controls_tweaks.SuspendLayout();
+			this.tab_controls_tweaks_comboBox.SuspendLayout();
+			this.tabs_controls_comboBox.SuspendLayout();
+			this.tab_controls_comboBox_resizeComboBox.SuspendLayout();
+			this.tab_controls_textBox.SuspendLayout();
+			this.tabs_controls_textBox.SuspendLayout();
+			this.tab_controls_textBox_onlyNumbersTextBox.SuspendLayout();
+			this.tab_controls_form.SuspendLayout();
+			this.tabs_controls_form.SuspendLayout();
+			this.tab_controls_form_getOpenForms.SuspendLayout();
+			this.tab_controls_messageBox.SuspendLayout();
+			this.tabs_controls_messageBox.SuspendLayout();
+			this.tab_controls_messageBox_showConfirmationDialog.SuspendLayout();
 			this.tab_network.SuspendLayout();
 			this.tabs_network.SuspendLayout();
 			this.tab_network_wifi.SuspendLayout();
@@ -297,24 +315,6 @@
 			this.tabs_device.SuspendLayout();
 			this.tab_device_getRam.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
-			this.tabs_controls.SuspendLayout();
-			this.tab_controls_controls.SuspendLayout();
-			this.tab_controls_tweaks.SuspendLayout();
-			this.tabs_controls_tweaks.SuspendLayout();
-			this.tab_controls_tweaks_comboBox.SuspendLayout();
-			this.tabs_controls_comboBox.SuspendLayout();
-			this.tab_controls_comboBox_resizeComboBox.SuspendLayout();
-			this.tab_controls_textBox.SuspendLayout();
-			this.tabs_controls_textBox.SuspendLayout();
-			this.tab_controls_textBox_onlyNumbersTextBox.SuspendLayout();
-			this.tab_controls_form.SuspendLayout();
-			this.tabs_controls_form.SuspendLayout();
-			this.tab_controls_form_getOpenForms.SuspendLayout();
-			this.tab_controls_messageBox.SuspendLayout();
-			this.tabs_controls_messageBox.SuspendLayout();
-			this.tab_controls_messageBox_showConfirmationDialog.SuspendLayout();
-			this.tabs_controls_controls.SuspendLayout();
-			this.tab_lineGraph.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1170,6 +1170,255 @@
 			this.tab_controls.TabIndex = 4;
 			this.tab_controls.Text = "Controls";
 			this.tab_controls.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls
+			// 
+			this.tabs_controls.Controls.Add(this.tab_controls_controls);
+			this.tabs_controls.Controls.Add(this.tab_controls_tweaks);
+			this.tabs_controls.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls.Name = "tabs_controls";
+			this.tabs_controls.SelectedIndex = 0;
+			this.tabs_controls.Size = new System.Drawing.Size(838, 316);
+			this.tabs_controls.TabIndex = 0;
+			// 
+			// tab_controls_controls
+			// 
+			this.tab_controls_controls.Controls.Add(this.tabs_controls_controls);
+			this.tab_controls_controls.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_controls.Name = "tab_controls_controls";
+			this.tab_controls_controls.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_controls.Size = new System.Drawing.Size(830, 290);
+			this.tab_controls_controls.TabIndex = 0;
+			this.tab_controls_controls.Text = "Controls";
+			this.tab_controls_controls.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_controls
+			// 
+			this.tabs_controls_controls.Controls.Add(this.tab_lineGraph);
+			this.tabs_controls_controls.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_controls.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_controls.Name = "tabs_controls_controls";
+			this.tabs_controls_controls.SelectedIndex = 0;
+			this.tabs_controls_controls.Size = new System.Drawing.Size(824, 284);
+			this.tabs_controls_controls.TabIndex = 0;
+			// 
+			// tab_lineGraph
+			// 
+			this.tab_lineGraph.Controls.Add(this.lineGraph1);
+			this.tab_lineGraph.Location = new System.Drawing.Point(4, 22);
+			this.tab_lineGraph.Name = "tab_lineGraph";
+			this.tab_lineGraph.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_lineGraph.Size = new System.Drawing.Size(816, 258);
+			this.tab_lineGraph.TabIndex = 0;
+			this.tab_lineGraph.Text = "Line Graph";
+			this.tab_lineGraph.UseVisualStyleBackColor = true;
+			// 
+			// tab_controls_tweaks
+			// 
+			this.tab_controls_tweaks.Controls.Add(this.tabs_controls_tweaks);
+			this.tab_controls_tweaks.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_tweaks.Name = "tab_controls_tweaks";
+			this.tab_controls_tweaks.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_tweaks.Size = new System.Drawing.Size(830, 290);
+			this.tab_controls_tweaks.TabIndex = 1;
+			this.tab_controls_tweaks.Text = "Tweaks";
+			this.tab_controls_tweaks.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_tweaks
+			// 
+			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_tweaks_comboBox);
+			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_textBox);
+			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_form);
+			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_messageBox);
+			this.tabs_controls_tweaks.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_tweaks.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_tweaks.Name = "tabs_controls_tweaks";
+			this.tabs_controls_tweaks.SelectedIndex = 0;
+			this.tabs_controls_tweaks.Size = new System.Drawing.Size(824, 284);
+			this.tabs_controls_tweaks.TabIndex = 1;
+			// 
+			// tab_controls_tweaks_comboBox
+			// 
+			this.tab_controls_tweaks_comboBox.Controls.Add(this.tabs_controls_comboBox);
+			this.tab_controls_tweaks_comboBox.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_tweaks_comboBox.Name = "tab_controls_tweaks_comboBox";
+			this.tab_controls_tweaks_comboBox.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_tweaks_comboBox.Size = new System.Drawing.Size(816, 258);
+			this.tab_controls_tweaks_comboBox.TabIndex = 0;
+			this.tab_controls_tweaks_comboBox.Text = "ComboBox";
+			this.tab_controls_tweaks_comboBox.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_comboBox
+			// 
+			this.tabs_controls_comboBox.Controls.Add(this.tab_controls_comboBox_resizeComboBox);
+			this.tabs_controls_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_comboBox.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_comboBox.Name = "tabs_controls_comboBox";
+			this.tabs_controls_comboBox.SelectedIndex = 0;
+			this.tabs_controls_comboBox.Size = new System.Drawing.Size(810, 252);
+			this.tabs_controls_comboBox.TabIndex = 0;
+			// 
+			// tab_controls_comboBox_resizeComboBox
+			// 
+			this.tab_controls_comboBox_resizeComboBox.Controls.Add(this.comboBox_controls_comboBox_resizeComboBox_resize);
+			this.tab_controls_comboBox_resizeComboBox.Controls.Add(this.button_controls_comboBox_resizeComboBox_resize);
+			this.tab_controls_comboBox_resizeComboBox.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_comboBox_resizeComboBox.Name = "tab_controls_comboBox_resizeComboBox";
+			this.tab_controls_comboBox_resizeComboBox.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_comboBox_resizeComboBox.Size = new System.Drawing.Size(802, 226);
+			this.tab_controls_comboBox_resizeComboBox.TabIndex = 0;
+			this.tab_controls_comboBox_resizeComboBox.Text = "Resize ComboBox";
+			this.tab_controls_comboBox_resizeComboBox.UseVisualStyleBackColor = true;
+			// 
+			// comboBox_controls_comboBox_resizeComboBox_resize
+			// 
+			this.comboBox_controls_comboBox_resizeComboBox_resize.FormattingEnabled = true;
+			this.comboBox_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(386, 92);
+			this.comboBox_controls_comboBox_resizeComboBox_resize.Name = "comboBox_controls_comboBox_resizeComboBox_resize";
+			this.comboBox_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(141, 21);
+			this.comboBox_controls_comboBox_resizeComboBox_resize.TabIndex = 16;
+			// 
+			// button_controls_comboBox_resizeComboBox_resize
+			// 
+			this.button_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(339, 91);
+			this.button_controls_comboBox_resizeComboBox_resize.Name = "button_controls_comboBox_resizeComboBox_resize";
+			this.button_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(47, 39);
+			this.button_controls_comboBox_resizeComboBox_resize.TabIndex = 15;
+			this.button_controls_comboBox_resizeComboBox_resize.Text = "Resize";
+			this.button_controls_comboBox_resizeComboBox_resize.UseVisualStyleBackColor = true;
+			// 
+			// tab_controls_textBox
+			// 
+			this.tab_controls_textBox.Controls.Add(this.tabs_controls_textBox);
+			this.tab_controls_textBox.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_textBox.Name = "tab_controls_textBox";
+			this.tab_controls_textBox.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_textBox.Size = new System.Drawing.Size(816, 258);
+			this.tab_controls_textBox.TabIndex = 1;
+			this.tab_controls_textBox.Text = "TextBox";
+			this.tab_controls_textBox.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_textBox
+			// 
+			this.tabs_controls_textBox.Controls.Add(this.tab_controls_textBox_onlyNumbersTextBox);
+			this.tabs_controls_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_textBox.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_textBox.Name = "tabs_controls_textBox";
+			this.tabs_controls_textBox.SelectedIndex = 0;
+			this.tabs_controls_textBox.Size = new System.Drawing.Size(810, 252);
+			this.tabs_controls_textBox.TabIndex = 0;
+			// 
+			// tab_controls_textBox_onlyNumbersTextBox
+			// 
+			this.tab_controls_textBox_onlyNumbersTextBox.Controls.Add(this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers);
+			this.tab_controls_textBox_onlyNumbersTextBox.Controls.Add(this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers);
+			this.tab_controls_textBox_onlyNumbersTextBox.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_textBox_onlyNumbersTextBox.Name = "tab_controls_textBox_onlyNumbersTextBox";
+			this.tab_controls_textBox_onlyNumbersTextBox.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_textBox_onlyNumbersTextBox.Size = new System.Drawing.Size(802, 226);
+			this.tab_controls_textBox_onlyNumbersTextBox.TabIndex = 0;
+			this.tab_controls_textBox_onlyNumbersTextBox.Text = "Only Numbers TextBox";
+			this.tab_controls_textBox_onlyNumbersTextBox.UseVisualStyleBackColor = true;
+			// 
+			// checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
+			// 
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.AutoSize = true;
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 125);
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(126, 17);
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 1;
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Text = "Only accept numbers";
+			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.UseVisualStyleBackColor = true;
+			// 
+			// textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
+			// 
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 99);
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
+			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 0;
+			// 
+			// tab_controls_form
+			// 
+			this.tab_controls_form.Controls.Add(this.tabs_controls_form);
+			this.tab_controls_form.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_form.Name = "tab_controls_form";
+			this.tab_controls_form.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_form.Size = new System.Drawing.Size(816, 258);
+			this.tab_controls_form.TabIndex = 3;
+			this.tab_controls_form.Text = "Form";
+			this.tab_controls_form.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_form
+			// 
+			this.tabs_controls_form.Controls.Add(this.tab_controls_form_getOpenForms);
+			this.tabs_controls_form.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_form.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_form.Name = "tabs_controls_form";
+			this.tabs_controls_form.SelectedIndex = 0;
+			this.tabs_controls_form.Size = new System.Drawing.Size(810, 252);
+			this.tabs_controls_form.TabIndex = 0;
+			// 
+			// tab_controls_form_getOpenForms
+			// 
+			this.tab_controls_form_getOpenForms.Controls.Add(this.button_controls_form_getOpenForms_getOpenForms);
+			this.tab_controls_form_getOpenForms.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_form_getOpenForms.Name = "tab_controls_form_getOpenForms";
+			this.tab_controls_form_getOpenForms.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_form_getOpenForms.Size = new System.Drawing.Size(802, 226);
+			this.tab_controls_form_getOpenForms.TabIndex = 0;
+			this.tab_controls_form_getOpenForms.Text = "Get Open Forms";
+			this.tab_controls_form_getOpenForms.UseVisualStyleBackColor = true;
+			// 
+			// button_controls_form_getOpenForms_getOpenForms
+			// 
+			this.button_controls_form_getOpenForms_getOpenForms.Location = new System.Drawing.Point(346, 102);
+			this.button_controls_form_getOpenForms_getOpenForms.Name = "button_controls_form_getOpenForms_getOpenForms";
+			this.button_controls_form_getOpenForms_getOpenForms.Size = new System.Drawing.Size(188, 23);
+			this.button_controls_form_getOpenForms_getOpenForms.TabIndex = 0;
+			this.button_controls_form_getOpenForms_getOpenForms.Text = "Get Open Forms";
+			this.button_controls_form_getOpenForms_getOpenForms.UseVisualStyleBackColor = true;
+			// 
+			// tab_controls_messageBox
+			// 
+			this.tab_controls_messageBox.Controls.Add(this.tabs_controls_messageBox);
+			this.tab_controls_messageBox.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_messageBox.Name = "tab_controls_messageBox";
+			this.tab_controls_messageBox.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_messageBox.Size = new System.Drawing.Size(816, 258);
+			this.tab_controls_messageBox.TabIndex = 4;
+			this.tab_controls_messageBox.Text = "MessageBox";
+			this.tab_controls_messageBox.UseVisualStyleBackColor = true;
+			// 
+			// tabs_controls_messageBox
+			// 
+			this.tabs_controls_messageBox.Controls.Add(this.tab_controls_messageBox_showConfirmationDialog);
+			this.tabs_controls_messageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_controls_messageBox.Location = new System.Drawing.Point(3, 3);
+			this.tabs_controls_messageBox.Name = "tabs_controls_messageBox";
+			this.tabs_controls_messageBox.SelectedIndex = 0;
+			this.tabs_controls_messageBox.Size = new System.Drawing.Size(810, 252);
+			this.tabs_controls_messageBox.TabIndex = 0;
+			// 
+			// tab_controls_messageBox_showConfirmationDialog
+			// 
+			this.tab_controls_messageBox_showConfirmationDialog.Controls.Add(this.button_controls_messageBox_showConfirmationDialog_show);
+			this.tab_controls_messageBox_showConfirmationDialog.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_messageBox_showConfirmationDialog.Name = "tab_controls_messageBox_showConfirmationDialog";
+			this.tab_controls_messageBox_showConfirmationDialog.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_messageBox_showConfirmationDialog.Size = new System.Drawing.Size(802, 226);
+			this.tab_controls_messageBox_showConfirmationDialog.TabIndex = 0;
+			this.tab_controls_messageBox_showConfirmationDialog.Text = "Show Confirmation Dialog";
+			this.tab_controls_messageBox_showConfirmationDialog.UseVisualStyleBackColor = true;
+			// 
+			// button_controls_messageBox_showConfirmationDialog_show
+			// 
+			this.button_controls_messageBox_showConfirmationDialog_show.Location = new System.Drawing.Point(324, 114);
+			this.button_controls_messageBox_showConfirmationDialog_show.Name = "button_controls_messageBox_showConfirmationDialog_show";
+			this.button_controls_messageBox_showConfirmationDialog_show.Size = new System.Drawing.Size(188, 23);
+			this.button_controls_messageBox_showConfirmationDialog_show.TabIndex = 0;
+			this.button_controls_messageBox_showConfirmationDialog_show.Text = "Show Confirmation Dialog";
+			this.button_controls_messageBox_showConfirmationDialog_show.UseVisualStyleBackColor = true;
 			// 
 			// tab_network
 			// 
@@ -2119,262 +2368,13 @@
             0,
             0});
 			// 
-			// tabs_controls
+			// lineGraph1
 			// 
-			this.tabs_controls.Controls.Add(this.tab_controls_controls);
-			this.tabs_controls.Controls.Add(this.tab_controls_tweaks);
-			this.tabs_controls.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls.Name = "tabs_controls";
-			this.tabs_controls.SelectedIndex = 0;
-			this.tabs_controls.Size = new System.Drawing.Size(838, 316);
-			this.tabs_controls.TabIndex = 0;
-			// 
-			// tab_controls_controls
-			// 
-			this.tab_controls_controls.Controls.Add(this.tabs_controls_controls);
-			this.tab_controls_controls.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_controls.Name = "tab_controls_controls";
-			this.tab_controls_controls.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_controls.Size = new System.Drawing.Size(830, 290);
-			this.tab_controls_controls.TabIndex = 0;
-			this.tab_controls_controls.Text = "Controls";
-			this.tab_controls_controls.UseVisualStyleBackColor = true;
-			// 
-			// tab_controls_tweaks
-			// 
-			this.tab_controls_tweaks.Controls.Add(this.tabs_controls_tweaks);
-			this.tab_controls_tweaks.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_tweaks.Name = "tab_controls_tweaks";
-			this.tab_controls_tweaks.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_tweaks.Size = new System.Drawing.Size(830, 290);
-			this.tab_controls_tweaks.TabIndex = 1;
-			this.tab_controls_tweaks.Text = "Tweaks";
-			this.tab_controls_tweaks.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_tweaks
-			// 
-			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_tweaks_comboBox);
-			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_textBox);
-			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_form);
-			this.tabs_controls_tweaks.Controls.Add(this.tab_controls_messageBox);
-			this.tabs_controls_tweaks.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_tweaks.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_tweaks.Name = "tabs_controls_tweaks";
-			this.tabs_controls_tweaks.SelectedIndex = 0;
-			this.tabs_controls_tweaks.Size = new System.Drawing.Size(824, 284);
-			this.tabs_controls_tweaks.TabIndex = 1;
-			// 
-			// tab_controls_tweaks_comboBox
-			// 
-			this.tab_controls_tweaks_comboBox.Controls.Add(this.tabs_controls_comboBox);
-			this.tab_controls_tweaks_comboBox.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_tweaks_comboBox.Name = "tab_controls_tweaks_comboBox";
-			this.tab_controls_tweaks_comboBox.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_tweaks_comboBox.Size = new System.Drawing.Size(816, 258);
-			this.tab_controls_tweaks_comboBox.TabIndex = 0;
-			this.tab_controls_tweaks_comboBox.Text = "ComboBox";
-			this.tab_controls_tweaks_comboBox.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_comboBox
-			// 
-			this.tabs_controls_comboBox.Controls.Add(this.tab_controls_comboBox_resizeComboBox);
-			this.tabs_controls_comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_comboBox.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_comboBox.Name = "tabs_controls_comboBox";
-			this.tabs_controls_comboBox.SelectedIndex = 0;
-			this.tabs_controls_comboBox.Size = new System.Drawing.Size(810, 252);
-			this.tabs_controls_comboBox.TabIndex = 0;
-			// 
-			// tab_controls_comboBox_resizeComboBox
-			// 
-			this.tab_controls_comboBox_resizeComboBox.Controls.Add(this.comboBox_controls_comboBox_resizeComboBox_resize);
-			this.tab_controls_comboBox_resizeComboBox.Controls.Add(this.button_controls_comboBox_resizeComboBox_resize);
-			this.tab_controls_comboBox_resizeComboBox.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_comboBox_resizeComboBox.Name = "tab_controls_comboBox_resizeComboBox";
-			this.tab_controls_comboBox_resizeComboBox.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_comboBox_resizeComboBox.Size = new System.Drawing.Size(802, 226);
-			this.tab_controls_comboBox_resizeComboBox.TabIndex = 0;
-			this.tab_controls_comboBox_resizeComboBox.Text = "Resize ComboBox";
-			this.tab_controls_comboBox_resizeComboBox.UseVisualStyleBackColor = true;
-			// 
-			// comboBox_controls_comboBox_resizeComboBox_resize
-			// 
-			this.comboBox_controls_comboBox_resizeComboBox_resize.FormattingEnabled = true;
-			this.comboBox_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(386, 92);
-			this.comboBox_controls_comboBox_resizeComboBox_resize.Name = "comboBox_controls_comboBox_resizeComboBox_resize";
-			this.comboBox_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(141, 21);
-			this.comboBox_controls_comboBox_resizeComboBox_resize.TabIndex = 16;
-			// 
-			// button_controls_comboBox_resizeComboBox_resize
-			// 
-			this.button_controls_comboBox_resizeComboBox_resize.Location = new System.Drawing.Point(339, 91);
-			this.button_controls_comboBox_resizeComboBox_resize.Name = "button_controls_comboBox_resizeComboBox_resize";
-			this.button_controls_comboBox_resizeComboBox_resize.Size = new System.Drawing.Size(47, 39);
-			this.button_controls_comboBox_resizeComboBox_resize.TabIndex = 15;
-			this.button_controls_comboBox_resizeComboBox_resize.Text = "Resize";
-			this.button_controls_comboBox_resizeComboBox_resize.UseVisualStyleBackColor = true;
-			// 
-			// tab_controls_textBox
-			// 
-			this.tab_controls_textBox.Controls.Add(this.tabs_controls_textBox);
-			this.tab_controls_textBox.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_textBox.Name = "tab_controls_textBox";
-			this.tab_controls_textBox.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_textBox.Size = new System.Drawing.Size(816, 258);
-			this.tab_controls_textBox.TabIndex = 1;
-			this.tab_controls_textBox.Text = "TextBox";
-			this.tab_controls_textBox.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_textBox
-			// 
-			this.tabs_controls_textBox.Controls.Add(this.tab_controls_textBox_onlyNumbersTextBox);
-			this.tabs_controls_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_textBox.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_textBox.Name = "tabs_controls_textBox";
-			this.tabs_controls_textBox.SelectedIndex = 0;
-			this.tabs_controls_textBox.Size = new System.Drawing.Size(810, 252);
-			this.tabs_controls_textBox.TabIndex = 0;
-			// 
-			// tab_controls_textBox_onlyNumbersTextBox
-			// 
-			this.tab_controls_textBox_onlyNumbersTextBox.Controls.Add(this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers);
-			this.tab_controls_textBox_onlyNumbersTextBox.Controls.Add(this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers);
-			this.tab_controls_textBox_onlyNumbersTextBox.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_textBox_onlyNumbersTextBox.Name = "tab_controls_textBox_onlyNumbersTextBox";
-			this.tab_controls_textBox_onlyNumbersTextBox.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_textBox_onlyNumbersTextBox.Size = new System.Drawing.Size(802, 226);
-			this.tab_controls_textBox_onlyNumbersTextBox.TabIndex = 0;
-			this.tab_controls_textBox_onlyNumbersTextBox.Text = "Only Numbers TextBox";
-			this.tab_controls_textBox_onlyNumbersTextBox.UseVisualStyleBackColor = true;
-			// 
-			// checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
-			// 
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.AutoSize = true;
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 125);
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(126, 17);
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 1;
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Text = "Only accept numbers";
-			this.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.UseVisualStyleBackColor = true;
-			// 
-			// textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers
-			// 
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Location = new System.Drawing.Point(343, 99);
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Name = "textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers";
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Size = new System.Drawing.Size(186, 20);
-			this.textBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.TabIndex = 0;
-			// 
-			// tab_controls_form
-			// 
-			this.tab_controls_form.Controls.Add(this.tabs_controls_form);
-			this.tab_controls_form.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_form.Name = "tab_controls_form";
-			this.tab_controls_form.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_form.Size = new System.Drawing.Size(816, 258);
-			this.tab_controls_form.TabIndex = 3;
-			this.tab_controls_form.Text = "Form";
-			this.tab_controls_form.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_form
-			// 
-			this.tabs_controls_form.Controls.Add(this.tab_controls_form_getOpenForms);
-			this.tabs_controls_form.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_form.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_form.Name = "tabs_controls_form";
-			this.tabs_controls_form.SelectedIndex = 0;
-			this.tabs_controls_form.Size = new System.Drawing.Size(810, 252);
-			this.tabs_controls_form.TabIndex = 0;
-			// 
-			// tab_controls_form_getOpenForms
-			// 
-			this.tab_controls_form_getOpenForms.Controls.Add(this.button_controls_form_getOpenForms_getOpenForms);
-			this.tab_controls_form_getOpenForms.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_form_getOpenForms.Name = "tab_controls_form_getOpenForms";
-			this.tab_controls_form_getOpenForms.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_form_getOpenForms.Size = new System.Drawing.Size(802, 226);
-			this.tab_controls_form_getOpenForms.TabIndex = 0;
-			this.tab_controls_form_getOpenForms.Text = "Get Open Forms";
-			this.tab_controls_form_getOpenForms.UseVisualStyleBackColor = true;
-			// 
-			// button_controls_form_getOpenForms_getOpenForms
-			// 
-			this.button_controls_form_getOpenForms_getOpenForms.Location = new System.Drawing.Point(346, 102);
-			this.button_controls_form_getOpenForms_getOpenForms.Name = "button_controls_form_getOpenForms_getOpenForms";
-			this.button_controls_form_getOpenForms_getOpenForms.Size = new System.Drawing.Size(188, 23);
-			this.button_controls_form_getOpenForms_getOpenForms.TabIndex = 0;
-			this.button_controls_form_getOpenForms_getOpenForms.Text = "Get Open Forms";
-			this.button_controls_form_getOpenForms_getOpenForms.UseVisualStyleBackColor = true;
-			// 
-			// tab_controls_messageBox
-			// 
-			this.tab_controls_messageBox.Controls.Add(this.tabs_controls_messageBox);
-			this.tab_controls_messageBox.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_messageBox.Name = "tab_controls_messageBox";
-			this.tab_controls_messageBox.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_messageBox.Size = new System.Drawing.Size(816, 258);
-			this.tab_controls_messageBox.TabIndex = 4;
-			this.tab_controls_messageBox.Text = "MessageBox";
-			this.tab_controls_messageBox.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_messageBox
-			// 
-			this.tabs_controls_messageBox.Controls.Add(this.tab_controls_messageBox_showConfirmationDialog);
-			this.tabs_controls_messageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_messageBox.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_messageBox.Name = "tabs_controls_messageBox";
-			this.tabs_controls_messageBox.SelectedIndex = 0;
-			this.tabs_controls_messageBox.Size = new System.Drawing.Size(810, 252);
-			this.tabs_controls_messageBox.TabIndex = 0;
-			// 
-			// tab_controls_messageBox_showConfirmationDialog
-			// 
-			this.tab_controls_messageBox_showConfirmationDialog.Controls.Add(this.button_controls_messageBox_showConfirmationDialog_show);
-			this.tab_controls_messageBox_showConfirmationDialog.Location = new System.Drawing.Point(4, 22);
-			this.tab_controls_messageBox_showConfirmationDialog.Name = "tab_controls_messageBox_showConfirmationDialog";
-			this.tab_controls_messageBox_showConfirmationDialog.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_controls_messageBox_showConfirmationDialog.Size = new System.Drawing.Size(802, 226);
-			this.tab_controls_messageBox_showConfirmationDialog.TabIndex = 0;
-			this.tab_controls_messageBox_showConfirmationDialog.Text = "Show Confirmation Dialog";
-			this.tab_controls_messageBox_showConfirmationDialog.UseVisualStyleBackColor = true;
-			// 
-			// button_controls_messageBox_showConfirmationDialog_show
-			// 
-			this.button_controls_messageBox_showConfirmationDialog_show.Location = new System.Drawing.Point(324, 114);
-			this.button_controls_messageBox_showConfirmationDialog_show.Name = "button_controls_messageBox_showConfirmationDialog_show";
-			this.button_controls_messageBox_showConfirmationDialog_show.Size = new System.Drawing.Size(188, 23);
-			this.button_controls_messageBox_showConfirmationDialog_show.TabIndex = 0;
-			this.button_controls_messageBox_showConfirmationDialog_show.Text = "Show Confirmation Dialog";
-			this.button_controls_messageBox_showConfirmationDialog_show.UseVisualStyleBackColor = true;
-			// 
-			// tabs_controls_controls
-			// 
-			this.tabs_controls_controls.Controls.Add(this.tab_lineGraph);
-			this.tabs_controls_controls.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_controls_controls.Location = new System.Drawing.Point(3, 3);
-			this.tabs_controls_controls.Name = "tabs_controls_controls";
-			this.tabs_controls_controls.SelectedIndex = 0;
-			this.tabs_controls_controls.Size = new System.Drawing.Size(824, 284);
-			this.tabs_controls_controls.TabIndex = 0;
-			// 
-			// tab_lineGraph
-			// 
-			this.tab_lineGraph.Controls.Add(this.lineGraph);
-			this.tab_lineGraph.Location = new System.Drawing.Point(4, 22);
-			this.tab_lineGraph.Name = "tab_lineGraph";
-			this.tab_lineGraph.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_lineGraph.Size = new System.Drawing.Size(816, 258);
-			this.tab_lineGraph.TabIndex = 0;
-			this.tab_lineGraph.Text = "Line Graph";
-			this.tab_lineGraph.UseVisualStyleBackColor = true;
-			// 
-			// lineGraph
-			// 
-			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph.Location = new System.Drawing.Point(309, 87);
-			this.lineGraph.Name = "lineGraph";
-			this.lineGraph.Size = new System.Drawing.Size(198, 98);
-			this.lineGraph.TabIndex = 0;
+			this.lineGraph1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lineGraph1.Location = new System.Drawing.Point(312, 75);
+			this.lineGraph1.Name = "lineGraph1";
+			this.lineGraph1.Size = new System.Drawing.Size(198, 98);
+			this.lineGraph1.TabIndex = 0;
 			// 
 			// Main
 			// 
@@ -2435,6 +2435,25 @@
 			this.tab_generators_generatePassword.ResumeLayout(false);
 			this.tab_generators_generatePassword.PerformLayout();
 			this.tab_controls.ResumeLayout(false);
+			this.tabs_controls.ResumeLayout(false);
+			this.tab_controls_controls.ResumeLayout(false);
+			this.tabs_controls_controls.ResumeLayout(false);
+			this.tab_lineGraph.ResumeLayout(false);
+			this.tab_controls_tweaks.ResumeLayout(false);
+			this.tabs_controls_tweaks.ResumeLayout(false);
+			this.tab_controls_tweaks_comboBox.ResumeLayout(false);
+			this.tabs_controls_comboBox.ResumeLayout(false);
+			this.tab_controls_comboBox_resizeComboBox.ResumeLayout(false);
+			this.tab_controls_textBox.ResumeLayout(false);
+			this.tabs_controls_textBox.ResumeLayout(false);
+			this.tab_controls_textBox_onlyNumbersTextBox.ResumeLayout(false);
+			this.tab_controls_textBox_onlyNumbersTextBox.PerformLayout();
+			this.tab_controls_form.ResumeLayout(false);
+			this.tabs_controls_form.ResumeLayout(false);
+			this.tab_controls_form_getOpenForms.ResumeLayout(false);
+			this.tab_controls_messageBox.ResumeLayout(false);
+			this.tabs_controls_messageBox.ResumeLayout(false);
+			this.tab_controls_messageBox_showConfirmationDialog.ResumeLayout(false);
 			this.tab_network.ResumeLayout(false);
 			this.tabs_network.ResumeLayout(false);
 			this.tab_network_wifi.ResumeLayout(false);
@@ -2480,25 +2499,6 @@
 			this.tab_device_getRam.ResumeLayout(false);
 			this.tab_device_getRam.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
-			this.tabs_controls.ResumeLayout(false);
-			this.tab_controls_controls.ResumeLayout(false);
-			this.tab_controls_tweaks.ResumeLayout(false);
-			this.tabs_controls_tweaks.ResumeLayout(false);
-			this.tab_controls_tweaks_comboBox.ResumeLayout(false);
-			this.tabs_controls_comboBox.ResumeLayout(false);
-			this.tab_controls_comboBox_resizeComboBox.ResumeLayout(false);
-			this.tab_controls_textBox.ResumeLayout(false);
-			this.tabs_controls_textBox.ResumeLayout(false);
-			this.tab_controls_textBox_onlyNumbersTextBox.ResumeLayout(false);
-			this.tab_controls_textBox_onlyNumbersTextBox.PerformLayout();
-			this.tab_controls_form.ResumeLayout(false);
-			this.tabs_controls_form.ResumeLayout(false);
-			this.tab_controls_form_getOpenForms.ResumeLayout(false);
-			this.tab_controls_messageBox.ResumeLayout(false);
-			this.tabs_controls_messageBox.ResumeLayout(false);
-			this.tab_controls_messageBox_showConfirmationDialog.ResumeLayout(false);
-			this.tabs_controls_controls.ResumeLayout(false);
-			this.tab_lineGraph.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2708,6 +2708,6 @@
 		internal System.Windows.Forms.Button button_controls_messageBox_showConfirmationDialog_show;
 		private System.Windows.Forms.TabControl tabs_controls_controls;
 		private System.Windows.Forms.TabPage tab_lineGraph;
-		private Testing.LineGraph.LineGraph lineGraph;
+		private ScriptsLib.Controls.LineGraph lineGraph1;
 	}
 }
