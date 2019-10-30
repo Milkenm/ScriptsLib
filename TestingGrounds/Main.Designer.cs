@@ -232,7 +232,8 @@
 			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-			this.lineGraph1 = new ScriptsLib.Controls.LineGraph();
+			this.lineGraph = new ScriptsLib.Controls.LineGraph();
+			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
@@ -1205,7 +1206,8 @@
 			// 
 			// tab_lineGraph
 			// 
-			this.tab_lineGraph.Controls.Add(this.lineGraph1);
+			this.tab_lineGraph.Controls.Add(this.button_lineGraph_drawTest);
+			this.tab_lineGraph.Controls.Add(this.lineGraph);
 			this.tab_lineGraph.Location = new System.Drawing.Point(4, 22);
 			this.tab_lineGraph.Name = "tab_lineGraph";
 			this.tab_lineGraph.Padding = new System.Windows.Forms.Padding(3);
@@ -2368,13 +2370,23 @@
             0,
             0});
 			// 
-			// lineGraph1
+			// lineGraph
 			// 
-			this.lineGraph1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph1.Location = new System.Drawing.Point(312, 75);
-			this.lineGraph1.Name = "lineGraph1";
-			this.lineGraph1.Size = new System.Drawing.Size(198, 98);
-			this.lineGraph1.TabIndex = 0;
+			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lineGraph.Location = new System.Drawing.Point(105, 48);
+			this.lineGraph.Name = "lineGraph";
+			this.lineGraph.Size = new System.Drawing.Size(606, 134);
+			this.lineGraph.TabIndex = 0;
+			// 
+			// button_lineGraph_drawTest
+			// 
+			this.button_lineGraph_drawTest.Location = new System.Drawing.Point(105, 188);
+			this.button_lineGraph_drawTest.Name = "button_lineGraph_drawTest";
+			this.button_lineGraph_drawTest.Size = new System.Drawing.Size(75, 23);
+			this.button_lineGraph_drawTest.TabIndex = 1;
+			this.button_lineGraph_drawTest.Text = "Draw Test";
+			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
+			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
 			// 
 			// Main
 			// 
@@ -2683,10 +2695,6 @@
         internal System.Windows.Forms.Button button_device_getRam_update;
         internal System.Windows.Forms.ComboBox comboBox_device_getRam_ramType;
         internal System.Windows.Forms.TextBox textBox_device_getRam_value;
-        private System.Windows.Forms.Label label_device_getRam_gb;
-		private System.Windows.Forms.TabControl tabs_controls;
-		private System.Windows.Forms.TabPage tab_controls_controls;
-		private System.Windows.Forms.TabPage tab_controls_tweaks;
 		internal System.Windows.Forms.TabControl tabs_controls_tweaks;
 		internal System.Windows.Forms.TabPage tab_controls_tweaks_comboBox;
 		internal System.Windows.Forms.TabControl tabs_controls_comboBox;
@@ -2706,8 +2714,13 @@
 		internal System.Windows.Forms.TabControl tabs_controls_messageBox;
 		internal System.Windows.Forms.TabPage tab_controls_messageBox_showConfirmationDialog;
 		internal System.Windows.Forms.Button button_controls_messageBox_showConfirmationDialog_show;
-		private System.Windows.Forms.TabControl tabs_controls_controls;
-		private System.Windows.Forms.TabPage tab_lineGraph;
-		private ScriptsLib.Controls.LineGraph lineGraph1;
+		internal System.Windows.Forms.Label label_device_getRam_gb;
+		internal System.Windows.Forms.TabControl tabs_controls;
+		internal System.Windows.Forms.TabPage tab_controls_controls;
+		internal System.Windows.Forms.TabPage tab_controls_tweaks;
+		internal System.Windows.Forms.TabControl tabs_controls_controls;
+		internal System.Windows.Forms.TabPage tab_lineGraph;
+		internal ScriptsLib.Controls.LineGraph lineGraph;
+		internal System.Windows.Forms.Button button_lineGraph_drawTest;
 	}
 }

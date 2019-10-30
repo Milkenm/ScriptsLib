@@ -31,5 +31,7 @@ namespace TestingGrounds
 		private void button_device_getRam_update_Click(object sender, EventArgs e) => GetRAM();
 
 		private void comboBox_device_getRam_ramType_SelectedIndexChanged(object sender, EventArgs e) => GetRAM();
+
+		private void button_lineGraph_drawTest_Click(object sender, EventArgs e) => DrawTest();
 	}
 }

@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Functions\Events\Controls\ComboBox\ResizeComboBox.cs" />
-    <Compile Include="Functions\Events\Controls\Form\GetOpenForms.cs" />
-    <Compile Include="Functions\Events\Controls\MessageBox\ShowConfirmationDialog.cs" />
-    <Compile Include="Functions\Events\Controls\TextBox\OnlyNumbersTextBox.cs" />
+    <Compile Include="Functions\Events\Controls\Controls\LineGraph\DrawTest.cs" />
+    <Compile Include="Functions\Events\Controls\Tweaks\ComboBox\ResizeComboBox.cs" />
+    <Compile Include="Functions\Events\Controls\Tweaks\Form\GetOpenForms.cs" />
+    <Compile Include="Functions\Events\Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
+    <Compile Include="Functions\Events\Controls\Tweaks\TextBox\OnlyNumbersTextBox.cs" />
     <Compile Include="Functions\Events\Database\CreateDatabase.cs" />
     <Compile Include="Functions\Events\Database\CreateTable.cs" />
     <Compile Include="Functions\Events\Database\Delete.cs" />
