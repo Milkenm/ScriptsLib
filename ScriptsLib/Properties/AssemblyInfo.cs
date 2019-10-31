@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ScriptsLib")]
 [assembly: AssemblyDescription("My library to use databases and other stuff.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Milkenm")]
 [assembly: AssemblyProduct("ScriptsLib")]
 [assembly: AssemblyCopyright("Copyright © Milkenm 2019")]
 [assembly: AssemblyTrademark("")]
