@@ -13,7 +13,7 @@ namespace ScriptsLib
 		/// <summary>Author of ScriptsLib.</summary>
 		public static readonly string Author = "Milkenm";
 		/// <summary>ScriptsLib contibutors.</summary>
-		public static readonly string Contributors = null;
+		public static readonly string Contributors;
 		/// <summary>Current ScriptsLib version.</summary>
 		public static readonly string Version = "6.0.0";
 		/// <summary>First release date.</summary>
