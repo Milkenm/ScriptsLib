@@ -11,22 +11,22 @@ namespace ScriptsLib
 	{
 		// # ================================================================================================ #
 		/// <summary>Author of ScriptsLib.</summary>
-		public static readonly string _Author = "Milkenm";
+		public static readonly string Author = "Milkenm";
 		/// <summary>ScriptsLib contibutors.</summary>
-		public static readonly string _Contributors = null;
+		public static readonly string Contributors = null;
 		/// <summary>Current ScriptsLib version.</summary>
-		public static readonly string _Version = "6.0.0";
+		public static readonly string Version = "6.0.0";
 		/// <summary>First release date.</summary>
-		public static readonly string _ReleaseDate = "30/04/2019 - 21:12";
+		public static readonly string ReleaseDate = "30/04/2019 - 21:12";
 		/// <summary>Lattest release date.</summary>
-		public static readonly string _UpdateDate = "30/10/2019 - 12:25";
+		public static readonly string UpdateDate = "30/10/2019 - 12:25";
 		// # ================================================================================================ #
 		/// <summary>AppData Path.</summary>
-		internal static readonly string _AppdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\";
+		internal static readonly string AppdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\";
 		/// <summary>AppData Temp Path.</summary>
-		internal static readonly string _TempPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\Temp\";
+		internal static readonly string TempPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\Temp\";
 		/// <summary>AppData User Data Path.</summary>
-		internal static readonly string _UserdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\UserData\";
+		internal static readonly string UserdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\UserData\";
 		// # ================================================================================================ #
 	}
 }
