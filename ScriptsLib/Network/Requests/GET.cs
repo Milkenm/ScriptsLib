@@ -6,7 +6,7 @@ using System.Text;
 
 
 
-namespace ScriptsLib.Network.Requests
+namespace ScriptsLib.Network
 {
 	public static partial class Requests
 	{
