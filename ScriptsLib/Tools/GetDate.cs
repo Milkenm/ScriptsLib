@@ -22,35 +22,14 @@ namespace ScriptsLib
 
 
 
-			if (_Day.Length < 2)
-			{
-				_Day = 0 + _Day;
-			}
-			if (_Month.Length < 2)
-			{
-				_Month = 0 + _Month;
-			}
-			if (_Hour.Length < 2)
-			{
-				_Hour = 0 + _Hour;
-			}
-			if (_Minute.Length < 2)
-			{
-				_Minute = 0 + _Minute;
-			}
-			if (_Second.Length < 2)
-			{
-				_Second = 0 + _Second;
-			}
+			if (_Day.Length < 2) _Day = 0 + _Day;
+			if (_Month.Length < 2) _Month = 0 + _Month;
+			if (_Hour.Length < 2) _Hour = 0 + _Hour;
+			if (_Minute.Length < 2) _Minute = 0 + _Minute;
+			if (_Second.Length < 2) _Second = 0 + _Second;
 
-			if (_Millisecond.Length < 2)
-			{
-				_Millisecond = 00 + _Millisecond;
-			}
-			else if (_Millisecond.Length < 3)
-			{
-				_Millisecond = 0 + _Millisecond;
-			}
+			if (_Millisecond.Length < 2) _Millisecond = 00 + _Millisecond;
+			else if (_Millisecond.Length < 3) _Millisecond = 0 + _Millisecond;
 
 
 
