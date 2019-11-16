@@ -50,7 +50,7 @@ namespace ScriptsLib
 					{
 						if ($"\n{_Line}".Contains($"\n{_Variable}=")) // If the line contains the variable.
 						{
-							return Tools.ReplaceString(_Line, _Variable + "=", "");
+							_Line.Replace(_Variable + "=", "");
 						}
 					}
 				}

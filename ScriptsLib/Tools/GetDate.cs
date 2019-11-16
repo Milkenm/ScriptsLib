@@ -54,13 +54,7 @@ namespace ScriptsLib
 
 
 
-			string _Return = ReplaceString(_Format, "DD", _Day);
-			_Return = ReplaceString(_Return, "MM", _Month);
-			_Return = ReplaceString(_Return, "YYYY", _Year);
-			_Return = ReplaceString(_Return, "hh", _Hour);
-			_Return = ReplaceString(_Return, "mm", _Minute);
-			_Return = ReplaceString(_Return, "ss", _Second);
-			return ReplaceString(_Return, "ms", _Millisecond);
+			return _Format.Replace("DD", _Day).Replace("MM", _Month).Replace("YYYY", _Year).Replace("hh", _Hour).Replace("mm", _Minute).Replace("ss", _Second).Replace("ms", _Millisecond);
 		}
 	}
 }

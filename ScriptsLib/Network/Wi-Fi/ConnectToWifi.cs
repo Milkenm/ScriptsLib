@@ -17,9 +17,9 @@ namespace ScriptsLib.Network
 			{
 				string _EESWPA2PSKAES_Template = String.Join("\n", File.ReadAllLines(@"Resources\Templates\Network\Wifi\EES_WPA2PSK_AES.xml"));
 				string _AppdataXmlPath = Info.AppdataPath + @"Temp\WifiNetworkAdd.xml";
-				
-				_EESWPA2PSKAES_Template = Tools.ReplaceString(_EESWPA2PSKAES_Template, "{SSID}", _SSID);
-				_EESWPA2PSKAES_Template = Tools.ReplaceString(_EESWPA2PSKAES_Template, "{PASSWORD}", _Password);
+
+				_EESWPA2PSKAES_Template = _EESWPA2PSKAES_Template.Replace("{SSID}", _SSID);
+				_EESWPA2PSKAES_Template = _EESWPA2PSKAES_Template.Replace("{PASSWORD}", _Password);
 
 				Directory.CreateDirectory(Info.AppdataPath + @"Temp\");
 				File.WriteAllText(_AppdataXmlPath, _EESWPA2PSKAES_Template);

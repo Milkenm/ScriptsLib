@@ -84,7 +84,6 @@
     <Compile Include="Functions\Events\Tools\GetDate.cs" />
     <Compile Include="Functions\Events\Tools\Hash.cs" />
     <Compile Include="Functions\Events\Tools\Log.cs" />
-    <Compile Include="Functions\Events\Tools\ReplaceString.cs" />
     <Compile Include="Functions\Events\Tools\SetWallpaper_GetGifFrames.cs" />
     <Compile Include="Functions\Ex.cs" />
     <Compile Include="Functions\MainInitEvents.cs" />

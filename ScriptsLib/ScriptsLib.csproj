@@ -147,7 +147,6 @@
     <Compile Include="Tools\Hash.cs" />
     <Compile Include="Tools\IsThisApplicationAlreadyRunning.cs" />
     <Compile Include="Tools\Log.cs" />
-    <Compile Include="Tools\ReplaceString.cs" />
     <Compile Include="Tools\SetDesktopWallpaper.cs" />
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />

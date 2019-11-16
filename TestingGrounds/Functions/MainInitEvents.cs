@@ -34,7 +34,6 @@ namespace TestingGrounds
 			MainForm.button_tools_setWallpaper6getGifFrames_searchGif.Click += (s, e) => Event_SearchGif();
 			MainForm.button_tools_setWallpaper6getGifFrames_setWallpaper.Click += (s, e) => Event_ToolsSetWallpaper();
 			MainForm.fileDialog_tg_searchGif.FileOk += (s, e) => Event_FileDialogSearchGifOk();
-			MainForm.button_tools_replaceString_replace.Click += (s, e) => Event_ToolsReplaceString();
 
 			// Database Tools
 			MainForm.button_tools_databaseTools_selectUnique_select.Click += (s, e) => Event_DatabaseToolsSelectUnique();
