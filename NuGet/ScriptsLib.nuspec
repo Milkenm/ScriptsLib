@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>ScriptsLib</id>
+    <title>ScriptsLib</title>
+    <version>6.1.0</version>
+    <authors>Milkenm</authors>
+    <owners>Milkenm</owners>
+    <license type="file">res/LICENSE.txt</license>
+    <projectUrl>https://github.com/Milkenm/ScriptsLib</projectUrl>
+    <icon>res/Icon.png</icon>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>My library to use databases and other stuff. Im just lazy...</description>
+    <releaseNotes>https://github.com/Milkenm/ScriptsLib/releases/latest</releaseNotes>
+    <copyright>Copyright © Milkenm 2019</copyright>
+    <repository type="git" url="https://github.com/Milkenm/ScriptsLib.git"/>
+    <tags>c-sharp; library; general-purpose</tags>
+  </metadata>
+  <files>
+  	<file src="..\ScriptsLib\bin\Release\ScriptsLib.dll" target="lib"/>
+  	<file src="..\ScriptsLib\Properties\Resources\Icon\Icon.png" target="res"/>
+  	<file src="..\LICENSE.txt" target="res"/>
+  </files>
+</package>
