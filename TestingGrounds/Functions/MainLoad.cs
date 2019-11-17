@@ -67,6 +67,7 @@ namespace TestingGrounds
 			MainForm.checkBox_controls_textBox_onlyNumbersTextBox_onlyNumbers.Checked = true;
 
 			MainForm.textBox_tg_version.Text = Info.Version;
+			MainForm.checkBox_tg_debugErrors.Enabled = false;
 		}
 	}
 }
