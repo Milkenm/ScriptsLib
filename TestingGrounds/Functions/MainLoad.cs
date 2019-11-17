@@ -3,6 +3,7 @@ using System;
 
 using ScriptsLib;
 using static ScriptsLib.Controls.Tweaks.SlComboBox;
+using static ScriptsLib.Controls.Tweaks.SlForm;
 using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
 using static ScriptsLib.Network.Security;
@@ -17,7 +18,7 @@ namespace TestingGrounds
 	{
 		internal static void MainLoad()
 		{
-			SlForm.SetIntroForm(MainForm, 0.035, false);
+			SetIntroForm(MainForm, 0.035, false);
 
 			
 			MainForm.fileDialog_tg_searchGif.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
