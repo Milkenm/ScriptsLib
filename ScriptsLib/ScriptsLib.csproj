@@ -122,6 +122,7 @@
     <Compile Include="Network\APIs\RiotAPI\Champion.cs" />
     <Compile Include="Network\APIs\RiotAPI\ChampionMastery.cs" />
     <Compile Include="Network\APIs\RiotAPI\League.cs" />
+    <Compile Include="Network\APIs\RiotAPI\LolStatus.cs" />
     <Compile Include="Network\APIs\RiotAPI\_RiotAPI.cs" />
     <Compile Include="Network\Requests\GET.cs" />
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
