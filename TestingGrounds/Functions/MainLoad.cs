@@ -20,7 +20,7 @@ namespace TestingGrounds
 		{
 			SetIntroForm(MainForm, 0.035, false);
 
-			
+
 			MainForm.fileDialog_tg_searchGif.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
 
@@ -37,20 +37,14 @@ namespace TestingGrounds
 
 			DynVars.DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
 
-            
-			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))
-			{
-				MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
-			}
-            foreach (RAMType _Type in Enum.GetValues(typeof(RAMType)))
-            {
-                MainForm.comboBox_device_getRam_ramType.Items.Add(_Type.ToString());
-            }
+
+			foreach (PortType _Type in Enum.GetValues(typeof(PortType))) MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
+			foreach (RAMType _Type in Enum.GetValues(typeof(RAMType))) MainForm.comboBox_device_getRam_ramType.Items.Add(_Type.ToString());
 
 			MainForm.comboBox_network_security_openFirewallPort_portType.SelectedIndex = 0;
 			MainForm.numeric_network_security_openFirewallPort_portNumber.Value = 70;
 
-			
+
 			MainForm.textBox_tools_databaseTools_checkLogin_user.Text = "User1";
 			MainForm.textBox_tools_databaseTools_checkLogin_pass.Text = "Pass1";
 
@@ -60,7 +54,7 @@ namespace TestingGrounds
 
 			MainForm.comboBox_tg_databaseType.SelectedIndex = 2;
 
-            MainForm.comboBox_device_getRam_ramType.SelectedIndex = 0;
+			MainForm.comboBox_device_getRam_ramType.SelectedIndex = 0;
 
 			MainForm.comboBox_tools_log_logType.SelectedIndex = 0;
 			ResizeComboBox(MainForm.comboBox_tools_log_logType, 20);
