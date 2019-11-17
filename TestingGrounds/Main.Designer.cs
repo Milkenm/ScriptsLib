@@ -226,6 +226,12 @@
 			this.label_tools_hash_text = new System.Windows.Forms.Label();
 			this.label_tools_hash_hashed = new System.Windows.Forms.Label();
 			this.tabs_tools = new System.Windows.Forms.TabControl();
+			this.tab_network_requests_post = new System.Windows.Forms.TabPage();
+			this.textBox_network_requests_post_data = new System.Windows.Forms.TextBox();
+			this.button_network_requests_post_execute = new System.Windows.Forms.Button();
+			this.textBox_network_requests_post_endpoint = new System.Windows.Forms.TextBox();
+			this.label_network_requests_post_endpoint = new System.Windows.Forms.Label();
+			this.label_network_requests_post_data = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_elements)).BeginInit();
@@ -307,6 +313,7 @@
 			this.tab_tools_databaseTools_checkLogin.SuspendLayout();
 			this.tab_tools_hash.SuspendLayout();
 			this.tabs_tools.SuspendLayout();
+			this.tab_network_requests_post.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -2290,6 +2297,73 @@
 			this.label_tools_hash_hashed.Text = "Hashed";
 			// 
 			// tabs_tools
+			this.tabs_network_requests.Controls.Add(this.tab_network_requests_post);
+			// 
+			// tab_network_requests_post
+			// 
+			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_data);
+			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_endpoint);
+			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_endpoint);
+			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_data);
+			this.tab_network_requests_post.Controls.Add(this.button_network_requests_post_execute);
+			this.tab_network_requests_post.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests_post.Name = "tab_network_requests_post";
+			this.tab_network_requests_post.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests_post.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_requests_post.TabIndex = 1;
+			this.tab_network_requests_post.Text = "POST";
+			this.tab_network_requests_post.UseVisualStyleBackColor = true;
+			// 
+			// textBox_network_requests_post_data
+			// 
+			this.textBox_network_requests_post_data.Location = new System.Drawing.Point(230, 54);
+			this.textBox_network_requests_post_data.Multiline = true;
+			this.textBox_network_requests_post_data.Name = "textBox_network_requests_post_data";
+			this.textBox_network_requests_post_data.Size = new System.Drawing.Size(415, 147);
+			this.textBox_network_requests_post_data.TabIndex = 3;
+			// 
+			// button_network_requests_post_execute
+			// 
+			this.button_network_requests_post_execute.Location = new System.Drawing.Point(545, 207);
+			this.button_network_requests_post_execute.Name = "button_network_requests_post_execute";
+			this.button_network_requests_post_execute.Size = new System.Drawing.Size(100, 23);
+			this.button_network_requests_post_execute.TabIndex = 2;
+			this.button_network_requests_post_execute.Text = "Execute Request";
+			this.button_network_requests_post_execute.UseVisualStyleBackColor = true;
+			// 
+			// textBox_network_requests_post_endpoint
+			// 
+			this.textBox_network_requests_post_endpoint.Location = new System.Drawing.Point(230, 28);
+			this.textBox_network_requests_post_endpoint.Name = "textBox_network_requests_post_endpoint";
+			this.textBox_network_requests_post_endpoint.Size = new System.Drawing.Size(415, 20);
+			this.textBox_network_requests_post_endpoint.TabIndex = 4;
+			// 
+			// label_network_requests_get_endpoint
+			// 
+			this.label_network_requests_get_endpoint.AutoSize = true;
+			this.label_network_requests_get_endpoint.Location = new System.Drawing.Point(172, 108);
+			this.label_network_requests_get_endpoint.Name = "label_network_requests_get_endpoint";
+			this.label_network_requests_get_endpoint.Size = new System.Drawing.Size(52, 13);
+			this.label_network_requests_get_endpoint.TabIndex = 2;
+			this.label_network_requests_get_endpoint.Text = "Endpoint:";
+			// 
+			// label_network_requests_post_endpoint
+			// 
+			this.label_network_requests_post_endpoint.AutoSize = true;
+			this.label_network_requests_post_endpoint.Location = new System.Drawing.Point(172, 31);
+			this.label_network_requests_post_endpoint.Name = "label_network_requests_post_endpoint";
+			this.label_network_requests_post_endpoint.Size = new System.Drawing.Size(52, 13);
+			this.label_network_requests_post_endpoint.TabIndex = 5;
+			this.label_network_requests_post_endpoint.Text = "Endpoint:";
+			// 
+			// label_network_requests_post_data
+			// 
+			this.label_network_requests_post_data.AutoSize = true;
+			this.label_network_requests_post_data.Location = new System.Drawing.Point(191, 57);
+			this.label_network_requests_post_data.Name = "label_network_requests_post_data";
+			this.label_network_requests_post_data.Size = new System.Drawing.Size(33, 13);
+			this.label_network_requests_post_data.TabIndex = 6;
+			this.label_network_requests_post_data.Text = "Data:";
 			// 
 			this.tabs_tools.Controls.Add(this.tab_tools_hash);
 			this.tabs_tools.Controls.Add(this.tab_tools_databaseTools);
@@ -2425,6 +2499,8 @@
 			this.tab_tools_hash.ResumeLayout(false);
 			this.tab_tools_hash.PerformLayout();
 			this.tabs_tools.ResumeLayout(false);
+			this.tab_network_requests_post.ResumeLayout(false);
+			this.tab_network_requests_post.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2628,5 +2704,11 @@
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_searchGif;
 		internal System.Windows.Forms.PictureBox pictureBox_tools_setWallpaper6getGifFrames_gif;
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_setWallpaper;
+		private System.Windows.Forms.TabPage tab_network_requests_post;
+		private System.Windows.Forms.TextBox textBox_network_requests_post_endpoint;
+		private System.Windows.Forms.TextBox textBox_network_requests_post_data;
+		private System.Windows.Forms.Button button_network_requests_post_execute;
+		private System.Windows.Forms.Label label_network_requests_post_endpoint;
+		private System.Windows.Forms.Label label_network_requests_post_data;
 	}
 }

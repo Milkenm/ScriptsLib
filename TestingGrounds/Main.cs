@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using static TestingGrounds.Events;
 using static TestingGrounds.Functions;
 using static TestingGrounds.Static;
+using static ScriptsLib.Network.Requests;
 #endregion Usings
 
 
@@ -19,7 +20,7 @@ namespace TestingGrounds
 			MainForm = this;
 			MainInitEvents();
 		}
-		
+
 		private void button_tg_test_Click(object sender, EventArgs e) => TestingButton();
 
 
@@ -33,5 +34,28 @@ namespace TestingGrounds
 		private void comboBox_device_getRam_ramType_SelectedIndexChanged(object sender, EventArgs e) => GetRAM();
 
 		private void button_lineGraph_drawTest_Click(object sender, EventArgs e) => DrawTest();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		private void button_network_requests_get_execute_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				MessageBox.Show(GET(textBox_network_requests_get_endpoint.Text), "GET Request");
+			}
+			catch (Exception ex) { Ex(ex); }
+		}
 	}
 }
