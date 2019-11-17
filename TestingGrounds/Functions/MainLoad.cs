@@ -2,7 +2,7 @@
 using System;
 
 using ScriptsLib;
-using ScriptsLib.Controls.Tweaks;
+using static ScriptsLib.Controls.Tweaks.SlComboBox;
 using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
 using static ScriptsLib.Network.Security;
@@ -62,7 +62,7 @@ namespace TestingGrounds
             MainForm.comboBox_device_getRam_ramType.SelectedIndex = 0;
 
 			MainForm.comboBox_tools_log_logType.SelectedIndex = 0;
-			SlComboBox.ResizeComboBox(MainForm.comboBox_tools_log_logType, 20);
+			ResizeComboBox(MainForm.comboBox_tools_log_logType, 20);
 
 			MainForm.button_controls_comboBox_resizeComboBox_resize.Text = $"Resize {MainForm.button_controls_comboBox_resizeComboBox_resize.Height} | {MainForm.comboBox_controls_comboBox_resizeComboBox_resize.Height}";
 
