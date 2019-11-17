@@ -119,6 +119,7 @@
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="DynVars\_DynVars.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
+    <Compile Include="Network\APIs\RiotAPI\_RiotAPI.cs" />
     <Compile Include="Network\Requests\GET.cs" />
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
     <Compile Include="Properties\Info.cs" />
