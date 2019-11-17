@@ -66,6 +66,43 @@
 			this.tab_database_select = new System.Windows.Forms.TabPage();
 			this.tab_database_delete = new System.Windows.Forms.TabPage();
 			this.tab_tools = new System.Windows.Forms.TabPage();
+			this.tabs_tools = new System.Windows.Forms.TabControl();
+			this.tab_tools_hash = new System.Windows.Forms.TabPage();
+			this.label_tools_hash_hashed = new System.Windows.Forms.Label();
+			this.label_tools_hash_text = new System.Windows.Forms.Label();
+			this.textBox_tools_hash_hashed = new System.Windows.Forms.TextBox();
+			this.textBox_tools_hash_text = new System.Windows.Forms.TextBox();
+			this.tab_tools_databaseTools = new System.Windows.Forms.TabPage();
+			this.tabs_tools_databaseTools = new System.Windows.Forms.TabControl();
+			this.tab_tools_databaseTools_checkLogin = new System.Windows.Forms.TabPage();
+			this.textBox_tools_databaseTools_checkLogin_user = new System.Windows.Forms.TextBox();
+			this.button_tools_databaseTools_checkLogin_login = new System.Windows.Forms.Button();
+			this.label_tools_databaseTools_checkLogin_pass = new System.Windows.Forms.Label();
+			this.label_tools_databaseTools_checkLogin_user = new System.Windows.Forms.Label();
+			this.textBox_tools_databaseTools_checkLogin_pass = new System.Windows.Forms.TextBox();
+			this.tab_tools_databaseTools_filterSql = new System.Windows.Forms.TabPage();
+			this.button_tools_databaseTools_filterSql_filter = new System.Windows.Forms.Button();
+			this.textBox_tools_databaseTools_filterSql_text = new System.Windows.Forms.TextBox();
+			this.tab_tools_databaseTools_selectUnique = new System.Windows.Forms.TabPage();
+			this.button_tools_databaseTools_selectUnique_select = new System.Windows.Forms.Button();
+			this.textBox_tools_databaseTools_selectUnique_table = new System.Windows.Forms.TextBox();
+			this.textBox_tools_databaseTools_selectUnique_column = new System.Windows.Forms.TextBox();
+			this.tab_tools_crash = new System.Windows.Forms.TabPage();
+			this.button_tools_crash_crash = new System.Windows.Forms.Button();
+			this.tab_tools_log = new System.Windows.Forms.TabPage();
+			this.label_tools_log_message = new System.Windows.Forms.Label();
+			this.label_tools_log_type = new System.Windows.Forms.Label();
+			this.textBox_tools_log_logSource = new System.Windows.Forms.TextBox();
+			this.textBox_tools_log_logMessage = new System.Windows.Forms.TextBox();
+			this.comboBox_tools_log_logType = new System.Windows.Forms.ComboBox();
+			this.label_tools_log_source = new System.Windows.Forms.Label();
+			this.button_tools_log_log = new System.Windows.Forms.Button();
+			this.tab_tools_getDate = new System.Windows.Forms.TabPage();
+			this.label_tools_getDate_date = new System.Windows.Forms.Label();
+			this.tab_tools_setWallpaper6getGifFrames = new System.Windows.Forms.TabPage();
+			this.button_tools_setWallpaper6getGifFrames_searchGif = new System.Windows.Forms.Button();
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif = new System.Windows.Forms.PictureBox();
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper = new System.Windows.Forms.Button();
 			this.tab_generators = new System.Windows.Forms.TabPage();
 			this.tabs_generators = new System.Windows.Forms.TabControl();
 			this.tab_generators_generatePassword = new System.Windows.Forms.TabPage();
@@ -78,7 +115,6 @@
 			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
 			this.tab_lineGraph = new System.Windows.Forms.TabPage();
 			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
-			this.lineGraph = new ScriptsLib.Controls.LineGraph();
 			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
 			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
 			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
@@ -189,49 +225,38 @@
 			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-			this.tab_tools_setWallpaper6getGifFrames = new System.Windows.Forms.TabPage();
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper = new System.Windows.Forms.Button();
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif = new System.Windows.Forms.PictureBox();
-			this.button_tools_setWallpaper6getGifFrames_searchGif = new System.Windows.Forms.Button();
-			this.tab_tools_getDate = new System.Windows.Forms.TabPage();
-			this.label_tools_getDate_date = new System.Windows.Forms.Label();
-			this.tab_tools_log = new System.Windows.Forms.TabPage();
-			this.button_tools_log_log = new System.Windows.Forms.Button();
-			this.textBox_tools_log_logMessage = new System.Windows.Forms.TextBox();
-			this.label_tools_log_source = new System.Windows.Forms.Label();
-			this.comboBox_tools_log_logType = new System.Windows.Forms.ComboBox();
-			this.textBox_tools_log_logSource = new System.Windows.Forms.TextBox();
-			this.label_tools_log_type = new System.Windows.Forms.Label();
-			this.label_tools_log_message = new System.Windows.Forms.Label();
-			this.tab_tools_crash = new System.Windows.Forms.TabPage();
-			this.button_tools_crash_crash = new System.Windows.Forms.Button();
-			this.tab_tools_databaseTools = new System.Windows.Forms.TabPage();
-			this.tabs_tools_databaseTools = new System.Windows.Forms.TabControl();
-			this.tab_tools_databaseTools_selectUnique = new System.Windows.Forms.TabPage();
-			this.textBox_tools_databaseTools_selectUnique_column = new System.Windows.Forms.TextBox();
-			this.textBox_tools_databaseTools_selectUnique_table = new System.Windows.Forms.TextBox();
-			this.button_tools_databaseTools_selectUnique_select = new System.Windows.Forms.Button();
-			this.tab_tools_databaseTools_filterSql = new System.Windows.Forms.TabPage();
-			this.textBox_tools_databaseTools_filterSql_text = new System.Windows.Forms.TextBox();
-			this.button_tools_databaseTools_filterSql_filter = new System.Windows.Forms.Button();
-			this.tab_tools_databaseTools_checkLogin = new System.Windows.Forms.TabPage();
-			this.textBox_tools_databaseTools_checkLogin_pass = new System.Windows.Forms.TextBox();
-			this.label_tools_databaseTools_checkLogin_user = new System.Windows.Forms.Label();
-			this.label_tools_databaseTools_checkLogin_pass = new System.Windows.Forms.Label();
-			this.button_tools_databaseTools_checkLogin_login = new System.Windows.Forms.Button();
-			this.textBox_tools_databaseTools_checkLogin_user = new System.Windows.Forms.TextBox();
-			this.tab_tools_hash = new System.Windows.Forms.TabPage();
-			this.textBox_tools_hash_text = new System.Windows.Forms.TextBox();
-			this.textBox_tools_hash_hashed = new System.Windows.Forms.TextBox();
-			this.label_tools_hash_text = new System.Windows.Forms.Label();
-			this.label_tools_hash_hashed = new System.Windows.Forms.Label();
-			this.tabs_tools = new System.Windows.Forms.TabControl();
+			this.tab_network_requests = new System.Windows.Forms.TabPage();
+			this.tabs_network_requests = new System.Windows.Forms.TabControl();
+			this.tab_network_requests_get = new System.Windows.Forms.TabPage();
+			this.button_network_requests_get_execute = new System.Windows.Forms.Button();
+			this.textBox_network_requests_get_endpoint = new System.Windows.Forms.TextBox();
 			this.tab_network_requests_post = new System.Windows.Forms.TabPage();
 			this.textBox_network_requests_post_data = new System.Windows.Forms.TextBox();
 			this.button_network_requests_post_execute = new System.Windows.Forms.Button();
 			this.textBox_network_requests_post_endpoint = new System.Windows.Forms.TextBox();
+			this.label_network_requests_get_endpoint = new System.Windows.Forms.Label();
 			this.label_network_requests_post_endpoint = new System.Windows.Forms.Label();
 			this.label_network_requests_post_data = new System.Windows.Forms.Label();
+			this.lineGraph = new ScriptsLib.Controls.LineGraph();
+			this.tab_network_apis = new System.Windows.Forms.TabPage();
+			this.tabs_network_apis = new System.Windows.Forms.TabControl();
+			this.tab_network_apis_riotapi = new System.Windows.Forms.TabPage();
+			this.tabs_network_apis_riotapi = new System.Windows.Forms.TabControl();
+			this.tab_network_apis_riotapi_championMastery = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_champion = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_leagueExp = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_league = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_lolStatus = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_match = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_spectator = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_summoner = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftLeague = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftMatch = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftSummoner = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_thirdPartyCode = new System.Windows.Forms.TabPage();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_elements)).BeginInit();
@@ -246,6 +271,18 @@
 			this.tab_database_select.SuspendLayout();
 			this.tab_database_delete.SuspendLayout();
 			this.tab_tools.SuspendLayout();
+			this.tabs_tools.SuspendLayout();
+			this.tab_tools_hash.SuspendLayout();
+			this.tab_tools_databaseTools.SuspendLayout();
+			this.tabs_tools_databaseTools.SuspendLayout();
+			this.tab_tools_databaseTools_checkLogin.SuspendLayout();
+			this.tab_tools_databaseTools_filterSql.SuspendLayout();
+			this.tab_tools_databaseTools_selectUnique.SuspendLayout();
+			this.tab_tools_crash.SuspendLayout();
+			this.tab_tools_log.SuspendLayout();
+			this.tab_tools_getDate.SuspendLayout();
+			this.tab_tools_setWallpaper6getGifFrames.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
 			this.tab_generators.SuspendLayout();
 			this.tabs_generators.SuspendLayout();
 			this.tab_generators_generatePassword.SuspendLayout();
@@ -301,19 +338,16 @@
 			this.tabs_device.SuspendLayout();
 			this.tab_device_getRam.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
-			this.tab_tools_setWallpaper6getGifFrames.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).BeginInit();
-			this.tab_tools_getDate.SuspendLayout();
-			this.tab_tools_log.SuspendLayout();
-			this.tab_tools_crash.SuspendLayout();
-			this.tab_tools_databaseTools.SuspendLayout();
-			this.tabs_tools_databaseTools.SuspendLayout();
-			this.tab_tools_databaseTools_selectUnique.SuspendLayout();
-			this.tab_tools_databaseTools_filterSql.SuspendLayout();
-			this.tab_tools_databaseTools_checkLogin.SuspendLayout();
-			this.tab_tools_hash.SuspendLayout();
-			this.tabs_tools.SuspendLayout();
+			this.tab_network_requests.SuspendLayout();
+			this.tabs_network_requests.SuspendLayout();
+			this.tab_network_requests_get.SuspendLayout();
 			this.tab_network_requests_post.SuspendLayout();
+			this.tab_network_apis.SuspendLayout();
+			this.tabs_network_apis.SuspendLayout();
+			this.tab_network_apis_riotapi.SuspendLayout();
+			this.tabs_network_apis_riotapi.SuspendLayout();
+			this.tab_network_apis_riotapi_championMastery.SuspendLayout();
+			this.tabControl1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -657,6 +691,370 @@
 			this.tab_tools.Text = "Tools";
 			this.tab_tools.UseVisualStyleBackColor = true;
 			// 
+			// tabs_tools
+			// 
+			this.tabs_tools.Controls.Add(this.tab_tools_hash);
+			this.tabs_tools.Controls.Add(this.tab_tools_databaseTools);
+			this.tabs_tools.Controls.Add(this.tab_tools_crash);
+			this.tabs_tools.Controls.Add(this.tab_tools_log);
+			this.tabs_tools.Controls.Add(this.tab_tools_getDate);
+			this.tabs_tools.Controls.Add(this.tab_tools_setWallpaper6getGifFrames);
+			this.tabs_tools.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_tools.Location = new System.Drawing.Point(3, 3);
+			this.tabs_tools.Name = "tabs_tools";
+			this.tabs_tools.SelectedIndex = 0;
+			this.tabs_tools.Size = new System.Drawing.Size(838, 316);
+			this.tabs_tools.TabIndex = 1;
+			// 
+			// tab_tools_hash
+			// 
+			this.tab_tools_hash.Controls.Add(this.label_tools_hash_hashed);
+			this.tab_tools_hash.Controls.Add(this.label_tools_hash_text);
+			this.tab_tools_hash.Controls.Add(this.textBox_tools_hash_hashed);
+			this.tab_tools_hash.Controls.Add(this.textBox_tools_hash_text);
+			this.tab_tools_hash.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_hash.Name = "tab_tools_hash";
+			this.tab_tools_hash.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_hash.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_hash.TabIndex = 0;
+			this.tab_tools_hash.Text = "Hash";
+			this.tab_tools_hash.UseVisualStyleBackColor = true;
+			// 
+			// label_tools_hash_hashed
+			// 
+			this.label_tools_hash_hashed.AutoSize = true;
+			this.label_tools_hash_hashed.Location = new System.Drawing.Point(154, 153);
+			this.label_tools_hash_hashed.Name = "label_tools_hash_hashed";
+			this.label_tools_hash_hashed.Size = new System.Drawing.Size(44, 13);
+			this.label_tools_hash_hashed.TabIndex = 3;
+			this.label_tools_hash_hashed.Text = "Hashed";
+			// 
+			// label_tools_hash_text
+			// 
+			this.label_tools_hash_text.AutoSize = true;
+			this.label_tools_hash_text.Location = new System.Drawing.Point(154, 102);
+			this.label_tools_hash_text.Name = "label_tools_hash_text";
+			this.label_tools_hash_text.Size = new System.Drawing.Size(28, 13);
+			this.label_tools_hash_text.TabIndex = 2;
+			this.label_tools_hash_text.Text = "Text";
+			// 
+			// textBox_tools_hash_hashed
+			// 
+			this.textBox_tools_hash_hashed.Location = new System.Drawing.Point(157, 169);
+			this.textBox_tools_hash_hashed.Name = "textBox_tools_hash_hashed";
+			this.textBox_tools_hash_hashed.Size = new System.Drawing.Size(519, 20);
+			this.textBox_tools_hash_hashed.TabIndex = 1;
+			// 
+			// textBox_tools_hash_text
+			// 
+			this.textBox_tools_hash_text.Location = new System.Drawing.Point(157, 118);
+			this.textBox_tools_hash_text.Name = "textBox_tools_hash_text";
+			this.textBox_tools_hash_text.Size = new System.Drawing.Size(519, 20);
+			this.textBox_tools_hash_text.TabIndex = 0;
+			// 
+			// tab_tools_databaseTools
+			// 
+			this.tab_tools_databaseTools.Controls.Add(this.tabs_tools_databaseTools);
+			this.tab_tools_databaseTools.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_databaseTools.Name = "tab_tools_databaseTools";
+			this.tab_tools_databaseTools.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_databaseTools.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_databaseTools.TabIndex = 2;
+			this.tab_tools_databaseTools.Text = "Database Tools";
+			this.tab_tools_databaseTools.UseVisualStyleBackColor = true;
+			// 
+			// tabs_tools_databaseTools
+			// 
+			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_checkLogin);
+			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_filterSql);
+			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_selectUnique);
+			this.tabs_tools_databaseTools.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_tools_databaseTools.Location = new System.Drawing.Point(3, 3);
+			this.tabs_tools_databaseTools.Name = "tabs_tools_databaseTools";
+			this.tabs_tools_databaseTools.SelectedIndex = 0;
+			this.tabs_tools_databaseTools.Size = new System.Drawing.Size(824, 284);
+			this.tabs_tools_databaseTools.TabIndex = 0;
+			// 
+			// tab_tools_databaseTools_checkLogin
+			// 
+			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.textBox_tools_databaseTools_checkLogin_user);
+			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.button_tools_databaseTools_checkLogin_login);
+			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.label_tools_databaseTools_checkLogin_pass);
+			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.label_tools_databaseTools_checkLogin_user);
+			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.textBox_tools_databaseTools_checkLogin_pass);
+			this.tab_tools_databaseTools_checkLogin.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_databaseTools_checkLogin.Name = "tab_tools_databaseTools_checkLogin";
+			this.tab_tools_databaseTools_checkLogin.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_databaseTools_checkLogin.Size = new System.Drawing.Size(816, 258);
+			this.tab_tools_databaseTools_checkLogin.TabIndex = 0;
+			this.tab_tools_databaseTools_checkLogin.Text = "Check Login";
+			this.tab_tools_databaseTools_checkLogin.UseVisualStyleBackColor = true;
+			// 
+			// textBox_tools_databaseTools_checkLogin_user
+			// 
+			this.textBox_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(238, 92);
+			this.textBox_tools_databaseTools_checkLogin_user.Name = "textBox_tools_databaseTools_checkLogin_user";
+			this.textBox_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(380, 20);
+			this.textBox_tools_databaseTools_checkLogin_user.TabIndex = 16;
+			// 
+			// button_tools_databaseTools_checkLogin_login
+			// 
+			this.button_tools_databaseTools_checkLogin_login.Location = new System.Drawing.Point(500, 144);
+			this.button_tools_databaseTools_checkLogin_login.Name = "button_tools_databaseTools_checkLogin_login";
+			this.button_tools_databaseTools_checkLogin_login.Size = new System.Drawing.Size(118, 23);
+			this.button_tools_databaseTools_checkLogin_login.TabIndex = 15;
+			this.button_tools_databaseTools_checkLogin_login.Text = "Login";
+			this.button_tools_databaseTools_checkLogin_login.UseVisualStyleBackColor = true;
+			// 
+			// label_tools_databaseTools_checkLogin_pass
+			// 
+			this.label_tools_databaseTools_checkLogin_pass.AutoSize = true;
+			this.label_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(199, 121);
+			this.label_tools_databaseTools_checkLogin_pass.Name = "label_tools_databaseTools_checkLogin_pass";
+			this.label_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(33, 13);
+			this.label_tools_databaseTools_checkLogin_pass.TabIndex = 19;
+			this.label_tools_databaseTools_checkLogin_pass.Text = "Pass:";
+			// 
+			// label_tools_databaseTools_checkLogin_user
+			// 
+			this.label_tools_databaseTools_checkLogin_user.AutoSize = true;
+			this.label_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(200, 95);
+			this.label_tools_databaseTools_checkLogin_user.Name = "label_tools_databaseTools_checkLogin_user";
+			this.label_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(32, 13);
+			this.label_tools_databaseTools_checkLogin_user.TabIndex = 18;
+			this.label_tools_databaseTools_checkLogin_user.Text = "User:";
+			// 
+			// textBox_tools_databaseTools_checkLogin_pass
+			// 
+			this.textBox_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(238, 118);
+			this.textBox_tools_databaseTools_checkLogin_pass.Name = "textBox_tools_databaseTools_checkLogin_pass";
+			this.textBox_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(380, 20);
+			this.textBox_tools_databaseTools_checkLogin_pass.TabIndex = 17;
+			// 
+			// tab_tools_databaseTools_filterSql
+			// 
+			this.tab_tools_databaseTools_filterSql.Controls.Add(this.button_tools_databaseTools_filterSql_filter);
+			this.tab_tools_databaseTools_filterSql.Controls.Add(this.textBox_tools_databaseTools_filterSql_text);
+			this.tab_tools_databaseTools_filterSql.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_databaseTools_filterSql.Name = "tab_tools_databaseTools_filterSql";
+			this.tab_tools_databaseTools_filterSql.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_databaseTools_filterSql.Size = new System.Drawing.Size(816, 258);
+			this.tab_tools_databaseTools_filterSql.TabIndex = 1;
+			this.tab_tools_databaseTools_filterSql.Text = "Filter SQL";
+			this.tab_tools_databaseTools_filterSql.UseVisualStyleBackColor = true;
+			// 
+			// button_tools_databaseTools_filterSql_filter
+			// 
+			this.button_tools_databaseTools_filterSql_filter.Location = new System.Drawing.Point(584, 131);
+			this.button_tools_databaseTools_filterSql_filter.Name = "button_tools_databaseTools_filterSql_filter";
+			this.button_tools_databaseTools_filterSql_filter.Size = new System.Drawing.Size(97, 22);
+			this.button_tools_databaseTools_filterSql_filter.TabIndex = 18;
+			this.button_tools_databaseTools_filterSql_filter.Text = "Filter";
+			this.button_tools_databaseTools_filterSql_filter.UseVisualStyleBackColor = true;
+			// 
+			// textBox_tools_databaseTools_filterSql_text
+			// 
+			this.textBox_tools_databaseTools_filterSql_text.Location = new System.Drawing.Point(136, 105);
+			this.textBox_tools_databaseTools_filterSql_text.Name = "textBox_tools_databaseTools_filterSql_text";
+			this.textBox_tools_databaseTools_filterSql_text.Size = new System.Drawing.Size(545, 20);
+			this.textBox_tools_databaseTools_filterSql_text.TabIndex = 17;
+			// 
+			// tab_tools_databaseTools_selectUnique
+			// 
+			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.button_tools_databaseTools_selectUnique_select);
+			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.textBox_tools_databaseTools_selectUnique_table);
+			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.textBox_tools_databaseTools_selectUnique_column);
+			this.tab_tools_databaseTools_selectUnique.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_databaseTools_selectUnique.Name = "tab_tools_databaseTools_selectUnique";
+			this.tab_tools_databaseTools_selectUnique.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_databaseTools_selectUnique.Size = new System.Drawing.Size(816, 258);
+			this.tab_tools_databaseTools_selectUnique.TabIndex = 2;
+			this.tab_tools_databaseTools_selectUnique.Text = "Select Unique";
+			this.tab_tools_databaseTools_selectUnique.UseVisualStyleBackColor = true;
+			// 
+			// button_tools_databaseTools_selectUnique_select
+			// 
+			this.button_tools_databaseTools_selectUnique_select.Location = new System.Drawing.Point(501, 144);
+			this.button_tools_databaseTools_selectUnique_select.Name = "button_tools_databaseTools_selectUnique_select";
+			this.button_tools_databaseTools_selectUnique_select.Size = new System.Drawing.Size(75, 23);
+			this.button_tools_databaseTools_selectUnique_select.TabIndex = 13;
+			this.button_tools_databaseTools_selectUnique_select.Text = "Select";
+			this.button_tools_databaseTools_selectUnique_select.UseVisualStyleBackColor = true;
+			// 
+			// textBox_tools_databaseTools_selectUnique_table
+			// 
+			this.textBox_tools_databaseTools_selectUnique_table.Location = new System.Drawing.Point(240, 92);
+			this.textBox_tools_databaseTools_selectUnique_table.Name = "textBox_tools_databaseTools_selectUnique_table";
+			this.textBox_tools_databaseTools_selectUnique_table.Size = new System.Drawing.Size(336, 20);
+			this.textBox_tools_databaseTools_selectUnique_table.TabIndex = 11;
+			// 
+			// textBox_tools_databaseTools_selectUnique_column
+			// 
+			this.textBox_tools_databaseTools_selectUnique_column.Location = new System.Drawing.Point(240, 118);
+			this.textBox_tools_databaseTools_selectUnique_column.Name = "textBox_tools_databaseTools_selectUnique_column";
+			this.textBox_tools_databaseTools_selectUnique_column.Size = new System.Drawing.Size(336, 20);
+			this.textBox_tools_databaseTools_selectUnique_column.TabIndex = 12;
+			// 
+			// tab_tools_crash
+			// 
+			this.tab_tools_crash.Controls.Add(this.button_tools_crash_crash);
+			this.tab_tools_crash.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_crash.Name = "tab_tools_crash";
+			this.tab_tools_crash.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_crash.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_crash.TabIndex = 3;
+			this.tab_tools_crash.Text = "Crash";
+			this.tab_tools_crash.UseVisualStyleBackColor = true;
+			// 
+			// button_tools_crash_crash
+			// 
+			this.button_tools_crash_crash.Location = new System.Drawing.Point(311, 124);
+			this.button_tools_crash_crash.Name = "button_tools_crash_crash";
+			this.button_tools_crash_crash.Size = new System.Drawing.Size(209, 43);
+			this.button_tools_crash_crash.TabIndex = 4;
+			this.button_tools_crash_crash.Text = "Crash";
+			this.button_tools_crash_crash.UseVisualStyleBackColor = true;
+			// 
+			// tab_tools_log
+			// 
+			this.tab_tools_log.Controls.Add(this.label_tools_log_message);
+			this.tab_tools_log.Controls.Add(this.label_tools_log_type);
+			this.tab_tools_log.Controls.Add(this.textBox_tools_log_logSource);
+			this.tab_tools_log.Controls.Add(this.textBox_tools_log_logMessage);
+			this.tab_tools_log.Controls.Add(this.comboBox_tools_log_logType);
+			this.tab_tools_log.Controls.Add(this.label_tools_log_source);
+			this.tab_tools_log.Controls.Add(this.button_tools_log_log);
+			this.tab_tools_log.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_log.Name = "tab_tools_log";
+			this.tab_tools_log.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_log.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_log.TabIndex = 4;
+			this.tab_tools_log.Text = "Log";
+			this.tab_tools_log.UseVisualStyleBackColor = true;
+			// 
+			// label_tools_log_message
+			// 
+			this.label_tools_log_message.AutoSize = true;
+			this.label_tools_log_message.Location = new System.Drawing.Point(289, 98);
+			this.label_tools_log_message.Name = "label_tools_log_message";
+			this.label_tools_log_message.Size = new System.Drawing.Size(53, 13);
+			this.label_tools_log_message.TabIndex = 19;
+			this.label_tools_log_message.Text = "Message:";
+			// 
+			// label_tools_log_type
+			// 
+			this.label_tools_log_type.AutoSize = true;
+			this.label_tools_log_type.Location = new System.Drawing.Point(308, 150);
+			this.label_tools_log_type.Name = "label_tools_log_type";
+			this.label_tools_log_type.Size = new System.Drawing.Size(34, 13);
+			this.label_tools_log_type.TabIndex = 21;
+			this.label_tools_log_type.Text = "Type:";
+			// 
+			// textBox_tools_log_logSource
+			// 
+			this.textBox_tools_log_logSource.Location = new System.Drawing.Point(348, 121);
+			this.textBox_tools_log_logSource.Name = "textBox_tools_log_logSource";
+			this.textBox_tools_log_logSource.Size = new System.Drawing.Size(193, 20);
+			this.textBox_tools_log_logSource.TabIndex = 17;
+			// 
+			// textBox_tools_log_logMessage
+			// 
+			this.textBox_tools_log_logMessage.Location = new System.Drawing.Point(348, 95);
+			this.textBox_tools_log_logMessage.Name = "textBox_tools_log_logMessage";
+			this.textBox_tools_log_logMessage.Size = new System.Drawing.Size(193, 20);
+			this.textBox_tools_log_logMessage.TabIndex = 16;
+			// 
+			// comboBox_tools_log_logType
+			// 
+			this.comboBox_tools_log_logType.FormattingEnabled = true;
+			this.comboBox_tools_log_logType.Items.AddRange(new object[] {
+            "INFO",
+            "ERROR",
+            "WARNING"});
+			this.comboBox_tools_log_logType.Location = new System.Drawing.Point(348, 147);
+			this.comboBox_tools_log_logType.Name = "comboBox_tools_log_logType";
+			this.comboBox_tools_log_logType.Size = new System.Drawing.Size(193, 21);
+			this.comboBox_tools_log_logType.TabIndex = 18;
+			// 
+			// label_tools_log_source
+			// 
+			this.label_tools_log_source.AutoSize = true;
+			this.label_tools_log_source.Location = new System.Drawing.Point(298, 124);
+			this.label_tools_log_source.Name = "label_tools_log_source";
+			this.label_tools_log_source.Size = new System.Drawing.Size(44, 13);
+			this.label_tools_log_source.TabIndex = 20;
+			this.label_tools_log_source.Text = "Source:";
+			// 
+			// button_tools_log_log
+			// 
+			this.button_tools_log_log.Location = new System.Drawing.Point(455, 174);
+			this.button_tools_log_log.Name = "button_tools_log_log";
+			this.button_tools_log_log.Size = new System.Drawing.Size(86, 22);
+			this.button_tools_log_log.TabIndex = 15;
+			this.button_tools_log_log.Text = "Log";
+			this.button_tools_log_log.UseVisualStyleBackColor = true;
+			// 
+			// tab_tools_getDate
+			// 
+			this.tab_tools_getDate.Controls.Add(this.label_tools_getDate_date);
+			this.tab_tools_getDate.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_getDate.Name = "tab_tools_getDate";
+			this.tab_tools_getDate.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_getDate.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_getDate.TabIndex = 5;
+			this.tab_tools_getDate.Text = "Get Date";
+			this.tab_tools_getDate.UseVisualStyleBackColor = true;
+			// 
+			// label_tools_getDate_date
+			// 
+			this.label_tools_getDate_date.AutoSize = true;
+			this.label_tools_getDate_date.Location = new System.Drawing.Point(351, 139);
+			this.label_tools_getDate_date.Name = "label_tools_getDate_date";
+			this.label_tools_getDate_date.Size = new System.Drawing.Size(129, 13);
+			this.label_tools_getDate_date.TabIndex = 16;
+			this.label_tools_getDate_date.Text = "<date (updates on code)>";
+			// 
+			// tab_tools_setWallpaper6getGifFrames
+			// 
+			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.button_tools_setWallpaper6getGifFrames_searchGif);
+			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.pictureBox_tools_setWallpaper6getGifFrames_gif);
+			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.button_tools_setWallpaper6getGifFrames_setWallpaper);
+			this.tab_tools_setWallpaper6getGifFrames.Location = new System.Drawing.Point(4, 22);
+			this.tab_tools_setWallpaper6getGifFrames.Name = "tab_tools_setWallpaper6getGifFrames";
+			this.tab_tools_setWallpaper6getGifFrames.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_tools_setWallpaper6getGifFrames.Size = new System.Drawing.Size(830, 290);
+			this.tab_tools_setWallpaper6getGifFrames.TabIndex = 6;
+			this.tab_tools_setWallpaper6getGifFrames.Text = "Set Wallpaper && Get GIF Frames";
+			this.tab_tools_setWallpaper6getGifFrames.UseVisualStyleBackColor = true;
+			// 
+			// button_tools_setWallpaper6getGifFrames_searchGif
+			// 
+			this.button_tools_setWallpaper6getGifFrames_searchGif.Location = new System.Drawing.Point(323, 209);
+			this.button_tools_setWallpaper6getGifFrames_searchGif.Name = "button_tools_setWallpaper6getGifFrames_searchGif";
+			this.button_tools_setWallpaper6getGifFrames_searchGif.Size = new System.Drawing.Size(92, 23);
+			this.button_tools_setWallpaper6getGifFrames_searchGif.TabIndex = 2;
+			this.button_tools_setWallpaper6getGifFrames_searchGif.Text = "Search GIF";
+			this.button_tools_setWallpaper6getGifFrames_searchGif.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox_tools_setWallpaper6getGifFrames_gif
+			// 
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Location = new System.Drawing.Point(323, 59);
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Name = "pictureBox_tools_setWallpaper6getGifFrames_gif";
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Size = new System.Drawing.Size(182, 144);
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.TabIndex = 1;
+			this.pictureBox_tools_setWallpaper6getGifFrames_gif.TabStop = false;
+			// 
+			// button_tools_setWallpaper6getGifFrames_setWallpaper
+			// 
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Location = new System.Drawing.Point(414, 209);
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Name = "button_tools_setWallpaper6getGifFrames_setWallpaper";
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Size = new System.Drawing.Size(93, 23);
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.TabIndex = 0;
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Text = "Set Wallpaper";
+			this.button_tools_setWallpaper6getGifFrames_setWallpaper.UseVisualStyleBackColor = true;
+			// 
 			// tab_generators
 			// 
 			this.tab_generators.Controls.Add(this.tabs_generators);
@@ -784,14 +1182,6 @@
 			this.button_lineGraph_drawTest.Text = "Draw Test";
 			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
 			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
-			// 
-			// lineGraph
-			// 
-			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph.Location = new System.Drawing.Point(308, 16);
-			this.lineGraph.Name = "lineGraph";
-			this.lineGraph.Size = new System.Drawing.Size(200, 200);
-			this.lineGraph.TabIndex = 0;
 			// 
 			// tab_controls_tweaks
 			// 
@@ -1016,6 +1406,8 @@
 			this.tabs_network.Controls.Add(this.tab_network_packets);
 			this.tabs_network.Controls.Add(this.tab_network_mobile);
 			this.tabs_network.Controls.Add(this.tab_network_security);
+			this.tabs_network.Controls.Add(this.tab_network_requests);
+			this.tabs_network.Controls.Add(this.tab_network_apis);
 			this.tabs_network.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabs_network.Location = new System.Drawing.Point(3, 3);
 			this.tabs_network.Name = "tabs_network";
@@ -1947,357 +2339,57 @@
             0,
             0});
 			// 
-			// tab_tools_setWallpaper6getGifFrames
-			// 
-			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.button_tools_setWallpaper6getGifFrames_searchGif);
-			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.pictureBox_tools_setWallpaper6getGifFrames_gif);
-			this.tab_tools_setWallpaper6getGifFrames.Controls.Add(this.button_tools_setWallpaper6getGifFrames_setWallpaper);
-			this.tab_tools_setWallpaper6getGifFrames.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_setWallpaper6getGifFrames.Name = "tab_tools_setWallpaper6getGifFrames";
-			this.tab_tools_setWallpaper6getGifFrames.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_setWallpaper6getGifFrames.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_setWallpaper6getGifFrames.TabIndex = 6;
-			this.tab_tools_setWallpaper6getGifFrames.Text = "Set Wallpaper && Get GIF Frames";
-			this.tab_tools_setWallpaper6getGifFrames.UseVisualStyleBackColor = true;
-			// 
-			// button_tools_setWallpaper6getGifFrames_setWallpaper
-			// 
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Location = new System.Drawing.Point(414, 209);
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Name = "button_tools_setWallpaper6getGifFrames_setWallpaper";
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Size = new System.Drawing.Size(93, 23);
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.TabIndex = 0;
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.Text = "Set Wallpaper";
-			this.button_tools_setWallpaper6getGifFrames_setWallpaper.UseVisualStyleBackColor = true;
-			// 
-			// pictureBox_tools_setWallpaper6getGifFrames_gif
-			// 
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Location = new System.Drawing.Point(323, 59);
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Name = "pictureBox_tools_setWallpaper6getGifFrames_gif";
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.Size = new System.Drawing.Size(182, 144);
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.TabIndex = 1;
-			this.pictureBox_tools_setWallpaper6getGifFrames_gif.TabStop = false;
-			// 
-			// button_tools_setWallpaper6getGifFrames_searchGif
-			// 
-			this.button_tools_setWallpaper6getGifFrames_searchGif.Location = new System.Drawing.Point(323, 209);
-			this.button_tools_setWallpaper6getGifFrames_searchGif.Name = "button_tools_setWallpaper6getGifFrames_searchGif";
-			this.button_tools_setWallpaper6getGifFrames_searchGif.Size = new System.Drawing.Size(92, 23);
-			this.button_tools_setWallpaper6getGifFrames_searchGif.TabIndex = 2;
-			this.button_tools_setWallpaper6getGifFrames_searchGif.Text = "Search GIF";
-			this.button_tools_setWallpaper6getGifFrames_searchGif.UseVisualStyleBackColor = true;
-			// 
-			// tab_tools_getDate
-			// 
-			this.tab_tools_getDate.Controls.Add(this.label_tools_getDate_date);
-			this.tab_tools_getDate.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_getDate.Name = "tab_tools_getDate";
-			this.tab_tools_getDate.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_getDate.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_getDate.TabIndex = 5;
-			this.tab_tools_getDate.Text = "Get Date";
-			this.tab_tools_getDate.UseVisualStyleBackColor = true;
-			// 
-			// label_tools_getDate_date
-			// 
-			this.label_tools_getDate_date.AutoSize = true;
-			this.label_tools_getDate_date.Location = new System.Drawing.Point(351, 139);
-			this.label_tools_getDate_date.Name = "label_tools_getDate_date";
-			this.label_tools_getDate_date.Size = new System.Drawing.Size(129, 13);
-			this.label_tools_getDate_date.TabIndex = 16;
-			this.label_tools_getDate_date.Text = "<date (updates on code)>";
-			// 
-			// tab_tools_log
-			// 
-			this.tab_tools_log.Controls.Add(this.label_tools_log_message);
-			this.tab_tools_log.Controls.Add(this.label_tools_log_type);
-			this.tab_tools_log.Controls.Add(this.textBox_tools_log_logSource);
-			this.tab_tools_log.Controls.Add(this.textBox_tools_log_logMessage);
-			this.tab_tools_log.Controls.Add(this.comboBox_tools_log_logType);
-			this.tab_tools_log.Controls.Add(this.label_tools_log_source);
-			this.tab_tools_log.Controls.Add(this.button_tools_log_log);
-			this.tab_tools_log.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_log.Name = "tab_tools_log";
-			this.tab_tools_log.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_log.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_log.TabIndex = 4;
-			this.tab_tools_log.Text = "Log";
-			this.tab_tools_log.UseVisualStyleBackColor = true;
-			// 
-			// button_tools_log_log
-			// 
-			this.button_tools_log_log.Location = new System.Drawing.Point(455, 174);
-			this.button_tools_log_log.Name = "button_tools_log_log";
-			this.button_tools_log_log.Size = new System.Drawing.Size(86, 22);
-			this.button_tools_log_log.TabIndex = 15;
-			this.button_tools_log_log.Text = "Log";
-			this.button_tools_log_log.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_log_logMessage
-			// 
-			this.textBox_tools_log_logMessage.Location = new System.Drawing.Point(348, 95);
-			this.textBox_tools_log_logMessage.Name = "textBox_tools_log_logMessage";
-			this.textBox_tools_log_logMessage.Size = new System.Drawing.Size(193, 20);
-			this.textBox_tools_log_logMessage.TabIndex = 16;
-			// 
-			// label_tools_log_source
-			// 
-			this.label_tools_log_source.AutoSize = true;
-			this.label_tools_log_source.Location = new System.Drawing.Point(298, 124);
-			this.label_tools_log_source.Name = "label_tools_log_source";
-			this.label_tools_log_source.Size = new System.Drawing.Size(44, 13);
-			this.label_tools_log_source.TabIndex = 20;
-			this.label_tools_log_source.Text = "Source:";
-			// 
-			// comboBox_tools_log_logType
-			// 
-			this.comboBox_tools_log_logType.FormattingEnabled = true;
-			this.comboBox_tools_log_logType.Items.AddRange(new object[] {
-            "INFO",
-            "ERROR",
-            "WARNING"});
-			this.comboBox_tools_log_logType.Location = new System.Drawing.Point(348, 147);
-			this.comboBox_tools_log_logType.Name = "comboBox_tools_log_logType";
-			this.comboBox_tools_log_logType.Size = new System.Drawing.Size(193, 21);
-			this.comboBox_tools_log_logType.TabIndex = 18;
-			// 
-			// textBox_tools_log_logSource
-			// 
-			this.textBox_tools_log_logSource.Location = new System.Drawing.Point(348, 121);
-			this.textBox_tools_log_logSource.Name = "textBox_tools_log_logSource";
-			this.textBox_tools_log_logSource.Size = new System.Drawing.Size(193, 20);
-			this.textBox_tools_log_logSource.TabIndex = 17;
-			// 
-			// label_tools_log_type
-			// 
-			this.label_tools_log_type.AutoSize = true;
-			this.label_tools_log_type.Location = new System.Drawing.Point(308, 150);
-			this.label_tools_log_type.Name = "label_tools_log_type";
-			this.label_tools_log_type.Size = new System.Drawing.Size(34, 13);
-			this.label_tools_log_type.TabIndex = 21;
-			this.label_tools_log_type.Text = "Type:";
-			// 
-			// label_tools_log_message
-			// 
-			this.label_tools_log_message.AutoSize = true;
-			this.label_tools_log_message.Location = new System.Drawing.Point(289, 98);
-			this.label_tools_log_message.Name = "label_tools_log_message";
-			this.label_tools_log_message.Size = new System.Drawing.Size(53, 13);
-			this.label_tools_log_message.TabIndex = 19;
-			this.label_tools_log_message.Text = "Message:";
-			// 
-			// tab_tools_crash
-			// 
-			this.tab_tools_crash.Controls.Add(this.button_tools_crash_crash);
-			this.tab_tools_crash.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_crash.Name = "tab_tools_crash";
-			this.tab_tools_crash.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_crash.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_crash.TabIndex = 3;
-			this.tab_tools_crash.Text = "Crash";
-			this.tab_tools_crash.UseVisualStyleBackColor = true;
-			// 
-			// button_tools_crash_crash
-			// 
-			this.button_tools_crash_crash.Location = new System.Drawing.Point(311, 124);
-			this.button_tools_crash_crash.Name = "button_tools_crash_crash";
-			this.button_tools_crash_crash.Size = new System.Drawing.Size(209, 43);
-			this.button_tools_crash_crash.TabIndex = 4;
-			this.button_tools_crash_crash.Text = "Crash";
-			this.button_tools_crash_crash.UseVisualStyleBackColor = true;
-			// 
-			// tab_tools_databaseTools
-			// 
-			this.tab_tools_databaseTools.Controls.Add(this.tabs_tools_databaseTools);
-			this.tab_tools_databaseTools.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_databaseTools.Name = "tab_tools_databaseTools";
-			this.tab_tools_databaseTools.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_databaseTools.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_databaseTools.TabIndex = 2;
-			this.tab_tools_databaseTools.Text = "Database Tools";
-			this.tab_tools_databaseTools.UseVisualStyleBackColor = true;
-			// 
-			// tabs_tools_databaseTools
-			// 
-			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_checkLogin);
-			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_filterSql);
-			this.tabs_tools_databaseTools.Controls.Add(this.tab_tools_databaseTools_selectUnique);
-			this.tabs_tools_databaseTools.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_tools_databaseTools.Location = new System.Drawing.Point(3, 3);
-			this.tabs_tools_databaseTools.Name = "tabs_tools_databaseTools";
-			this.tabs_tools_databaseTools.SelectedIndex = 0;
-			this.tabs_tools_databaseTools.Size = new System.Drawing.Size(824, 284);
-			this.tabs_tools_databaseTools.TabIndex = 0;
-			// 
-			// tab_tools_databaseTools_selectUnique
-			// 
-			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.button_tools_databaseTools_selectUnique_select);
-			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.textBox_tools_databaseTools_selectUnique_table);
-			this.tab_tools_databaseTools_selectUnique.Controls.Add(this.textBox_tools_databaseTools_selectUnique_column);
-			this.tab_tools_databaseTools_selectUnique.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_databaseTools_selectUnique.Name = "tab_tools_databaseTools_selectUnique";
-			this.tab_tools_databaseTools_selectUnique.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_databaseTools_selectUnique.Size = new System.Drawing.Size(816, 258);
-			this.tab_tools_databaseTools_selectUnique.TabIndex = 2;
-			this.tab_tools_databaseTools_selectUnique.Text = "Select Unique";
-			this.tab_tools_databaseTools_selectUnique.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_databaseTools_selectUnique_column
-			// 
-			this.textBox_tools_databaseTools_selectUnique_column.Location = new System.Drawing.Point(240, 118);
-			this.textBox_tools_databaseTools_selectUnique_column.Name = "textBox_tools_databaseTools_selectUnique_column";
-			this.textBox_tools_databaseTools_selectUnique_column.Size = new System.Drawing.Size(336, 20);
-			this.textBox_tools_databaseTools_selectUnique_column.TabIndex = 12;
-			// 
-			// textBox_tools_databaseTools_selectUnique_table
-			// 
-			this.textBox_tools_databaseTools_selectUnique_table.Location = new System.Drawing.Point(240, 92);
-			this.textBox_tools_databaseTools_selectUnique_table.Name = "textBox_tools_databaseTools_selectUnique_table";
-			this.textBox_tools_databaseTools_selectUnique_table.Size = new System.Drawing.Size(336, 20);
-			this.textBox_tools_databaseTools_selectUnique_table.TabIndex = 11;
-			// 
-			// button_tools_databaseTools_selectUnique_select
-			// 
-			this.button_tools_databaseTools_selectUnique_select.Location = new System.Drawing.Point(501, 144);
-			this.button_tools_databaseTools_selectUnique_select.Name = "button_tools_databaseTools_selectUnique_select";
-			this.button_tools_databaseTools_selectUnique_select.Size = new System.Drawing.Size(75, 23);
-			this.button_tools_databaseTools_selectUnique_select.TabIndex = 13;
-			this.button_tools_databaseTools_selectUnique_select.Text = "Select";
-			this.button_tools_databaseTools_selectUnique_select.UseVisualStyleBackColor = true;
-			// 
-			// tab_tools_databaseTools_filterSql
-			// 
-			this.tab_tools_databaseTools_filterSql.Controls.Add(this.button_tools_databaseTools_filterSql_filter);
-			this.tab_tools_databaseTools_filterSql.Controls.Add(this.textBox_tools_databaseTools_filterSql_text);
-			this.tab_tools_databaseTools_filterSql.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_databaseTools_filterSql.Name = "tab_tools_databaseTools_filterSql";
-			this.tab_tools_databaseTools_filterSql.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_databaseTools_filterSql.Size = new System.Drawing.Size(816, 258);
-			this.tab_tools_databaseTools_filterSql.TabIndex = 1;
-			this.tab_tools_databaseTools_filterSql.Text = "Filter SQL";
-			this.tab_tools_databaseTools_filterSql.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_databaseTools_filterSql_text
-			// 
-			this.textBox_tools_databaseTools_filterSql_text.Location = new System.Drawing.Point(136, 105);
-			this.textBox_tools_databaseTools_filterSql_text.Name = "textBox_tools_databaseTools_filterSql_text";
-			this.textBox_tools_databaseTools_filterSql_text.Size = new System.Drawing.Size(545, 20);
-			this.textBox_tools_databaseTools_filterSql_text.TabIndex = 17;
-			// 
-			// button_tools_databaseTools_filterSql_filter
-			// 
-			this.button_tools_databaseTools_filterSql_filter.Location = new System.Drawing.Point(584, 131);
-			this.button_tools_databaseTools_filterSql_filter.Name = "button_tools_databaseTools_filterSql_filter";
-			this.button_tools_databaseTools_filterSql_filter.Size = new System.Drawing.Size(97, 22);
-			this.button_tools_databaseTools_filterSql_filter.TabIndex = 18;
-			this.button_tools_databaseTools_filterSql_filter.Text = "Filter";
-			this.button_tools_databaseTools_filterSql_filter.UseVisualStyleBackColor = true;
-			// 
-			// tab_tools_databaseTools_checkLogin
-			// 
-			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.textBox_tools_databaseTools_checkLogin_user);
-			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.button_tools_databaseTools_checkLogin_login);
-			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.label_tools_databaseTools_checkLogin_pass);
-			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.label_tools_databaseTools_checkLogin_user);
-			this.tab_tools_databaseTools_checkLogin.Controls.Add(this.textBox_tools_databaseTools_checkLogin_pass);
-			this.tab_tools_databaseTools_checkLogin.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_databaseTools_checkLogin.Name = "tab_tools_databaseTools_checkLogin";
-			this.tab_tools_databaseTools_checkLogin.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_databaseTools_checkLogin.Size = new System.Drawing.Size(816, 258);
-			this.tab_tools_databaseTools_checkLogin.TabIndex = 0;
-			this.tab_tools_databaseTools_checkLogin.Text = "Check Login";
-			this.tab_tools_databaseTools_checkLogin.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_databaseTools_checkLogin_pass
-			// 
-			this.textBox_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(238, 118);
-			this.textBox_tools_databaseTools_checkLogin_pass.Name = "textBox_tools_databaseTools_checkLogin_pass";
-			this.textBox_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(380, 20);
-			this.textBox_tools_databaseTools_checkLogin_pass.TabIndex = 17;
-			// 
-			// label_tools_databaseTools_checkLogin_user
-			// 
-			this.label_tools_databaseTools_checkLogin_user.AutoSize = true;
-			this.label_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(200, 95);
-			this.label_tools_databaseTools_checkLogin_user.Name = "label_tools_databaseTools_checkLogin_user";
-			this.label_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(32, 13);
-			this.label_tools_databaseTools_checkLogin_user.TabIndex = 18;
-			this.label_tools_databaseTools_checkLogin_user.Text = "User:";
-			// 
-			// label_tools_databaseTools_checkLogin_pass
-			// 
-			this.label_tools_databaseTools_checkLogin_pass.AutoSize = true;
-			this.label_tools_databaseTools_checkLogin_pass.Location = new System.Drawing.Point(199, 121);
-			this.label_tools_databaseTools_checkLogin_pass.Name = "label_tools_databaseTools_checkLogin_pass";
-			this.label_tools_databaseTools_checkLogin_pass.Size = new System.Drawing.Size(33, 13);
-			this.label_tools_databaseTools_checkLogin_pass.TabIndex = 19;
-			this.label_tools_databaseTools_checkLogin_pass.Text = "Pass:";
-			// 
-			// button_tools_databaseTools_checkLogin_login
-			// 
-			this.button_tools_databaseTools_checkLogin_login.Location = new System.Drawing.Point(500, 144);
-			this.button_tools_databaseTools_checkLogin_login.Name = "button_tools_databaseTools_checkLogin_login";
-			this.button_tools_databaseTools_checkLogin_login.Size = new System.Drawing.Size(118, 23);
-			this.button_tools_databaseTools_checkLogin_login.TabIndex = 15;
-			this.button_tools_databaseTools_checkLogin_login.Text = "Login";
-			this.button_tools_databaseTools_checkLogin_login.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_databaseTools_checkLogin_user
-			// 
-			this.textBox_tools_databaseTools_checkLogin_user.Location = new System.Drawing.Point(238, 92);
-			this.textBox_tools_databaseTools_checkLogin_user.Name = "textBox_tools_databaseTools_checkLogin_user";
-			this.textBox_tools_databaseTools_checkLogin_user.Size = new System.Drawing.Size(380, 20);
-			this.textBox_tools_databaseTools_checkLogin_user.TabIndex = 16;
-			// 
-			// tab_tools_hash
-			// 
-			this.tab_tools_hash.Controls.Add(this.label_tools_hash_hashed);
-			this.tab_tools_hash.Controls.Add(this.label_tools_hash_text);
-			this.tab_tools_hash.Controls.Add(this.textBox_tools_hash_hashed);
-			this.tab_tools_hash.Controls.Add(this.textBox_tools_hash_text);
-			this.tab_tools_hash.Location = new System.Drawing.Point(4, 22);
-			this.tab_tools_hash.Name = "tab_tools_hash";
-			this.tab_tools_hash.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_tools_hash.Size = new System.Drawing.Size(830, 290);
-			this.tab_tools_hash.TabIndex = 0;
-			this.tab_tools_hash.Text = "Hash";
-			this.tab_tools_hash.UseVisualStyleBackColor = true;
-			// 
-			// textBox_tools_hash_text
-			// 
-			this.textBox_tools_hash_text.Location = new System.Drawing.Point(157, 118);
-			this.textBox_tools_hash_text.Name = "textBox_tools_hash_text";
-			this.textBox_tools_hash_text.Size = new System.Drawing.Size(519, 20);
-			this.textBox_tools_hash_text.TabIndex = 0;
-			// 
-			// textBox_tools_hash_hashed
-			// 
-			this.textBox_tools_hash_hashed.Location = new System.Drawing.Point(157, 169);
-			this.textBox_tools_hash_hashed.Name = "textBox_tools_hash_hashed";
-			this.textBox_tools_hash_hashed.Size = new System.Drawing.Size(519, 20);
-			this.textBox_tools_hash_hashed.TabIndex = 1;
-			// 
-			// label_tools_hash_text
-			// 
-			this.label_tools_hash_text.AutoSize = true;
-			this.label_tools_hash_text.Location = new System.Drawing.Point(154, 102);
-			this.label_tools_hash_text.Name = "label_tools_hash_text";
-			this.label_tools_hash_text.Size = new System.Drawing.Size(28, 13);
-			this.label_tools_hash_text.TabIndex = 2;
-			this.label_tools_hash_text.Text = "Text";
-			// 
-			// label_tools_hash_hashed
-			// 
-			this.label_tools_hash_hashed.AutoSize = true;
-			this.label_tools_hash_hashed.Location = new System.Drawing.Point(154, 153);
-			this.label_tools_hash_hashed.Name = "label_tools_hash_hashed";
-			this.label_tools_hash_hashed.Size = new System.Drawing.Size(44, 13);
-			this.label_tools_hash_hashed.TabIndex = 3;
-			this.label_tools_hash_hashed.Text = "Hashed";
-			// 
-			// tabs_tools
+			// tab_network_requests
+			// 
+			this.tab_network_requests.Controls.Add(this.tabs_network_requests);
+			this.tab_network_requests.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests.Name = "tab_network_requests";
+			this.tab_network_requests.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_requests.TabIndex = 4;
+			this.tab_network_requests.Text = "Requests";
+			this.tab_network_requests.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_requests
+			// 
+			this.tabs_network_requests.Controls.Add(this.tab_network_requests_get);
 			this.tabs_network_requests.Controls.Add(this.tab_network_requests_post);
+			this.tabs_network_requests.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_requests.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_requests.Name = "tabs_network_requests";
+			this.tabs_network_requests.SelectedIndex = 0;
+			this.tabs_network_requests.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_requests.TabIndex = 0;
+			// 
+			// tab_network_requests_get
+			// 
+			this.tab_network_requests_get.Controls.Add(this.label_network_requests_get_endpoint);
+			this.tab_network_requests_get.Controls.Add(this.textBox_network_requests_get_endpoint);
+			this.tab_network_requests_get.Controls.Add(this.button_network_requests_get_execute);
+			this.tab_network_requests_get.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests_get.Name = "tab_network_requests_get";
+			this.tab_network_requests_get.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests_get.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_requests_get.TabIndex = 0;
+			this.tab_network_requests_get.Text = "GET";
+			this.tab_network_requests_get.UseVisualStyleBackColor = true;
+			// 
+			// button_network_requests_get_execute
+			// 
+			this.button_network_requests_get_execute.Location = new System.Drawing.Point(545, 131);
+			this.button_network_requests_get_execute.Name = "button_network_requests_get_execute";
+			this.button_network_requests_get_execute.Size = new System.Drawing.Size(100, 23);
+			this.button_network_requests_get_execute.TabIndex = 0;
+			this.button_network_requests_get_execute.Text = "Execute Request";
+			this.button_network_requests_get_execute.UseVisualStyleBackColor = true;
+			this.button_network_requests_get_execute.Click += new System.EventHandler(this.button_network_requests_get_execute_Click);
+			// 
+			// textBox_network_requests_get_endpoint
+			// 
+			this.textBox_network_requests_get_endpoint.Location = new System.Drawing.Point(230, 105);
+			this.textBox_network_requests_get_endpoint.Name = "textBox_network_requests_get_endpoint";
+			this.textBox_network_requests_get_endpoint.Size = new System.Drawing.Size(415, 20);
+			this.textBox_network_requests_get_endpoint.TabIndex = 1;
 			// 
 			// tab_network_requests_post
 			// 
@@ -2365,18 +2457,218 @@
 			this.label_network_requests_post_data.TabIndex = 6;
 			this.label_network_requests_post_data.Text = "Data:";
 			// 
-			this.tabs_tools.Controls.Add(this.tab_tools_hash);
-			this.tabs_tools.Controls.Add(this.tab_tools_databaseTools);
-			this.tabs_tools.Controls.Add(this.tab_tools_crash);
-			this.tabs_tools.Controls.Add(this.tab_tools_log);
-			this.tabs_tools.Controls.Add(this.tab_tools_getDate);
-			this.tabs_tools.Controls.Add(this.tab_tools_setWallpaper6getGifFrames);
-			this.tabs_tools.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_tools.Location = new System.Drawing.Point(3, 3);
-			this.tabs_tools.Name = "tabs_tools";
-			this.tabs_tools.SelectedIndex = 0;
-			this.tabs_tools.Size = new System.Drawing.Size(838, 316);
-			this.tabs_tools.TabIndex = 1;
+			// lineGraph
+			// 
+			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lineGraph.Location = new System.Drawing.Point(308, 16);
+			this.lineGraph.Name = "lineGraph";
+			this.lineGraph.Size = new System.Drawing.Size(200, 200);
+			this.lineGraph.TabIndex = 0;
+			// 
+			// tab_network_apis
+			// 
+			this.tab_network_apis.Controls.Add(this.tabs_network_apis);
+			this.tab_network_apis.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis.Name = "tab_network_apis";
+			this.tab_network_apis.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_apis.TabIndex = 5;
+			this.tab_network_apis.Text = "APIs";
+			this.tab_network_apis.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_apis
+			// 
+			this.tabs_network_apis.Controls.Add(this.tab_network_apis_riotapi);
+			this.tabs_network_apis.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_apis.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_apis.Name = "tabs_network_apis";
+			this.tabs_network_apis.SelectedIndex = 0;
+			this.tabs_network_apis.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_apis.TabIndex = 0;
+			// 
+			// tab_network_apis_riotapi
+			// 
+			this.tab_network_apis_riotapi.Controls.Add(this.tabs_network_apis_riotapi);
+			this.tab_network_apis_riotapi.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi.Name = "tab_network_apis_riotapi";
+			this.tab_network_apis_riotapi.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_apis_riotapi.TabIndex = 0;
+			this.tab_network_apis_riotapi.Text = "RiotAPI";
+			this.tab_network_apis_riotapi.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_apis_riotapi
+			// 
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_championMastery);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_champion);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_leagueExp);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_league);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_lolStatus);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_match);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_spectator);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_summoner);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftLeague);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftMatch);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftSummoner);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_thirdPartyCode);
+			this.tabs_network_apis_riotapi.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_apis_riotapi.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_apis_riotapi.Name = "tabs_network_apis_riotapi";
+			this.tabs_network_apis_riotapi.SelectedIndex = 0;
+			this.tabs_network_apis_riotapi.Size = new System.Drawing.Size(810, 252);
+			this.tabs_network_apis_riotapi.TabIndex = 0;
+			// 
+			// tab_network_apis_riotapi_championMastery
+			// 
+			this.tab_network_apis_riotapi_championMastery.Controls.Add(this.tabControl1);
+			this.tab_network_apis_riotapi_championMastery.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_championMastery.Name = "tab_network_apis_riotapi_championMastery";
+			this.tab_network_apis_riotapi_championMastery.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_championMastery.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_championMastery.TabIndex = 0;
+			this.tab_network_apis_riotapi_championMastery.Text = "Champion Mastery";
+			this.tab_network_apis_riotapi_championMastery.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_champion
+			// 
+			this.tab_network_apis_riotapi_champion.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_champion.Name = "tab_network_apis_riotapi_champion";
+			this.tab_network_apis_riotapi_champion.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_champion.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_champion.TabIndex = 1;
+			this.tab_network_apis_riotapi_champion.Text = "Champion";
+			this.tab_network_apis_riotapi_champion.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_leagueExp
+			// 
+			this.tab_network_apis_riotapi_leagueExp.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_leagueExp.Name = "tab_network_apis_riotapi_leagueExp";
+			this.tab_network_apis_riotapi_leagueExp.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_leagueExp.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_leagueExp.TabIndex = 2;
+			this.tab_network_apis_riotapi_leagueExp.Text = "League Exp";
+			this.tab_network_apis_riotapi_leagueExp.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_league
+			// 
+			this.tab_network_apis_riotapi_league.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_league.Name = "tab_network_apis_riotapi_league";
+			this.tab_network_apis_riotapi_league.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_league.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_league.TabIndex = 3;
+			this.tab_network_apis_riotapi_league.Text = "League";
+			this.tab_network_apis_riotapi_league.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_lolStatus
+			// 
+			this.tab_network_apis_riotapi_lolStatus.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_lolStatus.Name = "tab_network_apis_riotapi_lolStatus";
+			this.tab_network_apis_riotapi_lolStatus.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_lolStatus.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_lolStatus.TabIndex = 4;
+			this.tab_network_apis_riotapi_lolStatus.Text = "LoL Status";
+			this.tab_network_apis_riotapi_lolStatus.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_match
+			// 
+			this.tab_network_apis_riotapi_match.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_match.Name = "tab_network_apis_riotapi_match";
+			this.tab_network_apis_riotapi_match.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_match.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_match.TabIndex = 5;
+			this.tab_network_apis_riotapi_match.Text = "Match";
+			this.tab_network_apis_riotapi_match.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_spectator
+			// 
+			this.tab_network_apis_riotapi_spectator.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_spectator.Name = "tab_network_apis_riotapi_spectator";
+			this.tab_network_apis_riotapi_spectator.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_spectator.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_spectator.TabIndex = 6;
+			this.tab_network_apis_riotapi_spectator.Text = "Spectator";
+			this.tab_network_apis_riotapi_spectator.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_summoner
+			// 
+			this.tab_network_apis_riotapi_summoner.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_summoner.Name = "tab_network_apis_riotapi_summoner";
+			this.tab_network_apis_riotapi_summoner.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_summoner.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_summoner.TabIndex = 7;
+			this.tab_network_apis_riotapi_summoner.Text = "Summoner";
+			this.tab_network_apis_riotapi_summoner.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftLeague
+			// 
+			this.tab_network_apis_riotapi_tftLeague.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftLeague.Name = "tab_network_apis_riotapi_tftLeague";
+			this.tab_network_apis_riotapi_tftLeague.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftLeague.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftLeague.TabIndex = 8;
+			this.tab_network_apis_riotapi_tftLeague.Text = "TFT League";
+			this.tab_network_apis_riotapi_tftLeague.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftMatch
+			// 
+			this.tab_network_apis_riotapi_tftMatch.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftMatch.Name = "tab_network_apis_riotapi_tftMatch";
+			this.tab_network_apis_riotapi_tftMatch.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftMatch.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftMatch.TabIndex = 9;
+			this.tab_network_apis_riotapi_tftMatch.Text = "TFT Match";
+			this.tab_network_apis_riotapi_tftMatch.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftSummoner
+			// 
+			this.tab_network_apis_riotapi_tftSummoner.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftSummoner.Name = "tab_network_apis_riotapi_tftSummoner";
+			this.tab_network_apis_riotapi_tftSummoner.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftSummoner.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftSummoner.TabIndex = 10;
+			this.tab_network_apis_riotapi_tftSummoner.Text = "TFT Summoner";
+			this.tab_network_apis_riotapi_tftSummoner.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_thirdPartyCode
+			// 
+			this.tab_network_apis_riotapi_thirdPartyCode.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_thirdPartyCode.Name = "tab_network_apis_riotapi_thirdPartyCode";
+			this.tab_network_apis_riotapi_thirdPartyCode.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_thirdPartyCode.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_thirdPartyCode.TabIndex = 11;
+			this.tab_network_apis_riotapi_thirdPartyCode.Text = "Third Party Code";
+			this.tab_network_apis_riotapi_thirdPartyCode.UseVisualStyleBackColor = true;
+			// 
+			// tabControl1
+			// 
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl1.Location = new System.Drawing.Point(3, 3);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(796, 220);
+			this.tabControl1.TabIndex = 0;
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(788, 194);
+			this.tabPage1.TabIndex = 0;
+			this.tabPage1.Text = "tabPage1";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// tabPage2
+			// 
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(192, 74);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "tabPage2";
+			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// Main
 			// 
@@ -2412,6 +2704,24 @@
 			this.tab_database_select.ResumeLayout(false);
 			this.tab_database_delete.ResumeLayout(false);
 			this.tab_tools.ResumeLayout(false);
+			this.tabs_tools.ResumeLayout(false);
+			this.tab_tools_hash.ResumeLayout(false);
+			this.tab_tools_hash.PerformLayout();
+			this.tab_tools_databaseTools.ResumeLayout(false);
+			this.tabs_tools_databaseTools.ResumeLayout(false);
+			this.tab_tools_databaseTools_checkLogin.ResumeLayout(false);
+			this.tab_tools_databaseTools_checkLogin.PerformLayout();
+			this.tab_tools_databaseTools_filterSql.ResumeLayout(false);
+			this.tab_tools_databaseTools_filterSql.PerformLayout();
+			this.tab_tools_databaseTools_selectUnique.ResumeLayout(false);
+			this.tab_tools_databaseTools_selectUnique.PerformLayout();
+			this.tab_tools_crash.ResumeLayout(false);
+			this.tab_tools_log.ResumeLayout(false);
+			this.tab_tools_log.PerformLayout();
+			this.tab_tools_getDate.ResumeLayout(false);
+			this.tab_tools_getDate.PerformLayout();
+			this.tab_tools_setWallpaper6getGifFrames.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).EndInit();
 			this.tab_generators.ResumeLayout(false);
 			this.tabs_generators.ResumeLayout(false);
 			this.tab_generators_generatePassword.ResumeLayout(false);
@@ -2481,26 +2791,18 @@
 			this.tab_device_getRam.ResumeLayout(false);
 			this.tab_device_getRam.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
-			this.tab_tools_setWallpaper6getGifFrames.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox_tools_setWallpaper6getGifFrames_gif)).EndInit();
-			this.tab_tools_getDate.ResumeLayout(false);
-			this.tab_tools_getDate.PerformLayout();
-			this.tab_tools_log.ResumeLayout(false);
-			this.tab_tools_log.PerformLayout();
-			this.tab_tools_crash.ResumeLayout(false);
-			this.tab_tools_databaseTools.ResumeLayout(false);
-			this.tabs_tools_databaseTools.ResumeLayout(false);
-			this.tab_tools_databaseTools_selectUnique.ResumeLayout(false);
-			this.tab_tools_databaseTools_selectUnique.PerformLayout();
-			this.tab_tools_databaseTools_filterSql.ResumeLayout(false);
-			this.tab_tools_databaseTools_filterSql.PerformLayout();
-			this.tab_tools_databaseTools_checkLogin.ResumeLayout(false);
-			this.tab_tools_databaseTools_checkLogin.PerformLayout();
-			this.tab_tools_hash.ResumeLayout(false);
-			this.tab_tools_hash.PerformLayout();
-			this.tabs_tools.ResumeLayout(false);
+			this.tab_network_requests.ResumeLayout(false);
+			this.tabs_network_requests.ResumeLayout(false);
+			this.tab_network_requests_get.ResumeLayout(false);
+			this.tab_network_requests_get.PerformLayout();
 			this.tab_network_requests_post.ResumeLayout(false);
 			this.tab_network_requests_post.PerformLayout();
+			this.tab_network_apis.ResumeLayout(false);
+			this.tabs_network_apis.ResumeLayout(false);
+			this.tab_network_apis_riotapi.ResumeLayout(false);
+			this.tabs_network_apis_riotapi.ResumeLayout(false);
+			this.tab_network_apis_riotapi_championMastery.ResumeLayout(false);
+			this.tabControl1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -2704,11 +3006,36 @@
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_searchGif;
 		internal System.Windows.Forms.PictureBox pictureBox_tools_setWallpaper6getGifFrames_gif;
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_setWallpaper;
+		private System.Windows.Forms.TabPage tab_network_requests;
+		private System.Windows.Forms.TabControl tabs_network_requests;
+		private System.Windows.Forms.TabPage tab_network_requests_get;
+		private System.Windows.Forms.TextBox textBox_network_requests_get_endpoint;
+		private System.Windows.Forms.Button button_network_requests_get_execute;
+		private System.Windows.Forms.Label label_network_requests_get_endpoint;
 		private System.Windows.Forms.TabPage tab_network_requests_post;
 		private System.Windows.Forms.TextBox textBox_network_requests_post_endpoint;
 		private System.Windows.Forms.TextBox textBox_network_requests_post_data;
 		private System.Windows.Forms.Button button_network_requests_post_execute;
 		private System.Windows.Forms.Label label_network_requests_post_endpoint;
 		private System.Windows.Forms.Label label_network_requests_post_data;
+		private System.Windows.Forms.TabPage tab_network_apis;
+		private System.Windows.Forms.TabControl tabs_network_apis;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi;
+		private System.Windows.Forms.TabControl tabs_network_apis_riotapi;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_champion;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_leagueExp;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_league;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_lolStatus;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_match;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_spectator;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_summoner;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftLeague;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftMatch;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftSummoner;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_thirdPartyCode;
+		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TabPage tabPage2;
 	}
 }
