@@ -2,7 +2,7 @@
 {
 	public static partial class RiotAPI
 	{
-		public static readonly string RiotAPIOrigin = "https://{0}.api.riotgames.com"
+		public static readonly string RiotAPIOrigin = "https://{0}.api.riotgames.com";
 
 		private static string ApiString() => "?api_key=" + ApiKey;
 		private static string ServerString() => string.Format(RiotAPIOrigin, Region);
