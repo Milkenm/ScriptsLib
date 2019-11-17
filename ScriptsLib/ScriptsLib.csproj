@@ -129,6 +129,7 @@
     <Compile Include="Network\APIs\RiotAPI\TftLeague.cs" />
     <Compile Include="Network\APIs\RiotAPI\TftMatch.cs" />
     <Compile Include="Network\APIs\RiotAPI\TftSummoner.cs" />
+    <Compile Include="Network\APIs\RiotAPI\ThirdPartyCode.cs" />
     <Compile Include="Network\APIs\RiotAPI\_RiotAPI.cs" />
     <Compile Include="Network\Requests\GET.cs" />
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
