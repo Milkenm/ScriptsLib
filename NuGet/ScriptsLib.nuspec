@@ -3,11 +3,11 @@
   <metadata>
     <id>ScriptsLib</id>
     <title>ScriptsLib</title>
-    <version>6.1.0</version>
+    <version>6.2.0</version>
     <authors>Milkenm</authors>
     <owners>Milkenm</owners>
     <license type="file">res/LICENSE.txt</license>
-    <projectUrl>https://github.com/Milkenm/ScriptsLib</projectUrl>
+    <projectUrl>https://discord.gg/j3xEXZn</projectUrl>
     <icon>res/Icon.png</icon>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>My library to use databases and other stuff. Im just lazy...</description>
