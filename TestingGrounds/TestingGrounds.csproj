@@ -89,6 +89,12 @@
     <Compile Include="Functions\MainInitEvents.cs" />
     <Compile Include="Functions\MainLoad.cs" />
     <Compile Include="Functions\TestingButton.cs" />
+    <Compile Include="Keys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Keys.Designer.cs">
+      <DependentUpon>Keys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <Compile Include="Tests\Testing6.cs" />
     <Compile Include="Tests\Testing1.cs" />
     <Compile Include="Static.cs" />
+    <EmbeddedResource Include="Keys.resx">
+      <DependentUpon>Keys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +129,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

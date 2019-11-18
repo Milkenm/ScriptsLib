@@ -1,11 +1,12 @@
 ﻿#region Usings
 using System;
-
 using ScriptsLib;
+using ScriptsLib.nDatabases;
+using TestingGrounds.Properties;
 using static ScriptsLib.Controls.Tweaks.SlComboBox;
 using static ScriptsLib.Controls.Tweaks.SlForm;
-using ScriptsLib.nDatabases;
 using static ScriptsLib.Device;
+using static ScriptsLib.Network.APIs.RiotAPI;
 using static ScriptsLib.Network.Security;
 using static TestingGrounds.Static;
 #endregion Usings
@@ -38,8 +39,15 @@ namespace TestingGrounds
 			DynVars.DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
 
 
-			foreach (PortType _Type in Enum.GetValues(typeof(PortType))) MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
-			foreach (RAMType _Type in Enum.GetValues(typeof(RAMType))) MainForm.comboBox_device_getRam_ramType.Items.Add(_Type.ToString());
+			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))
+			{
+				MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
+			}
+
+			foreach (RAMType _Type in Enum.GetValues(typeof(RAMType)))
+			{
+				MainForm.comboBox_device_getRam_ramType.Items.Add(_Type.ToString());
+			}
 
 			MainForm.comboBox_network_security_openFirewallPort_portType.SelectedIndex = 0;
 			MainForm.numeric_network_security_openFirewallPort_portNumber.Value = 70;
@@ -48,7 +56,7 @@ namespace TestingGrounds
 			MainForm.textBox_tools_databaseTools_checkLogin_user.Text = "User1";
 			MainForm.textBox_tools_databaseTools_checkLogin_pass.Text = "Pass1";
 
-			MainForm.textBox_generators_generatePassword_password.Text = Generators.GeneratePassword((int)MainForm.numeric_generators_generatePassword_length.Value);
+			MainForm.textBox_generators_generatePassword_password.Text = Generators.GeneratePassword((int) MainForm.numeric_generators_generatePassword_length.Value);
 
 			MainForm.textBox_tools_databaseTools_filterSql_text.Text = "ABC;DEF;GHI'JKL'MNO";
 
@@ -68,6 +76,12 @@ namespace TestingGrounds
 
 			MainForm.textBox_tg_version.Text = Info.Version;
 			MainForm.checkBox_tg_debugErrors.Enabled = false;
+
+			ApiKey = new Settings().RiotAPIKey;
+			if (!string.IsNullOrEmpty(new Settings().LoLRegion))
+			{
+				Region = (Regions) Enum.Parse(typeof(Regions), new Settings().LoLRegion, true);
+			}
 		}
 	}
 }

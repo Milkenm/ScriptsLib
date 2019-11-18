@@ -115,6 +115,7 @@
 			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
 			this.tab_lineGraph = new System.Windows.Forms.TabPage();
 			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
+			this.lineGraph = new ScriptsLib.Controls.LineGraph();
 			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
 			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
 			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
@@ -197,6 +198,41 @@
 			this.label_network_security_openFirewallPort_portNumber = new System.Windows.Forms.Label();
 			this.numeric_network_security_openFirewallPort_portNumber = new System.Windows.Forms.NumericUpDown();
 			this.textBox_network_security_openFirewallPort_description = new System.Windows.Forms.TextBox();
+			this.tab_network_requests = new System.Windows.Forms.TabPage();
+			this.tabs_network_requests = new System.Windows.Forms.TabControl();
+			this.tab_network_requests_get = new System.Windows.Forms.TabPage();
+			this.label_network_requests_get_endpoint = new System.Windows.Forms.Label();
+			this.textBox_network_requests_get_endpoint = new System.Windows.Forms.TextBox();
+			this.button_network_requests_get_execute = new System.Windows.Forms.Button();
+			this.tab_network_requests_post = new System.Windows.Forms.TabPage();
+			this.label_network_requests_post_data = new System.Windows.Forms.Label();
+			this.label_network_requests_post_endpoint = new System.Windows.Forms.Label();
+			this.textBox_network_requests_post_endpoint = new System.Windows.Forms.TextBox();
+			this.textBox_network_requests_post_data = new System.Windows.Forms.TextBox();
+			this.button_network_requests_post_execute = new System.Windows.Forms.Button();
+			this.tab_network_apis = new System.Windows.Forms.TabPage();
+			this.tabs_network_apis = new System.Windows.Forms.TabControl();
+			this.tab_network_apis_riotapi = new System.Windows.Forms.TabPage();
+			this.tabs_network_apis_riotapi = new System.Windows.Forms.TabControl();
+			this.tab_network_apis_riotapi_championMastery = new System.Windows.Forms.TabPage();
+			this.tabs_network_apis_riotapi_championMastery = new System.Windows.Forms.TabControl();
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList = new System.Windows.Forms.TabPage();
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId = new System.Windows.Forms.Label();
+			this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId = new System.Windows.Forms.TextBox();
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get = new System.Windows.Forms.Button();
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_champion = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_leagueExp = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_league = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_lolStatus = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_match = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_spectator = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_summoner = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftLeague = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftMatch = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_tftSummoner = new System.Windows.Forms.TabPage();
+			this.tab_network_apis_riotapi_thirdPartyCode = new System.Windows.Forms.TabPage();
 			this.tab_math = new System.Windows.Forms.TabPage();
 			this.tabs_math = new System.Windows.Forms.TabControl();
 			this.tab_math_calculateCombinations = new System.Windows.Forms.TabPage();
@@ -225,38 +261,8 @@
 			this.checkBox_tg_debug = new System.Windows.Forms.CheckBox();
 			this.checkBox_tg_debugErrors = new System.Windows.Forms.CheckBox();
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
-			this.tab_network_requests = new System.Windows.Forms.TabPage();
-			this.tabs_network_requests = new System.Windows.Forms.TabControl();
-			this.tab_network_requests_get = new System.Windows.Forms.TabPage();
-			this.button_network_requests_get_execute = new System.Windows.Forms.Button();
-			this.textBox_network_requests_get_endpoint = new System.Windows.Forms.TextBox();
-			this.tab_network_requests_post = new System.Windows.Forms.TabPage();
-			this.textBox_network_requests_post_data = new System.Windows.Forms.TextBox();
-			this.button_network_requests_post_execute = new System.Windows.Forms.Button();
-			this.textBox_network_requests_post_endpoint = new System.Windows.Forms.TextBox();
-			this.label_network_requests_get_endpoint = new System.Windows.Forms.Label();
-			this.label_network_requests_post_endpoint = new System.Windows.Forms.Label();
-			this.label_network_requests_post_data = new System.Windows.Forms.Label();
-			this.lineGraph = new ScriptsLib.Controls.LineGraph();
-			this.tab_network_apis = new System.Windows.Forms.TabPage();
-			this.tabs_network_apis = new System.Windows.Forms.TabControl();
-			this.tab_network_apis_riotapi = new System.Windows.Forms.TabPage();
-			this.tabs_network_apis_riotapi = new System.Windows.Forms.TabControl();
-			this.tab_network_apis_riotapi_championMastery = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_champion = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_leagueExp = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_league = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_lolStatus = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_match = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_spectator = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_summoner = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_tftLeague = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_tftMatch = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_tftSummoner = new System.Windows.Forms.TabPage();
-			this.tab_network_apis_riotapi_thirdPartyCode = new System.Windows.Forms.TabPage();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.button_tg_keys = new System.Windows.Forms.Button();
+			this.button_tg_refresh = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_elements)).BeginInit();
@@ -328,6 +334,17 @@
 			this.tabs_network_security.SuspendLayout();
 			this.tab_network_security_openFirewallPort.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).BeginInit();
+			this.tab_network_requests.SuspendLayout();
+			this.tabs_network_requests.SuspendLayout();
+			this.tab_network_requests_get.SuspendLayout();
+			this.tab_network_requests_post.SuspendLayout();
+			this.tab_network_apis.SuspendLayout();
+			this.tabs_network_apis.SuspendLayout();
+			this.tab_network_apis_riotapi.SuspendLayout();
+			this.tabs_network_apis_riotapi.SuspendLayout();
+			this.tab_network_apis_riotapi_championMastery.SuspendLayout();
+			this.tabs_network_apis_riotapi_championMastery.SuspendLayout();
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.SuspendLayout();
 			this.tab_math.SuspendLayout();
 			this.tabs_math.SuspendLayout();
 			this.tab_math_calculateCombinations.SuspendLayout();
@@ -338,16 +355,6 @@
 			this.tabs_device.SuspendLayout();
 			this.tab_device_getRam.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
-			this.tab_network_requests.SuspendLayout();
-			this.tabs_network_requests.SuspendLayout();
-			this.tab_network_requests_get.SuspendLayout();
-			this.tab_network_requests_post.SuspendLayout();
-			this.tab_network_apis.SuspendLayout();
-			this.tabs_network_apis.SuspendLayout();
-			this.tab_network_apis_riotapi.SuspendLayout();
-			this.tabs_network_apis_riotapi.SuspendLayout();
-			this.tab_network_apis_riotapi_championMastery.SuspendLayout();
-			this.tabControl1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1182,6 +1189,14 @@
 			this.button_lineGraph_drawTest.Text = "Draw Test";
 			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
 			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
+			// 
+			// lineGraph
+			// 
+			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lineGraph.Location = new System.Drawing.Point(308, 16);
+			this.lineGraph.Name = "lineGraph";
+			this.lineGraph.Size = new System.Drawing.Size(200, 200);
+			this.lineGraph.TabIndex = 0;
 			// 
 			// tab_controls_tweaks
 			// 
@@ -2051,6 +2066,371 @@
 			this.textBox_network_security_openFirewallPort_description.Size = new System.Drawing.Size(157, 20);
 			this.textBox_network_security_openFirewallPort_description.TabIndex = 2;
 			// 
+			// tab_network_requests
+			// 
+			this.tab_network_requests.Controls.Add(this.tabs_network_requests);
+			this.tab_network_requests.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests.Name = "tab_network_requests";
+			this.tab_network_requests.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_requests.TabIndex = 4;
+			this.tab_network_requests.Text = "Requests";
+			this.tab_network_requests.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_requests
+			// 
+			this.tabs_network_requests.Controls.Add(this.tab_network_requests_get);
+			this.tabs_network_requests.Controls.Add(this.tab_network_requests_post);
+			this.tabs_network_requests.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_requests.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_requests.Name = "tabs_network_requests";
+			this.tabs_network_requests.SelectedIndex = 0;
+			this.tabs_network_requests.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_requests.TabIndex = 0;
+			// 
+			// tab_network_requests_get
+			// 
+			this.tab_network_requests_get.Controls.Add(this.label_network_requests_get_endpoint);
+			this.tab_network_requests_get.Controls.Add(this.textBox_network_requests_get_endpoint);
+			this.tab_network_requests_get.Controls.Add(this.button_network_requests_get_execute);
+			this.tab_network_requests_get.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests_get.Name = "tab_network_requests_get";
+			this.tab_network_requests_get.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests_get.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_requests_get.TabIndex = 0;
+			this.tab_network_requests_get.Text = "GET";
+			this.tab_network_requests_get.UseVisualStyleBackColor = true;
+			// 
+			// label_network_requests_get_endpoint
+			// 
+			this.label_network_requests_get_endpoint.AutoSize = true;
+			this.label_network_requests_get_endpoint.Location = new System.Drawing.Point(172, 108);
+			this.label_network_requests_get_endpoint.Name = "label_network_requests_get_endpoint";
+			this.label_network_requests_get_endpoint.Size = new System.Drawing.Size(52, 13);
+			this.label_network_requests_get_endpoint.TabIndex = 2;
+			this.label_network_requests_get_endpoint.Text = "Endpoint:";
+			// 
+			// textBox_network_requests_get_endpoint
+			// 
+			this.textBox_network_requests_get_endpoint.Location = new System.Drawing.Point(230, 105);
+			this.textBox_network_requests_get_endpoint.Name = "textBox_network_requests_get_endpoint";
+			this.textBox_network_requests_get_endpoint.Size = new System.Drawing.Size(415, 20);
+			this.textBox_network_requests_get_endpoint.TabIndex = 1;
+			// 
+			// button_network_requests_get_execute
+			// 
+			this.button_network_requests_get_execute.Location = new System.Drawing.Point(545, 131);
+			this.button_network_requests_get_execute.Name = "button_network_requests_get_execute";
+			this.button_network_requests_get_execute.Size = new System.Drawing.Size(100, 23);
+			this.button_network_requests_get_execute.TabIndex = 0;
+			this.button_network_requests_get_execute.Text = "Execute Request";
+			this.button_network_requests_get_execute.UseVisualStyleBackColor = true;
+			this.button_network_requests_get_execute.Click += new System.EventHandler(this.button_network_requests_get_execute_Click);
+			// 
+			// tab_network_requests_post
+			// 
+			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_data);
+			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_endpoint);
+			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_endpoint);
+			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_data);
+			this.tab_network_requests_post.Controls.Add(this.button_network_requests_post_execute);
+			this.tab_network_requests_post.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_requests_post.Name = "tab_network_requests_post";
+			this.tab_network_requests_post.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_requests_post.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_requests_post.TabIndex = 1;
+			this.tab_network_requests_post.Text = "POST";
+			this.tab_network_requests_post.UseVisualStyleBackColor = true;
+			// 
+			// label_network_requests_post_data
+			// 
+			this.label_network_requests_post_data.AutoSize = true;
+			this.label_network_requests_post_data.Location = new System.Drawing.Point(191, 57);
+			this.label_network_requests_post_data.Name = "label_network_requests_post_data";
+			this.label_network_requests_post_data.Size = new System.Drawing.Size(33, 13);
+			this.label_network_requests_post_data.TabIndex = 6;
+			this.label_network_requests_post_data.Text = "Data:";
+			// 
+			// label_network_requests_post_endpoint
+			// 
+			this.label_network_requests_post_endpoint.AutoSize = true;
+			this.label_network_requests_post_endpoint.Location = new System.Drawing.Point(172, 31);
+			this.label_network_requests_post_endpoint.Name = "label_network_requests_post_endpoint";
+			this.label_network_requests_post_endpoint.Size = new System.Drawing.Size(52, 13);
+			this.label_network_requests_post_endpoint.TabIndex = 5;
+			this.label_network_requests_post_endpoint.Text = "Endpoint:";
+			// 
+			// textBox_network_requests_post_endpoint
+			// 
+			this.textBox_network_requests_post_endpoint.Location = new System.Drawing.Point(230, 28);
+			this.textBox_network_requests_post_endpoint.Name = "textBox_network_requests_post_endpoint";
+			this.textBox_network_requests_post_endpoint.Size = new System.Drawing.Size(415, 20);
+			this.textBox_network_requests_post_endpoint.TabIndex = 4;
+			// 
+			// textBox_network_requests_post_data
+			// 
+			this.textBox_network_requests_post_data.Location = new System.Drawing.Point(230, 54);
+			this.textBox_network_requests_post_data.Multiline = true;
+			this.textBox_network_requests_post_data.Name = "textBox_network_requests_post_data";
+			this.textBox_network_requests_post_data.Size = new System.Drawing.Size(415, 147);
+			this.textBox_network_requests_post_data.TabIndex = 3;
+			// 
+			// button_network_requests_post_execute
+			// 
+			this.button_network_requests_post_execute.Location = new System.Drawing.Point(545, 207);
+			this.button_network_requests_post_execute.Name = "button_network_requests_post_execute";
+			this.button_network_requests_post_execute.Size = new System.Drawing.Size(100, 23);
+			this.button_network_requests_post_execute.TabIndex = 2;
+			this.button_network_requests_post_execute.Text = "Execute Request";
+			this.button_network_requests_post_execute.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis
+			// 
+			this.tab_network_apis.Controls.Add(this.tabs_network_apis);
+			this.tab_network_apis.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis.Name = "tab_network_apis";
+			this.tab_network_apis.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis.Size = new System.Drawing.Size(830, 290);
+			this.tab_network_apis.TabIndex = 5;
+			this.tab_network_apis.Text = "APIs";
+			this.tab_network_apis.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_apis
+			// 
+			this.tabs_network_apis.Controls.Add(this.tab_network_apis_riotapi);
+			this.tabs_network_apis.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_apis.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_apis.Name = "tabs_network_apis";
+			this.tabs_network_apis.SelectedIndex = 0;
+			this.tabs_network_apis.Size = new System.Drawing.Size(824, 284);
+			this.tabs_network_apis.TabIndex = 0;
+			// 
+			// tab_network_apis_riotapi
+			// 
+			this.tab_network_apis_riotapi.Controls.Add(this.tabs_network_apis_riotapi);
+			this.tab_network_apis_riotapi.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi.Name = "tab_network_apis_riotapi";
+			this.tab_network_apis_riotapi.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi.Size = new System.Drawing.Size(816, 258);
+			this.tab_network_apis_riotapi.TabIndex = 0;
+			this.tab_network_apis_riotapi.Text = "RiotAPI";
+			this.tab_network_apis_riotapi.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_apis_riotapi
+			// 
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_championMastery);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_champion);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_leagueExp);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_league);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_lolStatus);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_match);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_spectator);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_summoner);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftLeague);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftMatch);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftSummoner);
+			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_thirdPartyCode);
+			this.tabs_network_apis_riotapi.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_apis_riotapi.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_apis_riotapi.Name = "tabs_network_apis_riotapi";
+			this.tabs_network_apis_riotapi.SelectedIndex = 0;
+			this.tabs_network_apis_riotapi.Size = new System.Drawing.Size(810, 252);
+			this.tabs_network_apis_riotapi.TabIndex = 0;
+			// 
+			// tab_network_apis_riotapi_championMastery
+			// 
+			this.tab_network_apis_riotapi_championMastery.Controls.Add(this.tabs_network_apis_riotapi_championMastery);
+			this.tab_network_apis_riotapi_championMastery.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_championMastery.Name = "tab_network_apis_riotapi_championMastery";
+			this.tab_network_apis_riotapi_championMastery.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_championMastery.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_championMastery.TabIndex = 0;
+			this.tab_network_apis_riotapi_championMastery.Text = "Champion Mastery";
+			this.tab_network_apis_riotapi_championMastery.UseVisualStyleBackColor = true;
+			// 
+			// tabs_network_apis_riotapi_championMastery
+			// 
+			this.tabs_network_apis_riotapi_championMastery.Controls.Add(this.tab_network_apis_riotapi_championMastery_getChampionMasteryList);
+			this.tabs_network_apis_riotapi_championMastery.Controls.Add(this.tab_network_apis_riotapi_championMastery_getMasteryByChampion);
+			this.tabs_network_apis_riotapi_championMastery.Controls.Add(this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore);
+			this.tabs_network_apis_riotapi_championMastery.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabs_network_apis_riotapi_championMastery.Location = new System.Drawing.Point(3, 3);
+			this.tabs_network_apis_riotapi_championMastery.Name = "tabs_network_apis_riotapi_championMastery";
+			this.tabs_network_apis_riotapi_championMastery.SelectedIndex = 0;
+			this.tabs_network_apis_riotapi_championMastery.Size = new System.Drawing.Size(796, 220);
+			this.tabs_network_apis_riotapi_championMastery.TabIndex = 0;
+			// 
+			// tab_network_apis_riotapi_championMastery_getChampionMasteryList
+			// 
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Controls.Add(this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Controls.Add(this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Controls.Add(this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Name = "tab_network_apis_riotapi_championMastery_getChampionMasteryList";
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Size = new System.Drawing.Size(788, 194);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.TabIndex = 0;
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.Text = "Get Champion Mastery List";
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.UseVisualStyleBackColor = true;
+			// 
+			// label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId
+			// 
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.AutoSize = true;
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Location = new System.Drawing.Point(93, 76);
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Name = "label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummo" +
+    "nerId";
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Size = new System.Drawing.Size(125, 13);
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.TabIndex = 2;
+			this.label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Text = "Encrypted Summoner ID:";
+			// 
+			// textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId
+			// 
+			this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Location = new System.Drawing.Point(224, 73);
+			this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Name = "textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSumm" +
+    "onerId";
+			this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.Size = new System.Drawing.Size(472, 20);
+			this.textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId.TabIndex = 1;
+			// 
+			// button_network_apis_riotapi_championMastery_getChampionMasteryList_get
+			// 
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.Location = new System.Drawing.Point(621, 99);
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.Name = "button_network_apis_riotapi_championMastery_getChampionMasteryList_get";
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.Size = new System.Drawing.Size(75, 23);
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.TabIndex = 0;
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.Text = "GET";
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.UseVisualStyleBackColor = true;
+			this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get.Click += new System.EventHandler(this.button_network_apis_riotapi_championMastery_getChampionMasteryList_get_Click);
+			// 
+			// tab_network_apis_riotapi_championMastery_getMasteryByChampion
+			// 
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.Name = "tab_network_apis_riotapi_championMastery_getMasteryByChampion";
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.Size = new System.Drawing.Size(788, 194);
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.TabIndex = 1;
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.Text = "Get Mastery By Champion";
+			this.tab_network_apis_riotapi_championMastery_getMasteryByChampion.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_championMastery_getTotalMasteryScore
+			// 
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.Name = "tab_network_apis_riotapi_championMastery_getTotalMasteryScore";
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.Size = new System.Drawing.Size(788, 194);
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.TabIndex = 2;
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.Text = "Get Total Mastery Score";
+			this.tab_network_apis_riotapi_championMastery_getTotalMasteryScore.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_champion
+			// 
+			this.tab_network_apis_riotapi_champion.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_champion.Name = "tab_network_apis_riotapi_champion";
+			this.tab_network_apis_riotapi_champion.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_champion.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_champion.TabIndex = 1;
+			this.tab_network_apis_riotapi_champion.Text = "Champion";
+			this.tab_network_apis_riotapi_champion.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_leagueExp
+			// 
+			this.tab_network_apis_riotapi_leagueExp.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_leagueExp.Name = "tab_network_apis_riotapi_leagueExp";
+			this.tab_network_apis_riotapi_leagueExp.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_leagueExp.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_leagueExp.TabIndex = 2;
+			this.tab_network_apis_riotapi_leagueExp.Text = "League Exp";
+			this.tab_network_apis_riotapi_leagueExp.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_league
+			// 
+			this.tab_network_apis_riotapi_league.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_league.Name = "tab_network_apis_riotapi_league";
+			this.tab_network_apis_riotapi_league.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_league.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_league.TabIndex = 3;
+			this.tab_network_apis_riotapi_league.Text = "League";
+			this.tab_network_apis_riotapi_league.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_lolStatus
+			// 
+			this.tab_network_apis_riotapi_lolStatus.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_lolStatus.Name = "tab_network_apis_riotapi_lolStatus";
+			this.tab_network_apis_riotapi_lolStatus.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_lolStatus.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_lolStatus.TabIndex = 4;
+			this.tab_network_apis_riotapi_lolStatus.Text = "LoL Status";
+			this.tab_network_apis_riotapi_lolStatus.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_match
+			// 
+			this.tab_network_apis_riotapi_match.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_match.Name = "tab_network_apis_riotapi_match";
+			this.tab_network_apis_riotapi_match.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_match.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_match.TabIndex = 5;
+			this.tab_network_apis_riotapi_match.Text = "Match";
+			this.tab_network_apis_riotapi_match.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_spectator
+			// 
+			this.tab_network_apis_riotapi_spectator.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_spectator.Name = "tab_network_apis_riotapi_spectator";
+			this.tab_network_apis_riotapi_spectator.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_spectator.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_spectator.TabIndex = 6;
+			this.tab_network_apis_riotapi_spectator.Text = "Spectator";
+			this.tab_network_apis_riotapi_spectator.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_summoner
+			// 
+			this.tab_network_apis_riotapi_summoner.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_summoner.Name = "tab_network_apis_riotapi_summoner";
+			this.tab_network_apis_riotapi_summoner.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_summoner.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_summoner.TabIndex = 7;
+			this.tab_network_apis_riotapi_summoner.Text = "Summoner";
+			this.tab_network_apis_riotapi_summoner.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftLeague
+			// 
+			this.tab_network_apis_riotapi_tftLeague.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftLeague.Name = "tab_network_apis_riotapi_tftLeague";
+			this.tab_network_apis_riotapi_tftLeague.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftLeague.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftLeague.TabIndex = 8;
+			this.tab_network_apis_riotapi_tftLeague.Text = "TFT League";
+			this.tab_network_apis_riotapi_tftLeague.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftMatch
+			// 
+			this.tab_network_apis_riotapi_tftMatch.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftMatch.Name = "tab_network_apis_riotapi_tftMatch";
+			this.tab_network_apis_riotapi_tftMatch.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftMatch.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftMatch.TabIndex = 9;
+			this.tab_network_apis_riotapi_tftMatch.Text = "TFT Match";
+			this.tab_network_apis_riotapi_tftMatch.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_tftSummoner
+			// 
+			this.tab_network_apis_riotapi_tftSummoner.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_tftSummoner.Name = "tab_network_apis_riotapi_tftSummoner";
+			this.tab_network_apis_riotapi_tftSummoner.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_tftSummoner.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_tftSummoner.TabIndex = 10;
+			this.tab_network_apis_riotapi_tftSummoner.Text = "TFT Summoner";
+			this.tab_network_apis_riotapi_tftSummoner.UseVisualStyleBackColor = true;
+			// 
+			// tab_network_apis_riotapi_thirdPartyCode
+			// 
+			this.tab_network_apis_riotapi_thirdPartyCode.Location = new System.Drawing.Point(4, 22);
+			this.tab_network_apis_riotapi_thirdPartyCode.Name = "tab_network_apis_riotapi_thirdPartyCode";
+			this.tab_network_apis_riotapi_thirdPartyCode.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_network_apis_riotapi_thirdPartyCode.Size = new System.Drawing.Size(802, 226);
+			this.tab_network_apis_riotapi_thirdPartyCode.TabIndex = 11;
+			this.tab_network_apis_riotapi_thirdPartyCode.Text = "Third Party Code";
+			this.tab_network_apis_riotapi_thirdPartyCode.UseVisualStyleBackColor = true;
+			// 
 			// tab_math
 			// 
 			this.tab_math.Controls.Add(this.tabs_math);
@@ -2305,7 +2685,7 @@
 			// checkBox_tg_debug
 			// 
 			this.checkBox_tg_debug.AutoSize = true;
-			this.checkBox_tg_debug.Location = new System.Drawing.Point(285, 353);
+			this.checkBox_tg_debug.Location = new System.Drawing.Point(406, 353);
 			this.checkBox_tg_debug.Name = "checkBox_tg_debug";
 			this.checkBox_tg_debug.Size = new System.Drawing.Size(74, 17);
 			this.checkBox_tg_debug.TabIndex = 33;
@@ -2315,7 +2695,7 @@
 			// checkBox_tg_debugErrors
 			// 
 			this.checkBox_tg_debugErrors.AutoSize = true;
-			this.checkBox_tg_debugErrors.Location = new System.Drawing.Point(361, 353);
+			this.checkBox_tg_debugErrors.Location = new System.Drawing.Point(482, 353);
 			this.checkBox_tg_debugErrors.Name = "checkBox_tg_debugErrors";
 			this.checkBox_tg_debugErrors.Size = new System.Drawing.Size(77, 17);
 			this.checkBox_tg_debugErrors.TabIndex = 34;
@@ -2339,342 +2719,33 @@
             0,
             0});
 			// 
-			// tab_network_requests
+			// button_tg_keys
 			// 
-			this.tab_network_requests.Controls.Add(this.tabs_network_requests);
-			this.tab_network_requests.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_requests.Name = "tab_network_requests";
-			this.tab_network_requests.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_requests.Size = new System.Drawing.Size(830, 290);
-			this.tab_network_requests.TabIndex = 4;
-			this.tab_network_requests.Text = "Requests";
-			this.tab_network_requests.UseVisualStyleBackColor = true;
+			this.button_tg_keys.Location = new System.Drawing.Point(285, 349);
+			this.button_tg_keys.Name = "button_tg_keys";
+			this.button_tg_keys.Size = new System.Drawing.Size(46, 22);
+			this.button_tg_keys.TabIndex = 36;
+			this.button_tg_keys.Text = "Keys";
+			this.button_tg_keys.UseVisualStyleBackColor = true;
+			this.button_tg_keys.Click += new System.EventHandler(this.button_tg_keys_Click);
 			// 
-			// tabs_network_requests
+			// button_tg_refresh
 			// 
-			this.tabs_network_requests.Controls.Add(this.tab_network_requests_get);
-			this.tabs_network_requests.Controls.Add(this.tab_network_requests_post);
-			this.tabs_network_requests.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_network_requests.Location = new System.Drawing.Point(3, 3);
-			this.tabs_network_requests.Name = "tabs_network_requests";
-			this.tabs_network_requests.SelectedIndex = 0;
-			this.tabs_network_requests.Size = new System.Drawing.Size(824, 284);
-			this.tabs_network_requests.TabIndex = 0;
-			// 
-			// tab_network_requests_get
-			// 
-			this.tab_network_requests_get.Controls.Add(this.label_network_requests_get_endpoint);
-			this.tab_network_requests_get.Controls.Add(this.textBox_network_requests_get_endpoint);
-			this.tab_network_requests_get.Controls.Add(this.button_network_requests_get_execute);
-			this.tab_network_requests_get.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_requests_get.Name = "tab_network_requests_get";
-			this.tab_network_requests_get.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_requests_get.Size = new System.Drawing.Size(816, 258);
-			this.tab_network_requests_get.TabIndex = 0;
-			this.tab_network_requests_get.Text = "GET";
-			this.tab_network_requests_get.UseVisualStyleBackColor = true;
-			// 
-			// button_network_requests_get_execute
-			// 
-			this.button_network_requests_get_execute.Location = new System.Drawing.Point(545, 131);
-			this.button_network_requests_get_execute.Name = "button_network_requests_get_execute";
-			this.button_network_requests_get_execute.Size = new System.Drawing.Size(100, 23);
-			this.button_network_requests_get_execute.TabIndex = 0;
-			this.button_network_requests_get_execute.Text = "Execute Request";
-			this.button_network_requests_get_execute.UseVisualStyleBackColor = true;
-			this.button_network_requests_get_execute.Click += new System.EventHandler(this.button_network_requests_get_execute_Click);
-			// 
-			// textBox_network_requests_get_endpoint
-			// 
-			this.textBox_network_requests_get_endpoint.Location = new System.Drawing.Point(230, 105);
-			this.textBox_network_requests_get_endpoint.Name = "textBox_network_requests_get_endpoint";
-			this.textBox_network_requests_get_endpoint.Size = new System.Drawing.Size(415, 20);
-			this.textBox_network_requests_get_endpoint.TabIndex = 1;
-			// 
-			// tab_network_requests_post
-			// 
-			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_data);
-			this.tab_network_requests_post.Controls.Add(this.label_network_requests_post_endpoint);
-			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_endpoint);
-			this.tab_network_requests_post.Controls.Add(this.textBox_network_requests_post_data);
-			this.tab_network_requests_post.Controls.Add(this.button_network_requests_post_execute);
-			this.tab_network_requests_post.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_requests_post.Name = "tab_network_requests_post";
-			this.tab_network_requests_post.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_requests_post.Size = new System.Drawing.Size(816, 258);
-			this.tab_network_requests_post.TabIndex = 1;
-			this.tab_network_requests_post.Text = "POST";
-			this.tab_network_requests_post.UseVisualStyleBackColor = true;
-			// 
-			// textBox_network_requests_post_data
-			// 
-			this.textBox_network_requests_post_data.Location = new System.Drawing.Point(230, 54);
-			this.textBox_network_requests_post_data.Multiline = true;
-			this.textBox_network_requests_post_data.Name = "textBox_network_requests_post_data";
-			this.textBox_network_requests_post_data.Size = new System.Drawing.Size(415, 147);
-			this.textBox_network_requests_post_data.TabIndex = 3;
-			// 
-			// button_network_requests_post_execute
-			// 
-			this.button_network_requests_post_execute.Location = new System.Drawing.Point(545, 207);
-			this.button_network_requests_post_execute.Name = "button_network_requests_post_execute";
-			this.button_network_requests_post_execute.Size = new System.Drawing.Size(100, 23);
-			this.button_network_requests_post_execute.TabIndex = 2;
-			this.button_network_requests_post_execute.Text = "Execute Request";
-			this.button_network_requests_post_execute.UseVisualStyleBackColor = true;
-			// 
-			// textBox_network_requests_post_endpoint
-			// 
-			this.textBox_network_requests_post_endpoint.Location = new System.Drawing.Point(230, 28);
-			this.textBox_network_requests_post_endpoint.Name = "textBox_network_requests_post_endpoint";
-			this.textBox_network_requests_post_endpoint.Size = new System.Drawing.Size(415, 20);
-			this.textBox_network_requests_post_endpoint.TabIndex = 4;
-			// 
-			// label_network_requests_get_endpoint
-			// 
-			this.label_network_requests_get_endpoint.AutoSize = true;
-			this.label_network_requests_get_endpoint.Location = new System.Drawing.Point(172, 108);
-			this.label_network_requests_get_endpoint.Name = "label_network_requests_get_endpoint";
-			this.label_network_requests_get_endpoint.Size = new System.Drawing.Size(52, 13);
-			this.label_network_requests_get_endpoint.TabIndex = 2;
-			this.label_network_requests_get_endpoint.Text = "Endpoint:";
-			// 
-			// label_network_requests_post_endpoint
-			// 
-			this.label_network_requests_post_endpoint.AutoSize = true;
-			this.label_network_requests_post_endpoint.Location = new System.Drawing.Point(172, 31);
-			this.label_network_requests_post_endpoint.Name = "label_network_requests_post_endpoint";
-			this.label_network_requests_post_endpoint.Size = new System.Drawing.Size(52, 13);
-			this.label_network_requests_post_endpoint.TabIndex = 5;
-			this.label_network_requests_post_endpoint.Text = "Endpoint:";
-			// 
-			// label_network_requests_post_data
-			// 
-			this.label_network_requests_post_data.AutoSize = true;
-			this.label_network_requests_post_data.Location = new System.Drawing.Point(191, 57);
-			this.label_network_requests_post_data.Name = "label_network_requests_post_data";
-			this.label_network_requests_post_data.Size = new System.Drawing.Size(33, 13);
-			this.label_network_requests_post_data.TabIndex = 6;
-			this.label_network_requests_post_data.Text = "Data:";
-			// 
-			// lineGraph
-			// 
-			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph.Location = new System.Drawing.Point(308, 16);
-			this.lineGraph.Name = "lineGraph";
-			this.lineGraph.Size = new System.Drawing.Size(200, 200);
-			this.lineGraph.TabIndex = 0;
-			// 
-			// tab_network_apis
-			// 
-			this.tab_network_apis.Controls.Add(this.tabs_network_apis);
-			this.tab_network_apis.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis.Name = "tab_network_apis";
-			this.tab_network_apis.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis.Size = new System.Drawing.Size(830, 290);
-			this.tab_network_apis.TabIndex = 5;
-			this.tab_network_apis.Text = "APIs";
-			this.tab_network_apis.UseVisualStyleBackColor = true;
-			// 
-			// tabs_network_apis
-			// 
-			this.tabs_network_apis.Controls.Add(this.tab_network_apis_riotapi);
-			this.tabs_network_apis.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_network_apis.Location = new System.Drawing.Point(3, 3);
-			this.tabs_network_apis.Name = "tabs_network_apis";
-			this.tabs_network_apis.SelectedIndex = 0;
-			this.tabs_network_apis.Size = new System.Drawing.Size(824, 284);
-			this.tabs_network_apis.TabIndex = 0;
-			// 
-			// tab_network_apis_riotapi
-			// 
-			this.tab_network_apis_riotapi.Controls.Add(this.tabs_network_apis_riotapi);
-			this.tab_network_apis_riotapi.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi.Name = "tab_network_apis_riotapi";
-			this.tab_network_apis_riotapi.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi.Size = new System.Drawing.Size(816, 258);
-			this.tab_network_apis_riotapi.TabIndex = 0;
-			this.tab_network_apis_riotapi.Text = "RiotAPI";
-			this.tab_network_apis_riotapi.UseVisualStyleBackColor = true;
-			// 
-			// tabs_network_apis_riotapi
-			// 
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_championMastery);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_champion);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_leagueExp);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_league);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_lolStatus);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_match);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_spectator);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_summoner);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftLeague);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftMatch);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_tftSummoner);
-			this.tabs_network_apis_riotapi.Controls.Add(this.tab_network_apis_riotapi_thirdPartyCode);
-			this.tabs_network_apis_riotapi.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabs_network_apis_riotapi.Location = new System.Drawing.Point(3, 3);
-			this.tabs_network_apis_riotapi.Name = "tabs_network_apis_riotapi";
-			this.tabs_network_apis_riotapi.SelectedIndex = 0;
-			this.tabs_network_apis_riotapi.Size = new System.Drawing.Size(810, 252);
-			this.tabs_network_apis_riotapi.TabIndex = 0;
-			// 
-			// tab_network_apis_riotapi_championMastery
-			// 
-			this.tab_network_apis_riotapi_championMastery.Controls.Add(this.tabControl1);
-			this.tab_network_apis_riotapi_championMastery.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_championMastery.Name = "tab_network_apis_riotapi_championMastery";
-			this.tab_network_apis_riotapi_championMastery.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_championMastery.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_championMastery.TabIndex = 0;
-			this.tab_network_apis_riotapi_championMastery.Text = "Champion Mastery";
-			this.tab_network_apis_riotapi_championMastery.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_champion
-			// 
-			this.tab_network_apis_riotapi_champion.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_champion.Name = "tab_network_apis_riotapi_champion";
-			this.tab_network_apis_riotapi_champion.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_champion.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_champion.TabIndex = 1;
-			this.tab_network_apis_riotapi_champion.Text = "Champion";
-			this.tab_network_apis_riotapi_champion.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_leagueExp
-			// 
-			this.tab_network_apis_riotapi_leagueExp.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_leagueExp.Name = "tab_network_apis_riotapi_leagueExp";
-			this.tab_network_apis_riotapi_leagueExp.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_leagueExp.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_leagueExp.TabIndex = 2;
-			this.tab_network_apis_riotapi_leagueExp.Text = "League Exp";
-			this.tab_network_apis_riotapi_leagueExp.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_league
-			// 
-			this.tab_network_apis_riotapi_league.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_league.Name = "tab_network_apis_riotapi_league";
-			this.tab_network_apis_riotapi_league.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_league.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_league.TabIndex = 3;
-			this.tab_network_apis_riotapi_league.Text = "League";
-			this.tab_network_apis_riotapi_league.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_lolStatus
-			// 
-			this.tab_network_apis_riotapi_lolStatus.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_lolStatus.Name = "tab_network_apis_riotapi_lolStatus";
-			this.tab_network_apis_riotapi_lolStatus.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_lolStatus.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_lolStatus.TabIndex = 4;
-			this.tab_network_apis_riotapi_lolStatus.Text = "LoL Status";
-			this.tab_network_apis_riotapi_lolStatus.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_match
-			// 
-			this.tab_network_apis_riotapi_match.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_match.Name = "tab_network_apis_riotapi_match";
-			this.tab_network_apis_riotapi_match.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_match.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_match.TabIndex = 5;
-			this.tab_network_apis_riotapi_match.Text = "Match";
-			this.tab_network_apis_riotapi_match.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_spectator
-			// 
-			this.tab_network_apis_riotapi_spectator.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_spectator.Name = "tab_network_apis_riotapi_spectator";
-			this.tab_network_apis_riotapi_spectator.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_spectator.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_spectator.TabIndex = 6;
-			this.tab_network_apis_riotapi_spectator.Text = "Spectator";
-			this.tab_network_apis_riotapi_spectator.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_summoner
-			// 
-			this.tab_network_apis_riotapi_summoner.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_summoner.Name = "tab_network_apis_riotapi_summoner";
-			this.tab_network_apis_riotapi_summoner.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_summoner.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_summoner.TabIndex = 7;
-			this.tab_network_apis_riotapi_summoner.Text = "Summoner";
-			this.tab_network_apis_riotapi_summoner.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_tftLeague
-			// 
-			this.tab_network_apis_riotapi_tftLeague.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_tftLeague.Name = "tab_network_apis_riotapi_tftLeague";
-			this.tab_network_apis_riotapi_tftLeague.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_tftLeague.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_tftLeague.TabIndex = 8;
-			this.tab_network_apis_riotapi_tftLeague.Text = "TFT League";
-			this.tab_network_apis_riotapi_tftLeague.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_tftMatch
-			// 
-			this.tab_network_apis_riotapi_tftMatch.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_tftMatch.Name = "tab_network_apis_riotapi_tftMatch";
-			this.tab_network_apis_riotapi_tftMatch.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_tftMatch.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_tftMatch.TabIndex = 9;
-			this.tab_network_apis_riotapi_tftMatch.Text = "TFT Match";
-			this.tab_network_apis_riotapi_tftMatch.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_tftSummoner
-			// 
-			this.tab_network_apis_riotapi_tftSummoner.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_tftSummoner.Name = "tab_network_apis_riotapi_tftSummoner";
-			this.tab_network_apis_riotapi_tftSummoner.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_tftSummoner.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_tftSummoner.TabIndex = 10;
-			this.tab_network_apis_riotapi_tftSummoner.Text = "TFT Summoner";
-			this.tab_network_apis_riotapi_tftSummoner.UseVisualStyleBackColor = true;
-			// 
-			// tab_network_apis_riotapi_thirdPartyCode
-			// 
-			this.tab_network_apis_riotapi_thirdPartyCode.Location = new System.Drawing.Point(4, 22);
-			this.tab_network_apis_riotapi_thirdPartyCode.Name = "tab_network_apis_riotapi_thirdPartyCode";
-			this.tab_network_apis_riotapi_thirdPartyCode.Padding = new System.Windows.Forms.Padding(3);
-			this.tab_network_apis_riotapi_thirdPartyCode.Size = new System.Drawing.Size(802, 226);
-			this.tab_network_apis_riotapi_thirdPartyCode.TabIndex = 11;
-			this.tab_network_apis_riotapi_thirdPartyCode.Text = "Third Party Code";
-			this.tab_network_apis_riotapi_thirdPartyCode.UseVisualStyleBackColor = true;
-			// 
-			// tabControl1
-			// 
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Location = new System.Drawing.Point(3, 3);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(796, 220);
-			this.tabControl1.TabIndex = 0;
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(788, 194);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "tabPage1";
-			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// tabPage2
-			// 
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(192, 74);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "tabPage2";
-			this.tabPage2.UseVisualStyleBackColor = true;
+			this.button_tg_refresh.Location = new System.Drawing.Point(332, 349);
+			this.button_tg_refresh.Name = "button_tg_refresh";
+			this.button_tg_refresh.Size = new System.Drawing.Size(68, 22);
+			this.button_tg_refresh.TabIndex = 37;
+			this.button_tg_refresh.Text = "Refresh";
+			this.button_tg_refresh.UseVisualStyleBackColor = true;
+			this.button_tg_refresh.Click += new System.EventHandler(this.button_tg_refresh_Click);
 			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(854, 374);
+			this.Controls.Add(this.button_tg_refresh);
+			this.Controls.Add(this.button_tg_keys);
 			this.Controls.Add(this.numeric_tg_testingIndex);
 			this.Controls.Add(this.checkBox_tg_debugErrors);
 			this.Controls.Add(this.checkBox_tg_debug);
@@ -2776,6 +2847,20 @@
 			this.tab_network_security_openFirewallPort.ResumeLayout(false);
 			this.tab_network_security_openFirewallPort.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_network_security_openFirewallPort_portNumber)).EndInit();
+			this.tab_network_requests.ResumeLayout(false);
+			this.tabs_network_requests.ResumeLayout(false);
+			this.tab_network_requests_get.ResumeLayout(false);
+			this.tab_network_requests_get.PerformLayout();
+			this.tab_network_requests_post.ResumeLayout(false);
+			this.tab_network_requests_post.PerformLayout();
+			this.tab_network_apis.ResumeLayout(false);
+			this.tabs_network_apis.ResumeLayout(false);
+			this.tab_network_apis_riotapi.ResumeLayout(false);
+			this.tabs_network_apis_riotapi.ResumeLayout(false);
+			this.tab_network_apis_riotapi_championMastery.ResumeLayout(false);
+			this.tabs_network_apis_riotapi_championMastery.ResumeLayout(false);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.ResumeLayout(false);
+			this.tab_network_apis_riotapi_championMastery_getChampionMasteryList.PerformLayout();
 			this.tab_math.ResumeLayout(false);
 			this.tabs_math.ResumeLayout(false);
 			this.tab_math_calculateCombinations.ResumeLayout(false);
@@ -2791,18 +2876,6 @@
 			this.tab_device_getRam.ResumeLayout(false);
 			this.tab_device_getRam.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
-			this.tab_network_requests.ResumeLayout(false);
-			this.tabs_network_requests.ResumeLayout(false);
-			this.tab_network_requests_get.ResumeLayout(false);
-			this.tab_network_requests_get.PerformLayout();
-			this.tab_network_requests_post.ResumeLayout(false);
-			this.tab_network_requests_post.PerformLayout();
-			this.tab_network_apis.ResumeLayout(false);
-			this.tabs_network_apis.ResumeLayout(false);
-			this.tab_network_apis_riotapi.ResumeLayout(false);
-			this.tabs_network_apis_riotapi.ResumeLayout(false);
-			this.tab_network_apis_riotapi_championMastery.ResumeLayout(false);
-			this.tabControl1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -3034,8 +3107,14 @@
 		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftMatch;
 		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftSummoner;
 		private System.Windows.Forms.TabPage tab_network_apis_riotapi_thirdPartyCode;
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabControl tabs_network_apis_riotapi_championMastery;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getChampionMasteryList;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getMasteryByChampion;
+		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getTotalMasteryScore;
+		private System.Windows.Forms.Label label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
+		private System.Windows.Forms.TextBox textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
+		private System.Windows.Forms.Button button_network_apis_riotapi_championMastery_getChampionMasteryList_get;
+		private System.Windows.Forms.Button button_tg_keys;
+		private System.Windows.Forms.Button button_tg_refresh;
 	}
 }
