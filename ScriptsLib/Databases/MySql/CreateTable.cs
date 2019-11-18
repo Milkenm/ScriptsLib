@@ -20,11 +20,11 @@ namespace ScriptsLib.nDatabases
 			{
 				await Task.Factory.StartNew(() =>
 				{
-					MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
+					MySqlConnection _MySqlConnection = new MySqlConnection(string.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
 					Msg(_MySqlConnection.ConnectionString, MsgType.Info, "MySql Connection");
 
 					string _Columns = null;
-					foreach (var _Loop in _Fields)
+					foreach (TableFields _Loop in _Fields)
 					{
 						string _DataType;
 						if (_Loop.DataType == MySqlDataTypes.Text)
@@ -71,7 +71,7 @@ namespace ScriptsLib.nDatabases
 
 						if (_DataType != "key")
 						{
-							if (!String.IsNullOrEmpty(_Columns))
+							if (!string.IsNullOrEmpty(_Columns))
 							{
 								_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
 							}
@@ -82,7 +82,7 @@ namespace ScriptsLib.nDatabases
 						}
 						else
 						{
-							if (!String.IsNullOrEmpty(_Columns))
+							if (!string.IsNullOrEmpty(_Columns))
 							{
 								_Columns = $"{_Columns}, {_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})";
 							}

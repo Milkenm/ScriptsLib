@@ -1,8 +1,5 @@
 ﻿#region Usings
-using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 #endregion Usings
 
 // # = #
@@ -17,6 +14,9 @@ namespace ScriptsLib.Network
 		/// <summary>Executes a POST Resquest.</summary>
 		/// <param name="url">The API URL.</param>
 		/// <param name="values">Values to be sent to the API.</param>
-		public static string POST(string url, dynamic values) => new HttpClient().PostAsync("http://www.example.com/recepticle.aspx", new FormUrlEncodedContent(values)).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();
+		public static string POST(string url, dynamic values)
+		{
+			return new HttpClient().PostAsync("http://www.example.com/recepticle.aspx", new FormUrlEncodedContent(values)).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();
+		}
 	}
 }

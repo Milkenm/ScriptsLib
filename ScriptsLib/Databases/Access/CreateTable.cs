@@ -23,7 +23,7 @@ namespace ScriptsLib.nDatabases
 
 
 					string _Columns = null;
-					foreach (var _Loop in _Fields)
+					foreach (TableFields _Loop in _Fields)
 					{
 						string _DataType;
 						if (_Loop.DataType == AccessDataTypes.Text)
@@ -58,7 +58,7 @@ namespace ScriptsLib.nDatabases
 
 						if (_DataType != "key")
 						{
-							if (!String.IsNullOrEmpty(_Columns))
+							if (!string.IsNullOrEmpty(_Columns))
 							{
 								_Columns = $"{_Columns}, [{_Loop.Name}] {_DataType}";
 							}
@@ -69,7 +69,7 @@ namespace ScriptsLib.nDatabases
 						}
 						else
 						{
-							if (!String.IsNullOrEmpty(_Columns))
+							if (!string.IsNullOrEmpty(_Columns))
 							{
 								_Columns = $"{_Columns}, [{_Loop.Name}] AUTOINCREMENT PRIMARY KEY";
 							}

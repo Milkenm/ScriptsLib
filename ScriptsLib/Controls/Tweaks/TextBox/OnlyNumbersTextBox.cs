@@ -1,5 +1,4 @@
 ﻿#region Usings
-using System;
 using System.Windows.Forms;
 #endregion Usings
 
@@ -29,7 +28,7 @@ namespace ScriptsLib.Controls.Tweaks
 
 			if (_Enabled == true)
 			{
-				if (!Char.IsControl(_Event.KeyChar) && !Char.IsDigit(_Event.KeyChar) && _Event.KeyChar != '.')
+				if (!char.IsControl(_Event.KeyChar) && !char.IsDigit(_Event.KeyChar) && _Event.KeyChar != '.')
 				{
 					_Event.Handled = true;
 				}

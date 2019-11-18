@@ -23,9 +23,9 @@ namespace ScriptsLib.nDatabases
 					{
 						string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-						var _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
+						SqlConnection _Connection = new SqlConnection(@"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true");
 						_Connection.OpenAsync();
-						var _Command = _Connection.CreateCommand();
+						SqlCommand _Command = _Connection.CreateCommand();
 
 
 						_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";

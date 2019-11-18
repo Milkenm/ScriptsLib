@@ -15,24 +15,24 @@ namespace ScriptsLib
 		/// <param name="_DynvarsFilePath">If you want this thing to not use the default path, input the one you want here.</param>
 		public static dynamic DynVar(string _Variable, dynamic _Value = null, string _DynvarsFilePath = null)
 		{
-			if (String.IsNullOrEmpty(_DynvarsFilePath))
+			if (string.IsNullOrEmpty(_DynvarsFilePath))
 			{
 				_DynvarsFilePath = DynVars.DynvarsFilePath;
 			}
 
 			#region Exceptions
-			if ((!String.IsNullOrEmpty(_Variable) && _Variable.Contains("=")) || (!String.IsNullOrEmpty(_Value.ToString()) && _Value.ToString().Contains("=")))
+			if ((!string.IsNullOrEmpty(_Variable) && _Variable.Contains("=")) || (!string.IsNullOrEmpty(_Value.ToString()) && _Value.ToString().Contains("=")))
 			{
 				throw new Exception("DynVars: Variables/Values cannot contain equal signs.");
 			}
-			if (String.IsNullOrEmpty(_Variable))
+			if (string.IsNullOrEmpty(_Variable))
 			{
 				throw new Exception("DynVars: Variable name is empty.");
 			}
 			#endregion Exceptions
 
 			#region Generate DynVars File and Path
-			if (String.IsNullOrEmpty(_DynvarsFilePath))
+			if (string.IsNullOrEmpty(_DynvarsFilePath))
 			{
 				_DynvarsFilePath = Info.UserdataPath + "DynVars.txt";
 			}
@@ -41,8 +41,8 @@ namespace ScriptsLib
 				File.WriteAllText(_DynvarsFilePath, $"ScriptsLib (v{Info.Version}) DynVars File. Please do not modify.\n\n\n\n");
 			}
 			#endregion Generate DynVars File and Path
-			
-			if (String.IsNullOrEmpty(_Value)) // Get variable value.
+
+			if (string.IsNullOrEmpty(_Value)) // Get variable value.
 			{
 				if (File.ReadAllText(_DynvarsFilePath).Contains($"\n{_Variable}=")) // If the variable exists.
 				{
@@ -73,7 +73,7 @@ namespace ScriptsLib
 					string _Text = null;
 					foreach (string _Line in _Lines)
 					{
-						if (String.IsNullOrEmpty(_Text))
+						if (string.IsNullOrEmpty(_Text))
 						{
 							_Text = _Line;
 						}

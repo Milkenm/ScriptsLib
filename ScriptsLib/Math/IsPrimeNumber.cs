@@ -6,7 +6,7 @@
 		/// <param name="_Number">The number to check.</param>
 		public static bool IsPrimeNumber(int _Number)
 		{
-			for (var _Loop = 2; _Loop < _Number; _Loop++)
+			for (int _Loop = 2; _Loop < _Number; _Loop++)
 			{
 				if (_Number % _Loop == 0)
 				{

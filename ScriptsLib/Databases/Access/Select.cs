@@ -19,7 +19,7 @@ namespace ScriptsLib.nDatabases
 				OleDbConnection _OleDbConnection = new OleDbConnection(_BaseConnection + _DatabasePath);
 
 				OleDbCommand _OleDbCommand;
-				if (!String.IsNullOrEmpty(_Condition))
+				if (!string.IsNullOrEmpty(_Condition))
 				{
 					if (_Selection == "*" || _Selection.Contains("MAX"))
 					{
@@ -71,7 +71,7 @@ namespace ScriptsLib.nDatabases
 								string _Add = null;
 								foreach (string _Loop in _Values)
 								{
-									if (String.IsNullOrEmpty(_Add))
+									if (string.IsNullOrEmpty(_Add))
 									{
 										_Add = _Loop;
 									}
@@ -81,7 +81,7 @@ namespace ScriptsLib.nDatabases
 									}
 								}
 								Msg("Add: " + _Add, MsgType.Info, "OleDbDataReader.Read()");
-								if (!String.IsNullOrEmpty(_Add))
+								if (!string.IsNullOrEmpty(_Add))
 								{
 									_Results.Add(_Add);
 								}
@@ -100,7 +100,7 @@ namespace ScriptsLib.nDatabases
 
 				foreach (string _Result in _Results)
 				{
-					if (!String.IsNullOrEmpty(_Result))
+					if (!string.IsNullOrEmpty(_Result))
 					{
 						_FilterResults.Add(_Result);
 					}

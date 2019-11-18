@@ -19,7 +19,7 @@ namespace ScriptsLib.nDatabases
 			{
 				await Task.Factory.StartNew(() =>
 				{
-					MySqlConnection _MySqlConnection = new MySqlConnection(String.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
+					MySqlConnection _MySqlConnection = new MySqlConnection(string.Format(_BaseConnection, _Server, _Port, _User, _Password, _Database, _SslMode));
 
 					MySqlCommand _MySqlCommand = new MySqlCommand($"DROP TABLE {_TableName}", _MySqlConnection);
 					Msg(_MySqlCommand.CommandText, MsgType.Info, "OleDb Command");

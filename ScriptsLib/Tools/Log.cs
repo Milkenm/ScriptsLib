@@ -40,7 +40,7 @@ namespace ScriptsLib
 					#endregion Create File
 
 					#region Source / Date
-					if (!String.IsNullOrEmpty(_Source))
+					if (!string.IsNullOrEmpty(_Source))
 					{
 						_Message = $"[{_Source}] {_Message}";
 

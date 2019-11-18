@@ -28,7 +28,7 @@ namespace ScriptsLib.nDatabases
 					{
 						foreach (string _Column in _Columns.Split(','))
 						{
-							if (!String.IsNullOrEmpty(_EditColumns))
+							if (!string.IsNullOrEmpty(_EditColumns))
 							{
 								_EditColumns = $"{_EditColumns}, [{_Column}]";
 							}

@@ -14,7 +14,7 @@ namespace ScriptsLib
 	public static partial class Tools
 	{
 		[DllImport("user32.dll", CharSet = CharSet.Auto)]
-		static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+		private static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
 
 		/// <summary>Sets the desktop wallpaper.</summary>
 		/// <param name="_Image">The image to be set as wallpaper.</param>

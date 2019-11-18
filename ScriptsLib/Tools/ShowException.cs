@@ -18,8 +18,14 @@ namespace ScriptsLib
 		{
 			await Task.Factory.StartNew(() =>
 			{
-				if (!string.IsNullOrEmpty(_ExceptionTitle)) MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", _ExceptionTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				else MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", $"Error - {_Exception.Source}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				if (!string.IsNullOrEmpty(_ExceptionTitle))
+				{
+					MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", _ExceptionTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+				else
+				{
+					MessageBox.Show($"{_Exception.Message}\n\n\n\nLine: {new System.Diagnostics.StackTrace(_Exception, true).GetFrame(0).GetFileLineNumber()}", $"Error - {_Exception.Source}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			});
 		}
 	}

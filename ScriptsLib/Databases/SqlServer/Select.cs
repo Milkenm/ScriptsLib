@@ -19,7 +19,7 @@ namespace ScriptsLib.nDatabases
 				SqlConnection _Connection = new SqlConnection(_BaseConnection + _DatabasePath);
 
 				SqlCommand _Command;
-				if (!String.IsNullOrEmpty(_Condition))
+				if (!string.IsNullOrEmpty(_Condition))
 				{
 					_Command = new SqlCommand($"SELECT {_Selection} FROM {_Table} WHERE {_Condition}", _Connection);
 				}
@@ -56,7 +56,7 @@ namespace ScriptsLib.nDatabases
 								string _Add = null;
 								foreach (string _Loop in _Values)
 								{
-									if (String.IsNullOrEmpty(_Add))
+									if (string.IsNullOrEmpty(_Add))
 									{
 										_Add = _Loop;
 									}

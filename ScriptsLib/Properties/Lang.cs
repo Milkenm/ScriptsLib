@@ -1,6 +1,4 @@
 ﻿#region Usings
-using System;
-using System.Globalization;
 using ScriptsLib.Internal.Lang;
 #endregion Usings
 

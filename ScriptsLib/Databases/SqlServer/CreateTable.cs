@@ -22,7 +22,7 @@ namespace ScriptsLib.nDatabases
 					SqlConnection _SqlConnection = new SqlConnection(_BaseConnection + _DatabasePath);
 
 					string _Columns = null;
-					foreach (var _Loop in _Fields)
+					foreach (TableFields _Loop in _Fields)
 					{
 						string _DataType;
 						if (_Loop.DataType == SqlDataTypes.Text)
@@ -63,7 +63,7 @@ namespace ScriptsLib.nDatabases
 						}
 
 
-						if (!String.IsNullOrEmpty(_Columns))
+						if (!string.IsNullOrEmpty(_Columns))
 						{
 							_Columns = $"{_Columns}, {_Loop.Name} {_DataType}";
 						}

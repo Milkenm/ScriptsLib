@@ -25,9 +25,9 @@ namespace ScriptsLib.nDatabases
 					{
 						string _DatabaseName = Path.GetFileNameWithoutExtension(_Path);
 
-						var _Connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;");
+						OleDbConnection _Connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;");
 						_Connection.OpenAsync();
-						var _Command = _Connection.CreateCommand();
+						OleDbCommand _Command = _Connection.CreateCommand();
 
 
 						_Command.CommandText = $"CREATE DATABASE {_DatabaseName} ON PRIMARY (NAME={_DatabaseName}, FILENAME='{_Path}')";

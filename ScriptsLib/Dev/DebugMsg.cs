@@ -1,5 +1,4 @@
 ﻿#region Usings
-using System;
 using System.Windows.Forms;
 #endregion Usings
 
@@ -21,7 +20,7 @@ namespace ScriptsLib
 				{
 					if (_ErrorsOnly == true && _Type == MsgType.Error)
 					{
-						if (!String.IsNullOrEmpty(_Title))
+						if (!string.IsNullOrEmpty(_Title))
 						{
 							MessageBox.Show(null, _Message, "ScriptsLib Error - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
@@ -32,7 +31,7 @@ namespace ScriptsLib
 					}
 					else if (_ErrorsOnly == false)
 					{
-						if (!String.IsNullOrEmpty(_Title))
+						if (!string.IsNullOrEmpty(_Title))
 						{
 							MessageBox.Show(null, _Message, "DE3UG - " + _Title, MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
