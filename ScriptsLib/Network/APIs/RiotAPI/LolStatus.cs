@@ -11,7 +11,10 @@ namespace ScriptsLib.Network.APIs
 		public static class LolStatus // v3
 		{
 			/// <summary>Get League of Legends status for the given shard.</summary>
-			public static string GetLolStatus() => GET(ServerString() + "/lol/status/v3/shard-data" + ApiString());
+			public static string GetLolStatus()
+			{
+				return GET(ServerString() + "/lol/status/v3/shard-data" + ApiString());
+			}
 		}
 	}
 }

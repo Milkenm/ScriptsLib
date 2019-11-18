@@ -4,8 +4,15 @@
 	{
 		public static readonly string RiotAPIOrigin = "https://{0}.api.riotgames.com";
 
-		private static string ApiString() => "?api_key=" + ApiKey;
-		private static string ServerString() => string.Format(RiotAPIOrigin, Region);
+		private static string ApiString()
+		{
+			return "?api_key=" + ApiKey;
+		}
+
+		private static string ServerString()
+		{
+			return string.Format(RiotAPIOrigin, Region);
+		}
 
 
 
