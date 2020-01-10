@@ -10,6 +10,19 @@ namespace ScriptsLib.Network.APIs
 	{
 		public static class Summoner // v4
 		{
+			public class SummonerJson
+			{
+				public string id { get; set; }
+				public string accountId { get; set; }
+				public string puuid { get; set; }
+				public string name { get; set; }
+				public string profileIconId { get; set; }
+				public string revisionDate { get; set; }
+				public string summonerLevel { get; set; }
+			}
+
+
+
 			/// <summary>Get a summoner by account ID.</summary>
 			public static string GetSummonerByAccountId(string encryptedAccountId)
 			{
