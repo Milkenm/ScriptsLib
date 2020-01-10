@@ -1,4 +1,6 @@
 ﻿#region Usings
+using System.Collections.Generic;
+
 using static ScriptsLib.Network.Requests;
 #endregion Usings
 
@@ -10,6 +12,47 @@ namespace ScriptsLib.Network.APIs
 	{
 		public static class League // v4
 		{
+			#region JSON
+			public class LeagueListDTO
+			{
+				public string leagueId;
+				public string tier;
+				public List<LeagueItemDTO> entries;
+				public string queue;
+				public string name;
+			}
+
+			public class LeagueItemDTO
+			{
+				public string summonerName;
+				public bool hotStreak;
+				public MiniSeriesDTO miniSeries;
+				/// <summary>Winning team on Summoners Rift. First placement in Teamfight Tactics.</summary>
+				public int wins;
+				public bool veteran;
+				/// <summary>Losing team on Summoners Rift. Second through eighth placement in Teamfight Tactics.</summary>
+				public int losses;
+				public bool freshBlood;
+				public bool inactive;
+				public string rank;
+				/// <summary>Player's summonerId (Encrypted)</summary>
+				public string summonerId;
+				public int leaguePoints;
+			}
+
+			public class MiniSeriesDTO
+			{
+				public string progress;
+				public int losses;
+				public int target;
+				public int wins;
+			}
+			#endregion JSON
+
+
+
+
+
 			/// <summary>Get the challenger league for given queue.</summary>
 			public static string GetChallengerEntries(Queues queue)
 			{
