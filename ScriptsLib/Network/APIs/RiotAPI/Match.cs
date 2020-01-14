@@ -1,6 +1,8 @@
 ﻿#region Usings
-using System;
 using System.Collections.Generic;
+
+using Newtonsoft.Json;
+
 using static ScriptsLib.Network.Requests;
 #endregion Usings
 
@@ -359,24 +361,45 @@ namespace ScriptsLib.Network.APIs
 
 			/// <summary>Get match timeline by match ID.</summary>
 			/// <param name="matchId">The match ID.</param>
-			public static string GetMatchTimeline(long matchId)
+			/// <param name="getJsonObject">If true, it will return an object containing the request.</param>
+			public static dynamic GetMatchTimeline(long matchId, bool getJsonObject = false)
 			{
-				return GET(ServerString() + $"/lol/match/v4/timelines/by-match/{matchId}" + ApiString());
+				string request = GET(ServerString() + $"/lol/match/v4/timelines/by-match/{matchId}" + ApiString());
+
+				if (getJsonObject)
+				{
+					return JsonConvert.DeserializeObject<MatchDto>(request);
+				}
+				return request;
 			}
 
 			/// <summary>Get match IDs by tournament code.</summary>
 			/// <param name="tournamentCode">The tournament code.</param>
-			public static string GetMatchIdByTournamentCode(string tournamentCode)
+			/// <param name="getJsonObject">If true, it will return an object containing the request.</param>
+			public static dynamic GetMatchIdByTournamentCode(string tournamentCode, bool getJsonObject = false)
 			{
-				return GET(ServerString() + $"/lol/match/v4/matches/by-tournament-code/{tournamentCode}/ids" + ApiString());
+				string request = GET(ServerString() + $"/lol/match/v4/matches/by-tournament-code/{tournamentCode}/ids" + ApiString());
+
+				if (getJsonObject)
+				{
+					return JsonConvert.DeserializeObject<MatchDto>(request);
+				}
+				return request;
 			}
 
 			/// <summary>Get match by match ID and tournament code.</summary>
 			/// <param name="tournamentCode">The tournament code.</param>
 			/// <param name="matchId">The match ID.</param>
-			public static string GetMatchByIdAndTournamentCode(string tournamentCode, long matchId)
+			/// <param name="getJsonObject">If true, it will return an object containing the request.</param>
+			public static dynamic GetMatchByIdAndTournamentCode(string tournamentCode, long matchId, bool getJsonObject = false)
 			{
-				return GET(ServerString() + $"/lol/match/v4/matches/{matchId}/by-tournament-code/{tournamentCode}" + ApiString());
+				string request = GET(ServerString() + $"/lol/match/v4/matches/{matchId}/by-tournament-code/{tournamentCode}" + ApiString());
+
+				if (getJsonObject)
+				{
+					return JsonConvert.DeserializeObject<MatchDto>(request);
+				}
+				return request;
 			}
 		}
 	}
