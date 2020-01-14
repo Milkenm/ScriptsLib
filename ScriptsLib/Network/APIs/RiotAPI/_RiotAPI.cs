@@ -1,4 +1,6 @@
-﻿namespace ScriptsLib.Network.APIs
+﻿using Newtonsoft.Json;
+
+namespace ScriptsLib.Network.APIs
 {
 	public static partial class RiotAPI
 	{
@@ -79,5 +81,14 @@
 
 		public static string ApiKey;
 		public static Regions Region;
+
+		public static dynamic ReturnRequest<T>(string request, bool getJsonObject)
+		{
+			if (getJsonObject)
+			{
+				return JsonConvert.DeserializeObject<T>(request);
+			}
+			return request;
+		}
 	}
 }
