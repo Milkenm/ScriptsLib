@@ -77,7 +77,7 @@ namespace ScriptsLib.Network.APIs
 					request += "&page=" + page;
 				}
 
-				return request;
+				return GET(request);
 			}
 
 			/// <summary>Get the grandmaster league of a specific queue.</summary>
