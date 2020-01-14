@@ -1,9 +1,11 @@
 ﻿#region Usings
-using System.Net.Http;
+using System.Collections.Specialized;
+using System.Net;
+using System.Text;
 #endregion Usings
 
 // # = #
-// POST Requests: https://stackoverflow.com/a/4015346
+// POST Request: https://stackoverflow.com/a/8091963/10601212
 // # = #
 
 
@@ -14,9 +16,13 @@ namespace ScriptsLib.Network
 		/// <summary>Executes a POST Resquest.</summary>
 		/// <param name="url">The API URL.</param>
 		/// <param name="values">Values to be sent to the API.</param>
-		public static string POST(string url, dynamic values)
+		public static string POST(string url, NameValueCollection data)
 		{
-			return new HttpClient().PostAsync("http://www.example.com/recepticle.aspx", new FormUrlEncodedContent(values)).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();
+			using (WebClient wb = new WebClient())
+			{
+				byte[] res = wb.UploadValues(url, "POST", data);
+				return Encoding.UTF8.GetString(res);
+			}
 		}
 	}
 }
