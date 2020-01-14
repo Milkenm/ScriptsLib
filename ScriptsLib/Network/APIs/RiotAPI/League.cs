@@ -18,7 +18,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league/v4/challengerleagues/by-queue/{queue}" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get league entries in all queues for a given summoner ID.</summary>
@@ -27,7 +27,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league/v4/entries/by-summoner/{encryptedSummonerId}" + ApiString());
 
-				return ReturnRequest<LeagueEntryDTO[]>(request, getJsonObject);
+				return ReturnResponse<LeagueEntryDTO[]>(request, getJsonObject);
 			}
 
 			/// <summary>Get all the league entries.</summary>
@@ -45,7 +45,7 @@ namespace ScriptsLib.Network.APIs
 
 				string request = GET(requestString);
 
-				return ReturnRequest<LeagueListDTO[]>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO[]>(request, getJsonObject);
 			}
 
 			/// <summary>Get the grandmaster league of a specific queue.</summary>
@@ -54,7 +54,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league/v4/grandmasterleagues/by-queue/{queue}" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get league with given ID, including inactive entries.</summary>
@@ -64,7 +64,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league/v4/leagues/{leagueId}" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get the master league for given queue.</summary>
@@ -73,7 +73,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league/v4/masterleagues/by-queue/{queue}" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 		}
 	}

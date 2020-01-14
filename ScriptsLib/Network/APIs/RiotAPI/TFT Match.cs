@@ -29,7 +29,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/match/v1/matches/{matchId}" + ApiString());
 
-				return ReturnRequest<MatchDTO>(request, getJsonObject);
+				return ReturnResponse<MatchDTO>(request, getJsonObject);
 			}
 		}
 	}

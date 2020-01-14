@@ -16,7 +16,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/summoner/v1/summoners/by-account/{encryptedAccountId}" + ApiString());
 
-				return ReturnRequest<SummonerDTO>(request, getJsonObject);
+				return ReturnResponse<SummonerDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get a summoner by summoner name.</summary>
@@ -26,7 +26,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/summoner/v1/summoners/by-name/{summonerName}" + ApiString());
 
-				return ReturnRequest<SummonerDTO>(request, getJsonObject);
+				return ReturnResponse<SummonerDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get a summoner by PUUID.</summary>
@@ -36,7 +36,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/summoner/v1/summoners/by-puuid/{encryptedPUUID}" + ApiString());
 
-				return ReturnRequest<SummonerDTO>(request, getJsonObject);
+				return ReturnResponse<SummonerDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get a summoner by summoner ID.</summary>
@@ -46,7 +46,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/summoner/v1/summoners/{encryptedSummonerId}" + ApiString());
 
-				return ReturnRequest<SummonerDTO>(request, getJsonObject);
+				return ReturnResponse<SummonerDTO>(request, getJsonObject);
 			}
 		}
 	}

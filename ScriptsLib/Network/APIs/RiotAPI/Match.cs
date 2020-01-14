@@ -18,7 +18,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/match/v4/matches/{matchId}" + ApiString());
 
-				return ReturnRequest<MatchDTO>(request, getJsonObject);
+				return ReturnResponse<MatchDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get matchlist for games played on given account ID and platform ID and filtered using given filter parameters, if any.</summary>
@@ -72,7 +72,7 @@ namespace ScriptsLib.Network.APIs
 
 				string request = GET(requestString);
 
-				return ReturnRequest<MatchlistDTO>(request, getJsonObject);
+				return ReturnResponse<MatchlistDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get match timeline by match ID.</summary>
@@ -82,7 +82,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/match/v4/timelines/by-match/{matchId}" + ApiString());
 
-				return ReturnRequest<MatchTimelineDTO>(request, getJsonObject);
+				return ReturnResponse<MatchTimelineDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get match IDs by tournament code.</summary>
@@ -102,7 +102,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/match/v4/matches/{matchId}/by-tournament-code/{tournamentCode}" + ApiString());
 
-				return ReturnRequest<MatchDTO>(request, getJsonObject);
+				return ReturnResponse<MatchDTO>(request, getJsonObject);
 			}
 		}
 	}

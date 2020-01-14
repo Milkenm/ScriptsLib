@@ -20,7 +20,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}" + ApiString());
 
-				return ReturnRequest<List<ChampionMasteryDTO>>(request, getJsonObject);
+				return ReturnResponse<List<ChampionMasteryDTO>>(request, getJsonObject);
 			}
 
 			/// <summary>Get a champion mastery by player ID and champion ID.</summary>
@@ -31,7 +31,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}" + ApiString());
 
-				return ReturnRequest<ChampionMasteryDTO>(request, getJsonObject);
+				return ReturnResponse<ChampionMasteryDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get a player's total champion mastery score, which is the sum of individual champion mastery levels.</summary>

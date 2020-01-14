@@ -16,7 +16,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/lol/platform/v3/champion-rotations" + ApiString());
 
-				return ReturnRequest<ChampionInfo>(request, getJsonObject);
+				return ReturnResponse<ChampionInfo>(request, getJsonObject);
 			}
 		}
 	}

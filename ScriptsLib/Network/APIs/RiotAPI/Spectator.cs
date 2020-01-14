@@ -19,7 +19,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}" + ApiString());
 
-				return ReturnRequest<CurrentGameInfo>(request, getJsonObject);
+				return ReturnResponse<CurrentGameInfo>(request, getJsonObject);
 			}
 
 			/// <summary>Get list of featured games.</summary>
@@ -28,7 +28,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/lol/spectator/v4/featured-games" + ApiString());
 
-				return ReturnRequest<FeaturedGames>(request, getJsonObject);
+				return ReturnResponse<FeaturedGames>(request, getJsonObject);
 			}
 		}
 	}

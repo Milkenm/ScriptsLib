@@ -17,7 +17,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/lol/league-exp/v4/entries/{queue}/{tier}/{division}" + ApiString());
 
-				return ReturnRequest<LeagueEntryDTO[]>(request, getJsonObject);
+				return ReturnResponse<LeagueEntryDTO[]>(request, getJsonObject);
 			}
 		}
 	}

@@ -18,7 +18,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/lol/status/v3/shard-data" + ApiString());
 
-				return ReturnRequest<ShardStatus>(request, getJsonObject);
+				return ReturnResponse<ShardStatus>(request, getJsonObject);
 			}
 		}
 	}

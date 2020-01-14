@@ -623,5 +623,52 @@ namespace ScriptsLib.Network.APIs
 			/// <summary>Encrypted account ID. Max length 56 characters.</summary>
 			public string accountId;
 		}
+
+		public class TournamentCodeParameters
+		{
+			/// <summary>The spectator type of the game. (Legal values: NONE, LOBBYONLY, ALL)</summary>
+			public string spectatorType;
+			/// <summary>The team size of the game. Valid values are 1-5.</summary>
+			public int teamSize;
+			/// <summary>The pick type of the game. (Legal values: BLIND_PICK, DRAFT_MODE, ALL_RANDOM, TOURNAMENT_DRAFT)</summary>
+			public string pickType;
+			/// <summary>Optional list of encrypted summonerIds in order to validate the players eligible to join the lobby. NOTE: We currently do not enforce participants at the team level, but rather the aggregate of teamOne and teamTwo. We may add the ability to enforce at the team level in the future.</summary>
+			public HashSet<string> allowedSummonerIds;
+			/// <summary>The map type of the game. (Legal values: SUMMONERS_RIFT, TWISTED_TREELINE, HOWLING_ABYSS)</summary>
+			public string mapType;
+			/// <summary>Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</summary>
+			public string metadata;
+		}
+
+		public class LobbyEventDTOWrapper
+		{
+			public List<LobbyEventDTO> eventList;
+		}
+
+		public class LobbyEventDTO
+		{
+			/// <summary>The type of event that was triggered</summary>
+			public string eventType;
+			/// <summary>The summonerId that triggered the event (Encrypted)</summary>
+			public string summonerId;
+			/// <summary>Timestamp from the event</summary>
+			public string timestamp;
+		}
+		
+		public class ProviderRegistrationParameters
+		{
+			/// <summary>The provider's callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).</summary>
+			public string url;
+			/// <summary>The region in which the provider will be running tournaments. (Legal values: BR, EUNE, EUW, JP, LAN, LAS, NA, OCE, PBE, RU, TR)</summary>
+			public string region;
+		}
+
+		public class TournamentRegistrationParameters
+		{
+			/// <summary>The provider ID to specify the regional registered provider data to associate this tournament.</summary>
+			public int providerId;
+			/// <summary>The optional name of the tournament.</summary>
+			public string name;
+		}
 	}
 }

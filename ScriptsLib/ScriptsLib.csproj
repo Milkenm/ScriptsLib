@@ -134,7 +134,8 @@
     <Compile Include="Network\APIs\RiotAPI\TFT Match.cs" />
     <Compile Include="Network\APIs\RiotAPI\TFT Summoner.cs" />
     <Compile Include="Network\APIs\RiotAPI\Third Party Code.cs" />
-    <Compile Include="Network\APIs\RiotAPI\_Riot API Json.cs" />
+    <Compile Include="Network\APIs\RiotAPI\TournamentStub.cs" />
+    <Compile Include="Network\APIs\RiotAPI\_Riot API Schemes.cs" />
     <Compile Include="Network\APIs\RiotAPI\_Riot API.cs" />
     <Compile Include="Network\Requests\GET.cs" />
     <Compile Include="Network\Requests\POST.cs" />

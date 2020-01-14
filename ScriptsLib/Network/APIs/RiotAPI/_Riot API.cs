@@ -6,6 +6,11 @@ namespace ScriptsLib.Network.APIs
 	{
 		public static readonly string RiotAPIOrigin = "https://{0}.api.riotgames.com";
 
+		public static string ApiKey;
+		public static Regions Region;
+
+
+
 		private static string ApiString()
 		{
 			return "?api_key=" + ApiKey;
@@ -94,18 +99,37 @@ namespace ScriptsLib.Network.APIs
 			CAPTURE_POINT,
 			PORO_KING_SUMMON,
 		}
+
+		public enum SpectatorTypes
+		{
+			NONE,
+			LOBBYONLY,
+			ALL,
+		}
+
+		public enum PickType
+		{
+			BLIND_PICK,
+			DRAFT_MODE,
+			ALL_RANDOM,
+			TOURNAMENT_DRAFT,
+		}
+
+		public enum MapType
+		{
+			SUMMONERS_RIFT,
+			TWISTED_TREELINE,
+			HOWLING_ABYSS,
+		}
 		#endregion Enums
 
-		public static string ApiKey;
-		public static Regions Region;
-
-		public static dynamic ReturnRequest<T>(string request, bool getJsonObject)
+		public static dynamic ReturnResponse<T>(string res, bool getJsonObject)
 		{
 			if (getJsonObject)
 			{
-				return JsonConvert.DeserializeObject<T>(request);
+				return JsonConvert.DeserializeObject<T>(res);
 			}
-			return request;
+			return res;
 		}
 	}
 }

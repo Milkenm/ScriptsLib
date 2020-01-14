@@ -16,7 +16,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/tft/league/v1/challenger" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get league entries for a given summoner ID.</summary>
@@ -25,7 +25,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/league/v1/entries/by-summoner/{encryptedSummonerId}" + ApiString());
 
-				return ReturnRequest<LeagueEntryDTO[]>(request, getJsonObject);
+				return ReturnResponse<LeagueEntryDTO[]>(request, getJsonObject);
 			}
 
 			/// <summary>Get all the league entries.</summary>
@@ -42,7 +42,7 @@ namespace ScriptsLib.Network.APIs
 
 				string request = GET(requestString);
 
-				return ReturnRequest<LeagueEntryDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueEntryDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get the grandmaster league.</summary>
@@ -51,7 +51,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/tft/league/v1/grandmaster" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get league with given ID, including inactive entries.</summary>
@@ -61,7 +61,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + $"/tft/league/v1/leagues/{leagueId}" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 
 			/// <summary>Get the master league.</summary>
@@ -70,7 +70,7 @@ namespace ScriptsLib.Network.APIs
 			{
 				string request = GET(ServerString() + "/tft/league/v1/master" + ApiString());
 
-				return ReturnRequest<LeagueListDTO>(request, getJsonObject);
+				return ReturnResponse<LeagueListDTO>(request, getJsonObject);
 			}
 		}
 	}
