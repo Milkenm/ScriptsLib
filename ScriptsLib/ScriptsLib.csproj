@@ -102,6 +102,7 @@
     <Compile Include="Databases\Access\CreateTable.cs" />
     <Compile Include="Databases\Access\Delete.cs" />
     <Compile Include="Databases\Access\DeleteTable.cs" />
+    <Compile Include="Databases\Access\Execute SQL.cs" />
     <Compile Include="Databases\Access\InsertInto.cs" />
     <Compile Include="Databases\Access\Select.cs" />
     <Compile Include="Databases\Access\Update.cs" />
