@@ -81,7 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNet\ShowPopup.cs" />
+    <Compile Include="AspNet\Show Pop-up.cs" />
     <Compile Include="Controls\Controls\LineGraph.cs">
       <SubType>UserControl</SubType>
     </Compile>
