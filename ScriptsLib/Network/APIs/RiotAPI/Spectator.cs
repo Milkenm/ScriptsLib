@@ -1,4 +1,6 @@
 ﻿#region Usings
+using System.Collections.Generic;
+
 using static ScriptsLib.Network.Requests;
 #endregion Usings
 
@@ -12,15 +14,21 @@ namespace ScriptsLib.Network.APIs
 		{
 			/// <summary>Get current game information for the given summoner ID</summary>
 			/// <param name="encryptedSummonerId">The ID of the summoner.</param>
-			public static string GetCurrentGameInfo(string encryptedSummonerId)
+			/// <param name="getJsonObject">If true, it will return an object containing the request.</param>
+			public static string GetCurrentGameInfo(string encryptedSummonerId, bool getJsonObject = false)
 			{
-				return GET(ServerString() + $"/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}" + ApiString());
+				string request = GET(ServerString() + $"/lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}" + ApiString());
+
+				return ReturnResponse<CurrentGameInfo>(request, getJsonObject);
 			}
 
 			/// <summary>Get list of featured games.</summary>
-			public static string GetFeaturedGames()
+			/// <param name="getJsonObject">If true, it will return an object containing the request.</param>
+			public static string GetFeaturedGames(bool getJsonObject = false)
 			{
-				return GET(ServerString() + "/lol/spectator/v4/featured-games" + ApiString());
+				string request = GET(ServerString() + "/lol/spectator/v4/featured-games" + ApiString());
+
+				return ReturnResponse<FeaturedGames>(request, getJsonObject);
 			}
 		}
 	}

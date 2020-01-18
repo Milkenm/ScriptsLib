@@ -1,11 +1,12 @@
 ﻿#region Usings
-using System.Net.Http;
+using System.IO;
+using System.Net;
 #endregion Usings
 
 // # = #
-// POST Requests: https://stackoverflow.com/a/4015346
+// POST Request: https://stackoverflow.com/a/8091963/10601212
+// POST Request (2): https://stackoverflow.com/a/10027534/10601212
 // # = #
-
 
 namespace ScriptsLib.Network
 {
@@ -13,10 +14,23 @@ namespace ScriptsLib.Network
 	{
 		/// <summary>Executes a POST Resquest.</summary>
 		/// <param name="url">The API URL.</param>
-		/// <param name="values">Values to be sent to the API.</param>
-		public static string POST(string url, dynamic values)
+		/// <param name="dataJson">The JSON string containing the values to be sent to the API.</param>
+		public static string POST(string url, string dataJson)
 		{
-			return new HttpClient().PostAsync("http://www.example.com/recepticle.aspx", new FormUrlEncodedContent(values)).GetAwaiter().GetResult().Content.ReadAsStringAsync().GetAwaiter().GetResult();
+			HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+			httpWebRequest.ContentType = "application/json";
+			httpWebRequest.Method = "POST";
+
+			using (StreamWriter streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+			{
+				streamWriter.Write(dataJson);
+			}
+
+			HttpWebResponse httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+			using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
+			{
+				return streamReader.ReadToEnd();
+			}
 		}
 	}
 }
