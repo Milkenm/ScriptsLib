@@ -115,7 +115,6 @@
 			this.tabs_controls_controls = new System.Windows.Forms.TabControl();
 			this.tab_lineGraph = new System.Windows.Forms.TabPage();
 			this.button_lineGraph_drawTest = new System.Windows.Forms.Button();
-			this.lineGraph = new ScriptsLib.Controls.LineGraph();
 			this.tab_controls_tweaks = new System.Windows.Forms.TabPage();
 			this.tabs_controls_tweaks = new System.Windows.Forms.TabControl();
 			this.tab_controls_tweaks_comboBox = new System.Windows.Forms.TabPage();
@@ -263,6 +262,9 @@
 			this.numeric_tg_testingIndex = new System.Windows.Forms.NumericUpDown();
 			this.button_tg_keys = new System.Windows.Forms.Button();
 			this.button_tg_refresh = new System.Windows.Forms.Button();
+			this.tab_controls_form_allowDrag = new System.Windows.Forms.TabPage();
+			this.checkBox_controls_form_allowDrag = new System.Windows.Forms.CheckBox();
+			this.lineGraph = new ScriptsLib.Controls.LineGraph();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_generators_generatePassword_length)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_group)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_math_calculateCombinations_elements)).BeginInit();
@@ -355,6 +357,7 @@
 			this.tabs_device.SuspendLayout();
 			this.tab_device_getRam.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).BeginInit();
+			this.tab_controls_form_allowDrag.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button_database_createTable
@@ -1190,14 +1193,6 @@
 			this.button_lineGraph_drawTest.UseVisualStyleBackColor = true;
 			this.button_lineGraph_drawTest.Click += new System.EventHandler(this.button_lineGraph_drawTest_Click);
 			// 
-			// lineGraph
-			// 
-			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.lineGraph.Location = new System.Drawing.Point(308, 16);
-			this.lineGraph.Name = "lineGraph";
-			this.lineGraph.Size = new System.Drawing.Size(200, 200);
-			this.lineGraph.TabIndex = 0;
-			// 
 			// tab_controls_tweaks
 			// 
 			this.tab_controls_tweaks.Controls.Add(this.tabs_controls_tweaks);
@@ -1336,6 +1331,7 @@
 			// tabs_controls_form
 			// 
 			this.tabs_controls_form.Controls.Add(this.tab_controls_form_getOpenForms);
+			this.tabs_controls_form.Controls.Add(this.tab_controls_form_allowDrag);
 			this.tabs_controls_form.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabs_controls_form.Location = new System.Drawing.Point(3, 3);
 			this.tabs_controls_form.Name = "tabs_controls_form";
@@ -2739,6 +2735,36 @@
 			this.button_tg_refresh.UseVisualStyleBackColor = true;
 			this.button_tg_refresh.Click += new System.EventHandler(this.button_tg_refresh_Click);
 			// 
+			// tab_controls_form_allowDrag
+			// 
+			this.tab_controls_form_allowDrag.Controls.Add(this.checkBox_controls_form_allowDrag);
+			this.tab_controls_form_allowDrag.Location = new System.Drawing.Point(4, 22);
+			this.tab_controls_form_allowDrag.Name = "tab_controls_form_allowDrag";
+			this.tab_controls_form_allowDrag.Padding = new System.Windows.Forms.Padding(3);
+			this.tab_controls_form_allowDrag.Size = new System.Drawing.Size(802, 226);
+			this.tab_controls_form_allowDrag.TabIndex = 1;
+			this.tab_controls_form_allowDrag.Text = "Allow Drag";
+			this.tab_controls_form_allowDrag.UseVisualStyleBackColor = true;
+			// 
+			// checkBox_controls_form_allowDrag
+			// 
+			this.checkBox_controls_form_allowDrag.AutoSize = true;
+			this.checkBox_controls_form_allowDrag.Location = new System.Drawing.Point(363, 105);
+			this.checkBox_controls_form_allowDrag.Name = "checkBox_controls_form_allowDrag";
+			this.checkBox_controls_form_allowDrag.Size = new System.Drawing.Size(77, 17);
+			this.checkBox_controls_form_allowDrag.TabIndex = 0;
+			this.checkBox_controls_form_allowDrag.Text = "Allow Drag";
+			this.checkBox_controls_form_allowDrag.UseVisualStyleBackColor = true;
+			this.checkBox_controls_form_allowDrag.CheckedChanged += new System.EventHandler(this.checkBox_controls_form_allowDrag_CheckedChanged);
+			// 
+			// lineGraph
+			// 
+			this.lineGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.lineGraph.Location = new System.Drawing.Point(308, 16);
+			this.lineGraph.Name = "lineGraph";
+			this.lineGraph.Size = new System.Drawing.Size(200, 200);
+			this.lineGraph.TabIndex = 0;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2876,6 +2902,8 @@
 			this.tab_device_getRam.ResumeLayout(false);
 			this.tab_device_getRam.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numeric_tg_testingIndex)).EndInit();
+			this.tab_controls_form_allowDrag.ResumeLayout(false);
+			this.tab_controls_form_allowDrag.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -3079,42 +3107,44 @@
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_searchGif;
 		internal System.Windows.Forms.PictureBox pictureBox_tools_setWallpaper6getGifFrames_gif;
 		internal System.Windows.Forms.Button button_tools_setWallpaper6getGifFrames_setWallpaper;
-		private System.Windows.Forms.TabPage tab_network_requests;
-		private System.Windows.Forms.TabControl tabs_network_requests;
-		private System.Windows.Forms.TabPage tab_network_requests_get;
-		private System.Windows.Forms.TextBox textBox_network_requests_get_endpoint;
-		private System.Windows.Forms.Button button_network_requests_get_execute;
-		private System.Windows.Forms.Label label_network_requests_get_endpoint;
-		private System.Windows.Forms.TabPage tab_network_requests_post;
-		private System.Windows.Forms.TextBox textBox_network_requests_post_endpoint;
-		private System.Windows.Forms.TextBox textBox_network_requests_post_data;
-		private System.Windows.Forms.Button button_network_requests_post_execute;
-		private System.Windows.Forms.Label label_network_requests_post_endpoint;
-		private System.Windows.Forms.Label label_network_requests_post_data;
-		private System.Windows.Forms.TabPage tab_network_apis;
-		private System.Windows.Forms.TabControl tabs_network_apis;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi;
-		private System.Windows.Forms.TabControl tabs_network_apis_riotapi;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_champion;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_leagueExp;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_league;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_lolStatus;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_match;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_spectator;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_summoner;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftLeague;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftMatch;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_tftSummoner;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_thirdPartyCode;
-		private System.Windows.Forms.TabControl tabs_network_apis_riotapi_championMastery;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getChampionMasteryList;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getMasteryByChampion;
-		private System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getTotalMasteryScore;
-		private System.Windows.Forms.Label label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
-		private System.Windows.Forms.TextBox textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
-		private System.Windows.Forms.Button button_network_apis_riotapi_championMastery_getChampionMasteryList_get;
-		private System.Windows.Forms.Button button_tg_keys;
-		private System.Windows.Forms.Button button_tg_refresh;
+		internal System.Windows.Forms.TabPage tab_network_requests;
+		internal System.Windows.Forms.TabControl tabs_network_requests;
+		internal System.Windows.Forms.TabPage tab_network_requests_get;
+		internal System.Windows.Forms.TextBox textBox_network_requests_get_endpoint;
+		internal System.Windows.Forms.Button button_network_requests_get_execute;
+		internal System.Windows.Forms.Label label_network_requests_get_endpoint;
+		internal System.Windows.Forms.TabPage tab_network_requests_post;
+		internal System.Windows.Forms.TextBox textBox_network_requests_post_endpoint;
+		internal System.Windows.Forms.TextBox textBox_network_requests_post_data;
+		internal System.Windows.Forms.Button button_network_requests_post_execute;
+		internal System.Windows.Forms.Label label_network_requests_post_endpoint;
+		internal System.Windows.Forms.Label label_network_requests_post_data;
+		internal System.Windows.Forms.TabPage tab_network_apis;
+		internal System.Windows.Forms.TabControl tabs_network_apis;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi;
+		internal System.Windows.Forms.TabControl tabs_network_apis_riotapi;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_champion;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_leagueExp;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_league;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_lolStatus;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_match;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_spectator;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_summoner;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_tftLeague;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_tftMatch;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_tftSummoner;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_thirdPartyCode;
+		internal System.Windows.Forms.TabControl tabs_network_apis_riotapi_championMastery;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getChampionMasteryList;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getMasteryByChampion;
+		internal System.Windows.Forms.TabPage tab_network_apis_riotapi_championMastery_getTotalMasteryScore;
+		internal System.Windows.Forms.Label label1_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
+		internal System.Windows.Forms.TextBox textBox_network_apis_riotapi_championMastery_getChampionMasteryList_encryptedSummonerId;
+		internal System.Windows.Forms.Button button_network_apis_riotapi_championMastery_getChampionMasteryList_get;
+		internal System.Windows.Forms.Button button_tg_keys;
+		internal System.Windows.Forms.Button button_tg_refresh;
+		internal System.Windows.Forms.TabPage tab_controls_form_allowDrag;
+		internal System.Windows.Forms.CheckBox checkBox_controls_form_allowDrag;
 	}
 }

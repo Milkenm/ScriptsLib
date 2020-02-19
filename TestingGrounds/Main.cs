@@ -1,8 +1,8 @@
-﻿#region Usings
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 using ScriptsLib.Network.APIs;
+using static ScriptsLib.Controls.Tweaks.SlForm;
 
 using TestingGrounds.Properties;
 
@@ -12,9 +12,6 @@ using static ScriptsLib.Network.Requests;
 using static TestingGrounds.Events;
 using static TestingGrounds.Functions;
 using static TestingGrounds.Static;
-#endregion Usings
-
-
 
 namespace TestingGrounds
 {
@@ -77,6 +74,12 @@ namespace TestingGrounds
 		private void button_tg_keys_Click(object sender, EventArgs e)
 		{
 			new Keys().Show();
+		}
+
+		private void checkBox_controls_form_allowDrag_CheckedChanged(object sender, EventArgs e)
+		{
+			AllowDrag(this);
+			checkBox_controls_form_allowDrag.Enabled = false;
 		}
 	}
 }

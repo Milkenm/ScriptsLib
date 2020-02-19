@@ -6,6 +6,14 @@ namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlForm
 	{
+		public static void AllowDrag(Form form)
+		{
+			form.MouseDown += new MouseEventHandler((se, ev) => AllowDragEvent(ev, form));
+		}
+
+
+
+
 		internal const int WM_NCLBUTTONDOWN = 0xA1;
 		internal const int HT_CAPTION = 0x2;
 
@@ -15,12 +23,12 @@ namespace ScriptsLib.Controls.Tweaks
 		[DllImport("user32.dll")]
 		internal static extern bool ReleaseCapture();
 
-		internal static void AllowDrag(MouseEventArgs e, Control ctrl)
+		private static void AllowDragEvent(MouseEventArgs e, Control form)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
 				ReleaseCapture();
-				SendMessage(ctrl.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+				SendMessage(form.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
 			}
 		}
 	}

@@ -3,7 +3,7 @@
   <metadata>
     <id>ScriptsLib</id>
     <title>ScriptsLib</title>
-    <version>6.2.0</version>
+    <version>6.3.0</version>
     <authors>Milkenm</authors>
     <owners>Milkenm</owners>
     <license type="file">res/LICENSE.txt</license>
@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>My library to use databases and other stuff. Im just lazy...</description>
     <releaseNotes>https://github.com/Milkenm/ScriptsLib/releases/latest</releaseNotes>
-    <copyright>Copyright © Milkenm 2019</copyright>
+    <copyright>Copyright © Milkenm 2020</copyright>
     <repository type="git" url="https://github.com/Milkenm/ScriptsLib.git"/>
     <tags>c-sharp; library; general-purpose</tags>
   </metadata>
