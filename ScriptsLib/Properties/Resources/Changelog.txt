@@ -1,6 +1,18 @@
 ## [+] New
- * `Tools.ShowException()` now accepts a title.
- * New thing: `Device.GetRAM()` returns Max/Free/Used RAM in GB.
+ * RiotAPI
+  * Champion JSON
+  * ChampionMastery JSON
+  * League JSON
+  * LolStatus JSON
+  * Match JSON
+  * Summoner JSON
+  * Response Codes
+  * League Exp + League Exp (JSON)
+  * TournamentStub
+ * POST Request
+ * AccessDatabase Execute SQL
+ * Form AllowDrag (Tweaks)
+ * Probably more stuff, but I don't remember
 
 ## [*] Fix
- * THIS IS NOT A FIX: `DynVars` is broken.
+ * Fix stuff on RiotAPI

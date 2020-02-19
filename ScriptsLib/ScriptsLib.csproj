@@ -92,6 +92,7 @@
       <DependentUpon>LineGraph.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Tweaks\ComboBox\ResizeComboBox.cs" />
+    <Compile Include="Controls\Tweaks\Form\Allow Drag.cs" />
     <Compile Include="Controls\Tweaks\Form\BringFormToFront.cs" />
     <Compile Include="Controls\Tweaks\Form\GetOpenForms.cs" />
     <Compile Include="Controls\Tweaks\Form\IsFormOpen.cs" />

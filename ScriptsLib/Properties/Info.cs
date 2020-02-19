@@ -15,11 +15,11 @@ namespace ScriptsLib
 		/// <summary>ScriptsLib contibutors.</summary>
 		public static readonly string Contributors;
 		/// <summary>Current ScriptsLib version.</summary>
-		public static readonly string Version = "6.2.0";
+		public static readonly string Version = "6.3.0";
 		/// <summary>First release date.</summary>
 		public static readonly string ReleaseDate = "30/04/2019 - 21:12";
 		/// <summary>Lattest release date.</summary>
-		public static readonly string UpdateDate = "18/11/2019 - 00:26";
+		public static readonly string UpdateDate = "19/02/2020 - 11:57";
 		// # ================================================================================================ #
 		/// <summary>AppData Path.</summary>
 		internal static readonly string AppdataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Milkenm\ScriptsLib\";
