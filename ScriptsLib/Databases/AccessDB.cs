@@ -25,6 +25,24 @@ namespace ScriptsLib.Databases
 		/// <summary>The path where the .MDB database file is located.</summary>
 		public string DatabasePath { get; private set; }
 
+		public struct AccessTableFields
+		{
+			public string Name;
+			public AccessDataTypes DataType;
+			public bool PrimaryKey;
+			public bool AutoIncrement;
+		}
+
+		public enum AccessDataTypes
+		{
+			PrimaryKey,
+			Text,
+			Number,
+			Currency,
+			Decimal,
+			DateTime,
+		}
+
 		/// <summary>Creates a database file in the given path.</summary>
 		/// <param name="filepath">The path (including the file name and extension) where the database will be created.</param>
 		public async Task CreateDatabaseAsync(string filepath)
@@ -88,35 +106,17 @@ namespace ScriptsLib.Databases
 			}
 		}
 
-		public struct AccessTableFields
-		{
-			public string Name;
-			public AccessDataTypes DataType;
-			public bool PrimaryKey;
-			public bool AutoIncrement;
-		}
-
-		public enum AccessDataTypes
-		{
-			PrimaryKey,
-			Text,
-			Number,
-			Currency,
-			Decimal,
-			DateTime,
-		}
-
 		/// <summary>Deletes a value from the database.</summary>
 		/// <param name="tableName">The table from where to delete the value.</param>
 		/// <param name="condition">The condition to delete the value.</param>
-		public async Task DeleteAsync(string tableName, string condition)
+		public async Task<int> DeleteAsync(string tableName, string condition)
 		{
 			using (OleDbConnection con = new OleDbConnection(BaseConnection + DatabasePath))
 			{
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"DELETE FROM {tableName} WHERE {condition}";
-					await cmd.ExecuteNonQueryAsync();
+					return await cmd.ExecuteNonQueryAsync();
 				}
 			}
 		}
@@ -133,7 +133,7 @@ namespace ScriptsLib.Databases
 			}
 		}
 
-		public async Task InsertInto(string tableName, string[] columns, string values)
+		public async Task InsertAsync(string tableName, string[] columns, string values)
 		{
 			string columnsString = string.Join<string>(", ", columns);
 
@@ -172,14 +172,14 @@ namespace ScriptsLib.Databases
 			}
 		}
 
-		public async Task Update(string _Table, string _Update, string _Condition)
+		public async Task<int> UpdateAsync(string _Table, string _Update, string _Condition)
 		{
 			using (OleDbConnection con = new OleDbConnection(BaseConnection + DatabasePath))
 			{
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"UPDATE [{_Table}] SET {_Update} WHERE {_Condition}";
-					await cmd.ExecuteNonQueryAsync();
+					return await cmd.ExecuteNonQueryAsync();
 				}
 			}
 		}
@@ -192,7 +192,7 @@ namespace ScriptsLib.Databases
 				{
 					cmd.CommandText = sql;
 
-					using (OleDbDataAdapter da = new OleDbDataAdapter(cmd.CommandText, con))
+					using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
 					{
 						DataTable dt = new DataTable();
 						da.Fill(dt);

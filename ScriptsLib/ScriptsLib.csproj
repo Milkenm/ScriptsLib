@@ -41,6 +41,7 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -99,14 +101,7 @@
     <Compile Include="Controls\Tweaks\Form\PreventResize.cs" />
     <Compile Include="Controls\Tweaks\Form\SetIntroForm.cs" />
     <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
-    <Compile Include="Databases\Access\CreateDatabase.cs" />
-    <Compile Include="Databases\Access\CreateTable.cs" />
-    <Compile Include="Databases\Access\Delete.cs" />
-    <Compile Include="Databases\Access\DeleteTable.cs" />
-    <Compile Include="Databases\Access\Execute SQL.cs" />
-    <Compile Include="Databases\Access\InsertInto.cs" />
-    <Compile Include="Databases\Access\Select.cs" />
-    <Compile Include="Databases\Access\Update.cs" />
+    <Compile Include="Databases\AccessDB.cs" />
     <Compile Include="Databases\MySqlDB.cs" />
     <Compile Include="Databases\SqlServer\CreateDatabase.cs" />
     <Compile Include="Databases\SqlServer\CreateTable.cs" />
@@ -143,7 +138,6 @@
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
     <Compile Include="PInvoke\User32.cs" />
     <Compile Include="Properties\Info.cs" />
-    <Compile Include="Databases\Access\_Access.cs" />
     <Compile Include="Math\CalculateCombinations.cs" />
     <Compile Include="Math\CalculateFactorial.cs" />
     <Compile Include="Math\IsPrimeNumber.cs" />

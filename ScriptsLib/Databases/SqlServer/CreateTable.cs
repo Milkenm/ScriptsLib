@@ -9,7 +9,7 @@ using static ScriptsLib.Dev;
 
 
 
-namespace ScriptsLib.nDatabases
+namespace ScriptsLib.Databases
 {
 	public static partial class SqlServerDatabase
 	{

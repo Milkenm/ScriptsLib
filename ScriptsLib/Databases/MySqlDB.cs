@@ -45,51 +45,6 @@ namespace ScriptsLib.Databases
 		public static string Password { get; private set; }
 		public static string SslMode { get; private set; }
 
-		private string GetConnectionString()
-		{
-			return string.Format(BaseConnection, Server, Port, User, Password, Database, SslMode);
-		}
-
-		public async Task CreateTableAsync(string _Name, List<MySqlTableFields> _Fields)
-		{
-			List<string> columns = new List<string>();
-			foreach (MySqlTableFields _Loop in _Fields)
-			{
-				string dataType = _Loop.DataType switch
-				{
-					MySqlDataTypes.Text => "longtext",
-					MySqlDataTypes.Number => "bigint",
-					MySqlDataTypes.Money => "currency",
-					MySqlDataTypes.Decimal => "double",
-					MySqlDataTypes.DateAndTime => "datetime",
-					MySqlDataTypes.Key => "key",
-					MySqlDataTypes.Boolean => "boolean",
-					MySqlDataTypes.Timestamp => "timestamp",
-					MySqlDataTypes.Year => "year",
-					_ => throw new Exception("Invalid Field DataType."),
-				};
-
-				if (dataType == "key")
-				{
-					columns.Add($"{_Loop.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({_Loop.Name})");
-				}
-				else
-				{
-					columns.Add($"{_Loop.Name} {dataType}");
-				}
-			}
-
-			using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
-			{
-				using (MySqlCommand cmd = con.CreateCommand())
-				{
-					string columnsString = string.Join(", ", columns.ToArray());
-					cmd.CommandText = $"CREATE TABLE {_Name} ({columns})";
-					await cmd.ExecuteNonQueryAsync();
-				}
-			}
-		}
-
 		public struct MySqlTableFields
 		{
 			public string Name;
@@ -109,6 +64,51 @@ namespace ScriptsLib.Databases
 			Boolean,
 			Timestamp,
 			Year,
+		}
+
+		private string GetConnectionString()
+		{
+			return string.Format(BaseConnection, Server, Port, User, Password, Database, SslMode);
+		}
+
+		public async Task CreateTableAsync(string tableName, List<MySqlTableFields> fields)
+		{
+			List<string> columns = new List<string>();
+			foreach (MySqlTableFields field in fields)
+			{
+				string dataType = field.DataType switch
+				{
+					MySqlDataTypes.Text => "longtext",
+					MySqlDataTypes.Number => "bigint",
+					MySqlDataTypes.Money => "currency",
+					MySqlDataTypes.Decimal => "double",
+					MySqlDataTypes.DateAndTime => "datetime",
+					MySqlDataTypes.Key => "key",
+					MySqlDataTypes.Boolean => "boolean",
+					MySqlDataTypes.Timestamp => "timestamp",
+					MySqlDataTypes.Year => "year",
+					_ => throw new Exception("Invalid Field DataType."),
+				};
+
+				if (dataType == "key")
+				{
+					columns.Add($"{field.Name} INT NOT NULL AUTO_INCREMENT, PRIMARY KEY ({field.Name})");
+				}
+				else
+				{
+					columns.Add($"{field.Name} {dataType}");
+				}
+			}
+
+			using (MySqlConnection con = new MySqlConnection(GetConnectionString()))
+			{
+				using (MySqlCommand cmd = con.CreateCommand())
+				{
+					string columnsString = string.Join(", ", columns.ToArray());
+					cmd.CommandText = $"CREATE TABLE {tableName} ({columns})";
+					await cmd.ExecuteNonQueryAsync();
+				}
+			}
 		}
 
 		public async Task<int> DeleteTableAsync(string tableName)

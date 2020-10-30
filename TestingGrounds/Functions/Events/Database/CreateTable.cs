@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-using ScriptsLib.nDatabases;
+using ScriptsLib.Databases;
 
 using static TestingGrounds.Functions;
 using static TestingGrounds.Static;
@@ -63,8 +63,8 @@ namespace TestingGrounds
 				}
 				else if (MainForm.comboBox_tg_databaseType.SelectedIndex == 2) // MySql Server
 				{
-					List<MySqlDatabase.TableFields> _Fields = new List<MySqlDatabase.TableFields>();
-					MySqlDatabase.TableFields _Field = new MySqlDatabase.TableFields();
+					List<MySqlDatabase.MySqlTableFields> _Fields = new List<MySqlDatabase.MySqlTableFields>();
+					MySqlDatabase.MySqlTableFields _Field = new MySqlDatabase.MySqlTableFields();
 
 
 					_Field.Name = "ID";
