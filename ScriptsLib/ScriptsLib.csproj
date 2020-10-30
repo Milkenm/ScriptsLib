@@ -107,9 +107,7 @@
     <Compile Include="Databases\Access\InsertInto.cs" />
     <Compile Include="Databases\Access\Select.cs" />
     <Compile Include="Databases\Access\Update.cs" />
-    <Compile Include="Databases\MySql\CreateTable.cs" />
-    <Compile Include="Databases\MySql\DeleteTable.cs" />
-    <Compile Include="Databases\MySql\_MySql.cs" />
+    <Compile Include="Databases\MySqlDB.cs" />
     <Compile Include="Databases\SqlServer\CreateDatabase.cs" />
     <Compile Include="Databases\SqlServer\CreateTable.cs" />
     <Compile Include="Databases\SqlServer\Delete.cs" />
