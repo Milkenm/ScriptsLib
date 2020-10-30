@@ -99,7 +99,6 @@
     <Compile Include="Controls\Tweaks\Form\PreventResize.cs" />
     <Compile Include="Controls\Tweaks\Form\SetIntroForm.cs" />
     <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
-    <Compile Include="Controls\Tweaks\TextBox\OnlyNumbersTextBox.cs" />
     <Compile Include="Databases\Access\CreateDatabase.cs" />
     <Compile Include="Databases\Access\CreateTable.cs" />
     <Compile Include="Databases\Access\Delete.cs" />
