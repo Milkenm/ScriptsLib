@@ -124,6 +124,7 @@
     <Compile Include="Dev\_Dev.cs" />
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="DynVars\_DynVars.cs" />
+    <Compile Include="Extensions\TaskExtensions\FAF.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
     <Compile Include="Network\APIs\RiotAPI\Champion.cs" />
     <Compile Include="Network\APIs\RiotAPI\Champion Mastery.cs" />
