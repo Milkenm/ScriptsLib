@@ -3,7 +3,7 @@ using System;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 
-using ScriptsLib.nDatabases;
+using ScriptsLib.Databases;
 
 using static ScriptsLib.Dev;
 #endregion usings
@@ -47,7 +47,7 @@ namespace ScriptsLib.nTools
 				}
 				else if (_DatabaseType == DatabaseType.Access)
 				{
-					OleDbConnection _Connection = new OleDbConnection(AccessDatabase._BaseConnection + AccessDatabase._DatabasePath);
+					OleDbConnection _Connection = new OleDbConnection(AccessDatabase.BaseConnection + AccessDatabase.DatabasePath);
 
 
 					OleDbCommand _Command = new OleDbCommand($"SELECT COUNT(*) FROM {_Table} WHERE {_UsernameColumn} = '{_Username}' AND {_PasswordColumn} = '{_Password}'", _Connection);
