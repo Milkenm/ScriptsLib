@@ -1,25 +1,16 @@
-﻿#region Usings
-using System.Web.UI;
-#endregion Usings
-
-
+﻿using System.Web.UI;
 
 namespace ScriptsLib
 {
 	public static class AspNet
 	{
-		#region Show Pop-up
-		///
-		// https://stackoverflow.com/questions/16287515/how-to-get-a-server-side-asp-page-to-display-a-pop-up-message-in-the-clients-br
-		///
-
 		/// <summary>Shows a pop-up message on an ASP.NET application.</summary>
-		/// <param name="_Page">The page used to send the pop-up.</param>
-		/// <param name="_Message">The message to be displayed in the pop-up.</param>
-		public static void ShowPopup(Page _Page, string _Message)
+		/// <param name="page">The page to send the pop-up to.</param>
+		/// <param name="message">The message to be displayed in the pop-up.</param>
+		// https://stackoverflow.com/a/16302541
+		public static void ShowPopup(Page page, string message)
 		{
-			_Page.Response.Write($"<script language=javascript>alert('{_Message}')</script>");
+			page.Response.Write($"<script language=javascript>alert('{message}')</script>");
 		}
-		#endregion Show Pop-up
 	}
 }
