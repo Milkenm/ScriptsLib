@@ -96,6 +96,7 @@
     <Compile Include="Controls\Tweaks\Form\BringFormToFront.cs" />
     <Compile Include="Controls\Tweaks\Form\GetOpenForms.cs" />
     <Compile Include="Controls\Tweaks\Form\IsFormOpen.cs" />
+    <Compile Include="Controls\Tweaks\Form\PreventResize.cs" />
     <Compile Include="Controls\Tweaks\Form\SetIntroForm.cs" />
     <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
     <Compile Include="Controls\Tweaks\TextBox\OnlyNumbersTextBox.cs" />
