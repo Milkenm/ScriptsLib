@@ -142,6 +142,7 @@
     <Compile Include="Network\Requests\GET.cs" />
     <Compile Include="Network\Requests\POST.cs" />
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
+    <Compile Include="PInvoke\User32.cs" />
     <Compile Include="Properties\Info.cs" />
     <Compile Include="Databases\Access\_Access.cs" />
     <Compile Include="Math\CalculateCombinations.cs" />
