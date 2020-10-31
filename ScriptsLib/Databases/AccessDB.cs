@@ -133,15 +133,16 @@ namespace ScriptsLib.Databases
 			}
 		}
 
-		public async Task InsertAsync(string tableName, string[] columns, string values)
+		public async Task InsertAsync(string tableName, string[] columns, object[] values)
 		{
 			string columnsString = string.Join<string>(", ", columns);
+			object valuesObject = string.Join<object>(", ", values);
 
 			using (OleDbConnection con = new OleDbConnection(BaseConnection + DatabasePath))
 			{
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
-					cmd.CommandText = $"INSERT INTO {tableName} ({columnsString}) VALUES ({values})";
+					cmd.CommandText = $"INSERT INTO {tableName} ({columnsString}) VALUES ({valuesObject})";
 					await cmd.ExecuteNonQueryAsync();
 				}
 			}

@@ -103,14 +103,7 @@
     <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
     <Compile Include="Databases\AccessDB.cs" />
     <Compile Include="Databases\MySqlDB.cs" />
-    <Compile Include="Databases\SqlServer\CreateDatabase.cs" />
-    <Compile Include="Databases\SqlServer\CreateTable.cs" />
-    <Compile Include="Databases\SqlServer\Delete.cs" />
-    <Compile Include="Databases\SqlServer\DeleteTable.cs" />
-    <Compile Include="Databases\SqlServer\InsertInto.cs" />
-    <Compile Include="Databases\SqlServer\Select.cs" />
-    <Compile Include="Databases\SqlServer\Update.cs" />
-    <Compile Include="Databases\SqlServer\_SqlServer.cs" />
+    <Compile Include="Databases\SqlServerDB.cs" />
     <Compile Include="Device\GetRAM.cs" />
     <Compile Include="Dev\DebugMsg.cs" />
     <Compile Include="Dev\_Dev.cs" />
