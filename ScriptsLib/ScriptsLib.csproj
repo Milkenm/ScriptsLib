@@ -105,8 +105,6 @@
     <Compile Include="Databases\MySqlDB.cs" />
     <Compile Include="Databases\SqlServerDB.cs" />
     <Compile Include="Device\GetRAM.cs" />
-    <Compile Include="Dev\DebugMsg.cs" />
-    <Compile Include="Dev\_Dev.cs" />
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="DynVars\_DynVars.cs" />
     <Compile Include="Extensions\TaskExtensions\FAF.cs" />
