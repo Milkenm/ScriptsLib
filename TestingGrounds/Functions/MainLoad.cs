@@ -36,7 +36,7 @@ namespace TestingGrounds
 			MySqlDatabase._Password = "";
 			MySqlDatabase._SslMode = "none";
 
-			DynVars.DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
+			DynVars.DynVarsFolderPath = @"C:\Milkenm\Data\DynVars.txt";
 
 
 			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))

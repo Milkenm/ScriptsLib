@@ -106,7 +106,6 @@
     <Compile Include="Databases\SqlServerDB.cs" />
     <Compile Include="Device\GetRAM.cs" />
     <Compile Include="DynVars\DynVar.cs" />
-    <Compile Include="DynVars\_DynVars.cs" />
     <Compile Include="Extensions\TaskExtensions\FAF.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
     <Compile Include="Network\APIs\RiotAPI\Champion.cs" />
@@ -142,6 +141,7 @@
     <Compile Include="Properties\Lang.cs" />
     <Compile Include="Properties\Resources\Lang\en_EN.cs" />
     <Compile Include="Properties\Resources\Lang\pt_PT.cs" />
+    <Compile Include="Tools\BinaryObjectConverter.cs" />
     <Compile Include="Tools\Crash.cs" />
     <Compile Include="Tools\Database Tools\CheckLogin.cs" />
     <Compile Include="Tools\Database Tools\FilterSql.cs" />
