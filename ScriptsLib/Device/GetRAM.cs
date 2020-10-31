@@ -1,54 +1,48 @@
-﻿#region Usings
-using System;
+﻿using System;
 using System.Management;
-#endregion Usings
-
-
 
 namespace ScriptsLib
 {
 	public static partial class Device
 	{
 		/// <summary>Gets Max/Free/Used RAM in GB.</summary>
-		/// <param name="_Type">Max/Free/Used</param>
-		public static double GetRAM(RAMType _Type)
+		/// <param name="type">Max/Free/Used</param>
+		public static double GetRAM(RAMType type)
 		{
-			ObjectQuery _Query = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
-			ManagementObjectSearcher _Search = new ManagementObjectSearcher(_Query);
-			ManagementObjectCollection _Results = _Search.Get();
+			ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+			ManagementObjectSearcher search = new ManagementObjectSearcher(query);
+			ManagementObjectCollection results = search.Get();
 
-			double _Ram = 0;
+			double ram = 0;
 
-			if (_Type == RAMType.Max)
+			if (type == RAMType.Max)
 			{
-				foreach (ManagementBaseObject result in _Results)
+				foreach (ManagementBaseObject result in results)
 				{
-					_Ram = Math.Round(Convert.ToDouble(result["TotalVisibleMemorySize"]) / (1024 * 1024), 2);
+					ram = Math.Round(Convert.ToDouble(result["TotalVisibleMemorySize"]) / (1024 * 1024), 2);
 				}
 			}
-			else if (_Type == RAMType.Free)
+			else if (type == RAMType.Free)
 			{
-				foreach (ManagementBaseObject result in _Results)
+				foreach (ManagementBaseObject result in results)
 				{
-					_Ram = Math.Round(Convert.ToDouble(result["FreePhysicalMemory"]) / (1024 * 1024), 2);
+					ram = Math.Round(Convert.ToDouble(result["FreePhysicalMemory"]) / (1024 * 1024), 2);
 				}
 			}
-			else if (_Type == RAMType.Used)
+			else if (type == RAMType.Used)
 			{
-				foreach (ManagementBaseObject result in _Results)
+				foreach (ManagementBaseObject result in results)
 				{
-					_Ram = Math.Round(Convert.ToDouble(result["TotalVisibleMemorySize"]) / (1024 * 1024), 2);
+					ram = Math.Round(Convert.ToDouble(result["TotalVisibleMemorySize"]) / (1024 * 1024), 2);
 				}
-				foreach (ManagementBaseObject result in _Results)
+				foreach (ManagementBaseObject result in results)
 				{
-					_Ram = _Ram - Math.Round(Convert.ToDouble(result["FreePhysicalMemory"]) / (1024 * 1024), 2);
+					ram -= Math.Round(Convert.ToDouble(result["FreePhysicalMemory"]) / (1024 * 1024), 2);
 				}
 			}
 
-			return _Ram;
+			return ram;
 		}
-
-
 
 		public enum RAMType
 		{
