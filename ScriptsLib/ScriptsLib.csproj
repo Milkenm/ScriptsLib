@@ -108,6 +108,7 @@
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="Extensions\TaskExtensions\FAF.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
+    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Network\APIs\RiotAPI\Champion.cs" />
     <Compile Include="Network\APIs\RiotAPI\Champion Mastery.cs" />
     <Compile Include="Network\APIs\RiotAPI\League.cs" />
