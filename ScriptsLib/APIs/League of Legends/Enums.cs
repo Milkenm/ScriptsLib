@@ -1,29 +1,7 @@
-﻿using Newtonsoft.Json;
-
-namespace ScriptsLib.Network.APIs
+﻿namespace ScriptsLib.APIs
 {
-	public static partial class RiotAPI
+	public partial class LeagueOfLegendsAPI
 	{
-		public static readonly string RiotAPIOrigin = "https://{0}.api.riotgames.com";
-
-		public static string ApiKey;
-		public static Regions Region;
-
-
-
-		private static string ApiString()
-		{
-			return "?api_key=" + ApiKey;
-		}
-
-		private static string ServerString()
-		{
-			return string.Format(RiotAPIOrigin, Region);
-		}
-
-
-
-		#region Enums
 		public enum Regions
 		{
 			RU,
@@ -120,16 +98,6 @@ namespace ScriptsLib.Network.APIs
 			SUMMONERS_RIFT,
 			TWISTED_TREELINE,
 			HOWLING_ABYSS,
-		}
-		#endregion Enums
-
-		public static dynamic ReturnResponse<T>(string res, bool getJsonObject)
-		{
-			if (getJsonObject)
-			{
-				return JsonConvert.DeserializeObject<T>(res);
-			}
-			return res;
 		}
 	}
 }

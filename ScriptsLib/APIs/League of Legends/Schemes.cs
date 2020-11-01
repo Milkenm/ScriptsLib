@@ -1,12 +1,8 @@
-﻿#region Usings
-using System.Collections.Generic;
-#endregion Usings
+﻿using System.Collections.Generic;
 
-	
-
-namespace ScriptsLib.Network.APIs
+namespace ScriptsLib.APIs
 {
-	public static partial class RiotAPI
+	public partial class LeagueOfLegendsAPI
 	{
 		/// <summary>This object contains single Champion Mastery information for player and champion combination.</summary>
 		public class ChampionMasteryDTO
@@ -31,20 +27,12 @@ namespace ScriptsLib.Network.APIs
 			public string summonerId;
 		}
 
-
-
-
-
 		public class ChampionInfo
 		{
 			public List<int> freeChampionIdsForNewPlayers;
 			public List<int> freeChampionIds;
 			public int maxNewPlayerLevel;
 		}
-
-
-
-
 
 		public class LeagueEntryDTO
 		{
@@ -66,8 +54,6 @@ namespace ScriptsLib.Network.APIs
 			public string summonerId;
 			public int leaguePoints;
 		}
-
-
 
 		public class LeagueListDTO
 		{
@@ -95,9 +81,6 @@ namespace ScriptsLib.Network.APIs
 			public string summonerId;
 			public int leaguePoints;
 		}
-
-
-
 
 		public class MiniSeriesDTO
 		{
@@ -654,7 +637,7 @@ namespace ScriptsLib.Network.APIs
 			/// <summary>Timestamp from the event</summary>
 			public string timestamp;
 		}
-		
+
 		public class ProviderRegistrationParameters
 		{
 			/// <summary>The provider's callback URL to which tournament game results in this region should be posted. The URL must be well-formed, use the http or https protocol, and use the default port for the protocol (http URLs must use port 80, https URLs must use port 443).</summary>
