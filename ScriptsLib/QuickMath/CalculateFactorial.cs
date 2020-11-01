@@ -7,7 +7,7 @@ namespace ScriptsLib
 	{
 		/// <summary>Gets the factorial result of the given number.</summary>
 		/// <param name="number">The number to get the factorial result from.</param>
-		// https://pt.wikipedia.org/wiki/Combina%C3%A7%C3%A3o
+		/// https://pt.wikipedia.org/wiki/Combina%C3%A7%C3%A3o
 		public static BigInteger CalculateFactorial(BigInteger number)
 		{
 			List<BigInteger> splitFactorial = new List<BigInteger>();
