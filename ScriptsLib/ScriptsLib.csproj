@@ -130,8 +130,9 @@
     <Compile Include="APIs\League of Legends\APIs\TournamentStub.cs" />
     <Compile Include="APIs\League of Legends\Schemes.cs" />
     <Compile Include="APIs\League of Legends\League of Legends API.cs" />
-    <Compile Include="Network\Requests\GET.cs" />
-    <Compile Include="Network\Requests\POST.cs" />
+    <Compile Include="Network\Requests\Reqs\GET.cs" />
+    <Compile Include="Network\Requests\Reqs\POST.cs" />
+    <Compile Include="Network\Requests\Requests.cs" />
     <Compile Include="Network\Security\OpenFirewallPort.cs" />
     <Compile Include="Network\Servers\TcpServer.cs" />
     <Compile Include="PInvoke\User32.cs" />
