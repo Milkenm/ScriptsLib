@@ -1,11 +1,6 @@
-﻿#region Usings
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using static ScriptsLib.Dev;
-#endregion Usings
-
-
 
 namespace ScriptsLib
 {
@@ -14,26 +9,15 @@ namespace ScriptsLib
 		/// <summary>Returns true is "this" application is running, else false.</summary>
 		public static bool IsThisApplicationAlreadyRunning()
 		{
-			try
-			{
-				Regex _Regex = new Regex(".exe");
-				int _Instances = 0;
-				foreach (Process _Process in Process.GetProcessesByName(_Regex.Replace(AppDomain.CurrentDomain.FriendlyName, "")))
-				{
-					_Instances++;
-				}
+			Regex regex = new Regex(".exe");
 
-				if (_Instances <= 1)
-				{
-					return false;
-				}
-				return true;
-			}
-			catch (Exception _Exception)
+			int instances = 0;
+			foreach (Process p in Process.GetProcessesByName(regex.Replace(AppDomain.CurrentDomain.FriendlyName, "")))
 			{
-				Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return false;
+				instances++;
 			}
+
+			return instances > 1;
 		}
 	}
 }
