@@ -1,28 +1,21 @@
-﻿#region Usings
+﻿using ScriptsLib.Extensions;
+
 using System.Net.Sockets;
-using System.Text;
-#endregion Usings
-
-
 
 namespace ScriptsLib.Network
 {
 	public static partial class Packets
 	{
-		#region Send UDP Packet
-		public static void SendUdpPacket(string _RemoteHost, int _RemotePort, string _Message)
+		/// <summary>Sends a UDP packet.</summary>
+		/// <param name="remoteHost">The IP or Hostname of the computer to send the message to.</param>
+		/// <param name="remotePort">The port of the computer to send the message to.</param>
+		/// <param name="message">The message to send.</param>
+		public static void SendUdpPacket(string remoteHost, int remotePort, string message)
 		{
-			// Create a UDP client.
-			UdpClient _Client = new UdpClient(_RemoteHost, _RemotePort);
-
-			// Convert the message...
-			byte[] _Data = Encoding.ASCII.GetBytes(_Message);
-			// ...and then send it.
-			_Client.Send(_Data, _Data.Length);
-
-			// Close everything.
-			_Client.Close();
+			using (UdpClient client = new UdpClient(remoteHost, remotePort))
+			{
+				client.SendString(message);
+			}
 		}
-		#endregion Send UDP Packet
 	}
 }
