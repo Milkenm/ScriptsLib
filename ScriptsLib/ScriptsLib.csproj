@@ -112,6 +112,7 @@
     <Compile Include="Extensions\TcpClient Extensions\Send String.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send String.cs" />
+    <Compile Include="Extensions\Unity\GameObject Extensions\PointAtCursor.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="APIs\League of Legends\Enums.cs" />
@@ -171,7 +172,6 @@
     <Compile Include="Tools\SetDesktopWallpaper.cs" />
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
-    <Compile Include="Unity\Unity2d\MakeObjectPointAtMouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
