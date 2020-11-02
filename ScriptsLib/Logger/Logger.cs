@@ -1,7 +1,5 @@
 ﻿using System.IO;
 
-using UnityEngine.AI;
-
 namespace ScriptsLib
 {
 	public class Logger
@@ -20,10 +18,13 @@ namespace ScriptsLib
 		{
 			/// <summary>Info tag.</summary>
 			Info,
+
 			/// <summary>Error tag.</summary>
 			Error,
+
 			/// <summary>Warning tag.</summary>
 			Warning,
+
 			/// <summary>Debug tag.</summary>
 			Debug,
 		}

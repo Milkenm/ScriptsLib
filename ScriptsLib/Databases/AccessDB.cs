@@ -21,9 +21,10 @@ namespace ScriptsLib.Databases
 		}
 
 		/// <summary>The provider and stuff to connect to the database.</summary>
-		public string BaseConnection { get; private set; } = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+		public string BaseConnection { get; } = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
+
 		/// <summary>The path where the .MDB database file is located.</summary>
-		public string DatabasePath { get; private set; }
+		public string DatabasePath { get; }
 
 		public struct AccessTableFields
 		{
@@ -51,15 +52,15 @@ namespace ScriptsLib.Databases
 			{
 				string dbName = Path.GetFileNameWithoutExtension(filepath);
 
-				using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;"))
+				using (OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;"))
 				{
 					using (OleDbCommand cmd = con.CreateCommand())
 					{
 						cmd.CommandText = $"CREATE DATABASE {dbName} ON PRIMARY (NAME={dbName}, FILENAME='{filepath}')";
-						await cmd.ExecuteNonQueryAsync();
+						await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 
 						cmd.CommandText = $"EXEC sp_detach_db '{dbName}', 'true'";
-						await cmd.ExecuteNonQueryAsync();
+						await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 					}
 				}
 			}
@@ -101,7 +102,7 @@ namespace ScriptsLib.Databases
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"CREATE TABLE {tableName} ({columnsString})";
-					await cmd.ExecuteNonQueryAsync();
+					await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}
@@ -116,7 +117,7 @@ namespace ScriptsLib.Databases
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"DELETE FROM {tableName} WHERE {condition}";
-					return await cmd.ExecuteNonQueryAsync();
+					return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}
@@ -128,7 +129,7 @@ namespace ScriptsLib.Databases
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"DROP TABLE {tableName}";
-					await cmd.ExecuteNonQueryAsync();
+					await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}
@@ -143,7 +144,7 @@ namespace ScriptsLib.Databases
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"INSERT INTO {tableName} ({columnsString}) VALUES ({valuesObject})";
-					await cmd.ExecuteNonQueryAsync();
+					await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}
@@ -180,7 +181,7 @@ namespace ScriptsLib.Databases
 				using (OleDbCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"UPDATE [{_Table}] SET {_Update} WHERE {_Condition}";
-					return await cmd.ExecuteNonQueryAsync();
+					return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}

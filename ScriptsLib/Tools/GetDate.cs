@@ -1,8 +1,4 @@
-﻿#region Usings
-using System;
-#endregion Usings
-
-
+﻿using System;
 
 namespace ScriptsLib
 {

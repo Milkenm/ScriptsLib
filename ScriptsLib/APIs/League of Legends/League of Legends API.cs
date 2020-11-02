@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace ScriptsLib.APIs
+﻿namespace ScriptsLib.APIs
 {
 	public partial class LeagueOfLegendsAPI
 	{

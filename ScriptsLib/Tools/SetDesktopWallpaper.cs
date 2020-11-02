@@ -25,10 +25,12 @@ namespace ScriptsLib
 					key.SetValue("WallpaperStyle", 2.ToString());
 					key.SetValue("TileWallpaper", 0.ToString());
 					break;
+
 				case WallpaperStyle.Centered:
 					key.SetValue("WallpaperStyle", 1.ToString());
 					key.SetValue("TileWallpaper", 0.ToString());
 					break;
+
 				case WallpaperStyle.Tiled:
 					key.SetValue("WallpaperStyle", 1.ToString());
 					key.SetValue("TileWallpaper", 1.ToString());
@@ -45,8 +47,10 @@ namespace ScriptsLib
 		{
 			/// <summary>The image is tiled across the screen.</summary>
 			Tiled,
+
 			/// <summary>The image is centered on the screen.</summary>
 			Centered,
+
 			/// <summary>The image is steched to fit the screen.</summary>
 			Stretched,
 		}

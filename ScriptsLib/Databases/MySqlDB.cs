@@ -32,17 +32,23 @@ namespace ScriptsLib.Databases
 		}
 
 		/// <summary>The base connection to connect to the MySql database server.</summary>
-		public static string BaseConnection { get; private set; } = @"Server={0}; Port={1}; User ID={2}; Password={3}; Database={4}; SslMode={5}";
+		public static string BaseConnection { get; private set; } = "Server={0}; Port={1}; User ID={2}; Password={3}; Database={4}; SslMode={5}";
+
 		/// <summary>The server IP/domain.</summary>
 		public static string Server { get; private set; }
+
 		/// <summary>The server port.</summary>
 		public static int Port { get; private set; }
+
 		/// <summary>The server database name.</summary>
 		public static string Database { get; private set; }
+
 		/// <summary>User required to login into the MySql database.</summary>
 		public static string User { get; private set; }
+
 		/// <summary>Password for the given user used to connect to the MySql database.</summary>
 		public static string Password { get; private set; }
+
 		public static string SslMode { get; private set; }
 
 		public struct MySqlTableFields
@@ -106,7 +112,7 @@ namespace ScriptsLib.Databases
 				{
 					string columnsString = string.Join(", ", columns.ToArray());
 					cmd.CommandText = $"CREATE TABLE {tableName} ({columns})";
-					await cmd.ExecuteNonQueryAsync();
+					await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}
@@ -118,7 +124,7 @@ namespace ScriptsLib.Databases
 				using (MySqlCommand cmd = con.CreateCommand())
 				{
 					cmd.CommandText = $"DROP TABLE {tableName}";
-					return await cmd.ExecuteNonQueryAsync();
+					return await cmd.ExecuteNonQueryAsync().ConfigureAwait(false);
 				}
 			}
 		}

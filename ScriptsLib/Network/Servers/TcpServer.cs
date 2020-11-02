@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using ScriptsLib.Extensions;
+
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -27,25 +29,25 @@ namespace ScriptsLib.Network.Servers
 		private TcpListener Server;
 
 		public delegate void ConnectionEvent(Socket client);
+
 		public event ConnectionEvent OnClientConnected;
+
 		public event ConnectionEvent OnClientDisconnected;
 
 		public delegate void DataEvent(EndPoint source, byte[] data);
+
 		public event DataEvent OnDataReceived;
 
 		public void Start()
 		{
-			AcceptClientsAsync();
+			AcceptClientsAsync().FAF();
 		}
 
 		private async Task AcceptClientsAsync()
 		{
 			while (true)
 			{
-				await Task.Run(() =>
-				{
-					ClientProcess();
-				}).ConfigureAwait(false);
+				await Task.Run(() => ClientProcess().FAF()).ConfigureAwait(false);
 			}
 		}
 

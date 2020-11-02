@@ -21,6 +21,7 @@ namespace ScriptsLib
 		}
 
 		private string _DynVarsFolderPath;
+
 		/// <summary>The location of the file where the variables will be stored.</summary>
 		public string DynVarsFolderPath
 		{

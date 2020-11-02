@@ -5,6 +5,7 @@ namespace ScriptsLib.Network
 {
 	public static partial class Mobile
 	{
+		/// <summary>Sends a SMS via e-mail.</summary>
 		/// <param name="senderEmail">The e-mail from where the SMS will be sent.</param>
 		/// <param name="senderEmailPassword">The password required to access the sender's e-mail.</param>
 		/// <param name="receiverPhoneNumber">The phone number to where the SMS will be sent.</param>

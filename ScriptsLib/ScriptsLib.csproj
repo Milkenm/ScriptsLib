@@ -113,7 +113,7 @@
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\SelectUnique.cs" />
     <Compile Include="Extensions\String Extensions\ToBytes.cs" />
-    <Compile Include="Extensions\TaskExtensions\FAF.cs" />
+    <Compile Include="Extensions\Task Extensions\FAF.cs" />
     <Compile Include="Extensions\TcpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\TcpClient Extensions\Send String.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />

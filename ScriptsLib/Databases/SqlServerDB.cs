@@ -161,7 +161,7 @@ namespace ScriptsLib.Databases
 
 		public async Task<int> UpdateAsync(string table, string update, string condition)
 		{
-			using( SqlConnection con = new SqlConnection(BaseConnection + DatabasePath))
+			using (SqlConnection con = new SqlConnection(BaseConnection + DatabasePath))
 			{
 				using (SqlCommand cmd = con.CreateCommand())
 				{
