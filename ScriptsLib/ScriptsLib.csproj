@@ -164,9 +164,6 @@
     <Compile Include="Properties\Resources\Lang\pt_PT.cs" />
     <Compile Include="Tools\BinaryObjectConverter.cs" />
     <Compile Include="Tools\Crash.cs" />
-    <Compile Include="Tools\Database Tools\Database Tools\FilterSql.cs" />
-    <Compile Include="Tools\Database Tools\Database Tools\SelectUnique.cs" />
-    <Compile Include="Tools\Database Tools\DatabaseTools.cs" />
     <Compile Include="Tools\ExecuteCmdCommand.cs" />
     <Compile Include="Tools\GetDate.cs" />
     <Compile Include="Tools\GetGifFrames.cs" />
