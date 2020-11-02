@@ -133,7 +133,10 @@
     <Compile Include="Network\Requests\Reqs\GET.cs" />
     <Compile Include="Network\Requests\Reqs\POST.cs" />
     <Compile Include="Network\Requests\Requests.cs" />
-    <Compile Include="Network\Security\OpenFirewallPort.cs" />
+    <Compile Include="Network\Firewall\Actions\CloseFirewallPort.cs" />
+    <Compile Include="Network\Firewall\Actions\DisableFirewall.cs" />
+    <Compile Include="Network\Firewall\Firewall.cs" />
+    <Compile Include="Network\Firewall\Actions\OpenFirewallPort.cs" />
     <Compile Include="Network\Servers\TcpServer.cs" />
     <Compile Include="PInvoke\User32.cs" />
     <Compile Include="Properties\Info.cs" />

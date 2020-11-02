@@ -12,15 +12,15 @@ namespace TestingGrounds
 	{
 		internal static void Event_OpenFirewallPort()
 		{
-			PortType _PortType = new PortType();
+			Protocol _PortType = new Protocol();
 			switch (MainForm.comboBox_network_security_openFirewallPort_portType.Text)
 			{
 				case "TCP":
-					_PortType = PortType.TCP; break;
+					_PortType = Protocol.TCP; break;
 				case "UDP":
-					_PortType = PortType.UDP; break;
+					_PortType = Protocol.UDP; break;
 				case "Any":
-					_PortType = PortType.Any; break;
+					_PortType = Protocol.Any; break;
 			}
 			OpenFirewallPort((int)MainForm.numeric_network_security_openFirewallPort_portNumber.Value, _PortType, MainForm.textBox_network_security_openFirewallPort_description.Text);
 

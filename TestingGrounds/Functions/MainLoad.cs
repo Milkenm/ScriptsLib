@@ -39,7 +39,7 @@ namespace TestingGrounds
 			DynVars.DynVarsFolderPath = @"C:\Milkenm\Data\DynVars.txt";
 
 
-			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))
+			foreach (Protocol _Type in Enum.GetValues(typeof(Protocol)))
 			{
 				MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
 			}
