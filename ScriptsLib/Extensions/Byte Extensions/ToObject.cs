@@ -7,7 +7,7 @@ namespace ScriptsLib.Extensions
 	{
 		/// <summary>Converts a byte array to an object.</summary>
 		/// <param name="byteArray">The byte array to convert to an object.</param>
-		public static object ToObject(byte[] byteArray)
+		public static object ToObject(this byte[] byteArray)
 		{
 			if (byteArray.Length > 0)
 			{
