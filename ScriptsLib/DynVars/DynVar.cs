@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ScriptsLib.Extensions;
+
+using System;
 using System.IO;
 using System.Threading.Tasks;
-
-using static ScriptsLib.Tools;
 
 namespace ScriptsLib
 {
@@ -45,7 +45,7 @@ namespace ScriptsLib
 				File.Delete(filePath);
 				using (FileStream fs = new FileStream(filePath, FileMode.CreateNew, FileAccess.Write))
 				{
-					byte[] varBytes = BinaryObjectConverter.ObjectToByteArray(value);
+					byte[] varBytes = value.ToByteArray();
 					await fs.WriteAsync(varBytes, 0, varBytes.Length).ConfigureAwait(false);
 				}
 			}
@@ -67,7 +67,7 @@ namespace ScriptsLib
 			if (!string.IsNullOrEmpty(name) || !File.Exists(DynVarsFolderPath + name))
 			{
 				byte[] bytes = File.ReadAllBytes(DynVarsFolderPath + name);
-				return (T)BinaryObjectConverter.ByteArrayToObject(bytes);
+				return (T)bytes.ToObject();
 			}
 			else
 			{
