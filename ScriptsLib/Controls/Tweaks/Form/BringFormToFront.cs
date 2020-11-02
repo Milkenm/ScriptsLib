@@ -1,33 +1,19 @@
-﻿#region Usings
-using System;
-using System.Windows.Forms;
-
-using static ScriptsLib.Dev;
-#endregion Usings
-
-
+﻿using System.Windows.Forms;
 
 namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlForm
 	{
-		/// <summary>Brings the selected form to the front.</summary>
-		/// <param name="_FormName">The name of the form to bring to the front.</param>
-		public static void BringFormToFront(string _FormName)
+		/// <summary>Brings the form with the provided name to the front.</summary>
+		/// <param name="formName">The name of the form to bring to the front.</param>
+		public static void BringFormToFront(string formName)
 		{
-			try
+			foreach (Form form in Application.OpenForms)
 			{
-				foreach (Form _Form in Application.OpenForms)
+				if (form.Name == formName)
 				{
-					if (_Form.Name == _FormName)
-					{
-						_Form.BringToFront();
-					}
+					form.BringToFront();
 				}
-			}
-			catch (Exception _Exception)
-			{
-				Msg(_Exception.Message, MsgType.Error, _Exception.Source);
 			}
 		}
 	}

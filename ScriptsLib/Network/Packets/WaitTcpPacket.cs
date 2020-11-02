@@ -1,40 +1,26 @@
-﻿#region Usings
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-#endregion Usings
-
-
 
 namespace ScriptsLib.Network
 {
 	public static partial class Packets
 	{
 		/// <summary>Waits for a TCP packet.</summary>
-		/// <param name="_LocalIp">The local IP to create the server on.</param>
-		/// <param name="_LocalPort">The local port to create the server on.</param>
-		public static string WaitTcpPacket(IPAddress _LocalIp, int _LocalPort)
+		/// <param name="localIp">The local IP to create the server on.</param>
+		/// <param name="localPort">The local port to create the server on.</param>
+		public static byte[] WaitTcpPacket(IPAddress localIp, short localPort)
 		{
-			// Create the server.
-			TcpListener _Server = new TcpListener(_LocalIp, _LocalPort);
-			_Server.Start();
+			TcpListener server = new TcpListener(localIp, localPort);
+			server.Start();
 
-			// Wait for a message...
-			TcpClient _Client = _Server.AcceptTcpClient();
-			// ...then store it.
-			NetworkStream _Stream = _Client.GetStream();
+			TcpClient client = server.AcceptTcpClient();
+			byte[] buffer = new byte[client.Client.ReceiveBufferSize];
+			client.Client.Receive(buffer);
 
-			// Parse the message.
-			byte[] _Buffer = new byte[256];
-			string _Message = Encoding.ASCII.GetString(_Buffer, 0, _Stream.Read(_Buffer, 0, _Buffer.Length));
+			server.Stop();
+			client.Close();
 
-			// Close everything.
-			_Server.Stop();
-			_Client.Close();
-			_Stream.Close();
-
-			// Return the message.
-			return _Message;
+			return buffer;
 		}
 	}
 }

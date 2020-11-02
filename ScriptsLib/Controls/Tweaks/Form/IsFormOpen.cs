@@ -1,26 +1,22 @@
-﻿#region Usings
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-#endregion Usings
-
-
 
 namespace ScriptsLib.Controls.Tweaks
 {
 	public static partial class SlForm
 	{
-		/// <summary>Gets if the given form name is open or not.</summary>
-		/// <param name="_FormName">The form to check if is open.</param>
-		public static bool IsFormOpen(string _FormName)
+		/// <summary>Gets a boolean corresponding to if the form with the given name is open or not.</summary>
+		/// <param name="formName">The form to check if is open.</param>
+		public static Form IsFormOpen(string formName)
 		{
-			FormCollection _Forms = Application.OpenForms;
-			foreach (Form _Form in _Forms)
+			IEnumerable<Form> selection = from f in GetOpenForms() where f.Name == formName select f;
+
+			if (selection.Any())
 			{
-				if (_Form.Name == _FormName)
-				{
-					return true;
-				}
+				return selection.First();
 			}
-			return false;
+			return null;
 		}
 	}
 }

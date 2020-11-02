@@ -1,7 +1,7 @@
 ﻿#region Usings
 using System;
 using ScriptsLib;
-using ScriptsLib.nDatabases;
+using ScriptsLib.Databases;
 using TestingGrounds.Properties;
 using static ScriptsLib.Controls.Tweaks.SlComboBox;
 using static ScriptsLib.Controls.Tweaks.SlForm;
@@ -27,7 +27,7 @@ namespace TestingGrounds
 
 			SqlServerDatabase._DatabasePath = @"C:\Milkenm\Data\Tests.mdf";
 
-			AccessDatabase._DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
+			AccessDatabase.DatabasePath = @"C:\Milkenm\Data\TestsAccess.mdb";
 
 			MySqlDatabase._Server = "127.0.0.1";
 			MySqlDatabase._Port = 3306;
@@ -36,10 +36,10 @@ namespace TestingGrounds
 			MySqlDatabase._Password = "";
 			MySqlDatabase._SslMode = "none";
 
-			DynVars.DynvarsFilePath = @"C:\Milkenm\Data\DynVars.txt";
+			DynVars.DynVarsFolderPath = @"C:\Milkenm\Data\DynVars.txt";
 
 
-			foreach (PortType _Type in Enum.GetValues(typeof(PortType)))
+			foreach (Protocol _Type in Enum.GetValues(typeof(Protocol)))
 			{
 				MainForm.comboBox_network_security_openFirewallPort_portType.Items.Add(_Type.ToString());
 			}

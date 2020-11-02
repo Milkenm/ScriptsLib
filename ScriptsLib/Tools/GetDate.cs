@@ -1,62 +1,91 @@
-﻿#region Usings
-using System;
-#endregion Usings
-
-
+﻿using System;
 
 namespace ScriptsLib
 {
 	public static partial class Tools
 	{
 		/// <summary>Get current time and date. ([DD] Day || [MM] Month || [YYYY] Year || [hh] - Hour || [mm] Minute || [ss] Second || [ms] Millisecond.</summary>
-		/// <param name="_Format">The format to return the date.</param>
-		public static string GetDate(string _Format = "DD/MM/YYYY - hh:mm:ss (.ms)")
+		/// <param name="format">The format to return the date.</param>
+		public static string GetDate(string format = "DD/MM/YYYY - hh:mm:ss (.ms)")
 		{
-			string _Day = DateTime.Now.Day.ToString();
-			string _Month = DateTime.Now.Month.ToString();
-			string _Year = DateTime.Now.Year.ToString();
-			string _Hour = DateTime.Now.Hour.ToString();
-			string _Minute = DateTime.Now.Minute.ToString();
-			string _Second = DateTime.Now.Second.ToString();
-			string _Millisecond = DateTime.Now.Millisecond.ToString();
-
-
-
-			if (_Day.Length < 2)
+			if (format.Contains("DD"))
 			{
-				_Day = 0 + _Day;
+				string day = Convert.ToString(DateTime.Now.Day);
+				if (day.Length < 2)
+				{
+					day = 0 + day;
+				}
+
+				format.Replace("DD", day);
 			}
 
-			if (_Month.Length < 2)
+			if (format.Contains("MM"))
 			{
-				_Month = 0 + _Month;
+				string month = Convert.ToString(DateTime.Now.Month);
+				if (month.Length < 2)
+				{
+					month = 0 + month;
+				}
+
+				format.Replace("MM", month);
 			}
 
-			if (_Hour.Length < 2)
+			if (format.Contains("YYYY"))
 			{
-				_Hour = 0 + _Hour;
+				string year = Convert.ToString(DateTime.Now.Year);
+
+				format.Replace("YYYY", year);
 			}
 
-			if (_Minute.Length < 2)
+			if (format.Contains("hh"))
 			{
-				_Minute = 0 + _Minute;
+				string hour = Convert.ToString(DateTime.Now.Hour);
+				if (hour.Length < 2)
+				{
+					hour = 0 + hour;
+				}
+
+				format.Replace("hh", hour);
 			}
 
-			if (_Second.Length < 2)
+			if (format.Contains("mm"))
 			{
-				_Second = 0 + _Second;
+				string minute = Convert.ToString(DateTime.Now.Minute);
+				if (minute.Length < 2)
+				{
+					minute = 0 + minute;
+				}
+
+				format.Replace("mm", minute);
 			}
 
-			if (_Millisecond.Length < 2)
+			if (format.Contains("ss"))
 			{
-				_Millisecond = 00 + _Millisecond;
-			}
-			else if (_Millisecond.Length < 3)
-			{
-				_Millisecond = 0 + _Millisecond;
+				string second = Convert.ToString(DateTime.Now.Second);
+				if (second.Length < 2)
+				{
+					second = 0 + second;
+				}
+
+				format.Replace("ss", second);
 			}
 
-			return _Format.Replace("DD", _Day).Replace("MM", _Month).Replace("YYYY", _Year).Replace("hh", _Hour).Replace("mm", _Minute).Replace("ss", _Second).Replace("ms", _Millisecond);
+			if (format.Contains("ms"))
+			{
+				string millisecond = Convert.ToString(DateTime.Now.Millisecond);
+				if (millisecond.Length < 2)
+				{
+					millisecond = 00 + millisecond;
+				}
+				else if (millisecond.Length < 3)
+				{
+					millisecond = 0 + millisecond;
+				}
+
+				format.Replace("ms", millisecond);
+			}
+
+			return format;
 		}
 	}
 }

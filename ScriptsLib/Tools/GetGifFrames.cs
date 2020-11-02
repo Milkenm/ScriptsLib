@@ -1,43 +1,24 @@
-﻿#region Usings
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
-using System.Threading.Tasks;
-
-using static ScriptsLib.Dev;
-#endregion Usings
-
-
 
 namespace ScriptsLib
 {
 	public static partial class Tools
 	{
 		/// <summary>Get frames from a GIF image.</summary>
-		/// <param name="_Gif">The GIF image to get the frames from.</param>
-		public static Image[] GetGifFrames(Image _Gif)
+		/// <param name="gif">The GIF image to get the frames from.</param>
+		public static Image[] GetGifFrames(Image gif)
 		{
-			try
-			{
-				int _FramesNumber = _Gif.GetFrameCount(FrameDimension.Time);
-				Image[] _Frames = new Image[_FramesNumber];
+			int frameCount = gif.GetFrameCount(FrameDimension.Time);
+			Image[] frames = new Image[frameCount];
 
-				Task.Factory.StartNew(() =>
-				{
-					for (int i = 0; i < _FramesNumber; i++)
-					{
-						_Gif.SelectActiveFrame(FrameDimension.Time, i);
-						_Frames[i] = (Image)_Gif.Clone();
-					}
-				}).GetAwaiter().GetResult();
-
-				return _Frames;
-			}
-			catch (Exception _Exception)
+			for (int i = 0; i < frameCount; i++)
 			{
-				Msg(_Exception.Message, MsgType.Error, _Exception.Source);
-				return null;
+				gif.SelectActiveFrame(FrameDimension.Time, i);
+				frames[i] = (Image)gif.Clone();
 			}
+
+			return frames;
 		}
 	}
 }

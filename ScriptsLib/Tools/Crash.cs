@@ -1,8 +1,4 @@
-﻿#region Usings
-using System.Threading.Tasks;
-#endregion Usings
-
-
+﻿using System.Threading.Tasks;
 
 namespace ScriptsLib
 {
@@ -11,7 +7,7 @@ namespace ScriptsLib
 		/// <summary>Crashes your application (this is useless no?).</summary>
 		public static async Task Crash()
 		{
-			await Crash();
+			await Crash().ConfigureAwait(false);
 		}
 	}
 }

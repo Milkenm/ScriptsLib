@@ -41,6 +41,7 @@
     <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,6 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -96,82 +98,78 @@
     <Compile Include="Controls\Tweaks\Form\BringFormToFront.cs" />
     <Compile Include="Controls\Tweaks\Form\GetOpenForms.cs" />
     <Compile Include="Controls\Tweaks\Form\IsFormOpen.cs" />
+    <Compile Include="Controls\Tweaks\Form\PreventResize.cs" />
     <Compile Include="Controls\Tweaks\Form\SetIntroForm.cs" />
     <Compile Include="Controls\Tweaks\MessageBox\ShowConfirmationDialog.cs" />
-    <Compile Include="Controls\Tweaks\TextBox\OnlyNumbersTextBox.cs" />
-    <Compile Include="Databases\Access\CreateDatabase.cs" />
-    <Compile Include="Databases\Access\CreateTable.cs" />
-    <Compile Include="Databases\Access\Delete.cs" />
-    <Compile Include="Databases\Access\DeleteTable.cs" />
-    <Compile Include="Databases\Access\Execute SQL.cs" />
-    <Compile Include="Databases\Access\InsertInto.cs" />
-    <Compile Include="Databases\Access\Select.cs" />
-    <Compile Include="Databases\Access\Update.cs" />
-    <Compile Include="Databases\MySql\CreateTable.cs" />
-    <Compile Include="Databases\MySql\DeleteTable.cs" />
-    <Compile Include="Databases\MySql\_MySql.cs" />
-    <Compile Include="Databases\SqlServer\CreateDatabase.cs" />
-    <Compile Include="Databases\SqlServer\CreateTable.cs" />
-    <Compile Include="Databases\SqlServer\Delete.cs" />
-    <Compile Include="Databases\SqlServer\DeleteTable.cs" />
-    <Compile Include="Databases\SqlServer\InsertInto.cs" />
-    <Compile Include="Databases\SqlServer\Select.cs" />
-    <Compile Include="Databases\SqlServer\Update.cs" />
-    <Compile Include="Databases\SqlServer\_SqlServer.cs" />
+    <Compile Include="Databases\AccessDB.cs" />
+    <Compile Include="Databases\MySqlDB.cs" />
+    <Compile Include="Databases\SqlServerDB.cs" />
     <Compile Include="Device\GetRAM.cs" />
-    <Compile Include="Dev\DebugMsg.cs" />
-    <Compile Include="Dev\_Dev.cs" />
     <Compile Include="DynVars\DynVar.cs" />
-    <Compile Include="DynVars\_DynVars.cs" />
+    <Compile Include="Extensions\Byte Extensions\ToObject.cs" />
+    <Compile Include="Extensions\Object Extensions\ToByteArray.cs" />
+    <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\CheckLogin.cs" />
+    <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\SelectUnique.cs" />
+    <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\CheckLogin.cs" />
+    <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\SelectUnique.cs" />
+    <Compile Include="Extensions\String Extensions\ToBytes.cs" />
+    <Compile Include="Extensions\Task Extensions\FAF.cs" />
+    <Compile Include="Extensions\TcpClient Extensions\Send Bytes.cs" />
+    <Compile Include="Extensions\TcpClient Extensions\Send String.cs" />
+    <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />
+    <Compile Include="Extensions\UdpClient Extensions\Send String.cs" />
+    <Compile Include="Extensions\Unity\GameObject Extensions\PointAtCursor.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Champion.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Champion Mastery.cs" />
-    <Compile Include="Network\APIs\RiotAPI\League.cs" />
-    <Compile Include="Network\APIs\RiotAPI\League Exp.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Lol Status.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Match.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Spectator.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Summoner.cs" />
-    <Compile Include="Network\APIs\RiotAPI\TFT League.cs" />
-    <Compile Include="Network\APIs\RiotAPI\TFT Match.cs" />
-    <Compile Include="Network\APIs\RiotAPI\TFT Summoner.cs" />
-    <Compile Include="Network\APIs\RiotAPI\Third Party Code.cs" />
-    <Compile Include="Network\APIs\RiotAPI\TournamentStub.cs" />
-    <Compile Include="Network\APIs\RiotAPI\_Riot API Schemes.cs" />
-    <Compile Include="Network\APIs\RiotAPI\_Riot API.cs" />
-    <Compile Include="Network\Requests\GET.cs" />
-    <Compile Include="Network\Requests\POST.cs" />
-    <Compile Include="Network\Security\OpenFirewallPort.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="APIs\League of Legends\Enums.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Champion.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Champion Mastery.cs" />
+    <Compile Include="APIs\League of Legends\APIs\League.cs" />
+    <Compile Include="APIs\League of Legends\APIs\League Exp.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Lol Status.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Match.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Spectator.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Summoner.cs" />
+    <Compile Include="APIs\League of Legends\APIs\TFT League.cs" />
+    <Compile Include="APIs\League of Legends\APIs\TFT Match.cs" />
+    <Compile Include="APIs\League of Legends\APIs\TFT Summoner.cs" />
+    <Compile Include="APIs\League of Legends\APIs\Third Party Code.cs" />
+    <Compile Include="APIs\League of Legends\APIs\TournamentStub.cs" />
+    <Compile Include="APIs\League of Legends\Schemes.cs" />
+    <Compile Include="APIs\League of Legends\League of Legends API.cs" />
+    <Compile Include="Network\Requests\Requests\GET.cs" />
+    <Compile Include="Network\Requests\Requests\POST.cs" />
+    <Compile Include="Network\Requests\Requests.cs" />
+    <Compile Include="Network\Firewall\Actions\CloseFirewallPort.cs" />
+    <Compile Include="Network\Firewall\Actions\DisableFirewall.cs" />
+    <Compile Include="Network\Firewall\Firewall.cs" />
+    <Compile Include="Network\Firewall\Actions\OpenFirewallPort.cs" />
+    <Compile Include="Network\Servers\TcpServer.cs" />
+    <Compile Include="PInvoke\User32.cs" />
     <Compile Include="Properties\Info.cs" />
-    <Compile Include="Databases\Access\_Access.cs" />
-    <Compile Include="Math\CalculateCombinations.cs" />
-    <Compile Include="Math\CalculateFactorial.cs" />
-    <Compile Include="Math\IsPrimeNumber.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QuickMath\CalculateCombinations.cs" />
+    <Compile Include="QuickMath\CalculateFactorial.cs" />
+    <Compile Include="QuickMath\IsPrimeNumber.cs" />
     <Compile Include="Network\Mobile\SendSmsViaEmail.cs" />
     <Compile Include="Network\Packets\SendTcpPacket.cs" />
     <Compile Include="Network\Packets\SendUdpPacket.cs" />
     <Compile Include="Network\Packets\WaitTcpPacket.cs" />
-    <Compile Include="Network\Packets\WaitUdpPacket.cs" />
     <Compile Include="Network\Wi-Fi\ConnectToWifi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Lang.cs" />
-    <Compile Include="Properties\Resources\Lang\en_EN.cs" />
-    <Compile Include="Properties\Resources\Lang\pt_PT.cs" />
     <Compile Include="Tools\Crash.cs" />
-    <Compile Include="Tools\Database Tools\CheckLogin.cs" />
-    <Compile Include="Tools\Database Tools\FilterSql.cs" />
-    <Compile Include="Tools\Database Tools\SelectUnique.cs" />
-    <Compile Include="Tools\Database Tools\_DatabaseTools.cs" />
     <Compile Include="Tools\ExecuteCmdCommand.cs" />
     <Compile Include="Tools\GetDate.cs" />
     <Compile Include="Tools\GetGifFrames.cs" />
     <Compile Include="Tools\Hash.cs" />
     <Compile Include="Tools\IsThisApplicationAlreadyRunning.cs" />
-    <Compile Include="Tools\Log.cs" />
     <Compile Include="Tools\SetDesktopWallpaper.cs" />
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
-    <Compile Include="Unity\Unity2d\MakeObjectPointAtMouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -187,15 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Resources\Changelog.txt" />
+    <Content Include="Properties\Resources\ResourceFile\EES_WPA2PSK_AES_XML.xml" />
     <Content Include="Properties\Resources\Icon\Icon.ico" />
     <Content Include="Properties\Resources\Icon\Icon.png" />
     <Content Include="Properties\Resources\Libs\FirewallAPI.dll" />
     <Content Include="Properties\Resources\Libs\MySql.Data.dll" />
     <Content Include="Properties\Resources\Libs\UnityEngine.dll" />
-    <Content Include="Properties\Resources\Templates\Network\Wifi\EES_WPA2PSK_AES.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -215,7 +210,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\Controls\LineGraph.resx">
       <DependentUpon>LineGraph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

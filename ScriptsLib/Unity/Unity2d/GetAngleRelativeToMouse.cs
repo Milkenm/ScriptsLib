@@ -1,17 +1,13 @@
-﻿#region Usings
-using UnityEngine;
-#endregion Usings
+﻿using UnityEngine;
 
-
-
-namespace ScriptsLib.nUnity
+namespace ScriptsLib.Unity
 {
 	public static partial class Unity2d
 	{
-		public static float GetAngleRelativeToObject(Vector2 _Vector1, Vector2 _Vector2)
+		public static float GetAngleRelativeToObject(Vector2 v1, Vector2 v2)
 		{
-			float _AngleRad = Mathf.Atan2(_Vector1.y - _Vector2.y, _Vector1.x - _Vector2.x);
-			return 180 / Mathf.PI * _AngleRad;
+			float rads = Mathf.Atan2(v1.y - v2.y, v1.x - v2.x);
+			return 180 / Mathf.PI * rads;
 		}
 	}
 }
