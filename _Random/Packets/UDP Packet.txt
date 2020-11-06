@@ -1,5 +1,0 @@
-public void OnUdp()
-{
-    var client = new UdpClient(Host, Port);
-    client.Send(rubbish, rubbish.Length);
-}

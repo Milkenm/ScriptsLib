@@ -1,5 +1,0 @@
-Process p = new Process();
-p.StartInfo = new ProcessStartInfo("Chrome.exe");
-p.StartInfo.WorkingDirectory = @"C:\Program Files\Chrome";
-p.StartInfo.CreateNoWindow = true;
-p.Start();

@@ -1,9 +1,0 @@
-Change the thing to "Release".
-Change version on ScriptsLib.Info, ScriptsLib Properties & TestingGrounds Properties.
-ZIP TestingGrounds.
-Update on GitHub releases tab.
-Update NuGet package info.
-Pack NuGet.
-Send to GitHub.
-Update on NuGet.org.
-Go to GitHub and change the package info with ScriptsLib changelog.
