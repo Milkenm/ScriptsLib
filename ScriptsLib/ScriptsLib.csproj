@@ -145,7 +145,14 @@
     <Compile Include="Network\Firewall\Firewall.cs" />
     <Compile Include="Network\Firewall\Actions\OpenFirewallPort.cs" />
     <Compile Include="Network\Servers\TcpServer.cs" />
-    <Compile Include="PInvoke\User32.cs" />
+    <Compile Include="PInvoke\User32\GetLastInputInfo.cs" />
+    <Compile Include="PInvoke\User32\HideCaret.cs" />
+    <Compile Include="PInvoke\User32\PostMessage.cs" />
+    <Compile Include="PInvoke\User32\ReleaseCapture.cs" />
+    <Compile Include="PInvoke\User32\SendMessage.cs" />
+    <Compile Include="PInvoke\User32\SetForegroundWindow.cs" />
+    <Compile Include="PInvoke\User32\ShowWindow.cs" />
+    <Compile Include="PInvoke\User32\SystemParametersInfo.cs" />
     <Compile Include="Properties\Info.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -218,6 +225,5 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
