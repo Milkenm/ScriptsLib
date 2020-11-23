@@ -178,6 +178,7 @@
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
     <Compile Include="Unsorted\InputInactivity.cs" />
+    <Compile Include="Unsorted\IsDebugMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
