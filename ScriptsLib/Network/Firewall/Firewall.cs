@@ -20,6 +20,7 @@ namespace ScriptsLib.Network
 				Protocol.TCP => NET_FW_IP_PROTOCOL_.NET_FW_IP_PROTOCOL_TCP,
 				Protocol.UDP => NET_FW_IP_PROTOCOL_.NET_FW_IP_PROTOCOL_UDP,
 				Protocol.Any => NET_FW_IP_PROTOCOL_.NET_FW_IP_PROTOCOL_ANY,
+				_ => throw new Exception(),
 			};
 		}
 
