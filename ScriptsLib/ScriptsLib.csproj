@@ -110,6 +110,7 @@
     <Compile Include="Extensions\Object Extensions\ToByteArray.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\SelectUnique.cs" />
+    <Compile Include="Extensions\ScriptsLib\FolderManager Extesions\CreateFolders.cs" />
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\SelectUnique.cs" />
     <Compile Include="Extensions\String Extensions\ToBytes.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send String.cs" />
     <Compile Include="Extensions\Unity\GameObject Extensions\PointAtCursor.cs" />
+    <Compile Include="FolderManager\Folder.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="APIs\League of Legends\Enums.cs" />
@@ -228,5 +230,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
