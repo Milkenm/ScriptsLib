@@ -4,6 +4,8 @@ namespace ScriptsLib.Unsorted
 {
 	public partial class Unsorted
 	{
+		/// <summary>Completly deletes a directory. including all files and folders inside of it.</summary>
+		/// <param name="directoryPath"></param>
 		public static void ForceDirectoryDelete(string directoryPath) // https://stackoverflow.com/a/329502
 		{
 			string[] files = Directory.GetFiles(directoryPath);
