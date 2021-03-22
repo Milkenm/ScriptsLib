@@ -3,35 +3,44 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using static ScriptsLib.PInvoke.User32;
+using static ScriptsLib.Unsorted.Unsorted;
 
 namespace ScriptsLib.Unsorted
 {
 	public class InputInactivity
 	{
 		/// <summary>Triggers an event after some time of user inactivity.</summary>
-		/// <param name="msDelay">The time in milliseconds to trigger the inactivity event.</param>
-		public InputInactivity(long msDelay = 0)
+		/// <param name="delay">The time in milliseconds to trigger the inactivity event.</param>
+		public InputInactivity(long delay = 0)
 		{
-			MsDelay = msDelay;
+			this.SetDelay(delay);
 
-			Timer.Interval = 1;
-			Timer.Tick += (s, e) => TimerTick();
-			Timer.Start();
+			this.t.Interval = 1;
+			this.t.Tick += (s, e) => Tick();
+			this.t.Start();
+
+			DateTime d = new DateTime();
 		}
 
-		public delegate void EventDelegate();
+		public delegate void InputInactivityEvent();
+		public event InputInactivityEvent InputReceived;
+		public event InputInactivityEvent InactivityTimeReached;
 
-		public event EventDelegate InputReceived;
+		private readonly Timer t = new Timer();
 
-		public event EventDelegate InactivityTimeReached;
+		public long Delay { get; private set; }
 
-		private readonly Timer Timer = new Timer();
+		public void SetDelay(long delay)
+		{
+			if (delay > 0)
+			{
+				this.Delay = delay;
+			}
+		}
 
-		public long MsDelay { get; } = 0;
+		private static bool didRun = false;
 
-		private static bool DidRun;
-
-		private void TimerTick()
+		private void Tick()
 		{
 			DateTime bootTime = DateTime.UtcNow.AddMilliseconds(-Environment.TickCount);
 
@@ -43,19 +52,19 @@ namespace ScriptsLib.Unsorted
 
 			TimeSpan idleTime = DateTime.UtcNow.Subtract(lastInputTime);
 
-			if (MsDelay > 0)
+			if (this.Delay > 0)
 			{
-				long msIdle = idleTime.Milliseconds + (idleTime.Seconds * 1000) + (idleTime.Minutes * 60000) + (idleTime.Hours * 3600000) + (idleTime.Days * 86400000);
+				long msIdle = ConvertToMilliseconds(idleTime.Milliseconds, idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
 
-				if (msIdle == MsDelay)
+				if (msIdle == this.Delay)
 				{
-					DidRun = true;
-					InactivityTimeReached();
+					didRun = true;
+					this.InactivityTimeReached?.Invoke();
 				}
-				if (msIdle < MsDelay && DidRun)
+				if (msIdle < this.Delay && didRun)
 				{
-					DidRun = false;
-					InputReceived();
+					didRun = false;
+					this.InputReceived?.Invoke();
 				}
 			}
 		}
