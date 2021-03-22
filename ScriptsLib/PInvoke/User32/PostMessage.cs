@@ -6,6 +6,6 @@ namespace ScriptsLib.PInvoke
 	public static partial class User32
 	{
 		[DllImport("user32.dll")]
-		internal static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+		public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 	}
 }

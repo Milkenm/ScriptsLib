@@ -6,9 +6,9 @@ namespace ScriptsLib.PInvoke
 	public static partial class User32
 	{
 		[DllImport("user32.dll")]
-		internal static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
+		public static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
 
-		internal enum WindowShowStyle : uint
+		public enum WindowShowStyle : uint
 		{
 			Hide = 0,
 			ShowNormal = 1,
