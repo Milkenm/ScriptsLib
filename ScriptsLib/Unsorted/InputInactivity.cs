@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 using static ScriptsLib.PInvoke.User32;
-using static ScriptsLib.Unsorted.Unsorted;
 
 namespace ScriptsLib.Unsorted
 {
@@ -54,7 +53,7 @@ namespace ScriptsLib.Unsorted
 
 			if (this.Delay > 0)
 			{
-				long msIdle = ConvertToMilliseconds(idleTime.Milliseconds, idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
+				long msIdle = idleTime.Milliseconds + Converters.ConvertToMilliseconds(idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
 
 				if (msIdle == this.Delay)
 				{
