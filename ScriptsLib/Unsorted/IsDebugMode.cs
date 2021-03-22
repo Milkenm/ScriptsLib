@@ -2,7 +2,7 @@
 
 namespace ScriptsLib.Unsorted
 {
-	public static class Unsorted
+	public static partial class Unsorted
 	{
 		private static bool Debugging;
 
