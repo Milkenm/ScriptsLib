@@ -2,7 +2,7 @@
 
 namespace ScriptsLib.Unsorted
 {
-	public partial class Unsorted
+	public static partial class Unsorted
 	{
 		/// <summary>Completly deletes a directory. including all files and folders inside of it.</summary>
 		/// <param name="directoryPath"></param>
