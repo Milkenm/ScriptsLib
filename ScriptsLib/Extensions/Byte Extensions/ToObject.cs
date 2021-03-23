@@ -7,7 +7,7 @@ namespace ScriptsLib.Extensions
 	{
 		/// <summary>Converts a byte array to an object.</summary>
 		/// <param name="byteArray">The byte array to convert to an object.</param>
-		public static object ToObject(this byte[] byteArray)
+		public static T ToObject<T>(this byte[] byteArray)
 		{
 			if (byteArray.Length > 0)
 			{
@@ -17,12 +17,13 @@ namespace ScriptsLib.Extensions
 					ms.Seek(0, SeekOrigin.Begin);
 
 					BinaryFormatter bf = new BinaryFormatter();
-					return bf.Deserialize(ms);
+					object obj = bf.Deserialize(ms);
+					return (T)obj;
 				}
 			}
 			else
 			{
-				return null;
+				return default;
 			}
 		}
 	}
