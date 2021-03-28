@@ -68,7 +68,7 @@ namespace ScriptsLib
 			if (!string.IsNullOrEmpty(name) || !File.Exists(DynVarsFolderPath + name))
 			{
 				byte[] bytes = File.ReadAllBytes(DynVarsFolderPath + name);
-				return (T)bytes.ToObject();
+				return bytes.ToObject<T>();
 			}
 			else
 			{
