@@ -14,11 +14,9 @@ namespace ScriptsLib.Unsorted
 		{
 			this.SetDelay(delay);
 
-			this.t.Interval = 1;
-			this.t.Tick += (s, e) => Tick();
-			this.t.Start();
-
-			DateTime d = new DateTime();
+			t.Interval = 1;
+			t.Tick += (s, e) => this.Tick();
+			t.Start();
 		}
 
 		public delegate void InputInactivityEvent();
@@ -41,26 +39,24 @@ namespace ScriptsLib.Unsorted
 
 		private void Tick()
 		{
-			DateTime bootTime = DateTime.UtcNow.AddMilliseconds(-Environment.TickCount);
-
-			LASTINPUTINFO lii = new LASTINPUTINFO();
-			lii.cbSize = (uint)Marshal.SizeOf(typeof(LASTINPUTINFO));
-			GetLastInputInfo(ref lii);
-
-			DateTime lastInputTime = bootTime.AddMilliseconds(lii.dwTime);
-
-			TimeSpan idleTime = DateTime.UtcNow.Subtract(lastInputTime);
-
 			if (this.Delay > 0)
 			{
-				long msIdle = idleTime.Milliseconds + Converters.ConvertToMilliseconds(idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
+				DateTime bootTime = DateTime.UtcNow.AddMilliseconds(-Environment.TickCount);
 
-				if (msIdle == this.Delay)
+				LASTINPUTINFO lii = new LASTINPUTINFO();
+				lii.cbSize = (uint)Marshal.SizeOf(typeof(LASTINPUTINFO));
+				GetLastInputInfo(ref lii);
+
+				DateTime lastInputTime = bootTime.AddMilliseconds(lii.dwTime);
+				TimeSpan idleTime = DateTime.UtcNow.Subtract(lastInputTime);
+
+				long msIdle = idleTime.Milliseconds + Converters.ConvertToMilliseconds(idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
+				if (msIdle >= this.Delay && didRun == false)
 				{
 					didRun = true;
 					this.InactivityTimeReached?.Invoke();
 				}
-				if (msIdle < this.Delay && didRun)
+				else if (msIdle <= this.Delay && didRun)
 				{
 					didRun = false;
 					this.InputReceived?.Invoke();
