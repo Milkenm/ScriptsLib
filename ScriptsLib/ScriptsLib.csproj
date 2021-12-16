@@ -86,6 +86,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIs\GitHub\API\GetLatestRelease.cs" />
+    <Compile Include="APIs\GitHub\GitHub API.cs" />
+    <Compile Include="APIs\GitHub\Schemes.cs" />
     <Compile Include="AspNet\Show Pop-up.cs" />
     <Compile Include="Controls\Controls\LineGraph.cs">
       <SubType>UserControl</SubType>
@@ -110,7 +113,6 @@
     <Compile Include="Extensions\Object Extensions\ToByteArray.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\SelectUnique.cs" />
-    <Compile Include="Extensions\ScriptsLib\FolderManager Extesions\CreateFolders.cs" />
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\SqlServerDB Extensions\SelectUnique.cs" />
     <Compile Include="Extensions\String Extensions\ToBytes.cs" />
@@ -120,7 +122,6 @@
     <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send String.cs" />
     <Compile Include="Extensions\Unity\GameObject Extensions\PointAtCursor.cs" />
-    <Compile Include="FolderManager\Folder.cs" />
     <Compile Include="Generators\GeneratePassword.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="APIs\League of Legends\Enums.cs" />
@@ -179,10 +180,10 @@
     <Compile Include="Tools\SetDesktopWallpaper.cs" />
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
-    <Compile Include="Converters\ConvertToMilliseconds.cs" />
-    <Compile Include="Unsorted\ForceDirectoryDelete.cs" />
+    <Compile Include="Unsorted\GetHttpWebRequest.cs" />
     <Compile Include="Unsorted\InputInactivity.cs" />
     <Compile Include="Unsorted\IsDebugMode.cs" />
+    <Compile Include="UpdaterCheckers\GitHubUpdateChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -231,6 +232,5 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
