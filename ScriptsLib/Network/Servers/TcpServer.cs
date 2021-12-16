@@ -26,6 +26,9 @@ namespace ScriptsLib.Network.Servers
 			Server.Start();
 		}
 
+		private int ConnectionTimeout { get; set; }
+		private int DisconnectTimeout { get; set; }
+
 		private TcpListener Server;
 
 		public delegate void ConnectionEvent(Socket client);
@@ -96,7 +99,7 @@ namespace ScriptsLib.Network.Servers
 
 		private void ClientConnected(Socket socket)
 		{
-			socket.ReceiveTimeout = 20000;
+			socket.ReceiveTimeout = ConnectionTimeout;
 
 			OnClientConnected?.Invoke(socket);
 			ConnectedClients.Add(socket);
@@ -104,7 +107,7 @@ namespace ScriptsLib.Network.Servers
 
 		private void ClientDisconnected(Socket socket)
 		{
-			socket?.Close(5000);
+			socket?.Close(DisconnectTimeout);
 
 			OnClientDisconnected?.Invoke(socket);
 			ConnectedClients.Remove(socket);
