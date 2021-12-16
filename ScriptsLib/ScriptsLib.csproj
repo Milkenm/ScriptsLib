@@ -110,6 +110,7 @@
     <Compile Include="Device\GetRAM.cs" />
     <Compile Include="DynVars\DynVar.cs" />
     <Compile Include="Extensions\Byte Extensions\ToObject.cs" />
+    <Compile Include="Extensions\ScriptsLib\FolderManager Extesions\CreateFolders.cs" />
     <Compile Include="Extensions\Object Extensions\ToByteArray.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\CheckLogin.cs" />
     <Compile Include="Extensions\ScriptsLib\AccessDB Extensions\SelectUnique.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Extensions\Task Extensions\FAF.cs" />
     <Compile Include="Extensions\TcpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\TcpClient Extensions\Send String.cs" />
+    <Compile Include="FolderManager\Folder.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send Bytes.cs" />
     <Compile Include="Extensions\UdpClient Extensions\Send String.cs" />
     <Compile Include="Extensions\Unity\GameObject Extensions\PointAtCursor.cs" />
@@ -177,6 +179,8 @@
     <Compile Include="Tools\GetGifFrames.cs" />
     <Compile Include="Tools\Hash.cs" />
     <Compile Include="Tools\IsThisApplicationAlreadyRunning.cs" />
+    <Compile Include="Converters\ConvertToMilliseconds.cs" />
+    <Compile Include="Unsorted\ForceDirectoryDelete.cs" />
     <Compile Include="Tools\SetDesktopWallpaper.cs" />
     <Compile Include="Tools\ShowException.cs" />
     <Compile Include="Unity\Unity2d\GetAngleRelativeToMouse.cs" />
