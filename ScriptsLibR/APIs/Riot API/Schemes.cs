@@ -754,7 +754,7 @@ namespace ScriptsLibR.APIs.RiotAPI
         [JsonProperty("allowedSummonerIds")] public HashSet<string> AllowedSummonerIds;
 
         /// <summary>The map type of the game. (Legal values: SUMMONERS_RIFT, TWISTED_TREELINE, HOWLING_ABYSS)</summary>
-        [JsonProperty("mapType")] public string MapType;
+        [JsonProperty("mapType")] public string Map;
 
         /// <summary>Optional string that may contain any data in any format, if specified at all. Used to denote any custom information about the game.</summary>
         [JsonProperty("metadata")] public string Metadata;
