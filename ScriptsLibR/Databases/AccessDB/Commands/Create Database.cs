@@ -1,4 +1,5 @@
 ﻿using ScriptsLibR.Exceptions;
+using ScriptsLibR.Extensions;
 
 using System.IO;
 using System.Threading.Tasks;
@@ -9,18 +10,7 @@ namespace ScriptsLibR.Databases.AccessDB
 	{
 		public int[] CreateDatabase(string filePath)
 		{
-			if (File.Exists(filePath))
-			{
-				throw new FileAlreadyExistsException(filePath);
-			}
-
-			string dbName = Path.GetFileNameWithoutExtension(filePath);
-
-			string[] sqls = new string[]
-			{
-				$"CREATE DATABASE {dbName} ON PRIMARY (NAME={dbName}, FILENAME='{filePath}')",
-				$"EXEC sp_detach_db '{dbName}', 'true'"
-			};
+			string[] sqls = this.CreateDatabaseCode(filePath);
 			return this.ExecuteNonQuery(sqls, false);
 		}
 
@@ -28,6 +18,13 @@ namespace ScriptsLibR.Databases.AccessDB
 		/// <param name="filePath">The path (including the file name and extension) where the database will be created.</param>
 		public async Task<int[]> CreateDatabaseAsync(string filePath)
 		{
+			string[] sqls = this.CreateDatabaseCode(filePath);
+			return await this.ExecuteNonQueryAsync(sqls, false);
+		}
+
+		private string[] CreateDatabaseCode(string filePath)
+		{
+			filePath.ThrowArgumentNullExceptionIfNull("filePath", true);
 			if (File.Exists(filePath))
 			{
 				throw new FileAlreadyExistsException(filePath);
@@ -35,12 +32,11 @@ namespace ScriptsLibR.Databases.AccessDB
 
 			string dbName = Path.GetFileNameWithoutExtension(filePath);
 
-			string[] sqls = new string[]
+			return new string[]
 			{
 				$"CREATE DATABASE {dbName} ON PRIMARY (NAME={dbName}, FILENAME='{filePath}')",
 				$"EXEC sp_detach_db '{dbName}', 'true'",
 			};
-			return await this.ExecuteNonQueryAsync(sqls, false);
 		}
 	}
 }
