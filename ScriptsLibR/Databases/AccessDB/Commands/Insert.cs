@@ -8,8 +8,8 @@ namespace ScriptsLibR.Databases.AccessDB
 	{
 		public int Insert(string tableName, string[] columns, object[] values)
 		{
-			(string ColumnsString, object ValuesObject) items = this.InsertCode(tableName, columns, values);
-			return this.ExecuteNonQuery($"INSERT INTO {tableName} ({items.ColumnsString}) VALUES ({items.ValuesObject})", true);
+			(string columnsString, object valuesObject) = this.InsertCode(tableName, columns, values);
+			return this.ExecuteNonQuery($"INSERT INTO {tableName} ({columnsString}) VALUES ({valuesObject})", true);
 		}
 
 		public async Task<int> InsertAsync(string tableName, string[] columns, object[] values)
@@ -18,7 +18,7 @@ namespace ScriptsLibR.Databases.AccessDB
 			return await this.ExecuteNonQueryAsync($"INSERT INTO {tableName} ({items.ColumnsString}) VALUES ({items.ValuesObject})", true);
 		}
 
-		private (string ColumnsString, object ValuesObject) InsertCode(string tableName, string[] columns, object[] values)
+		private (string columnsString, object valuesObject) InsertCode(string tableName, string[] columns, object[] values)
 		{
 			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
 			columns.ThrowArgumentNullExceptionIfNull("columns", true);
