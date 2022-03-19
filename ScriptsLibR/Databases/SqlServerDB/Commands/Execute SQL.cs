@@ -2,16 +2,17 @@
 
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		public DataTable ExecuteSQL(string sql, bool requiresDatabaseToExist)
 		{
 			sql.ThrowArgumentNullExceptionIfNull("sql", true);
 
-			using (OleDbDataAdapter da = new OleDbDataAdapter(sql, this.GetDbConnection()))
+			using (SqlDataAdapter da = new SqlDataAdapter(sql, this.GetDbConnection(requiresDatabaseToExist)))
 			{
 				DataTable dt = new DataTable();
 				da.Fill(dt);

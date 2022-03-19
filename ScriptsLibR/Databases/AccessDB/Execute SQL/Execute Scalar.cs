@@ -1,147 +1,49 @@
-﻿using ScriptsLibR.Extensions;
-
-using System;
-using System.Data.OleDb;
+﻿using System.Data.OleDb;
 using System.Threading.Tasks;
 
+#nullable enable
 namespace ScriptsLibR.Databases.AccessDB
 {
 	public partial class AccessDB
 	{
-		public object? ExecuteScalar(string sql, bool requiresDatabaseToExist)
+		public object? ExecuteScalar(string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-
-			using (OleDbCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
-			{
-				cmd.CommandText = sql;
-				return cmd.ExecuteScalar();
-			}
+			return new General.General().ExecuteScalar(this.GetDbConnection(), sql);
 		}
 
-		public object? ExecuteScalar(OleDbCommand cmd, string sql)
+		public object? ExecuteScalar(string sql, OleDbCommand cmd)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
-
-			cmd.CommandText = sql;
-			return cmd.ExecuteScalar();
+			return new General.General().ExecuteScalar(cmd, sql);
 		}
 
-		public object?[] ExecuteScalar(string[] sqls, bool requiresDatabaseToExist)
+		public object?[] ExecuteScalar(string[] sqls)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sqls");
-			}
-
-			object?[] returnValue = new object?[sqls.Length];
-			using (OleDbCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
-			{
-				for (int i = 0; i < sqls.Length; i++)
-				{
-					cmd.CommandText = sqls[i];
-					returnValue[i] = cmd.ExecuteScalar();
-				}
-			}
-			return returnValue;
+			return new General.General().ExecuteScalar(this.GetDbConnection(), sqls);
 		}
 
 		public object?[] ExecuteScalar(string[] sqls, OleDbCommand cmd)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sqls");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
-
-			object?[] returnValue = new object?[sqls.Length];
-			for (int i = 0; i < sqls.Length; i++)
-			{
-				cmd.CommandText = sqls[i];
-				returnValue[i] = cmd.ExecuteScalar();
-			}
-			return returnValue;
+			return new General.General().ExecuteScalar(cmd, sqls);
 		}
 
-		public async Task<object?> ExecuteScalarAsync(string sql, bool requiresDatabaseToExist)
+		public async Task<object?> ExecuteScalarAsync(string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-
-			using (OleDbCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
-			{
-				cmd.CommandText = sql;
-				return await cmd.ExecuteScalarAsync();
-			}
+			return await new General.General().ExecuteScalarAsync(this.GetDbConnection(), sql);
 		}
 
 		public async Task<object?> ExecuteScalarAsync(OleDbCommand cmd, string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
-
-			cmd.CommandText = sql;
-			return await cmd.ExecuteScalarAsync();
+			return await new General.General().ExecuteScalarAsync(cmd, sql);
 		}
 
-		public async Task<object?[]> ExecuteScalarAsync(string[] sqls, bool requiresDatabaseToExist)
+		public async Task<object?[]> ExecuteScalarAsync(string[] sqls)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-
-			object?[] returnValue = new object?[sqls.Length];
-			using (OleDbCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
-			{
-				for (int i = 0; i < sqls.Length; i++)
-				{
-					cmd.CommandText = sqls[i];
-					returnValue[i] = await cmd.ExecuteScalarAsync();
-				}
-			}
-			return returnValue;
+			return await new General.General().ExecuteScalarAsync(this.GetDbConnection(), sqls);
 		}
 
 		public async Task<object?[]> ExecuteScalarAsync(string[] sqls, OleDbCommand cmd)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sqls");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
-
-			object?[] returnValue = new object?[sqls.Length];
-			for (int i = 0; i < sqls.Length; i++)
-			{
-				cmd.CommandText = sqls[i];
-				returnValue[i] = await cmd.ExecuteScalarAsync();
-			}
-			return returnValue;
+			return await new General.General().ExecuteScalarAsync(cmd, sqls);
 		}
 	}
 }

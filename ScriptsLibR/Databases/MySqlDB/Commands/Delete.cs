@@ -2,9 +2,9 @@
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.MySqlDB
 {
-	public partial class AccessDB
+	public partial class MySqlDB
 	{
 		/// <summary>Deletes a value from the database.</summary>
 		/// <param name="tableName">The table from where to delete the value.</param>

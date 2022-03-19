@@ -2,20 +2,20 @@
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		public int Update(string table, string update, string condition)
 		{
 			this.UpdateCode(table, update, condition);
-			return this.ExecuteNonQuery($"UPDATE [{table}] SET {update} WHERE {condition}");
+			return this.ExecuteNonQuery($"UPDATE [{table}] SET {update} WHERE {condition}", true);
 		}
 
 		public async Task<int> UpdateAsync(string table, string update, string condition)
 		{
 			this.UpdateCode(table, update, condition);
-			return await this.ExecuteNonQueryAsync($"UPDATE [{table}] SET {update} WHERE {condition}");
+			return await this.ExecuteNonQueryAsync($"UPDATE [{table}] SET {update} WHERE {condition}", true);
 		}
 
 		private void UpdateCode(string table, string update, string condition)

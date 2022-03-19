@@ -2,20 +2,20 @@
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		public int DeleteTable(string tableName)
 		{
-			this.DeleteTableCode(tableName);
-			return this.ExecuteNonQuery($"DROP TABLE [{tableName}]");
+			//this.DeleteTableCode(tableName);
+			return this.ExecuteNonQuery($"DROP TABLE {tableName}", true);
 		}
 
 		public async Task<int> DeleteTableAsync(string tableName)
 		{
-			this.DeleteTableCode(tableName);
-			return await this.ExecuteNonQueryAsync($"DROP TABLE [{tableName}]");
+			//this.DeleteTableCode(tableName);
+			return await this.ExecuteNonQueryAsync($"DROP TABLE {tableName}", true);
 		}
 
 		private void DeleteTableCode(string tableName)

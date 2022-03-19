@@ -2,9 +2,9 @@
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.MySqlDB
 {
-	public partial class AccessDB
+	public partial class MySqlDB
 	{
 		public int Update(string table, string update, string condition)
 		{

@@ -4,14 +4,14 @@ using ScriptsLibR.Extensions;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		public int[] CreateDatabase(string filePath)
 		{
 			string[] sqls = this.CreateDatabaseCode(filePath);
-			return this.ExecuteNonQuery(sqls);
+			return this.ExecuteNonQuery(sqls, false);
 		}
 
 		/// <summary>Creates a database file in the given path.</summary>
@@ -19,7 +19,7 @@ namespace ScriptsLibR.Databases.AccessDB
 		public async Task<int[]> CreateDatabaseAsync(string filePath)
 		{
 			string[] sqls = this.CreateDatabaseCode(filePath);
-			return await this.ExecuteNonQueryAsync(sqls);
+			return await this.ExecuteNonQueryAsync(sqls, false);
 		}
 
 		private string[] CreateDatabaseCode(string filePath)

@@ -2,9 +2,9 @@
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		/// <summary>Deletes a value from the database.</summary>
 		/// <param name="tableName">The table from where to delete the value.</param>
@@ -12,7 +12,7 @@ namespace ScriptsLibR.Databases.AccessDB
 		public int Delete(string tableName, string condition)
 		{
 			this.DeleteCode(tableName, condition);
-			return this.ExecuteNonQuery($"DELETE FROM {tableName} WHERE {condition}");
+			return this.ExecuteNonQuery($"DELETE FROM {tableName} WHERE {condition}", true);
 		}
 
 		/// <summary>Deletes a value from the database.</summary>
@@ -21,7 +21,7 @@ namespace ScriptsLibR.Databases.AccessDB
 		public async Task<int> DeleteAsync(string tableName, string condition)
 		{
 			this.DeleteCode(tableName, condition);
-			return await this.ExecuteNonQueryAsync($"DELETE FROM {tableName} WHERE {condition}");
+			return await this.ExecuteNonQueryAsync($"DELETE FROM {tableName} WHERE {condition}", true);
 		}
 
 		private void DeleteCode(string tableName, string condition)

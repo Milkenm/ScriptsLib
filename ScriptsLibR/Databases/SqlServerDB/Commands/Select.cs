@@ -1,15 +1,16 @@
 ﻿using System.Data;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases.SqlServerDB
 {
-	public partial class AccessDB
+	public partial class SqlServerDB
 	{
 		public DataTable Select(string tableName, string selection = "*", string condition = null)
 		{
 			string sql = $"SELECT {selection} FROM [{tableName}]" + (condition != null ? " WHERE {condition}" : null);
 
-			using (OleDbDataAdapter da = new OleDbDataAdapter(sql, this.GetDbConnection()))
+			using (SqlDataAdapter da = new SqlDataAdapter(sql, this.GetDbConnection(true)))
 			{
 				DataTable dt = new DataTable();
 				da.Fill(dt);

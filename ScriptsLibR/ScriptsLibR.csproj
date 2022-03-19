@@ -6,8 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.ADOX">
+      <HintPath>..\ScriptsLibRTests\obj\Debug\netcoreapp3.1\Interop.ADOX.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

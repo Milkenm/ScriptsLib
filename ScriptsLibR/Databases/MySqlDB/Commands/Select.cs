@@ -1,15 +1,16 @@
-﻿using System.Data;
-using System.Data.OleDb;
+﻿using MySql.Data.MySqlClient;
 
-namespace ScriptsLibR.Databases.AccessDB
+using System.Data;
+
+namespace ScriptsLibR.Databases.MySqlDB
 {
-	public partial class AccessDB
+	public partial class MySqlDB
 	{
 		public DataTable Select(string tableName, string selection = "*", string condition = null)
 		{
 			string sql = $"SELECT {selection} FROM [{tableName}]" + (condition != null ? " WHERE {condition}" : null);
 
-			using (OleDbDataAdapter da = new OleDbDataAdapter(sql, this.GetDbConnection()))
+			using (MySqlDataAdapter da = new MySqlDataAdapter(sql, this.GetDbConnection()))
 			{
 				DataTable dt = new DataTable();
 				da.Fill(dt);
