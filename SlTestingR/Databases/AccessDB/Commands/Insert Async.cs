@@ -3,6 +3,7 @@
 using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
+using System.Threading.Tasks;
 
 namespace SlTestingR
 {
@@ -21,7 +22,7 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public async void Test()
+		public async Task Test()
 		{
 			int moddedRows = await Db.InsertAsync("Test", new string[] { "TextColumn" }, new object[] { "'TEST_InsertAsync()'" });
 			Assert.IsTrue(moddedRows > 0);
