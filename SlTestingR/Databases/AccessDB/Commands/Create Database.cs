@@ -14,7 +14,7 @@ namespace SlTestingR
 		[Test]
 		public void Test()
 		{
-			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE150 + DB_PATH);
+			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
 			Assert.IsTrue(File.Exists(DB_PATH));
 		}
 

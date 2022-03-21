@@ -16,7 +16,7 @@ namespace SlTestingR
 		[SetUp]
 		public void Setup()
 		{
-			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE150 + DB_PATH);
+			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
 
 			AccessTableColumn idColumn = new AccessTableColumn("ID");
 			AccessTableColumn textColumn = new AccessTableColumn("Text", AccessDataType.Text);
