@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Office.Interop.Access.Dao" Version="15.0.4420.1017" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
