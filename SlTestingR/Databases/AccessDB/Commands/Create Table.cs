@@ -1,73 +1,80 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
+using NUnit.Framework;
+
+using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
 
-namespace ScriptsLibR.Databases.AccessDB.Tests
+namespace SlTestingR
 {
-	[TestClass()]
-	public class CreateTable
+	internal class CreateTable
 	{
-		[TestMethod()]
-		public void TEST_CreateTable()
+		private const string DB_PATH = @"C:\Dados\TestDB_CreateTable.accdb";
+		private AccessDB Db;
+
+		[SetUp]
+		public void Setup()
 		{
-			string dbPath = @"C:\Dados\TestDB_CreateTable.accdb";
-			File.Delete(dbPath);
-			AccessDB db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + dbPath);
+			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE150 + DB_PATH);
+		}
 
-
-
+		[Test]
+		public void Test()
+		{
 			AccessTableColumn bigBinaryField = new AccessTableColumn("BigBinary", AccessDataType.BigBinary);
-			db.CreateTable("Table_BigBinary", bigBinaryField);
+			Db.CreateTable("Table_BigBinary", bigBinaryField);
 
 			AccessTableColumn binaryField = new AccessTableColumn("Binary", AccessDataType.Binary);
-			db.CreateTable("Table_Binary", binaryField);
+			Db.CreateTable("Table_Binary", binaryField);
 
 			AccessTableColumn bitField = new AccessTableColumn("Bit", AccessDataType.Bit);
-			db.CreateTable("Table_Bit", bitField);
+			Db.CreateTable("Table_Bit", bitField);
 
 			AccessTableColumn counterField = new AccessTableColumn("Counter", AccessDataType.Counter);
-			db.CreateTable("Table_Counter", counterField);
+			Db.CreateTable("Table_Counter", counterField);
 
 			AccessTableColumn currencyField = new AccessTableColumn("Currency", AccessDataType.Currency);
-			db.CreateTable("Table_Currency", currencyField);
+			Db.CreateTable("Table_Currency", currencyField);
 
 			AccessTableColumn dateTimeField = new AccessTableColumn("DateTime", AccessDataType.DateTime);
-			db.CreateTable("Table_DateTime", dateTimeField);
+			Db.CreateTable("Table_DateTime", dateTimeField);
 
 			AccessTableColumn guidField = new AccessTableColumn("Guid", AccessDataType.Guid);
-			db.CreateTable("Table_Guid", guidField);
+			Db.CreateTable("Table_Guid", guidField);
 
 			AccessTableColumn longTextField = new AccessTableColumn("LongText", AccessDataType.LongText);
-			db.CreateTable("Table_LongText", longTextField);
+			Db.CreateTable("Table_LongText", longTextField);
 
 			AccessTableColumn numberSingleField = new AccessTableColumn("NumberSingle", AccessDataType.NumberSingle);
-			db.CreateTable("Table_NumberSingle", numberSingleField);
+			Db.CreateTable("Table_NumberSingle", numberSingleField);
 
 			AccessTableColumn numberDoubleField = new AccessTableColumn("NumberDouble", AccessDataType.NumberDouble);
-			db.CreateTable("Table_NumberDouble", numberDoubleField);
+			Db.CreateTable("Table_NumberDouble", numberDoubleField);
 
 			AccessTableColumn numberByteField = new AccessTableColumn("NumberByte", AccessDataType.NumberByte);
-			db.CreateTable("Table_NumberByte", numberByteField);
+			Db.CreateTable("Table_NumberByte", numberByteField);
 
 			AccessTableColumn numberIntegerField = new AccessTableColumn("NumberInteger", AccessDataType.NumberInteger);
-			db.CreateTable("Table_NumberInteger", numberIntegerField);
+			Db.CreateTable("Table_NumberInteger", numberIntegerField);
 
 			AccessTableColumn numberLongIntegerField = new AccessTableColumn("NumberLongInteger", AccessDataType.NumberLongInteger);
-			db.CreateTable("Table_NumberLongInteger", numberLongIntegerField);
+			Db.CreateTable("Table_NumberLongInteger", numberLongIntegerField);
 
 			AccessTableColumn numericField = new AccessTableColumn("Numeric", AccessDataType.Numeric);
-			db.CreateTable("Table_Numeric", numericField);
+			Db.CreateTable("Table_Numeric", numericField);
 
 			AccessTableColumn oleField = new AccessTableColumn("Ole", AccessDataType.Ole);
-			db.CreateTable("Table_Ole", oleField);
+			Db.CreateTable("Table_Ole", oleField);
 
 			AccessTableColumn textField = new AccessTableColumn("Text", AccessDataType.Text);
-			db.CreateTable("Table_Text", textField);
+			Db.CreateTable("Table_Text", textField);
+		}
 
-
-
-			db.CloseConnection();
-			File.Delete(dbPath);
+		[TearDown]
+		public void Cleanup()
+		{
+			Db.CloseConnection();
+			File.Delete(DB_PATH);
 		}
 	}
 }
