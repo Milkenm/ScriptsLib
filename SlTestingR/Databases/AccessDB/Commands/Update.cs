@@ -1,11 +1,10 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class Update
 	{
@@ -27,7 +26,7 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public void Test()
+		public void TEST_Update()
 		{
 			Db.Update("Test_Update", "[Text]='Updated Value 1'", "[Text]='Value 1'");
 			string after = (string)Db.Select("Test_Update").Rows[0]["Text"];

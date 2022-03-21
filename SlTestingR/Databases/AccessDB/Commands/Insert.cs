@@ -1,11 +1,11 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
+using System.Threading.Tasks;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class Insert
 	{
@@ -22,9 +22,16 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public void Test()
+		public void TEST_Insert()
 		{
 			int moddedRows = Db.Insert("Test", new string[] { "TextColumn" }, new object[] { "'TEST_Insert()'" });
+			Assert.IsTrue(moddedRows > 0);
+		}
+
+		[Test]
+		public async Task TEST_InsertAsync()
+		{
+			int moddedRows = await Db.InsertAsync("Test", new string[] { "TextColumn" }, new object[] { "'TEST_InsertAsync()'" });
 			Assert.IsTrue(moddedRows > 0);
 		}
 

@@ -1,11 +1,10 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class CreateTable
 	{
@@ -19,7 +18,7 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public void Test()
+		public void TEST_CreateTable()
 		{
 			AccessTableColumn bigBinaryField = new AccessTableColumn("BigBinary", AccessDataType.BigBinary);
 			Db.CreateTable("Table_BigBinary", bigBinaryField);

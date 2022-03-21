@@ -1,11 +1,10 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class DeleteTable
 	{
@@ -22,7 +21,7 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public void Test()
+		public void TEST_DeleteTable()
 		{
 			Db.DeleteTable("Table");
 		}

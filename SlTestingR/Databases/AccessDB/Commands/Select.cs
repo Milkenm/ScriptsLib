@@ -1,12 +1,11 @@
-﻿
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 using ScriptsLibR.Databases.AccessDB;
 
 using System.Data;
 using System.IO;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class Select
 	{
@@ -30,7 +29,7 @@ namespace SlTestingR
 		}
 
 		[Test]
-		public void Test()
+		public void TEST_Select()
 		{
 			DataTable dt = Db.Select("Test_Select");
 			Assert.IsTrue(dt.Rows.Count == 5 && (string)dt.Rows[0]["Text"] == "Value 1");

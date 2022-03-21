@@ -4,7 +4,7 @@ using ScriptsLibR.Databases.AccessDB;
 
 using System.IO;
 
-namespace SlTestingR
+namespace SlTestingR.Databases.AccessDBTests
 {
 	internal class CreateDatabase
 	{
@@ -12,7 +12,7 @@ namespace SlTestingR
 		private AccessDB Db;
 
 		[Test]
-		public void Test()
+		public void TEST_CreateDatabase()
 		{
 			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
 			Assert.IsTrue(File.Exists(DB_PATH));
