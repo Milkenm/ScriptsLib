@@ -5,7 +5,7 @@ using System.Data.OleDb;
 using System.Threading.Tasks;
 
 #nullable enable
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases
 {
 	public partial class AccessDB
 	{

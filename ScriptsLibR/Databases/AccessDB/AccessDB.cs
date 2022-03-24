@@ -10,7 +10,7 @@ using System.Data.OleDb;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases
 {
 	public partial class AccessDB : IDatabase
 	{

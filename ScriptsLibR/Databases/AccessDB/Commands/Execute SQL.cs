@@ -4,7 +4,7 @@ using ScriptsLibR.Interfaces;
 using System.Data;
 using System.Data.OleDb;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases
 {
 	public partial class AccessDB 
 	{

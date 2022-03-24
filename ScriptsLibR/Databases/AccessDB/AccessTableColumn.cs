@@ -3,7 +3,7 @@
 using System.ComponentModel;
 using System.Text;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases
 {
 	public class AccessTableColumn : IDatabaseTableColumn
 	{

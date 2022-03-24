@@ -3,7 +3,7 @@ using ScriptsLibR.Interfaces;
 
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.AccessDB
+namespace ScriptsLibR.Databases
 {
 	public partial class AccessDB
 	{
