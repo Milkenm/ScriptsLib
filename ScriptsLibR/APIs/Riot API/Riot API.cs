@@ -1,5 +1,4 @@
-﻿
-using ScriptsLibR.Exceptions;
+﻿using ScriptsLibR.Exceptions;
 
 namespace ScriptsLibR.APIs.RiotAPI
 {

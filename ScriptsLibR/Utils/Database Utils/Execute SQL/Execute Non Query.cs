@@ -1,15 +1,14 @@
-﻿using ScriptsLibR.Extensions;
-
+﻿
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.General
+namespace ScriptsLibR.Utils.Database
 {
-	public partial class General
+	public partial class DatabaseUtils
 	{
-		public int ExecuteNonQuery(DbConnection con, string sql)
+		public static int ExecuteNonQuery(DbConnection con, string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			Utils.NullChecker(true, (con, nameof(con)), (sql, nameof(sql)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			{
@@ -18,18 +17,17 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public int ExecuteNonQuery(DbCommand cmd, string sql)
+		public static int ExecuteNonQuery(DbCommand cmd, string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			Utils.NullChecker(true, (cmd, nameof(cmd)), (sql, nameof(sql)));
 
 			cmd.CommandText = sql;
 			return cmd.ExecuteNonQuery();
 		}
 
-		public int[] ExecuteNonQuery(DbConnection con, string[] sqls)
+		public static int[] ExecuteNonQuery(DbConnection con, string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			Utils.NullChecker(true, (con, nameof(con)), (sqls, nameof(sqls)));
 
 			int[] returnValue = new int[sqls.Length];
 			using (DbCommand cmd = con.CreateCommand())
@@ -43,10 +41,9 @@ namespace ScriptsLibR.Databases.General
 			return returnValue;
 		}
 
-		public int[] ExecuteNonQuery(DbCommand cmd, string[] sqls)
+		public static int[] ExecuteNonQuery(DbCommand cmd, string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("slqs", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			Utils.NullChecker(true, (cmd, nameof(cmd)), (sqls, nameof(sqls)));
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)
@@ -57,9 +54,9 @@ namespace ScriptsLibR.Databases.General
 			return returnValue;
 		}
 
-		public async Task<int> ExecuteNonQueryAsync(DbConnection con, string sql)
+		public static async Task<int> ExecuteNonQueryAsync(DbConnection con, string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			await Utils.NullCheckerAsync(true, (con, nameof(con)), (sql, nameof(sql)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			{
@@ -68,18 +65,17 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public async Task<int> ExecuteNonQueryAsync(DbCommand cmd, string sql)
+		public static async Task<int> ExecuteNonQueryAsync(DbCommand cmd, string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			await Utils.NullCheckerAsync(true, (cmd, nameof(cmd)), (sql, nameof(sql)));
 
 			cmd.CommandText = sql;
 			return await cmd.ExecuteNonQueryAsync();
 		}
 
-		public async Task<int[]> ExecuteNonQueryAsync(DbConnection con, string[] sqls)
+		public static async Task<int[]> ExecuteNonQueryAsync(DbConnection con, string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			await Utils.NullCheckerAsync(true, (con, nameof(con)), (sqls, nameof(sqls)));
 
 			int[] returnValue = new int[sqls.Length];
 			using (DbCommand cmd = con.CreateCommand())
@@ -93,10 +89,9 @@ namespace ScriptsLibR.Databases.General
 			return returnValue;
 		}
 
-		public async Task<int[]> ExecuteNonQueryAsync(DbCommand cmd, string[] sqls)
+		public static async Task<int[]> ExecuteNonQueryAsync(DbCommand cmd, string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			await Utils.NullCheckerAsync(true, (cmd, nameof(cmd)), (sqls, nameof(sqls)));
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)

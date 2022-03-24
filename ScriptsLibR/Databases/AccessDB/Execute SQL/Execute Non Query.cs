@@ -1,47 +1,51 @@
-﻿using System.Data.OleDb;
+﻿using ScriptsLibR.Interfaces;
+using ScriptsLibR.Utils.Database;
+
+using System.Data.OleDb;
 using System.Threading.Tasks;
+
 namespace ScriptsLibR.Databases.AccessDB
 {
 	public partial class AccessDB
 	{
 		public int ExecuteNonQuery(string sql)
 		{
-			return new General.General().ExecuteNonQuery(this.GetDbConnection(), sql);
+			return DatabaseUtils.ExecuteNonQuery(this.GetDbConnection(), sql);
 		}
 
 		public int ExecuteNonQuery(string sql, OleDbCommand cmd)
 		{
-			return new General.General().ExecuteNonQuery(cmd, sql);
+			return DatabaseUtils.ExecuteNonQuery(cmd, sql);
 		}
 
 		public int[] ExecuteNonQuery(string[] sqls)
 		{
-			return new General.General().ExecuteNonQuery(this.GetDbConnection(), sqls);
+			return DatabaseUtils.ExecuteNonQuery(this.GetDbConnection(), sqls);
 		}
 
 		public int[] ExecuteNonQuery(string[] sqls, OleDbCommand cmd)
 		{
-			return new General.General().ExecuteNonQuery(cmd, sqls);
+			return DatabaseUtils.ExecuteNonQuery(cmd, sqls);
 		}
 
 		public async Task<int> ExecuteNonQueryAsync(string sql)
 		{
-			return await new General.General().ExecuteNonQueryAsync(this.GetDbConnection(), sql);
+			return await DatabaseUtils.ExecuteNonQueryAsync(this.GetDbConnection(), sql);
 		}
 
 		public async Task<int> ExecuteNonQueryAsync(string sql, OleDbCommand cmd)
 		{
-			return await new General.General().ExecuteNonQueryAsync(cmd, sql);
+			return await DatabaseUtils.ExecuteNonQueryAsync(cmd, sql);
 		}
 
 		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls)
 		{
-			return await new General.General().ExecuteNonQueryAsync(this.GetDbConnection(), sqls);
+			return await DatabaseUtils.ExecuteNonQueryAsync(this.GetDbConnection(), sqls);
 		}
 
 		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls, OleDbCommand cmd)
 		{
-			return await new General.General().ExecuteNonQueryAsync(cmd, sqls);
+			return await DatabaseUtils.ExecuteNonQueryAsync(cmd, sqls);
 		}
 	}
 }

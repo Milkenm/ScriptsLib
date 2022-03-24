@@ -1,9 +1,11 @@
-﻿using System.ComponentModel;
+﻿using ScriptsLibR.Interfaces;
+
+using System.ComponentModel;
 using System.Text;
 
 namespace ScriptsLibR.Databases.AccessDB
 {
-	public class AccessTableColumn
+	public class AccessTableColumn : IDatabaseTableColumn
 	{
 		public AccessTableColumn(string name, AccessDataType dataType, bool isPrimaryKey)
 		{
@@ -34,7 +36,7 @@ namespace ScriptsLibR.Databases.AccessDB
 		}
 
 		public string Name { get; }
-		public AccessDataType DataType { get; }
+		public dynamic DataType { get; }
 		public bool IsPrimaryKey { get; }
 
 		public override string ToString()

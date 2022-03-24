@@ -2,44 +2,44 @@
 
 using ScriptsLibR.Databases.AccessDB;
 
-using System.IO;
 using System.Threading.Tasks;
 
-namespace SlTestingR.Databases.AccessDBTests
+namespace SlTestingR.Databases_AccessDB_Tests
 {
 	internal class Insert
 	{
-		private const string DB_PATH = @"C:\Dados\TestDB_Insert.accdb";
-		private AccessDB Db;
+		private readonly string[] DbPaths = { @"C:\Dados\TestDB_Insert.accdb", @"C:\Dados\TestDB_InsertAsync.accdb" };
+		private readonly AccessDB[] Dbs = new AccessDB[2];
 
 		[SetUp]
 		public void Setup()
 		{
-			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
-
 			AccessTableColumn textColumn = new AccessTableColumn("TextColumn", AccessDataType.Text);
-			Db.CreateTable("Test", textColumn);
+
+			Dbs[0] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[0]);
+			Dbs[0].CreateTable("Test", textColumn);
+			Dbs[1] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[1]);
+			Dbs[1].CreateTable("Test", textColumn);
 		}
 
 		[Test]
 		public void TEST_Insert()
 		{
-			int moddedRows = Db.Insert("Test", new string[] { "TextColumn" }, new object[] { "'TEST_Insert()'" });
+			int moddedRows = Dbs[0].Insert("Test", new string[] { "TextColumn" }, new object[] { "'TEST_Insert()'" });
 			Assert.IsTrue(moddedRows > 0);
 		}
 
 		[Test]
 		public async Task TEST_InsertAsync()
 		{
-			int moddedRows = await Db.InsertAsync("Test", new string[] { "TextColumn" }, new object[] { "'TEST_InsertAsync()'" });
+			int moddedRows = await Dbs[1].InsertAsync("Test", new string[] { "TextColumn" }, new object[] { "'TEST_InsertAsync()'" });
 			Assert.IsTrue(moddedRows > 0);
 		}
 
 		[TearDown]
 		public void Cleanup()
 		{
-			Db.CloseConnection();
-			File.Delete(DB_PATH);
+			TestUtils.CleanupAccessTesting(DbPaths, Dbs);
 		}
 	}
 }

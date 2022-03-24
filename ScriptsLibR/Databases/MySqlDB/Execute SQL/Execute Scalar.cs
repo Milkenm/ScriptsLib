@@ -14,7 +14,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -24,15 +24,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public object? ExecuteScalar(MySqlCommand cmd, string sql)
+		public static object? ExecuteScalar(string sql, MySqlCommand cmd)
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -43,7 +43,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -58,15 +58,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public object?[] ExecuteScalar(string[] sqls, MySqlCommand cmd)
+		public static object?[] ExecuteScalar(string[] sqls, MySqlCommand cmd)
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -82,7 +82,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -92,15 +92,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public async Task<object?> ExecuteScalarAsync(MySqlCommand cmd, string sql)
+		public static async Task<object?> ExecuteScalarAsync(string sql, MySqlCommand cmd)
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -111,7 +111,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -126,15 +126,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public async Task<object?[]> ExecuteScalarAsync(string[] sqls, MySqlCommand cmd)
+		public static async Task<object?[]> ExecuteScalarAsync(string[] sqls, MySqlCommand cmd)
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];

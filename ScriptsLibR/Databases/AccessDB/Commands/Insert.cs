@@ -1,10 +1,11 @@
 ﻿using ScriptsLibR.Extensions;
+using ScriptsLibR.Interfaces;
 
 using System.Threading.Tasks;
 
 namespace ScriptsLibR.Databases.AccessDB
 {
-	public partial class AccessDB
+	public partial class AccessDB 
 	{
 		public int Insert(string tableName, string[] columns, object[] values)
 		{

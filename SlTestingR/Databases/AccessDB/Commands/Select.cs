@@ -3,35 +3,34 @@
 using ScriptsLibR.Databases.AccessDB;
 
 using System.Data;
-using System.IO;
 
-namespace SlTestingR.Databases.AccessDBTests
+namespace SlTestingR.Databases_AccessDB_Tests
 {
 	internal class Select
 	{
-		private const string DB_PATH = @"C:\Dados\TestDb_Select.accdb";
-		private AccessDB Db;
+		private readonly string[] DbPaths = { @"C:\Dados\TestDb_Select.accdb" };
+		private readonly AccessDB[] Dbs = new AccessDB[1];
 
 		[SetUp]
 		public void Setup()
 		{
-			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
+			Dbs[0] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[0]);
 
 			AccessTableColumn idColumn = new AccessTableColumn("ID");
 			AccessTableColumn textColumn = new AccessTableColumn("Text", AccessDataType.Text);
-			Db.CreateTable("Test_Select", idColumn, textColumn);
+			Dbs[0].CreateTable("Test_Select", idColumn, textColumn);
 
-			Db.Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 1'" });
-			Db.Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 2'" });
-			Db.Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 3'" });
-			Db.Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 4'" });
-			Db.Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 5'" });
+			Dbs[0].Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 1'" });
+			Dbs[0].Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 2'" });
+			Dbs[0].Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 3'" });
+			Dbs[0].Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 4'" });
+			Dbs[0].Insert("Test_Select", new string[] { "Text" }, new object[] { "'Value 5'" });
 		}
 
 		[Test]
 		public void TEST_Select()
 		{
-			DataTable dt = Db.Select("Test_Select");
+			DataTable dt = Dbs[0].Select("Test_Select");
 			Assert.IsTrue(dt.Rows.Count == 5 && (string)dt.Rows[0]["Text"] == "Value 1");
 
 			/*
@@ -46,8 +45,7 @@ namespace SlTestingR.Databases.AccessDBTests
 		[TearDown]
 		public void Cleanup()
 		{
-			Db.CloseConnection();
-			File.Delete(DB_PATH);
+			TestUtils.CleanupAccessTesting(DbPaths, Dbs);
 		}
 	}
 }

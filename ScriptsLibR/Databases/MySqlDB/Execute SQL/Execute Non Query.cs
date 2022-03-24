@@ -19,7 +19,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public int ExecuteNonQuery(string sql, MySqlCommand cmd)
+		public static int ExecuteNonQuery(string sql, MySqlCommand cmd)
 		{
 			sql.ThrowArgumentNullExceptionIfNull("sql", true);
 			cmd.ThrowArgumentNullExceptionIfNull("cmd");
@@ -44,7 +44,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public int[] ExecuteNonQuery(string[] sqls, MySqlCommand cmd)
+		public static int[] ExecuteNonQuery(string[] sqls, MySqlCommand cmd)
 		{
 			sqls.ThrowArgumentNullExceptionIfNull("slqs", true);
 			cmd.ThrowArgumentNullExceptionIfNull("cmd");
@@ -69,7 +69,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public async Task<int> ExecuteNonQueryAsync(string sql, MySqlCommand cmd)
+		public static async Task<int> ExecuteNonQueryAsync(string sql, MySqlCommand cmd)
 		{
 			sql.ThrowArgumentNullExceptionIfNull("sql", true);
 			cmd.ThrowArgumentNullExceptionIfNull("cmd");
@@ -94,7 +94,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls, MySqlCommand cmd)
+		public static async Task<int[]> ExecuteNonQueryAsync(string[] sqls, MySqlCommand cmd)
 		{
 			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
 			cmd.ThrowArgumentNullExceptionIfNull("cmd");

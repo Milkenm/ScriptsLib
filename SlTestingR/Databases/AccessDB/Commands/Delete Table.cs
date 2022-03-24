@@ -2,35 +2,42 @@
 
 using ScriptsLibR.Databases.AccessDB;
 
-using System.IO;
+using System.Threading.Tasks;
 
-namespace SlTestingR.Databases.AccessDBTests
+namespace SlTestingR.Databases_AccessDB_Tests
 {
 	internal class DeleteTable
 	{
-		private const string DB_PATH = @"C:\Dados\TestDB_DeleteTable.accdb";
-		private AccessDB Db;
+		private readonly string[] DbPaths = { @"C:\Dados\TestDB_DeleteTable.accdb", @"C:\Dados\TestDB_DeleteTableAsync.accdb" };
+		private readonly AccessDB[] Dbs = new AccessDB[2];
 
 		[SetUp]
 		public void Setup()
 		{
-			Db = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DB_PATH);
-
 			AccessTableColumn idField = new AccessTableColumn("ID", AccessDataType.Counter);
-			Db.CreateTable("Table", idField);
+
+			Dbs[0] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[0]);
+			Dbs[0].CreateTable("Table", idField);
+			Dbs[1] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[1]);
+			Dbs[1].CreateTable("Table", idField);
 		}
 
 		[Test]
 		public void TEST_DeleteTable()
 		{
-			Db.DeleteTable("Table");
+			Dbs[0].DeleteTable("Table");
+		}
+
+		[Test]
+		public async Task TEST_DeleteTableAsync()
+		{
+			await Dbs[1].DeleteTableAsync("Table");
 		}
 
 		[TearDown]
 		public void Cleanup()
 		{
-			Db.CloseConnection();
-			File.Delete(DB_PATH);
+			TestUtils.CleanupAccessTesting(DbPaths, Dbs);
 		}
 	}
 }

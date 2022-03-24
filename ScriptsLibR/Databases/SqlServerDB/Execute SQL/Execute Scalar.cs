@@ -14,7 +14,7 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
@@ -28,11 +28,11 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -43,7 +43,7 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -62,11 +62,11 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -82,7 +82,7 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
@@ -96,11 +96,11 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -111,7 +111,7 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];
@@ -130,11 +130,11 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			object?[] returnValue = new object?[sqls.Length];

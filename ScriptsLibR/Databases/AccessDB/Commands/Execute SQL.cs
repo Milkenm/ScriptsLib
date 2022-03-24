@@ -1,11 +1,12 @@
 ﻿using ScriptsLibR.Extensions;
+using ScriptsLibR.Interfaces;
 
 using System.Data;
 using System.Data.OleDb;
 
 namespace ScriptsLibR.Databases.AccessDB
 {
-	public partial class AccessDB
+	public partial class AccessDB 
 	{
 		public DataTable ExecuteSQL(string sql, bool requiresDatabaseToExist)
 		{

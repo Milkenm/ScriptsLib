@@ -5,16 +5,13 @@ using System.Data;
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.General
+namespace ScriptsLibR.Utils.Database
 {
-	public partial class General
+	public static partial class DatabaseUtils
 	{
-		public DataTable ExecuteReader(DbConnection con, string sql)
+		public static DataTable ExecuteReader(DbConnection con, string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
+			Utils.NullChecker(true, (con, nameof(con)), (sql, nameof(sql)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			using (DbDataReader dr = cmd.ExecuteReader())
@@ -25,16 +22,9 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public DataTable ExecuteReader(DbCommand cmd, string sql)
+		public static DataTable ExecuteReader(DbCommand cmd, string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
+			Utils.NullChecker(true, (cmd, nameof(cmd)), (sql, nameof(sql)));
 
 			using (DbDataReader dr = cmd.ExecuteReader())
 			{
@@ -45,12 +35,9 @@ namespace ScriptsLibR.Databases.General
 		}
 
 
-		public DataTable ExecuteReader(DbConnection con, string[] sqls)
+		public static DataTable ExecuteReader(DbConnection con, string[] sqls)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sqls");
-			}
+			Utils.NullChecker(true, (con, nameof(con)), (sqls, nameof(sqls)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			using (DbDataReader dr = cmd.ExecuteReader())
@@ -61,15 +48,17 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public DataTable ExecuteReader(DbCommand cmd, string[] sqls)
+		public static DataTable ExecuteReader(DbCommand cmd, string[] sqls)
 		{
+			Utils.NullChecker(true, (cmd, nameof(cmd)), (sqls, nameof(sqls)));
+
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			using (DbDataReader dr = cmd.ExecuteReader())
@@ -80,12 +69,9 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public async Task<DataTable> ExecuteReaderAsync(DbConnection con, string sql)
+		public static async Task<DataTable> ExecuteReaderAsync(DbConnection con, string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
+			await Utils.NullCheckerAsync(true, (con, nameof(con)), (sql, nameof(sql)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			using (DbDataReader dr = await cmd.ExecuteReaderAsync())
@@ -96,16 +82,9 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public async Task<DataTable> ExecuteReaderAsync(DbCommand cmd, string sql)
+		public static async Task<DataTable> ExecuteReaderAsync(DbCommand cmd, string sql)
 		{
-			if (sql.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
+			await Utils.NullCheckerAsync(true, (cmd, nameof(cmd)), (sql, nameof(sql)));
 
 			using (DbDataReader dr = await cmd.ExecuteReaderAsync())
 			{
@@ -116,12 +95,9 @@ namespace ScriptsLibR.Databases.General
 		}
 
 
-		public async Task<DataTable> ExecuteReaderAsync(DbConnection con, string[] sqls)
+		public static async Task<DataTable> ExecuteReaderAsync(DbConnection con, string[] sqls)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sql");
-			}
+			await Utils.NullCheckerAsync(true, (con, nameof(con)), (sqls, nameof(sqls)));
 
 			using (DbCommand cmd = con.CreateCommand())
 			using (DbDataReader dr = await cmd.ExecuteReaderAsync())
@@ -132,16 +108,9 @@ namespace ScriptsLibR.Databases.General
 			}
 		}
 
-		public async Task<DataTable> ExecuteReaderAsync(DbCommand cmd, string[] sqls)
+		public static async Task<DataTable> ExecuteReaderAsync(DbCommand cmd, string[] sqls)
 		{
-			if (sqls.IsEmpty())
-			{
-				throw new ArgumentNullException("sqls");
-			}
-			if (cmd == null)
-			{
-				throw new ArgumentNullException("cmd");
-			}
+			await Utils.NullCheckerAsync(true, (cmd, nameof(cmd)), (sqls, nameof(sqls)));
 
 			using (DbDataReader dr = await cmd.ExecuteReaderAsync())
 			{

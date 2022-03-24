@@ -1,4 +1,5 @@
 ﻿using ScriptsLibR.Extensions;
+using ScriptsLibR.Interfaces;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,19 +8,19 @@ namespace ScriptsLibR.Databases.AccessDB
 {
 	public partial class AccessDB
 	{
-		public int CreateTable(string tableName, params AccessTableColumn[] fields)
+		public int CreateTable(string tableName, params IDatabaseTableColumn[] fields)
 		{
 			string columnsString = this.CreateTableCode(tableName, fields);
 			return this.ExecuteNonQuery($"CREATE TABLE [{tableName}] ({columnsString})");
 		}
 
-		public async Task<int> CreateTableAsync(string tableName, params AccessTableColumn[] fields)
+		public async Task<int> CreateTableAsync(string tableName, params IDatabaseTableColumn[] fields)
 		{
 			string columnsString = this.CreateTableCode(tableName, fields);
 			return await this.ExecuteNonQueryAsync($"CREATE TABLE [{tableName}] ({columnsString})");
 		}
 
-		public string CreateTableCode(string tableName, params AccessTableColumn[] fields)
+		private string CreateTableCode(string tableName, params IDatabaseTableColumn[] fields)
 		{
 			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
 			(fields.Length == 0).ThrowArgumentNullExceptionIfTrue("fields");

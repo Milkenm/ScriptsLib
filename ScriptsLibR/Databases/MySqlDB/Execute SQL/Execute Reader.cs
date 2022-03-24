@@ -14,7 +14,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -24,15 +24,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public MySqlDataReader ExecuteReader(string sql, MySqlCommand cmd)
+		public static MySqlDataReader ExecuteReader(string sql, MySqlCommand cmd)
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -44,7 +44,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			MySqlDataReader[] returnValue = new MySqlDataReader[sqls.Length];
@@ -59,15 +59,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public MySqlDataReader[] ExecuteReader(string[] sqls, MySqlCommand cmd)
+		public static MySqlDataReader[] ExecuteReader(string[] sqls, MySqlCommand cmd)
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			MySqlDataReader[] returnValue = new MySqlDataReader[sqls.Length];
@@ -83,7 +83,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -93,15 +93,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			}
 		}
 
-		public async Task<DbDataReader> ExecuteReaderAsync(string sql, MySqlCommand cmd)
+		public static async Task<DbDataReader> ExecuteReaderAsync(string sql, MySqlCommand cmd)
 		{
 			if (sql.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sql));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			cmd.CommandText = sql;
@@ -113,7 +113,7 @@ namespace ScriptsLibR.Databases.MySqlDB
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sql");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 
 			DbDataReader[] returnValue = new DbDataReader[sqls.Length];
@@ -128,15 +128,15 @@ namespace ScriptsLibR.Databases.MySqlDB
 			return returnValue;
 		}
 
-		public async Task<DbDataReader[]> ExecuteReaderAsync(string[] sqls, MySqlCommand cmd)
+		public static async Task<DbDataReader[]> ExecuteReaderAsync(string[] sqls, MySqlCommand cmd)
 		{
 			if (sqls.IsEmpty())
 			{
-				throw new ArgumentNullException("sqls");
+				throw new ArgumentNullException(nameof(sqls));
 			}
 			if (cmd == null)
 			{
-				throw new ArgumentNullException("cmd");
+				throw new ArgumentNullException(nameof(cmd));
 			}
 
 			DbDataReader[] returnValue = new DbDataReader[sqls.Length];

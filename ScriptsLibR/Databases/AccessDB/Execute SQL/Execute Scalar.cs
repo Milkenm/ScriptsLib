@@ -1,4 +1,7 @@
-﻿using System.Data.OleDb;
+﻿using ScriptsLibR.Interfaces;
+using ScriptsLibR.Utils.Database;
+
+using System.Data.OleDb;
 using System.Threading.Tasks;
 
 #nullable enable
@@ -8,42 +11,42 @@ namespace ScriptsLibR.Databases.AccessDB
 	{
 		public object? ExecuteScalar(string sql)
 		{
-			return new General.General().ExecuteScalar(this.GetDbConnection(), sql);
+			return DatabaseUtils.ExecuteScalar(this.GetDbConnection(), sql);
 		}
 
 		public object? ExecuteScalar(string sql, OleDbCommand cmd)
 		{
-			return new General.General().ExecuteScalar(cmd, sql);
+			return DatabaseUtils.ExecuteScalar(cmd, sql);
 		}
 
 		public object?[] ExecuteScalar(string[] sqls)
 		{
-			return new General.General().ExecuteScalar(this.GetDbConnection(), sqls);
+			return DatabaseUtils.ExecuteScalar(this.GetDbConnection(), sqls);
 		}
 
 		public object?[] ExecuteScalar(string[] sqls, OleDbCommand cmd)
 		{
-			return new General.General().ExecuteScalar(cmd, sqls);
+			return DatabaseUtils.ExecuteScalar(cmd, sqls);
 		}
 
 		public async Task<object?> ExecuteScalarAsync(string sql)
 		{
-			return await new General.General().ExecuteScalarAsync(this.GetDbConnection(), sql);
+			return await DatabaseUtils.ExecuteScalarAsync(this.GetDbConnection(), sql);
 		}
 
 		public async Task<object?> ExecuteScalarAsync(OleDbCommand cmd, string sql)
 		{
-			return await new General.General().ExecuteScalarAsync(cmd, sql);
+			return await DatabaseUtils.ExecuteScalarAsync(cmd, sql);
 		}
 
 		public async Task<object?[]> ExecuteScalarAsync(string[] sqls)
 		{
-			return await new General.General().ExecuteScalarAsync(this.GetDbConnection(), sqls);
+			return await DatabaseUtils.ExecuteScalarAsync(this.GetDbConnection(), sqls);
 		}
 
 		public async Task<object?[]> ExecuteScalarAsync(string[] sqls, OleDbCommand cmd)
 		{
-			return await new General.General().ExecuteScalarAsync(cmd, sqls);
+			return await DatabaseUtils.ExecuteScalarAsync(cmd, sqls);
 		}
 	}
 }

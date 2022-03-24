@@ -1,7 +1,4 @@
-﻿
-using static ScriptsLibR.APIs.GitHubAPI.Schemes;
-
-namespace ScriptsLibR.APIs
+﻿namespace ScriptsLibR.APIs.GitHubAPI
 {
 	public partial class GitHubAPI
 	{
