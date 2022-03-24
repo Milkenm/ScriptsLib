@@ -2,6 +2,8 @@
 
 using ScriptsLibR.APIs.GitHubAPI;
 
+using System;
+
 namespace SlTestingR.APIs.GitHubAPITests
 {
 	internal class GetLatestRelease
@@ -18,7 +20,7 @@ namespace SlTestingR.APIs.GitHubAPITests
 		public void TEST_GetLatestRelease()
 		{
 			Release latestRelease = api.GetLatestRelease("Milkenm", "ScriptsLib");
-			Assert.IsTrue(latestRelease.TagName.ToLower().StartsWith("v."));
+			Assert.IsTrue(latestRelease.TagName.ToLower().StartsWith("v"));
 		}
 	}
 }
