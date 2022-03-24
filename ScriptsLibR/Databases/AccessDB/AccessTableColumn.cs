@@ -25,7 +25,7 @@ namespace ScriptsLibR.Databases.AccessDB
 		{
 			this.Name = name;
 			this.DataType = AccessDataType.Counter;
-			this.IsPrimaryKey = this.IsPrimaryKey;
+			this.IsPrimaryKey = isPrimaryKey;
 		}
 
 		public AccessTableColumn(string name)
