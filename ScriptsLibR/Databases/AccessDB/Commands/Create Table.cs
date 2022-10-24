@@ -1,8 +1,8 @@
-﻿using ScriptsLibR.Extensions;
-using ScriptsLibR.Interfaces;
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+
+using ScriptsLibR.Extensions;
+using ScriptsLibR.Interfaces;
 
 namespace ScriptsLibR.Databases
 {

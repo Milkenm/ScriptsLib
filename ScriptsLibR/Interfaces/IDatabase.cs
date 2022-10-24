@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ScriptsLibR.Interfaces
 {
-	public interface IDatabase<T>
+	public interface IDatabase
 	{
 		string ConnectionString { get; }
 

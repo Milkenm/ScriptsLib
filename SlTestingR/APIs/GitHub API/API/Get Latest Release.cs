@@ -2,8 +2,6 @@
 
 using ScriptsLibR.APIs.GitHubAPI;
 
-using System;
-
 namespace SlTestingR.APIs.GitHubAPITests
 {
 	internal class GetLatestRelease

@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace ScriptsLibR.Databases
 {
-	public partial class AccessDB : IDatabase<AccessDataType>
+	public partial class AccessDB : IDatabase
 	{
 		private static AccessDB Instance;
 
