@@ -3,7 +3,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Utils
+namespace ScriptsLibR.Util
 {
 	public partial class Utils
 	{

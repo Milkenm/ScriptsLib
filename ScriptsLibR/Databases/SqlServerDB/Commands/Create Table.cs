@@ -25,14 +25,14 @@ namespace ScriptsLibR.Databases.SqlServerDB
 			{
 				string dataType = field.DataType switch
 				{
-					SqlServerDataTypes.Text => "ntext",
-					SqlServerDataTypes.Number => "bigint",
-					SqlServerDataTypes.Image => "image",
-					SqlServerDataTypes.Money => "money",
-					SqlServerDataTypes.Decimal => "decimal(38,38)",
-					SqlServerDataTypes.DateAndTime => "datetime2",
-					SqlServerDataTypes.Date => "date",
-					SqlServerDataTypes.Time => "time",
+					SqlServerDataType.Text => "ntext",
+					SqlServerDataType.Number => "bigint",
+					SqlServerDataType.Image => "image",
+					SqlServerDataType.Money => "money",
+					SqlServerDataType.Decimal => "decimal(38,38)",
+					SqlServerDataType.DateAndTime => "datetime2",
+					SqlServerDataType.Date => "date",
+					SqlServerDataType.Time => "time",
 					_ => throw new Exception("Invalid Field DataType."),
 				};
 

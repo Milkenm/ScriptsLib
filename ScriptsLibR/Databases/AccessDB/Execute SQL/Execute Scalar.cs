@@ -1,5 +1,5 @@
 ﻿using ScriptsLibR.Interfaces;
-using ScriptsLibR.Utils.Database;
+using ScriptsLibR.Util.Database;
 
 using System.Data.OleDb;
 using System.Threading.Tasks;

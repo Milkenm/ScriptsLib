@@ -2,7 +2,7 @@
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Utils.Database
+namespace ScriptsLibR.Util.Database
 {
 	public partial class DatabaseUtils
 	{

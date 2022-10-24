@@ -3,6 +3,7 @@
 using ScriptsLibR.Exceptions;
 using ScriptsLibR.Extensions;
 using ScriptsLibR.Interfaces;
+using ScriptsLibR.Util;
 
 using System;
 using System.Data;
@@ -12,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace ScriptsLibR.Databases
 {
-	public partial class AccessDB : IDatabase
+	public partial class AccessDB : IDatabase<AccessDataType>
 	{
 		private static AccessDB Instance;
 
@@ -27,7 +28,7 @@ namespace ScriptsLibR.Databases
 
 		public AccessDB(string connectionString)
 		{
-			Utils.Utils.NullChecker((connectionString, nameof(connectionString)));
+			Utils.NullChecker((connectionString, nameof(connectionString)));
 			Instance = this;
 
 			this.ConnectionString = connectionString;
@@ -53,7 +54,7 @@ namespace ScriptsLibR.Databases
 
 		public static void CreateDatabase(string databasePath, DatabaseTypeEnum provider)
 		{
-			Utils.Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
+			Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
 
 			if (File.Exists(databasePath))
 			{

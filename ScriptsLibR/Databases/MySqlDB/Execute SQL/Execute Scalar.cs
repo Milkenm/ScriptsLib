@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 
 #nullable enable
-namespace ScriptsLibR.Databases.MySqlDB
+namespace ScriptsLibR.Databases
 {
 	public partial class MySqlDB
 	{

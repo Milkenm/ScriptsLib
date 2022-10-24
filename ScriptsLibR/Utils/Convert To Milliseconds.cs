@@ -1,4 +1,4 @@
-﻿namespace ScriptsLibR.Utils
+﻿namespace ScriptsLibR.Util
 {
     public partial class Utils
     {

@@ -4,7 +4,7 @@ using ScriptsLibR.Extensions;
 
 using System.Data;
 
-namespace ScriptsLibR.Databases.MySqlDB
+namespace ScriptsLibR.Databases
 {
 	public partial class MySqlDB
 	{

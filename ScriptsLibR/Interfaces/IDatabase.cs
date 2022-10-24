@@ -1,18 +1,16 @@
-﻿using ScriptsLibR.Databases.AccessDB;
-
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
 using System.Threading.Tasks;
 
 namespace ScriptsLibR.Interfaces
 {
-	public interface IDatabase
+	public interface IDatabase<T>
 	{
 		string ConnectionString { get; }
 
 		void CloseConnection();
-		int CreateTable(string tableName, params IDatabaseTableColumn[] fields);
-		Task<int> CreateTableAsync(string tableName, params IDatabaseTableColumn[] fields);
+		int CreateTable(string tableName, params IDatabaseTableColumn<T>[] fields);
+		Task<int> CreateTableAsync(string tableName, params IDatabaseTableColumn<T>[] fields);
 		int Delete(string tableName, string condition);
 		Task<int> DeleteAsync(string tableName, string condition);
 		int DeleteTable(string tableName);

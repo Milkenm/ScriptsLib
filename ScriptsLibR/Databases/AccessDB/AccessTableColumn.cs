@@ -1,75 +1,27 @@
-﻿using ScriptsLibR.Interfaces;
-
-using System.ComponentModel;
-using System.Text;
+﻿using ScriptsLibR.Interfaces.Abstract;
 
 namespace ScriptsLibR.Databases
 {
-	public class AccessTableColumn : IDatabaseTableColumn
+	public class AccessTableColumn : DatabaseTableColumn<AccessDataType>
 	{
-		public AccessTableColumn(string name, AccessDataType dataType, bool isPrimaryKey)
+		public AccessTableColumn(string name, AccessDataType dataType, bool isPrimaryKey) : base(name, dataType, isPrimaryKey)
 		{
-			this.Name = name;
-			this.DataType = dataType;
-			this.IsPrimaryKey = isPrimaryKey;
+			// base()
 		}
 
-		public AccessTableColumn(string name, AccessDataType dataType)
+		public AccessTableColumn(string name, AccessDataType dataType) : base(name, dataType, false)
 		{
-			this.Name = name;
-			this.DataType = dataType;
-			this.IsPrimaryKey = false;
+			// base()
 		}
 
-		public AccessTableColumn(string name, bool isPrimaryKey)
+		public AccessTableColumn(string name, bool isPrimaryKey) : base(name, AccessDataType.Counter, isPrimaryKey)
 		{
-			this.Name = name;
-			this.DataType = AccessDataType.Counter;
-			this.IsPrimaryKey = isPrimaryKey;
+			// base()
 		}
 
-		public AccessTableColumn(string name)
+		public AccessTableColumn(string name) : base(name, AccessDataType.Counter, false)
 		{
-			this.Name = name;
-			this.DataType = AccessDataType.Counter;
-			this.IsPrimaryKey = false;
-		}
-
-		public string Name { get; }
-		public dynamic DataType { get; }
-		public bool IsPrimaryKey { get; }
-
-		public override string ToString()
-		{
-			StringBuilder sb = new StringBuilder($"[{this.Name}]");
-
-			string dataType = this.DataType switch
-			{
-				AccessDataType.BigBinary => "BIGBINARY",
-				AccessDataType.Binary => "BINARY",
-				AccessDataType.Bit => "BIT",
-				AccessDataType.Counter => "COUNTER",
-				AccessDataType.Currency => "CURRENCY",
-				AccessDataType.DateTime => "DATE",
-				AccessDataType.Guid => "GUID",
-				AccessDataType.LongText => "LONGTEXT",
-				AccessDataType.NumberSingle => "SINGLE",
-				AccessDataType.NumberDouble => "DOUBLE",
-				AccessDataType.NumberByte => "BYTE",
-				AccessDataType.NumberInteger => "SHORT",
-				AccessDataType.NumberLongInteger => "LONG",
-				AccessDataType.Numeric => "NUMERIC",
-				AccessDataType.Ole => "LONGBINARY",
-				AccessDataType.Text => "TEXT",
-				_ => throw new InvalidEnumArgumentException($"Invalid \"DataType\": '{this.DataType}'."),
-			};
-			sb.Append($" {dataType}");
-
-			if (this.IsPrimaryKey)
-			{
-				sb.Append(" PRIMARY KEY");
-			}
-			return sb.ToString();
+			// base()
 		}
 	}
 

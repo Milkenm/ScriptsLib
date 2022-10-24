@@ -1,10 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 
 using ScriptsLibR.Exceptions;
+using ScriptsLibR.Interfaces;
 
-namespace ScriptsLibR.Databases.MySqlDB
+namespace ScriptsLibR.Databases
 {
-	public partial class MySqlDB
+	public partial class MySqlDB 
 	{
 		private static MySqlDB Instance;
 
@@ -62,27 +63,6 @@ namespace ScriptsLibR.Databases.MySqlDB
 		public static string Password { get; private set; }
 
 		public static string SslMode { get; private set; }
-
-		public struct MySqlTableFields
-		{
-			public string Name;
-			public MySqlDataTypes DataType;
-			public bool PrimaryKey;
-			public bool AutoIncrement;
-		}
-
-		public enum MySqlDataTypes
-		{
-			Key,
-			Text,
-			Number,
-			Money,
-			Decimal,
-			DateAndTime,
-			Boolean,
-			Timestamp,
-			Year,
-		}
 
 		private string GetConnectionString()
 		{

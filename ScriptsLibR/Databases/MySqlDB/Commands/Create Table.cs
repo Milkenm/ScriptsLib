@@ -5,11 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Databases.MySqlDB
+namespace ScriptsLibR.Databases
 {
 	public partial class MySqlDB
 	{
-		public int CreateTable(string tableName, List<MySqlTableFields> fields)
+		/*
+		public int CreateTable(string tableName, List<MySqlTableColumn> fields)
 		{
 			string columnsString = this.CreateTableCode(tableName, fields);
 			return this.ExecuteNonQuery($"CREATE TABLE {tableName} ({columnsString})");
@@ -53,6 +54,6 @@ namespace ScriptsLibR.Databases.MySqlDB
 				}
 			}
 			return string.Join(", ", columns.ToArray());
-		}
+		}*/
 	}
 }

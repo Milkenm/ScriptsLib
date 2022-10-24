@@ -8,19 +8,19 @@ namespace ScriptsLibR.Databases
 {
 	public partial class AccessDB
 	{
-		public int CreateTable(string tableName, params IDatabaseTableColumn[] fields)
+		public int CreateTable(string tableName, params IDatabaseTableColumn<AccessDataType>[] fields)
 		{
 			string columnsString = this.CreateTableCode(tableName, fields);
 			return this.ExecuteNonQuery($"CREATE TABLE [{tableName}] ({columnsString})");
 		}
 
-		public async Task<int> CreateTableAsync(string tableName, params IDatabaseTableColumn[] fields)
+		public async Task<int> CreateTableAsync(string tableName, params IDatabaseTableColumn<AccessDataType>[] fields)
 		{
 			string columnsString = this.CreateTableCode(tableName, fields);
 			return await this.ExecuteNonQueryAsync($"CREATE TABLE [{tableName}] ({columnsString})");
 		}
 
-		private string CreateTableCode(string tableName, params IDatabaseTableColumn[] fields)
+		private string CreateTableCode(string tableName, params IDatabaseTableColumn<AccessDataType>[] fields)
 		{
 			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
 			(fields.Length == 0).ThrowArgumentNullExceptionIfTrue("fields");

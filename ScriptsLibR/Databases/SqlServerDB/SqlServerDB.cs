@@ -63,21 +63,9 @@ namespace ScriptsLibR.Databases.SqlServerDB
 		public struct SqlServerTableFields
 		{
 			public string Name;
-			public SqlServerDataTypes DataType;
+			public SqlServerDataType DataType;
 			public bool PrimaryKey;
 			public bool AutoIncrement;
-		}
-
-		public enum SqlServerDataTypes
-		{
-			Text,
-			Number,
-			Image,
-			Money,
-			Decimal,
-			DateAndTime,
-			Date,
-			Time,
 		}
 	}
 }

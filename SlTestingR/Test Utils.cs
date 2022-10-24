@@ -1,4 +1,4 @@
-﻿using ScriptsLibR.Databases.AccessDB;
+﻿using ScriptsLibR.Interfaces;
 
 using System.IO;
 
@@ -6,9 +6,9 @@ namespace SlTestingR
 {
 	internal static class TestUtils
 	{
-		public static void CleanupAccessTesting(string[] dbPaths, AccessDB[] dbs)
+		public static void CleanupAccessTesting<T>(string[] dbPaths, IDatabase<T>[] dbs)
 		{
-			foreach (AccessDB db in dbs)
+			foreach (IDatabase<T> db in dbs)
 			{
 				if (db != null)
 				{

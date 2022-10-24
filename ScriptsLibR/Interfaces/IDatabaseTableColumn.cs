@@ -1,10 +1,10 @@
 ﻿namespace ScriptsLibR.Interfaces
 {
-	public interface IDatabaseTableColumn
+	public interface IDatabaseTableColumn<T>
 	{
-		dynamic DataType { get; }
-		bool IsPrimaryKey { get; }
 		string Name { get; }
+		T DataType { get; }
+		bool IsPrimaryKey { get; }
 
 		string ToString();
 	}
