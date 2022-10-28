@@ -1,10 +1,10 @@
 ﻿namespace ScriptsLibR.Interfaces
 {
-	public abstract class IDatabaseDataType
+	public abstract class IDatabaseFieldInfo
 	{
 		public string Name { get; private set; }
 
-		public IDatabaseDataType(string name)
+		public IDatabaseFieldInfo(string name)
 		{
 			this.Name = name;
 		}

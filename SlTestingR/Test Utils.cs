@@ -1,14 +1,14 @@
-﻿using ScriptsLibR.Interfaces;
+﻿using System.IO;
 
-using System.IO;
+using ScriptsLibR.Interfaces;
 
 namespace SlTestingR
 {
 	internal static class TestUtils
 	{
-		public static void CleanupAccessTesting<T>(string[] dbPaths, IDatabase<T>[] dbs)
+		public static void CleanupAccessTesting(string[] dbPaths, IDatabase[] dbs)
 		{
-			foreach (IDatabase<T> db in dbs)
+			foreach (IDatabase db in dbs)
 			{
 				if (db != null)
 				{

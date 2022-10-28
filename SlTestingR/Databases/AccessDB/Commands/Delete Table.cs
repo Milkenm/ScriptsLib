@@ -14,8 +14,6 @@ namespace SlTestingR.Databases_AccessDB_Tests
 		[SetUp]
 		public void Setup()
 		{
-			AccessTableColumn idField = new AccessTableColumn("ID", AccessDataType.Counter);
-
 			Dbs[0] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[0]);
 			Dbs[0].CreateTable("Table", idField);
 			Dbs[1] = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + DbPaths[1]);
