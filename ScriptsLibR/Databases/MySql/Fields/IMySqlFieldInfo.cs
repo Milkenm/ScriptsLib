@@ -7,7 +7,7 @@ namespace ScriptsLibR.Databases.MySql.Types
 {
 	public abstract class IMySqlFieldInfo<T> : IDatabaseFieldInfo
 	{
-		public IMySqlFieldInfo(string name, int length, bool isPrimaryKey, bool isNullable, bool isUnique, bool isBinary, bool isUnsigned, bool isZerofill, bool isAutoIncrement, bool isGenerated, T defaultValue, string comment, string characterSet, string collation, string after) : base(name)
+		public IMySqlFieldInfo(string name, long length, bool isPrimaryKey, bool isNullable, bool isUnique, bool isBinary, bool isUnsigned, bool isZerofill, bool isAutoIncrement, bool isGenerated, T defaultValue, string comment, string characterSet, string collation, string after) : base(name)
 		{
 			Utils.NullChecker((name, "Name"));
 
@@ -27,7 +27,7 @@ namespace ScriptsLibR.Databases.MySql.Types
 			this.After = after;
 		}
 
-		public int Length { get; }
+		public long Length { get; }
 		public bool IsPrimaryKey { get; }
 		public bool IsNullable { get; }
 		public bool IsUnique { get; }
