@@ -17,4 +17,8 @@
     <ProjectReference Include="..\ScriptsLibR\ScriptsLibR.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="APIs\RiotAPI\" />
+  </ItemGroup>
+
 </Project>
