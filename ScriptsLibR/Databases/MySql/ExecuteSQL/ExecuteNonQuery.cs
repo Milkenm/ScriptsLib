@@ -10,7 +10,7 @@ namespace ScriptsLibR.Databases
 	{
 		public int ExecuteNonQuery(string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
 			{
@@ -21,8 +21,8 @@ namespace ScriptsLibR.Databases
 
 		public static int ExecuteNonQuery(string sql, MySqlCommand cmd)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sql.ThrowExceptionIfNull("sql", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			cmd.CommandText = sql;
 			return cmd.ExecuteNonQuery();
@@ -30,7 +30,7 @@ namespace ScriptsLibR.Databases
 
 		public int[] ExecuteNonQuery(string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			sqls.ThrowExceptionIfNull("sqls", true);
 
 			int[] returnValue = new int[sqls.Length];
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -46,8 +46,8 @@ namespace ScriptsLibR.Databases
 
 		public static int[] ExecuteNonQuery(string[] sqls, MySqlCommand cmd)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("slqs", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sqls.ThrowExceptionIfNull("slqs", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)
@@ -60,7 +60,7 @@ namespace ScriptsLibR.Databases
 
 		public async Task<int> ExecuteNonQueryAsync(string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
 			{
@@ -71,8 +71,8 @@ namespace ScriptsLibR.Databases
 
 		public static async Task<int> ExecuteNonQueryAsync(string sql, MySqlCommand cmd)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sql.ThrowExceptionIfNull("sql", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			cmd.CommandText = sql;
 			return await cmd.ExecuteNonQueryAsync();
@@ -80,7 +80,7 @@ namespace ScriptsLibR.Databases
 
 		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			sqls.ThrowExceptionIfNull("sqls", true);
 
 			int[] returnValue = new int[sqls.Length];
 			using (MySqlCommand cmd = this.GetDbConnection().CreateCommand())
@@ -96,8 +96,8 @@ namespace ScriptsLibR.Databases
 
 		public static async Task<int[]> ExecuteNonQueryAsync(string[] sqls, MySqlCommand cmd)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sqls.ThrowExceptionIfNull("sqls", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)

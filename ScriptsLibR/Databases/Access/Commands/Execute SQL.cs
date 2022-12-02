@@ -10,7 +10,7 @@ namespace ScriptsLibR.Databases
 	{
 		public DataTable ExecuteSQL(string sql, bool requiresDatabaseToExist)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (OleDbDataAdapter da = new OleDbDataAdapter(sql, this.GetDbConnection()))
 			{

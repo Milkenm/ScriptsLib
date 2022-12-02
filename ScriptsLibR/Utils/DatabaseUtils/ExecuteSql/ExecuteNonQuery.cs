@@ -2,9 +2,9 @@
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Util.Database
+namespace ScriptsLibR.Utils
 {
-	public partial class DatabaseUtils
+	public static partial class DatabaseUtils
 	{
 		public static int ExecuteNonQuery(DbConnection con, string sql)
 		{

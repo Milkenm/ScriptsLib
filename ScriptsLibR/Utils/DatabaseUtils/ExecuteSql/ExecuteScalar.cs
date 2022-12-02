@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 #nullable enable
-namespace ScriptsLibR.Util.Database
+namespace ScriptsLibR.Utils
 {
 	public partial class DatabaseUtils
 	{

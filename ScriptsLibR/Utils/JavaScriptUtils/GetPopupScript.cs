@@ -1,6 +1,6 @@
-﻿namespace ScriptsLibR.JavaScript
+﻿namespace ScriptsLibR.Utils
 {
-    public partial class JavaScript
+    public partial class JavaScriptUtils
     {
         public string GetPopupScript(string message)
         {

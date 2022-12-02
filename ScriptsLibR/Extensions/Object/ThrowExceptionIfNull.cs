@@ -2,9 +2,9 @@
 
 namespace ScriptsLibR.Extensions
 {
-	public static class ObjectExtensions
+	public static partial class ObjectExtensions
 	{
-		public static void ThrowArgumentNullExceptionIfNull(this object obj, string paramName, bool ignoreSpacesIfString)
+		public static void ThrowExceptionIfNull(this object obj, string paramName, bool ignoreSpacesIfString)
 		{
 			if (obj.GetType() == typeof(string))
 			{
@@ -25,10 +25,10 @@ namespace ScriptsLibR.Extensions
 				throw new ArgumentNullException(paramName);
 			}
 
-			ThrowArgumentNullExceptionIfNull(obj, paramName);
+			ThrowExceptionIfNull(obj, paramName);
 		}
 
-		public static void ThrowArgumentNullExceptionIfNull(this object obj, string paramName)
+		public static void ThrowExceptionIfNull(this object obj, string paramName)
 		{
 			if (obj != null)
 			{
@@ -36,14 +36,6 @@ namespace ScriptsLibR.Extensions
 			}
 
 			throw new ArgumentNullException(paramName);
-		}
-
-		public static void ThrowArgumentNullExceptionIfTrue(this bool condition, string paramName)
-		{
-			if (condition)
-			{
-				throw new ArgumentNullException(paramName);
-			}
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace ScriptsLibR.Databases
 	{
 		public DataTable ExecuteSQL(string sql)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (MySqlDataAdapter da = new MySqlDataAdapter(sql, this.GetDbConnection()))
 			{

@@ -1,7 +1,6 @@
 ﻿using System.Text;
 
 using ScriptsLibR.Interfaces;
-using ScriptsLibR.Util;
 
 namespace ScriptsLibR.Databases.MySql.Types
 {
@@ -9,7 +8,7 @@ namespace ScriptsLibR.Databases.MySql.Types
 	{
 		public IMySqlFieldInfo(string name, long length, bool isPrimaryKey, bool isNullable, bool isUnique, bool isBinary, bool isUnsigned, bool isZerofill, bool isAutoIncrement, bool isGenerated, T defaultValue, string comment, string characterSet, string collation, string after) : base(name)
 		{
-			Utils.NullChecker((name, "Name"));
+			Utils.Utils.NullChecker((name, "Name"));
 
 			this.Length = length;
 			this.IsPrimaryKey = isPrimaryKey;

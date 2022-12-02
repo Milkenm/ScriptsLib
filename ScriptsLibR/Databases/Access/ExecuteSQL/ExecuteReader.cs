@@ -1,9 +1,8 @@
-﻿using ScriptsLibR.Interfaces;
-using ScriptsLibR.Util.Database;
-
-using System.Data;
+﻿using System.Data;
 using System.Data.OleDb;
 using System.Threading.Tasks;
+
+using ScriptsLibR.Utils;
 
 namespace ScriptsLibR.Databases
 {

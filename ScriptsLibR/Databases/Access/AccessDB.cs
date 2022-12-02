@@ -3,7 +3,7 @@
 using ScriptsLibR.Exceptions;
 using ScriptsLibR.Extensions;
 using ScriptsLibR.Interfaces;
-using ScriptsLibR.Util;
+using ScriptsLibR.Utils;
 
 using System;
 using System.Data;
@@ -28,7 +28,7 @@ namespace ScriptsLibR.Databases
 
 		public AccessDB(string connectionString)
 		{
-			Utils.NullChecker((connectionString, nameof(connectionString)));
+			Utils.Utils.NullChecker((connectionString, nameof(connectionString)));
 			Instance = this;
 
 			this.ConnectionString = connectionString;
@@ -54,7 +54,7 @@ namespace ScriptsLibR.Databases
 
 		public static void CreateDatabase(string databasePath, DatabaseTypeEnum provider)
 		{
-			Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
+			Utils.Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
 
 			if (File.Exists(databasePath))
 			{

@@ -21,9 +21,9 @@ namespace ScriptsLibR.Databases
 
 		private (string columnsString, object valuesObject) InsertCode(string tableName, string[] columns, object[] values)
 		{
-			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
-			columns.ThrowArgumentNullExceptionIfNull("columns", true);
-			values.ThrowArgumentNullExceptionIfNull("values");
+			tableName.ThrowExceptionIfNull("tableName", true);
+			columns.ThrowExceptionIfNull("columns", true);
+			values.ThrowExceptionIfNull("values");
 
 			string columnsString = "[" + string.Join<string>("], [", columns) + "]";
 			object valuesObject = string.Join<object>(", ", values);

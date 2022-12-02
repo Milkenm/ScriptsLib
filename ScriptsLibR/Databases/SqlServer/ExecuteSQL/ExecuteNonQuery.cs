@@ -9,7 +9,7 @@ namespace ScriptsLibR.Databases.SqlServer
 	{
 		public int ExecuteNonQuery(string sql, bool requiresDatabaseToExist)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
 			{
@@ -20,8 +20,8 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public int ExecuteNonQuery(string sql, SqlCommand cmd)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sql.ThrowExceptionIfNull("sql", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			cmd.CommandText = sql;
 			return cmd.ExecuteNonQuery();
@@ -29,7 +29,7 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public int[] ExecuteNonQuery(string[] sqls, bool requiresDatabaseToExist)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			sqls.ThrowExceptionIfNull("sqls", true);
 
 			int[] returnValue = new int[sqls.Length];
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
@@ -45,8 +45,8 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public int[] ExecuteNonQuery(string[] sqls, SqlCommand cmd)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("slqs", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sqls.ThrowExceptionIfNull("slqs", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)
@@ -59,7 +59,7 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public async Task<int> ExecuteNonQueryAsync(string sql, bool requiresDatabaseToExist)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
 			{
@@ -70,8 +70,8 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public async Task<int> ExecuteNonQueryAsync(string sql, SqlCommand cmd)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sql.ThrowExceptionIfNull("sql", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			cmd.CommandText = sql;
 			return await cmd.ExecuteNonQueryAsync();
@@ -79,7 +79,7 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls, bool requiresDatabaseToExist)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
+			sqls.ThrowExceptionIfNull("sqls", true);
 
 			int[] returnValue = new int[sqls.Length];
 			using (SqlCommand cmd = this.GetDbConnection(requiresDatabaseToExist).CreateCommand())
@@ -95,8 +95,8 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		public async Task<int[]> ExecuteNonQueryAsync(string[] sqls, SqlCommand cmd)
 		{
-			sqls.ThrowArgumentNullExceptionIfNull("sqls", true);
-			cmd.ThrowArgumentNullExceptionIfNull("cmd");
+			sqls.ThrowExceptionIfNull("sqls", true);
+			cmd.ThrowExceptionIfNull("cmd");
 
 			int[] returnValue = new int[sqls.Length];
 			for (int i = 0; i < sqls.Length; i++)

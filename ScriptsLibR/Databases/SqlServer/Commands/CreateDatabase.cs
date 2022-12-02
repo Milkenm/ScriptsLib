@@ -24,7 +24,7 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		private string[] CreateDatabaseCode(string filePath)
 		{
-			filePath.ThrowArgumentNullExceptionIfNull("filePath", true);
+			filePath.ThrowExceptionIfNull("filePath", true);
 			if (File.Exists(filePath))
 			{
 				throw new FileAlreadyExistsException(filePath);

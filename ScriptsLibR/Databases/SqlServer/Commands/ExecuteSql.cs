@@ -10,7 +10,7 @@ namespace ScriptsLibR.Databases.SqlServer
 	{
 		public DataTable ExecuteSQL(string sql, bool requiresDatabaseToExist)
 		{
-			sql.ThrowArgumentNullExceptionIfNull("sql", true);
+			sql.ThrowExceptionIfNull("sql", true);
 
 			using (SqlDataAdapter da = new SqlDataAdapter(sql, this.GetDbConnection(requiresDatabaseToExist)))
 			{

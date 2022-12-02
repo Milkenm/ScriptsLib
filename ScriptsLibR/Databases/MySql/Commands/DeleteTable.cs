@@ -21,7 +21,7 @@ namespace ScriptsLibR.Databases
 
 		private void DeleteTableCode(string tableName)
 		{
-			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
+			tableName.ThrowExceptionIfNull("tableName", true);
 		}
 	}
 }

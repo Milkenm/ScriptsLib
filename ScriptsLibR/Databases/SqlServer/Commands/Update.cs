@@ -20,9 +20,9 @@ namespace ScriptsLibR.Databases.SqlServer
 
 		private void UpdateCode(string table, string update, string condition)
 		{
-			table.ThrowArgumentNullExceptionIfNull("table", true);
-			update.ThrowArgumentNullExceptionIfNull("update", true);
-			condition.ThrowArgumentNullExceptionIfNull("condition", true);
+			table.ThrowExceptionIfNull("table", true);
+			update.ThrowExceptionIfNull("update", true);
+			condition.ThrowExceptionIfNull("condition", true);
 		}
 	}
 }

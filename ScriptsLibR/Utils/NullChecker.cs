@@ -3,9 +3,9 @@
 using System;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Util
+namespace ScriptsLibR.Utils
 {
-	public partial class Utils
+	public static partial class Utils
 	{
 		public static void NullChecker(Action<string> nullAction, bool takeEmptyStringAsNull, params (object parameter, string parameterName)[] objectsList)
 		{

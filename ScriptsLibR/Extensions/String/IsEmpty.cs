@@ -1,6 +1,6 @@
 ﻿namespace ScriptsLibR.Extensions
 {
-	public static class StringExtensions
+	public static partial class StringExtensions
 	{
 		public static bool IsEmpty(this string str, bool ignoreSpaces)
 		{

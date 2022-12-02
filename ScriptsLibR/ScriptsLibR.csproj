@@ -6,6 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="_Resources\Icon\ScriptsLib_PNG.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="_Resources\Changelog_TXT.txt" />
+    <Content Include="_Resources\Icon\ScriptsLib_ICO.ico" />
+    <Content Include="_Resources\Icon\ScriptsLib_PNG.png" />
+    <Content Include="_Resources\Libs\FirewallAPI.dll" />
+    <Content Include="_Resources\Libs\MySql.Data.dll" />
+    <Content Include="_Resources\Libs\UnityEngine.dll" />
+    <Content Include="_Resources\EES_WPA2PSK_AES_XML.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Office.Interop.Access.Dao" Version="15.0.4420.1017" />
     <PackageReference Include="MySql.Data" Version="8.0.28" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -17,6 +31,27 @@
     <Reference Include="Interop.ADOX">
       <HintPath>..\ScriptsLibRTests\obj\Debug\netcoreapp3.1\Interop.ADOX.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>_Resources\Libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>_Resources\Libs\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="_Resources\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="_Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

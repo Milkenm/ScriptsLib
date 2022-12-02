@@ -22,8 +22,8 @@ namespace ScriptsLibR.Databases
 
 		private string CreateTableCode(string tableName, params IDatabaseFieldInfo[] fields)
 		{
-			tableName.ThrowArgumentNullExceptionIfNull("tableName", true);
-			(fields.Length == 0).ThrowArgumentNullExceptionIfTrue("fields");
+			tableName.ThrowExceptionIfNull("tableName", true);
+			(fields.Length == 0).ThrowExceptionIfTrue("fields");
 
 			List<string> columns = new List<string>();
 			foreach (AccessTableColumn field in fields)

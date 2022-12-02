@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace ScriptsLibR.Util.Database
+namespace ScriptsLibR.Utils
 {
 	public static partial class DatabaseUtils
 	{
