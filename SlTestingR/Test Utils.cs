@@ -1,10 +1,9 @@
 ﻿using System.IO;
-
-using ScriptsLibR.Interfaces;
+using ScriptsLibR.Databases;
 
 namespace SlTestingR
 {
-	internal static class TestUtils
+    internal static class TestUtils
 	{
 		public static void CleanupAccessTesting(string[] dbPaths, IDatabase[] dbs)
 		{

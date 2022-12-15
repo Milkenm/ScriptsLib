@@ -2,6 +2,22 @@
 
 namespace ScriptsLibR
 {
+	/// <summary>Type of log.</summary>
+	public enum LogType
+	{
+		/// <summary>Info tag.</summary>
+		Info,
+
+		/// <summary>Error tag.</summary>
+		Error,
+
+		/// <summary>Warning tag.</summary>
+		Warning,
+
+		/// <summary>Debug tag.</summary>
+		Debug,
+	}
+
 	public class Logger
 	{
 		/// <summary>Easly log to files.</summary>
@@ -12,22 +28,6 @@ namespace ScriptsLibR
 		}
 
 		public string LogFile { get; }
-
-		/// <summary>Type of log.</summary>
-		public enum LogType
-		{
-			/// <summary>Info tag.</summary>
-			Info,
-
-			/// <summary>Error tag.</summary>
-			Error,
-
-			/// <summary>Warning tag.</summary>
-			Warning,
-
-			/// <summary>Debug tag.</summary>
-			Debug,
-		}
 
 		/// <summary>Logs something to a log file.</summary>
 		/// <param name="tag">Tag string.</param>
@@ -41,7 +41,7 @@ namespace ScriptsLibR
 			}
 
 			string dateTime = printDateTime
-				? Utils.Utils.GetDate("[DD/MM/YYYY - hh:mm:ss]") + " "
+				? Util.Utils.GetDate("[DD/MM/YYYY - hh:mm:ss]") + " "
 				: null;
 
 			File.WriteAllText(LogFile, $"{dateTime}[{tag.ToUpper()}] {message}");

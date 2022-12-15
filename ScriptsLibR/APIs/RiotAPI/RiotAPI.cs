@@ -16,7 +16,7 @@ namespace ScriptsLibR.APIs.RiotAPI
 
 		public RiotAPI(string apiKey)
 		{
-			this.APIKey = apiKey;
+			APIKey = apiKey;
 			Instance = this;
 		}
 
@@ -26,7 +26,7 @@ namespace ScriptsLibR.APIs.RiotAPI
 
 		private string GetAPIParameter()
 		{
-			return $"?api_key={this.APIKey}";
+			return $"?api_key={APIKey}";
 		}
 
 		private string GetServerString(Region region)
@@ -42,16 +42,16 @@ namespace ScriptsLibR.APIs.RiotAPI
             return JsonConvert.DeserializeObject<T>(response);
             */
 			// TODO
-			return this.MakeGETRequest<T>(region, url);
+			return MakeGETRequest<T>(region, url);
 		}
 
-		private T MakePOSTRequest<T>(Region region, string url, string? json)
+		private T MakePOSTRequest<T>(Region region, string url, string json)
 		{
 			/*
             string request = POST(this.GetServerString(region) + "/lol/tournament-stub/v4/codes" + this.GetAPIParameter(), json);
             return JsonConvert.DeserializeObject<T>(request);
             */
-			return this.MakePOSTRequest<T>(region, url, json);
+			return MakePOSTRequest<T>(region, url, json);
 		}
 	}
 }

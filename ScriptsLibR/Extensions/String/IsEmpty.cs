@@ -2,34 +2,34 @@
 {
 	public static partial class StringExtensions
 	{
-		public static bool IsEmpty(this string str, bool ignoreSpaces)
+		public static bool IsEmpty(this string @string, bool ignoreSpaces)
 		{
-			bool isEmpty = string.IsNullOrEmpty(str);
+			bool isEmpty = string.IsNullOrEmpty(@string);
 			if (ignoreSpaces)
 			{
-				isEmpty = string.IsNullOrWhiteSpace(str);
+				isEmpty = string.IsNullOrWhiteSpace(@string);
 			}
 			return isEmpty;
 		}
 
-		public static bool IsEmpty(this string str)
+		public static bool IsEmpty(this string @string)
 		{
-			return IsEmpty(str, true);
+			return IsEmpty(@string, true);
 		}
 
-		public static bool IsEmpty(this string[] strs, bool ignoreSpaces)
+		public static bool IsEmpty(this string[] strings, bool ignoreSpaces)
 		{
 			bool isEmpty = true;
-			foreach (string str in strs)
+			foreach (string str in strings)
 			{
 				isEmpty = isEmpty && str.IsEmpty(ignoreSpaces);
 			}
 			return isEmpty;
 		}
 
-		public static bool IsEmpty(this string[] strs)
+		public static bool IsEmpty(this string[] strings)
 		{
-			return IsEmpty(strs, true);
+			return IsEmpty(strings, true);
 		}
 	}
 }

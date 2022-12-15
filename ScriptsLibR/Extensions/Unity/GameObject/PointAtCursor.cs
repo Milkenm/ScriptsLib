@@ -1,4 +1,4 @@
-﻿using ScriptsLibR.Utils;
+﻿using ScriptsLibR.Util;
 
 using UnityEngine;
 

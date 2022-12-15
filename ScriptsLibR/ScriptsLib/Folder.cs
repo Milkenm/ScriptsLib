@@ -50,7 +50,7 @@ namespace ScriptsLibR
 		/// <summary>Deletes the folder and all the files and other folders inside.</summary>
 		public void DeleteFolder()
 		{
-			Utils.Utils.DeleteDirectory(Path);
+			Util.Utils.DeleteDirectory(Path);
 		}
 	}
 }

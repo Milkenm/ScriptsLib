@@ -48,7 +48,7 @@ namespace ScriptsLibR.Unsorted
 				DateTime lastInputTime = bootTime.AddMilliseconds(lii.dwTime);
 				TimeSpan idleTime = DateTime.UtcNow.Subtract(lastInputTime);
 
-				long msIdle = idleTime.Milliseconds + Utils.Utils.ConvertToMilliseconds(idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
+				long msIdle = idleTime.Milliseconds + Util.Utils.ConvertToMilliseconds(idleTime.Seconds, idleTime.Minutes, idleTime.Hours, idleTime.Days);
 				if (msIdle >= this.Delay && didRun == false)
 				{
 					didRun = true;
