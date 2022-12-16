@@ -11,9 +11,9 @@ namespace ScriptsLibV2.APIs
 		}
 
 		/// <summary>Get team by ID.</summary>
-		public TeamDTO LoL_GetTeamById(Region region, string teamId)
+		public TournamentTeamDTO LoL_GetTeamById(Region region, string teamId)
 		{
-			return MakeGETRequest<TeamDTO>(region, $"/lol/clash/v1/teams/{teamId}");
+			return MakeGETRequest<TournamentTeamDTO>(region, $"/lol/clash/v1/teams/{teamId}");
 		}
 
 		/// <summary>Get all active or upcoming tournaments.</summary>

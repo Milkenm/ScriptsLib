@@ -154,7 +154,7 @@ namespace ScriptsLibV2.APIs
 		[JsonProperty("updated_at")] public string UpdatedAt;
 	}
 
-	public class MatchDTO_v5
+	public class MatchDTO
 	{
 		/// <summary>Match metadata.</summary>
 		[JsonProperty("metadata")] public MetadataDTO Metadata;
@@ -196,14 +196,180 @@ namespace ScriptsLibV2.APIs
 		[JsonProperty("platformId")] public string PlatformID;
 		/// <summary>Refer to the Game Constants documentation.</summary>
 		[JsonProperty("queueId")] public int QueueID;
-		[JsonProperty("teams")] public List<TeamDTO> Teams;
+		[JsonProperty("teams")] public List<TournamentTeamDTO> Teams;
 		/// <summary>Tournament code used to generate the match. This field was added to match-v5 in patch 11.13 on June 23rd, 2021.</summary>
 		[JsonProperty("tournamentCode")] public string TournamentCode;
 	}
 
 	public class ParticipantDTO
 	{
-		// TODO
+		[JsonProperty("assists")] public int Assists;
+		[JsonProperty("baronKills")] public int BaronKills;
+		[JsonProperty("bountyLevel")] public int BountyLevel;
+		[JsonProperty("champExperience")] public int ChampionExperience;
+		[JsonProperty("champLevel")] public int ChampionLevel;
+		/// <summary>Prior to patch 11.4, on Feb 18th, 2021, this field returned invalid championIds. We recommend determining the champion based on the championName field for matches played prior to patch 11.4.</summary>
+		[JsonProperty("championId")] public int ChampionID;
+		[JsonProperty("championName")] public string ChampionName;
+		/// <summary>This field is currently only utilized for Kayn's transformations. (Legal values: 0 - None, 1 - Slayer, 2 - Assassin)</summary>
+		[JsonProperty("championTransformation")] public int ChampionTransformation;
+		[JsonProperty("consumablesPurchased")] public int ConsumablesPurchased;
+		[JsonProperty("damageDealtToBuildings")] public int DamageDealtToBuildings;
+		[JsonProperty("damageDealtToObjectives")] public int DamageDealtToObjectives;
+		[JsonProperty("damageDealtToTurrets")] public int DamageDealtToTurrets;
+		[JsonProperty("damageSelfMitigated")] public int SelfMitigatedDamage;
+		[JsonProperty("deaths")] public int Deaths;
+		[JsonProperty("detectorWardsPlaced")] public int DetectorWardsPlaced;
+		[JsonProperty("doubleKills")] public int DoubleKills;
+		[JsonProperty("dragonKills")] public int DragonKills;
+		[JsonProperty("firstBloodAssist")] public bool FirstBloodAssist;
+		[JsonProperty("firstBloodKill")] public bool FirstBloodKill;
+		[JsonProperty("firstTowerAssist")] public bool FirstTowerAssist;
+		[JsonProperty("firstTowerKill")] public bool FirstTowerKill;
+		[JsonProperty("gameEndedInEarlySurrender")] public bool GameEndedInEarlySurrender;
+		[JsonProperty("gameEndedInSurrender")] public bool GameEndedInSurrender;
+		[JsonProperty("goldEarned")] public int GoldEarned;
+		[JsonProperty("goldSpent")] public int GoldSpent;
+		/// <summary>Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field.</summary>
+		[JsonProperty("individualPosition")] public string IndividualPosition;
+		[JsonProperty("inhibitorKills")] public int InhibitorKills;
+		[JsonProperty("inhibitorTakedowns")] public int InhibitorTakedowns;
+		[JsonProperty("inhibitorsLost")] public int InhibitorsLost;
+		[JsonProperty("item0")] public int Item0;
+		[JsonProperty("item1")] public int Item1;
+		[JsonProperty("item2")] public int Item2;
+		[JsonProperty("item3")] public int Item3;
+		[JsonProperty("item4")] public int Item4;
+		[JsonProperty("item5")] public int Item5;
+		[JsonProperty("item6")] public int Item6;
+		[JsonProperty("itemsPurchased")] public int ItemsPurchased;
+		[JsonProperty("killingSprees")] public int KillingSprees;
+		[JsonProperty("kills")] public int Kills;
+		[JsonProperty("lane")] public string Lane;
+		[JsonProperty("largestCriticalStrike")] public int LargestCriticalStrike;
+		[JsonProperty("LargestKillingSpree")] public int LargestKillingSpree;
+		[JsonProperty("largestMultiKill")] public int LargestMultiKill;
+		[JsonProperty("longestTimeSpentLiving")] public int LongestTimeSpentLiving;
+		[JsonProperty("magicDamageDealt")] public int MagicDamageDealt;
+		[JsonProperty("magicDamageDealtToChampions")] public int MagicDamageDealtToChampions;
+		[JsonProperty("magicDamageTaken")] public int MagicDamageTaken;
+		[JsonProperty("neutralMinionsKilled")] public int NeutralMinionsKilled;
+		[JsonProperty("nexusKills")] public int NexusKills;
+		[JsonProperty("nexusTakedowns")] public int NexusTakedowns;
+		[JsonProperty("nexusLost")] public int NexusLost;
+		[JsonProperty("objectivesStolen")] public int ObjectivesStolen;
+		[JsonProperty("objectivesStolenAssists")] public int ObjectivesStolenAssists;
+		[JsonProperty("participantId")] public int ParticipantID;
+		[JsonProperty("pentaKills")] public int PentaKills;
+		[JsonProperty("peks")] public PerksDTO Perks;
+		[JsonProperty("physicalDamageDealt")] public int PhysicalDamageDealt;
+		[JsonProperty("physicalDamageDealtToChampions")] public int PhysicalDamageDealtToChampions;
+		[JsonProperty("physicalDamageTaken")] public int PhysicalDamageTaken;
+		[JsonProperty("profileIcon")] public int ProfileIcon;
+		[JsonProperty("puuid")] public string PUUID;
+		[JsonProperty("quadraKills")] public int QuadraKills;
+		[JsonProperty("riotIdName")] public string RiotIDName;
+		[JsonProperty("riotIdTagline")] public string RiotIDTagline;
+		[JsonProperty("role")] public string Role;
+		[JsonProperty("sightWardsBoughtInGame")] public int SightWardsBoughtInGame;
+		[JsonProperty("spell1Casts")] public int Spell1Casts;
+		[JsonProperty("spell2Casts")] public int Spell2Casts;
+		[JsonProperty("spell3Casts")] public int Spell3Casts;
+		[JsonProperty("spell4Casts")] public int Spell4Casts;
+		[JsonProperty("summoner1Casts")] public int Summoner1Casts;
+		[JsonProperty("summoner1Id")] public int Summoner1ID;
+		[JsonProperty("summoner2Casts")] public int Summoner2Casts;
+		[JsonProperty("summoner2Id")] public int Summoner2ID;
+		[JsonProperty("summonerId")] public string SummonerID;
+		[JsonProperty("summonerLevel")] public int SummonerLevel;
+		[JsonProperty("summonerName")] public string SummonerName;
+		[JsonProperty("teamEarlySurrendered")] public bool TeamEarlySurrendered;
+		[JsonProperty("teamId")] public int TeamID;
+		/// <summary>Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field.</summary>
+		[JsonProperty("teamPosition")] public string TeamPosition;
+		[JsonProperty("timeCCingOthers")] public int TimeCCingOthers;
+		[JsonProperty("timePlayed")] public int TimePlayed;
+		[JsonProperty("totalDamageDealt")] public int TotalDamageDealt;
+		[JsonProperty("totalDamageDealtToChampions")] public int TotalDamageDealtToChampions;
+		[JsonProperty("totalDamageShieldedOnTeammates")] public int TotalDamageShieldedOnTeammates;
+		[JsonProperty("totalDamageTaken")] public int TotalDamageTaken;
+		[JsonProperty("totalHeal")] public int TotalHeal;
+		[JsonProperty("totalHealsOnTeammates")] public int TotalHealsOnTeammates;
+		[JsonProperty("totalMinionsKilled")] public int TotalMinionsKilled;
+		[JsonProperty("totalTimeCCDealt")] public int TotalTimeCCDealt;
+		[JsonProperty("totalTimeSpentDead")] public int TotalTimeSpentDead;
+		[JsonProperty("totalUnitsHealed")] public int TotalUnitsHealed;
+		[JsonProperty("tripleKills")] public int TripleKills;
+		[JsonProperty("trueDamageDealt")] public int TrueDamageDealt;
+		[JsonProperty("trueDamageDealtToChampions")] public int TrueDamageDealtToChampions;
+		[JsonProperty("trueDamageTaken")] public int TrueDamageTaken;
+		[JsonProperty("turretKills")] public int TurretKills;
+		[JsonProperty("turretTakedowns")] public int TurretTakedowns;
+		[JsonProperty("turretsLost")] public int TurretsLost;
+		[JsonProperty("unrealKills")] public int UnrealKills;
+		[JsonProperty("visionScore")] public int VisionScore;
+		[JsonProperty("visionWardsBoughtInGame")] public int VisionWardsBoughtInGame;
+		[JsonProperty("wardsKilled")] public int WardsKilled;
+		[JsonProperty("wardsPlaced")] public int WardsPlaced;
+		[JsonProperty("win")] public bool Win;
+	}
+
+	public class PerksDTO
+	{
+		[JsonProperty("statPerks")] public PerkStatsDTO StatPerks;
+		[JsonProperty("styles")] public List<PerkStyleDTO> Styles;
+	}
+
+	public class PerkStatsDTO
+	{
+		[JsonProperty("defense")] public int Defense;
+		[JsonProperty("flex")] public int Flex;
+		[JsonProperty("offense")] public int Offense;
+	}
+
+	public class PerkStyleDTO
+	{
+		[JsonProperty("description")] public string Description;
+		[JsonProperty("selections")] public List<PerkStyleSelectionDTO> Selections;
+		[JsonProperty("style")] public int Style;
+	}
+
+	public class PerkStyleSelectionDTO
+	{
+		[JsonProperty("perk")] public int Perk;
+		[JsonProperty("var1")] public int Var1;
+		[JsonProperty("var2")] public int Var2;
+		[JsonProperty("var3")] public int Var3;
+	}
+
+	public class TeamDTO
+	{
+		[JsonProperty("bans")] public List<BanDTO> Bans;
+		[JsonProperty("objectives")] public ObjectivesDTO Objectives;
+		[JsonProperty("teamId")] public int TeamID;
+		[JsonProperty("win")] public bool Win;
+	}
+
+	public class BanDTO
+	{
+		[JsonProperty("championId")] public int ChampionID;
+		[JsonProperty("pickTurn")] public int PickTurn;
+	}
+
+	public class ObjectivesDTO
+	{
+		[JsonProperty("baron")] public ObjectiveDTO Baron;
+		[JsonProperty("champion")] public ObjectiveDTO Champion;
+		[JsonProperty("dragon")] public ObjectiveDTO Dragon;
+		[JsonProperty("Inhibitor")] public ObjectiveDTO Inhibitor;
+		[JsonProperty("RiftHerald")] public ObjectiveDTO RiftHerald;
+		[JsonProperty("tower")] public ObjectiveDTO Tower;
+	}
+
+	public class ObjectiveDTO
+	{
+		[JsonProperty("first")] public bool First;
+		[JsonProperty("kills")] public int Kills;
 	}
 
 	public class ParticipantIdentityDTO
@@ -803,7 +969,7 @@ namespace ScriptsLibV2.APIs
 		[JsonProperty("tagLine")] public string TagLine;
 	}
 
-	public class TeamDTO
+	public class TournamentTeamDTO
 	{
 		[JsonProperty("id")] public string ID;
 		[JsonProperty("tournamentId")] public int TournamentID;

@@ -15,5 +15,11 @@ namespace ScriptsLibV2.APIs
 		{
 			return MakeGETRequest<MatchDTO>(region, $"/lol/match/v5/matches/{matchId}");
 		}
+
+		/// <summary>Get a match timeline by match id.</summary>
+		public MatchTimelineDTO LoL_GetMatchTimelineById(Region region, string matchId)
+		{
+			return MakeGETRequest<MatchTimelineDTO>(region, $"/lol/match/v5/matches/{matchId}/timeline");
+		}
 	}
 }
