@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>ScriptsLibV2</PackageId>
+    <Title>ScriptsLibV2</Title>
+    <ApplicationIcon>Properties\Icon\Books_ICO.ico</ApplicationIcon>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Authors>Milkenm</Authors>
+    <Company>Milkenm</Company>
+    <Product>ScriptsLibV2</Product>
+    <PackageProjectUrl>https://www.github.com/Milkenm/ScriptsLib</PackageProjectUrl>
+    <PackageIcon>Books_PNG.png</PackageIcon>
+    <RepositoryUrl>https://www.github.com/Milkenm/ScriptsLib</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>utils, database, c#, c-sharp</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>8.0.0</AssemblyVersion>
+    <FileVersion>8.0.0</FileVersion>
+    <PackageLicenseFile>License_TXT.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\Icon\Books_PNG.png" />
+    <None Remove="Properties\License_TXT.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Icon\Books_ICO.ico" />
+    <EmbeddedResource Include="Properties\Libs\FirewallAPI.dll" />
+    <EmbeddedResource Include="Properties\Libs\MySql.Data.dll" />
+    <EmbeddedResource Include="Properties\Libs\UnityEngine.dll" />
+    <EmbeddedResource Include="Properties\EES_WPA2PSK_AES_XML.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Icon\Books_PNG.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\License_TXT.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.8.1" />
+    <PackageReference Include="Microsoft.Office.Interop.Access.Dao" Version="15.0.4420.1017" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Interop.ADOX">
+      <HintPath>..\ScriptsLibRTests\obj\Debug\netcoreapp3.1\Interop.ADOX.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>_Resources\Libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>_Resources\Libs\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Databases\SQLite\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ScriptsLib\DiscordBot\bot_config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
