@@ -97,6 +97,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="APIs\WhatIsMyMMRAPI\" />
     <Folder Include="Databases\SQLite\" />
   </ItemGroup>
 
