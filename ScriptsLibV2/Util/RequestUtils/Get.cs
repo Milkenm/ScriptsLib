@@ -6,9 +6,9 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ScriptsLibV2.Requests
+namespace ScriptsLibV2.Utils
 {
-	public static partial class Request
+	public static partial class RequestUtils
 	{
 		/// <summary>
 		/// Executes a GET request.

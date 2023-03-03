@@ -4,9 +4,9 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ScriptsLibV2.Requests
+namespace ScriptsLibV2.Utils
 {
-	public static partial class Request
+	public static partial class RequestUtils
 	{
 		/// <summary>Executes a POST Resquest.</summary>
 		/// <param name="url">The API URL.</param>

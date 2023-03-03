@@ -16,11 +16,12 @@ namespace ScriptsLibV2.APIs.RiotGames
 			return MakeGETRequest<AccountDTO>(region, $"/riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine}");
 		}
 
-		/// <summary>Get account by access token.</summary>
+		// TODO (header stuff)
+		/*/// <summary>Get account by access token.</summary>
 		public AccountDTO Riot_GetAccountByAccessToken(LoLRegion region)
 		{
 			return MakeGETRequest<AccountDTO>(region, "/riot/account/v1/accounts/me");
-		}
+		}*/
 
 		/// <summary>Get active shard for a player.</summary>
 		public ActiveShardDTO Riot_GetPlayerActiveShard(AccountRegion region, GameAccount game, string puuid)

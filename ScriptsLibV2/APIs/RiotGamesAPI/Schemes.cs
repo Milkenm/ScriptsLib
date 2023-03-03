@@ -4,37 +4,6 @@ using Newtonsoft.Json;
 
 namespace ScriptsLibV2.APIs.RiotGames
 {
-	/// <summary>This object contains single Champion Mastery information for player and champion combination.</summary>
-	public class ChampionMasteryDTO
-	{
-		/// <summary>Is chest granted for this champion or not in current season.</summary>
-		[JsonProperty("chestGranted")] public bool IsChestGranted;
-
-		/// <summary>Champion level for specified player and champion combination.</summary>
-		[JsonProperty("championLevel")] public int ChampionLevel;
-
-		/// <summary>Total number of champion points for this player and champion combination - they are used to determine championLevel.</summary>
-		[JsonProperty("championPoints")] public int ChampionPoints;
-
-		/// <summary>Champion ID for this entry.</summary>
-		[JsonProperty("championId")] public long ChampionId;
-
-		/// <summary>Number of points needed to achieve next level. Zero if player reached maximum champion level for this champion.</summary>
-		[JsonProperty("championPointsUntilNextLevel")] public long ChampionPointsUntilNextLevel;
-
-		/// <summary>Last time this champion was played by this player - in Unix milliseconds time format.</summary>
-		[JsonProperty("lastPlayTime")] public long LastPlayTime;
-
-		/// <summary>The token earned for this champion to levelup.</summary>
-		[JsonProperty("tokensEarned")] public int TokensEarned;
-
-		/// <summary>Number of points earned since current level has been achieved.</summary>
-		[JsonProperty("championPointsSinceLastLevel")] public long ChampionPointsSinceLastLevel;
-
-		/// <summary>Summoner ID for this entry. (Encrypted)</summary>
-		[JsonProperty("summonerId")] public string SummonerId;
-	}
-
 	public class ChampionInfo
 	{
 		[JsonProperty("freeChampionIdsForNewPlayers")] public List<int> FreeChampionIdsForNewPlayersList;

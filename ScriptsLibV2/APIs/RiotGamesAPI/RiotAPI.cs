@@ -1,4 +1,7 @@
-﻿using ScriptsLibV2.Exceptions;
+﻿using System.Text;
+
+using ScriptsLibV2.Exceptions;
+using ScriptsLibV2.Util;
 
 namespace ScriptsLibV2.APIs.RiotGames
 {
@@ -44,24 +47,43 @@ namespace ScriptsLibV2.APIs.RiotGames
 		}
 
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
-		private T MakeGETRequest<T>(AccountRegion accountRegion, string url)
+		private T MakeGETRequest<T>(AccountRegion accountRegion, string url, params OptionalArgument[] optionalArguments)
 		{
-			return MakeGETRequest<T>(accountRegion.ToString().ToLower(), url);
+			return MakeGETRequest<T>(accountRegion.ToString().ToLower(), url,optionalArguments);
 		}
 
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
-		private T MakeGETRequest<T>(LoLRegion region, string url)
+		private T MakeGETRequest<T>(LoLRegion region, string url, params OptionalArgument[] optionalArguments)
 		{
-			return MakeGETRequest<T>(region.ToString().ToLower(), url);
+			StringBuilder sb = new StringBuilder(url);
+			bool isFirstOptional = true;
+			foreach (OptionalArgument optionalArgument in optionalArguments)
+			{
+				if (optionalArgument.HasValue())
+				{
+					if (isFirstOptional)
+					{
+						isFirstOptional = false;
+						sb.Append("?");
+					}
+					else
+					{
+						sb.Append("&");
+					}
+					sb.Append($"{optionalArgument.Name}={optionalArgument.Value}");
+				}
+			}
+
+			return MakeGETRequest<T>(region.ToString().ToLower(), sb.ToString());
 		}
 
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
 		private T MakeGETRequest<T>(string server, string url)
 		{
-			/*
-            string response = GET(this.GetServerString(region) + url + this.GetAPIParameter());
+			
+            string response = Get(this.GetServerString(region) + url + this.GetAPIParameter());
             return JsonConvert.DeserializeObject<T>(response);
-            */
+            
 			// TODO
 			return MakeGETRequest<T>(server, url);
 		}
@@ -73,6 +95,23 @@ namespace ScriptsLibV2.APIs.RiotGames
             return JsonConvert.DeserializeObject<T>(request);
             */
 			return MakePOSTRequest<T>(region, url, json);
+		}
+	}
+
+	public class OptionalArgument
+	{
+		public OptionalArgument(string name, string value)
+		{
+			Name = name;
+			Value = value;
+		}
+
+		public string Name { get; }
+		public string Value { get; }
+
+		public bool HasValue()
+		{
+			return !string.IsNullOrEmpty(Value);
 		}
 	}
 }
