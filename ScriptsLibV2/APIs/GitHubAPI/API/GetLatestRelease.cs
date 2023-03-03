@@ -1,4 +1,4 @@
-﻿using ScriptsLibV2.Requests;
+﻿using ScriptsLibV2.Util;
 
 using System.Net;
 
@@ -10,7 +10,7 @@ namespace ScriptsLibV2.APIs.GitHubAPI
 		{
 			HttpWebRequest request = GetHttpWebRequest($"{APIOrigin}repos/{user}/{repo}/releases/latest");
 			request.UserAgent = "request";
-			return Request.Get<Release>(request);
+			return RequestUtils.Get<Release>(request);
 		}
 
 		public static HttpWebRequest GetHttpWebRequest(string url)

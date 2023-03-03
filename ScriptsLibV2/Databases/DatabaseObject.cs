@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+
+using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2.Databases
 {
@@ -16,27 +19,31 @@ namespace ScriptsLibV2.Databases
 			TableName = tableName;
 		}
 
-		public List<MethodInfo> GetGetters()
+		public List<(Getter, MethodInfo)> GetGetters()
 		{
-			List<MethodInfo> getters = new List<MethodInfo>();
+			List<(Getter, MethodInfo)> getters = new List<(Getter, MethodInfo)>();
 			foreach (MethodInfo method in GetType().GetMethods())
 			{
-				if (method.GetCustomAttributes<Getter>().Count() == 1)
+				IEnumerable<Getter> attributes = method.GetCustomAttributes<Getter>();
+				if (attributes.Count() == 1)
 				{
-					getters.Add(method);
+					Getter getter = attributes.First();
+					getters.Add((getter, method));
 				}
 			}
 			return getters;
 		}
 
-		public List<MethodInfo> GetSetters()
+		public List<(Setter, MethodInfo)> GetSetters()
 		{
-			List<MethodInfo> setters = new List<MethodInfo>();
+			List<(Setter, MethodInfo)> setters = new List<(Setter, MethodInfo)>();
 			foreach (MethodInfo method in GetType().GetMethods())
 			{
-				if (method.GetCustomAttributes<Setter>().Count() == 1)
+				IEnumerable<Setter> attributes = method.GetCustomAttributes<Setter>();
+				if (attributes.Count() == 1)
 				{
-					setters.Add(method);
+					Setter setter = attributes.First();
+					setters.Add((setter, method));
 				}
 			}
 			return setters;
@@ -44,37 +51,48 @@ namespace ScriptsLibV2.Databases
 
 		public string GetTableName()
 		{
-			return TableName;
+			return this.TableName;
 		}
 
-		/*public long SaveToDatabase()
+		public long SaveToDatabase()
 		{
-			// GET TABLE FIELDS \\
-			List<MethodInfo> getters = GetGetters();
+			// Get table fields
+			List<(Getter, MethodInfo)> getters = this.GetGetters();
 
-			if (Id == null)
+			if (this.Id == null)
 			{
+				StringBuilder sbColumns = new StringBuilder();
+				StringBuilder sbValues = new StringBuilder();
+
+				foreach ((Getter, MethodInfo) getter in getters)
+				{
+					string columnName = getter.Item1.ColumnName;
+					sbColumns.Append(columnName);
+					sbValues.Append($"@{columnName}");
+				}
+				sbColumns.AddJoiner(",");
+				sbValues.AddJoiner(",");
+
 				List<string> columns = new List<string>();
 				List<object> values = new List<object>();
-				DbEngine.Insert(GetTableName(), columns, values);
+				DbEngine.Insert(this.GetTableName(), columns.ToArray(), values.ToArray());
 
-				StringBuilder sb = new StringBuilder();
 				for (int i = 0; i < getters.Count; i++)
 				{
 					if (i > 0)
 					{
-						sb.Append(",");
+						sbColumns.Append(",");
 					}
-					sb.Append("?");
+					sbColumns.Append("?");
 				}
 
-				string sql = "INSERT INTO " + GetTableName() + " (" + sb + ") VALUES (" + sb + ")";
+				string sql = "INSERT INTO " + GetTableName() + " (" + sbColumns + ") VALUES (" + sbColumns + ")";
 				foreach (MethodInfo getter in getters)
 				{
 					sql = sql.ReplaceFirst("\\?", getter.GetCustomAttribute<Getter>().ColumnName);
 				}
 			}
-		}*/
+		}
 	}
 }
 /*

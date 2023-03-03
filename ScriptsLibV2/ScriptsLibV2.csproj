@@ -33,6 +33,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Databases\SQLite\**" />
+    <EmbeddedResource Remove="Databases\SQLite\**" />
+    <None Remove="Databases\SQLite\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Properties\Icon\Books_PNG.png" />
     <None Remove="Properties\License_TXT.txt" />
   </ItemGroup>
@@ -98,7 +104,6 @@
 
   <ItemGroup>
     <Folder Include="APIs\WhatIsMyMMRAPI\" />
-    <Folder Include="Databases\SQLite\" />
   </ItemGroup>
 
   <ItemGroup>

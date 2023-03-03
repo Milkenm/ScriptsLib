@@ -1,5 +1,7 @@
 ﻿using System.Text;
 
+using Newtonsoft.Json;
+
 using ScriptsLibV2.Exceptions;
 using ScriptsLibV2.Util;
 
@@ -49,7 +51,7 @@ namespace ScriptsLibV2.APIs.RiotGames
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
 		private T MakeGETRequest<T>(AccountRegion accountRegion, string url, params OptionalArgument[] optionalArguments)
 		{
-			return MakeGETRequest<T>(accountRegion.ToString().ToLower(), url,optionalArguments);
+			return MakeGETRequest<T>(accountRegion, url, optionalArguments);
 		}
 
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
@@ -74,18 +76,18 @@ namespace ScriptsLibV2.APIs.RiotGames
 				}
 			}
 
-			return MakeGETRequest<T>(region.ToString().ToLower(), sb.ToString());
+			return MakeGETRequest<T>(region, sb.ToString());
 		}
 
 		/// <summary>URL is something like: $"/lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}"</summary>
-		private T MakeGETRequest<T>(string server, string url)
+		private T MakeGETRequest<T>(LoLRegion region, string server, string url)
 		{
-			
-            string response = Get(this.GetServerString(region) + url + this.GetAPIParameter());
-            return JsonConvert.DeserializeObject<T>(response);
-            
+
+			string response = RequestUtils.Get(this.GetServerString(region) + url + this.GetAPIParameter());
+			return JsonConvert.DeserializeObject<T>(response);
+
 			// TODO
-			return MakeGETRequest<T>(server, url);
+			return MakeGETRequest<T>(region, url);
 		}
 
 		private T MakePOSTRequest<T>(LoLRegion region, string url, string json)

@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ScriptsLibV2.Utils
+namespace ScriptsLibV2.Util
 {
 	public static partial class RequestUtils
 	{
