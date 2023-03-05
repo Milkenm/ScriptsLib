@@ -14,13 +14,13 @@ namespace ScriptsLibV2.Properties
         public static readonly string Contributors;
 
         /// <summary>Current ScriptsLib version.</summary>
-        public static readonly string Version = "8.0.0";
+        public static readonly string Version = "9.0.0-pre1";
 
         /// <summary>First release date.</summary>
         public static readonly string ReleaseDate = "30/04/2019 - 21:12";
 
         /// <summary>Lattest release date.</summary>
-        public static readonly string LatestUpdateDate = "15/12/2022 - 19:12";
+        public static readonly string LatestUpdateDate = "05/03/2023 - 05:32";
 
         // # ================================================================================================ #
 

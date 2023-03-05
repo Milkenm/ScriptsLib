@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.Common;
 using System.Data.OleDb;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -139,6 +141,17 @@ namespace ScriptsLibV2.Databases
 		public override string GetConnectionString()
 		{
 			return ConnectionString;
+		}
+
+		public DbCommand CreateCommand()
+		{
+			return GetDatabaseConnection().CreateCommand();
+		}
+
+		public long GetLastRowId(string tableName)
+		{
+			DataTable result = ExecuteSql($"SELECT Last(ID) FROM {tableName}");
+			return Convert.ToInt64(result.Columns["ID"]);
 		}
 	}
 }

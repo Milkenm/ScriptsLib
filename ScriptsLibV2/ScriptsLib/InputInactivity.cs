@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 using static ScriptsLibV2.PInvoke.User32;
 
-namespace ScriptsLibV2.Unsorted
+namespace ScriptsLibV2
 {
 	public class InputInactivity
 	{

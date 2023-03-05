@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Common;
 
 using MySql.Data.MySqlClient;
@@ -79,6 +80,17 @@ namespace ScriptsLibV2.Databases
 		public override string GetConnectionString()
 		{
 			return string.Format(BaseConnection, Server, Port, User, Password, Database, SslMode);
+		}
+
+		public DbCommand CreateCommand()
+		{
+			return this.GetDatabaseConnection().CreateCommand();
+		}
+
+		public long GetLastRowId(string tableName)
+		{
+			DataTable result = ExecuteSQL($"SELECT ID FROM {tableName} ORDER BY ID DESC LIMIT 1");
+			return Convert.ToInt64(result.Columns["ID"]);
 		}
 	}
 }

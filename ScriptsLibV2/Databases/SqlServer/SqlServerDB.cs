@@ -1,4 +1,7 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.IO;
 
 using ScriptsLibV2.Exceptions;
@@ -72,6 +75,17 @@ namespace ScriptsLibV2.Databases
 			connectionStringBuilder.AttachDBFilename = DatabasePath;
 
 			return connectionStringBuilder.ToString();
+		}
+
+		public DbCommand CreateCommand()
+		{
+			return GetDatabaseConnection().CreateCommand();
+		}
+
+		public long GetLastRowId(string tableName)
+		{
+			DataTable result = ExecuteSQL($"SELECT MAX(ID) FROM {tableName}");
+			return Convert.ToInt64(result.Columns["ID"]);
 		}
 	}
 }

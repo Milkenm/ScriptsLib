@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using System.Threading.Tasks;
 
 using ScriptsLibV2.Util;
@@ -30,7 +31,7 @@ namespace ScriptsLibV2.Databases
 		public int ExecuteNonQuery(DbCommand cmd)
 		{
 			Utils.NullChecker(true, (cmd, nameof(cmd)));
-
+			Console.WriteLine(cmd.CommandText);
 			return cmd.ExecuteNonQuery();
 		}
 

@@ -12,6 +12,10 @@ namespace ScriptsLibV2.Databases
 
 		public DbConnection GetDatabaseConnection();
 
+		public DbCommand CreateCommand();
+
+		public long GetLastRowId(string tableName);
+
 		public int Delete(string tableName, string condition);
 
 		public Task<int> DeleteAsync(string tableName, string condition);
