@@ -24,7 +24,7 @@
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Copyright>Milkenm</Copyright>
     <Description>My library to use databases and other stuff...</Description>
-    <Version>$(AssemblyVersion)</Version>
+    <Version>$(AssemblyVersion)-pre1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
