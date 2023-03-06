@@ -2,9 +2,9 @@
 
 using ScriptsLibV2.Util;
 
-namespace SlTestingR.Util.Twemoji
+namespace Util
 {
-	internal class GetEmojiUrlFromCode
+	internal class Twemoji_GetEmojiUrlFromCode
 	{
 		private static readonly string EmojiCode = "1f9f5";
 		private static readonly string ExpectedUrl = "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f9f5.png";

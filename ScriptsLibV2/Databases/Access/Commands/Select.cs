@@ -7,7 +7,7 @@ namespace ScriptsLibV2.Databases
 	{
 		public DataTable Select(string tableName, string selection = "*", string condition = null)
 		{
-			string sql = $"SELECT {selection} FROM [{tableName}] {(condition != null ? $" WHERE {condition}" : null)}";
+			string sql = $"SELECT {selection} FROM [{tableName}]{(condition != null ? $" WHERE {condition}" : null)}";
 
 			using (OleDbDataAdapter da = new OleDbDataAdapter(sql, GetDatabaseConnection<OleDbConnection>()))
 			{

@@ -31,7 +31,7 @@ namespace ScriptsLibV2.Databases
 		public int ExecuteNonQuery(DbCommand cmd)
 		{
 			Utils.NullChecker(true, (cmd, nameof(cmd)));
-			Console.WriteLine(cmd.CommandText);
+
 			return cmd.ExecuteNonQuery();
 		}
 

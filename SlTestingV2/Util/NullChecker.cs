@@ -4,9 +4,9 @@ using NUnit.Framework;
 
 using ScriptsLibV2.Util;
 
-namespace SlTestingR.Util
+namespace Util
 {
-	internal class NullChecker
+	internal class Util_NullChecker
 	{
 		private readonly string nullString = null;
 		private readonly string notNullString = "Not null.";

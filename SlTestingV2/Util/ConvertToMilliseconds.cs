@@ -2,9 +2,9 @@
 
 using ScriptsLibV2.Util;
 
-namespace SlTestingR.Util
+namespace Util
 {
-	internal class ConvertToMilliseconds
+	internal class Util_ConvertToMilliseconds
 	{
 		private readonly long Days = 2L;
 		private readonly long Hours = 3L;

@@ -2,9 +2,9 @@
 
 using ScriptsLibV2.APIs.GitHubAPI;
 
-namespace SlTestingR.TEST_GitHubAPI
+namespace APIs
 {
-	internal class GetLatestRelease
+	internal class GitHub_GetLatestRelease
 	{
 		private GitHubAPI api;
 

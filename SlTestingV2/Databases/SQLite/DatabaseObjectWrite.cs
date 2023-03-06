@@ -1,25 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 using NUnit.Framework;
-
 using ScriptsLibV2.Databases;
 
-using SlTestingV2.Databases;
-
-namespace SlTestingR.Databases
+namespace Databases
 {
-	internal class DatabaseObjectWrite
+	internal class SQLite_DatabaseObjectWrite
 	{
-		private AccessDB Database;
+		private SQLiteDB Database;
 
 		[SetUp]
 		public void Setup()
 		{
-			Database = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\TestDB.accdb");
+			Database = new SQLiteDB(string.Format(SQLiteDB.DEFAULT_CONNECTION_STRING, Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\TestDB.db"));
 		}
 
 		[Test]
-		public void TEST_DatabaseObjectWrite()
+		public void SQLite_DatabaseObject_Write()
 		{
 			TestDatabaseObject obj = new TestDatabaseObject(Database, "Test");
 			obj.SetName("Lmao");

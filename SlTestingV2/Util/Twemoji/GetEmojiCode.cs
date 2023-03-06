@@ -2,9 +2,9 @@
 
 using ScriptsLibV2.Util;
 
-namespace SlTestingR.Util.Twemoji
+namespace Util
 {
-	internal class GetEmojiCode
+	internal class Twemoji_GetEmojiCode
 	{
 		private static readonly string Emoji = "🧵";
 		private static readonly string ExpectedCode = "1f9f5";

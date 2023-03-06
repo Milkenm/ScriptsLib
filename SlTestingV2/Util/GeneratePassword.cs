@@ -2,9 +2,9 @@
 
 using ScriptsLibV2.Util;
 
-namespace SlTestingR.Util
+namespace Util
 {
-	internal class GeneratePassword
+	internal class Util_GeneratePassword
 	{
 		private readonly int CustomPasswordSize = 5;
 		private readonly string CustomPasswordCharacters = "a";

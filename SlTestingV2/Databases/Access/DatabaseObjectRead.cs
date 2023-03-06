@@ -4,22 +4,20 @@ using NUnit.Framework;
 
 using ScriptsLibV2.Databases;
 
-using SlTestingV2.Databases;
-
-namespace SlTestingR.Databases
+namespace Databases
 {
-	internal class DatabaseObjectRead
+	internal class Access_DatabaseObjectRead
 	{
 		private AccessDB Database;
 
 		[SetUp]
 		public void Setup()
 		{
-			Database = new AccessDB(AccessDB.DEFAULT_BASECONNECTION_ACE120 + Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\TestDB.accdb");
+			Database = new AccessDB(string.Format(AccessDB.DEFAULT_CONNECTION_ACE120, Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\TestDB.accdb"));
 		}
 
 		[Test]
-		public void TEST_DatabaseObjectRead()
+		public void Access_DatabaseObject_Read()
 		{
 			TestDatabaseObject obj = new TestDatabaseObject(Database, "Test");
 			obj.LoadFromDatabase(1);

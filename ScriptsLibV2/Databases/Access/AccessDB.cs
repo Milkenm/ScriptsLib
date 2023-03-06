@@ -91,15 +91,15 @@ namespace ScriptsLibV2.Databases
 			CreateDatabase(databasePath, provider);
 		}
 
-		public const string DEFAULT_BASECONNECTION_JET40 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=";
-		public const string DEFAULT_BASECONNECTION_ACE120 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
-		public const string DEFAULT_BASECONNECTION_ACE150 = "Provider=Microsoft.ACE.OLEDB.15.0;Data Source=";
+		public const string DEFAULT_CONNECTION_JET40 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}";
+		public const string DEFAULT_CONNECTION_ACE120 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0}";
+		public const string DEFAULT_CONNECTION_ACE150 = "Provider=Microsoft.ACE.OLEDB.15.0;Data Source={0}";
 
 		/// <summary>
 		/// The provider and stuff to connect to the database.
 		/// <para>Visit <see href="https://www.connectionstrings.com/access/">ConnectionStrings.com</see> for more connection strings.</para>
 		/// </summary>
-		public string ConnectionString = DEFAULT_BASECONNECTION_ACE150;
+		public string ConnectionString = DEFAULT_CONNECTION_ACE150;
 
 		public DatabaseTypeEnum GetProvider(string connectionString)
 		{

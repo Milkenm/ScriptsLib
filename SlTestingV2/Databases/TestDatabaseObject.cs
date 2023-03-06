@@ -1,6 +1,6 @@
 ﻿using ScriptsLibV2.Databases;
 
-namespace SlTestingV2.Databases
+namespace Databases
 {
 	public class TestDatabaseObject : DatabaseObject
 	{
