@@ -3,6 +3,7 @@
   <Import Project="..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.2\build\Microsoft.Diagnostics.Tracing.TraceEvent.props" Condition="Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.3.0.2\build\Microsoft.Diagnostics.Tracing.TraceEvent.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <IsPackable>false</IsPackable>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{07384951-FB75-49EE-9D4E-504B346C74CC}</ProjectGuid>

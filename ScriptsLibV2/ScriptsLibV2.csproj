@@ -22,6 +22,9 @@
     <FileVersion>8.0.0</FileVersion>
     <PackageLicenseFile>License_TXT.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Copyright>Milkenm</Copyright>
+    <Description>My library to use databases and other stuff...</Description>
+    <Version>$(AssemblyVersion)</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
