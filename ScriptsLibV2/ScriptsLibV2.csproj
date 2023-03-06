@@ -24,7 +24,7 @@
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <Copyright>Milkenm</Copyright>
     <Description>My library to use databases and other stuff...</Description>
-    <Version>$(AssemblyVersion)-pre1</Version>
+    <Version>$(AssemblyVersion)-pre2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -65,7 +65,7 @@
   <ItemGroup>
     <PackageReference Include="Discord.Net" Version="3.9.0" />
     <PackageReference Include="Microsoft.Office.Interop.Access.Dao" Version="15.0.4420.1018" />
-    <PackageReference Include="MySql.Data" Version="8.0.32" />
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
