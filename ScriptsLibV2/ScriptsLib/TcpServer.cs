@@ -9,48 +9,51 @@ namespace ScriptsLibV2
 {
 	public class TcpServer
 	{
+		private readonly TcpListener Server;
+		private readonly List<Socket> ConnectedClients = new List<Socket>();
+		private readonly List<Task> ClientTasks = new List<Task>();
+
+		private bool IsRunning = false;
+
 		public TcpServer(IPEndPoint localEP)
-		{
-			Initialize(localEP);
-		}
-
-		public TcpServer(short port)
-		{
-			IPEndPoint localEP = new IPEndPoint(IPAddress.Any, port);
-			Initialize(localEP);
-		}
-
-		private void Initialize(IPEndPoint localEP)
 		{
 			Server = new TcpListener(localEP);
 			Server.Start();
 		}
 
-		private int ConnectionTimeout { get; set; }
-		private int DisconnectTimeout { get; set; }
+		public TcpServer(short port) : this(new IPEndPoint(IPAddress.Any, port)) { }
 
-		private TcpListener Server;
+		public int ConnectionTimeout { get; set; }
+		public int DisconnectTimeout { get; set; }
 
 		public delegate void ConnectionEvent(Socket client);
-
 		public event ConnectionEvent OnClientConnected;
-
 		public event ConnectionEvent OnClientDisconnected;
 
 		public delegate void DataEvent(EndPoint source, byte[] data);
-
 		public event DataEvent OnDataReceived;
 
 		public void Start()
 		{
+			IsRunning = true;
 			AcceptClientsAsync().FAF();
+		}
+
+		public void Stop()
+		{
+			ClientTasks.ForEach((task) =>
+			{
+				ClientTasks.Remove(task);
+				task.Dispose();
+			});
 		}
 
 		private async Task AcceptClientsAsync()
 		{
-			while (true)
+			while (IsRunning)
 			{
-				await Task.Run(() => ClientProcess().FAF()).ConfigureAwait(false);
+				Task clientTask = ClientProcess();
+				await Task.Run(() => clientTask.FAF()).ConfigureAwait(false);
 			}
 		}
 
@@ -68,9 +71,10 @@ namespace ScriptsLibV2
 				return;
 			}
 
-			while (true)
+			byte[] buffer;
+			while (IsRunning)
 			{
-				byte[] buffer = new byte[socket.ReceiveBufferSize];
+				buffer = new byte[socket.ReceiveBufferSize];
 				int read;
 
 				try
@@ -92,10 +96,13 @@ namespace ScriptsLibV2
 				}
 			}
 
+			if (!IsRunning)
+			{
+				socket.Disconnect(true);
+			}
+
 			ClientDisconnected(socket);
 		}
-
-		private readonly List<Socket> ConnectedClients = new List<Socket>();
 
 		private void ClientConnected(Socket socket)
 		{
