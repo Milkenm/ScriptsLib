@@ -1,6 +1,4 @@
-﻿using System.Net.Sockets;
-
-using ScriptsLibV2.Extensions;
+﻿using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2.Util
 {
@@ -12,7 +10,7 @@ namespace ScriptsLibV2.Util
 		/// <param name="message">The message to send.</param>
 		public static void SendTcpPacket(string remoteHost, int remotePort, string message)
 		{
-			using (TcpClient client = new TcpClient(remoteHost, remotePort))
+			using (System.Net.Sockets.TcpClient client = new System.Net.Sockets.TcpClient(remoteHost, remotePort))
 			{
 				client.SendString(message);
 			}

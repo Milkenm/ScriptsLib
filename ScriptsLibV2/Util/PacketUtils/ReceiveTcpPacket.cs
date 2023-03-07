@@ -13,7 +13,7 @@ namespace ScriptsLibV2.Util
 			TcpListener server = new TcpListener(localIp, localPort);
 			server.Start();
 
-			TcpClient client = server.AcceptTcpClient();
+			System.Net.Sockets.TcpClient client = server.AcceptTcpClient();
 			byte[] buffer = new byte[client.Client.ReceiveBufferSize];
 			client.Client.Receive(buffer);
 
