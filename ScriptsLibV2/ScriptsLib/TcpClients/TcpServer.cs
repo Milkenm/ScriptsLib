@@ -4,18 +4,17 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-using ScriptsLibV2.Extensions;
+using ScriptsLibV2.ScriptsLib.TcpClients;
 
 namespace ScriptsLibV2
 {
-	public class TcpServer
+	public class TcpServer : TcpBase
 	{
 		private readonly TcpListener Server;
 		private readonly List<Socket> ConnectedClients = new List<Socket>();
 		private readonly List<Task> ClientTasks = new List<Task>();
 
 		public bool IsRunning { get; private set; } = false;
-		public bool UseAsynchronousEvents { get; set; }
 
 		public TcpServer(IPEndPoint localEP)
 		{
@@ -28,12 +27,9 @@ namespace ScriptsLibV2
 		public int ConnectionTimeout { get; set; }
 		public int DisconnectTimeout { get; set; }
 
-		public delegate void ConnectionEvent(Socket client);
-		public event ConnectionEvent OnClientConnect;
-		public event ConnectionEvent OnClientDisconnect;
-
-		public delegate void DataEvent(EndPoint source, byte[] data);
-		public event DataEvent OnDataReceived;
+		public delegate void ServerConnectionEvent(Socket client);
+		public event ServerConnectionEvent OnClientConnect;
+		public event ServerConnectionEvent OnClientDisconnect;
 
 		public void Start()
 		{
@@ -54,20 +50,11 @@ namespace ScriptsLibV2
 			});
 		}
 
-		public void SendObject(Socket client, object obj)
+		public async void SendObject(Socket client, object obj)
 		{
-			if (!client.Connected)
+			if (!base.Send(client, obj))
 			{
-				OnClientDisconnected(client);
-			}
-
-			try
-			{
-				client.SendObject(obj);
-			}
-			catch
-			{
-				OnClientDisconnected(client);
+				base.TriggerEvent(() => OnClientDisconnected(client));
 			}
 		}
 
@@ -99,34 +86,7 @@ namespace ScriptsLibV2
 		{
 			await OnClientConnected(clientSocket);
 
-			byte[] buffer;
-			while (IsRunning)
-			{
-				buffer = new byte[clientSocket.ReceiveBufferSize];
-				int read;
-
-				try
-				{
-					read = clientSocket.Receive(buffer);
-				}
-				catch
-				{
-					break;
-				}
-
-				if (read > 0)
-				{
-					if (UseAsynchronousEvents)
-					{
-						await Task.Factory.StartNew(() => OnDataReceived?.Invoke(clientSocket.RemoteEndPoint, buffer), TaskCreationOptions.LongRunning);
-					}
-					else OnDataReceived?.Invoke(clientSocket.RemoteEndPoint, buffer);
-				}
-				else
-				{
-					break;
-				}
-			}
+			base.ReceiveData(clientSocket);
 
 			if (!IsRunning)
 			{
@@ -140,11 +100,7 @@ namespace ScriptsLibV2
 		{
 			socket.ReceiveTimeout = ConnectionTimeout;
 
-			if (UseAsynchronousEvents)
-			{
-				 Task.Factory.StartNew(() => OnClientConnect?.Invoke(socket), TaskCreationOptions.LongRunning);
-			}
-			else OnClientConnect.Invoke(socket);
+			base.TriggerEvent(() => OnClientConnect?.Invoke(socket));
 
 			ConnectedClients.Add(socket);
 		}
@@ -153,11 +109,7 @@ namespace ScriptsLibV2
 		{
 			socket?.Close(DisconnectTimeout);
 
-			if (UseAsynchronousEvents)
-			{
-				 Task.Factory.StartNew(() => OnClientDisconnect?.Invoke(socket), TaskCreationOptions.LongRunning);
-			}
-			else OnClientDisconnect?.Invoke(socket);
+			base.TriggerEvent(() => OnClientDisconnect?.Invoke(socket));
 
 			ConnectedClients.Remove(socket);
 		}
