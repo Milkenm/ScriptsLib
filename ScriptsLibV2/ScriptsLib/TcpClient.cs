@@ -23,6 +23,9 @@ namespace ScriptsLibV2
 
 		public bool IsConnected { get => Client.Connected; }
 
+		private DataEvent? WaitingForResponseCallback = null;
+		private bool SupressDefaultEvent = false;
+
 		public bool Connect(IPAddress ip, int port, int retries = 0)
 		{
 			LastIP = ip;
@@ -92,6 +95,13 @@ namespace ScriptsLibV2
 			Client.GetStream().SendObject(data);
 		}
 
+		public void Send(object data, DataEvent responseCallback, bool supressDefaultEvent = false)
+		{
+			Send(data);
+			WaitingForResponseCallback = responseCallback;
+			SupressDefaultEvent = supressDefaultEvent;
+		}
+
 		// https://stackoverflow.com/a/11664073
 		public async Task ReceiveData()
 		{
@@ -114,7 +124,16 @@ namespace ScriptsLibV2
 
 				if (read > 0)
 				{
-					OnDataReceived?.Invoke(socket.RemoteEndPoint, buffer);
+					if (!SupressDefaultEvent)
+					{
+						OnDataReceived?.Invoke(socket.RemoteEndPoint, buffer);
+					}
+					if (WaitingForResponseCallback != null)
+					{
+						WaitingForResponseCallback(socket.RemoteEndPoint, buffer);
+						WaitingForResponseCallback = null;
+						SupressDefaultEvent = false;
+					}
 				}
 				else
 				{
