@@ -1,23 +1,25 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-using ScriptsLibV2.ScriptsLib.TcpClients;
+using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2
 {
-	public class TcpClient : TcpBase
+	public class TcpClient
 	{
 		private System.Net.Sockets.TcpClient Client = new System.Net.Sockets.TcpClient();
-
-		public delegate void ClientConnectionEvent(NetworkStream stream);
-		public event ClientConnectionEvent OnConnect;
-		public event ClientConnectionEvent OnDisconnect;
 
 		private IPAddress LastIP = null;
 		private int? LastPort = null;
 		private int? LastRetries = null;
+
+		public delegate void ConnectionEvent(NetworkStream stream);
+		public event ConnectionEvent OnConnect;
+		public event ConnectionEvent OnDisconnect;
+
+		public delegate void DataEvent(EndPoint source, byte[] data);
+		public event DataEvent OnDataReceived;
 
 		public bool IsConnected { get => Client.Connected; }
 
@@ -48,11 +50,11 @@ namespace ScriptsLibV2
 		{
 			if (LastIP != null && LastPort != null)
 			{
-				return Connect(LastIP, (int)LastPort, (int)LastRetries);
+				return this.Connect(LastIP, (int)LastPort, (int)LastRetries);
 			}
 			else
 			{
-				throw new Exception("Connect method was never called.");
+				throw new System.Exception("Connect method was never called.");
 			}
 		}
 
@@ -74,15 +76,15 @@ namespace ScriptsLibV2
 
 		private async Task OnConnectedToServer(NetworkStream stream)
 		{
-			TriggerEvent(() => OnConnect?.Invoke(stream));
+			OnConnect?.Invoke(stream);
 			await ReceiveData();
 		}
 
-		public async void Disconnect()
+		public void Disconnect()
 		{
 			if (Client.Connected)
 			{
-				TriggerEvent(() => OnDisconnect?.Invoke(Client.GetStream()));
+				OnDisconnect?.Invoke(Client.GetStream());
 				Client.Client.Disconnect(true);
 				Client.Close();
 			}
@@ -90,18 +92,14 @@ namespace ScriptsLibV2
 
 		public void Send(object data)
 		{
-			if (!base.Send(Client.GetStream(), data))
-			{
-				TriggerEvent(() => OnDisconnect?.Invoke(Client.GetStream()));
-				Disconnect();
-			}
+			Client.GetStream().SendObject(data);
 		}
 
 		public void Send(object data, DataEvent responseCallback, bool supressDefaultEvent = false)
 		{
+			Send(data);
 			WaitingForResponseCallback = responseCallback;
 			SupressDefaultEvent = supressDefaultEvent;
-			Send(data);
 		}
 
 		// https://stackoverflow.com/a/11664073
@@ -109,14 +107,45 @@ namespace ScriptsLibV2
 		{
 			Socket socket = Client.Client;
 
-			base.ReceiveData(socket);
+			byte[] buffer;
+			while (Client.Connected)
+			{
+				buffer = new byte[socket.ReceiveBufferSize];
+				int read;
+
+				try
+				{
+					read = socket.Receive(buffer);
+				}
+				catch
+				{
+					break;
+				}
+
+				if (read > 0)
+				{
+					if (!SupressDefaultEvent)
+					{
+						OnDataReceived?.Invoke(socket.RemoteEndPoint, buffer);
+					}
+					if (WaitingForResponseCallback != null)
+					{
+						WaitingForResponseCallback(socket.RemoteEndPoint, buffer);
+						WaitingForResponseCallback = null;
+						SupressDefaultEvent = false;
+					}
+				}
+				else
+				{
+					break;
+				}
+			}
 
 			if (!Client.Connected && socket.Connected)
 			{
 				try
 				{
 					socket.Disconnect(true);
-					base.IsReceivingData = false;
 				}
 				catch { }
 			}
