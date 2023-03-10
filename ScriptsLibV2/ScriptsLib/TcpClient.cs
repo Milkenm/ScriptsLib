@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
@@ -18,13 +19,17 @@ namespace ScriptsLibV2
 		public event ConnectionEvent OnConnect;
 		public event ConnectionEvent OnDisconnect;
 
+		public delegate void DataCallbackEvent(object dataObject);
 		public delegate void DataEvent(EndPoint source, byte[] data);
 		public event DataEvent OnDataReceived;
 
+		public delegate void DataReceivedCallback<T>(T packet);
+
 		public bool IsConnected { get => Client.Connected; }
 
-		private DataEvent? WaitingForResponseCallback = null;
+		private DataCallbackEvent? WaitingForResponseCallback = null;
 		private bool SupressDefaultEvent = false;
+		private Type? ExpectedResponseType = null;
 
 		public bool Connect(IPAddress ip, int port, int retries = 0)
 		{
@@ -95,11 +100,21 @@ namespace ScriptsLibV2
 			Client.GetStream().SendObject(data);
 		}
 
-		public void Send(object data, DataEvent responseCallback, bool supressDefaultEvent = false)
+		public void Send(object data, DataCallbackEvent responseCallback, bool supressDefaultEvent = false)
 		{
 			Send(data);
 			WaitingForResponseCallback = responseCallback;
 			SupressDefaultEvent = supressDefaultEvent;
+		}
+
+		public void Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDefaultEvent)
+		{
+			ExpectedResponseType = typeof(T);
+
+			this.Send(data, new DataCallbackEvent((dataObject) =>
+			{
+				responseCallback((T)dataObject);
+			}), supressDefaultEvent);
 		}
 
 		// https://stackoverflow.com/a/11664073
@@ -124,15 +139,19 @@ namespace ScriptsLibV2
 
 				if (read > 0)
 				{
-					if (!SupressDefaultEvent)
+					object responseObject = buffer.ToObject<object>();
+
+					if (!(SupressDefaultEvent && ExpectedResponseType != null && ExpectedResponseType == responseObject.GetType()))
 					{
 						OnDataReceived?.Invoke(socket.RemoteEndPoint, buffer);
 					}
-					if (WaitingForResponseCallback != null)
+
+					if (WaitingForResponseCallback != null && (ExpectedResponseType == null || ExpectedResponseType == responseObject.GetType()))
 					{
-						WaitingForResponseCallback(socket.RemoteEndPoint, buffer);
+						WaitingForResponseCallback(responseObject);
 						WaitingForResponseCallback = null;
 						SupressDefaultEvent = false;
+						ExpectedResponseType = null;
 					}
 				}
 				else

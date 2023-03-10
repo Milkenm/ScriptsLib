@@ -32,7 +32,7 @@ namespace ScriptsLibV2
 		public event ConnectionEvent OnClientConnect;
 		public event ConnectionEvent OnClientDisconnect;
 
-		public delegate void DataEvent(EndPoint source, byte[] data);
+		public delegate void DataEvent(Socket client, byte[] data);
 		public event DataEvent OnDataReceived;
 
 		public void Start()
@@ -118,9 +118,9 @@ namespace ScriptsLibV2
 				{
 					if (UseAsynchronousEvents)
 					{
-						await Task.Factory.StartNew(() => OnDataReceived?.Invoke(clientSocket.RemoteEndPoint, buffer), TaskCreationOptions.LongRunning);
+						await Task.Factory.StartNew(() => OnDataReceived?.Invoke(clientSocket, buffer), TaskCreationOptions.LongRunning);
 					}
-					else OnDataReceived?.Invoke(clientSocket.RemoteEndPoint, buffer);
+					else OnDataReceived?.Invoke(clientSocket, buffer);
 				}
 				else
 				{
@@ -142,7 +142,7 @@ namespace ScriptsLibV2
 
 			if (UseAsynchronousEvents)
 			{
-				 Task.Factory.StartNew(() => OnClientConnect?.Invoke(socket), TaskCreationOptions.LongRunning);
+				Task.Factory.StartNew(() => OnClientConnect?.Invoke(socket), TaskCreationOptions.LongRunning);
 			}
 			else OnClientConnect.Invoke(socket);
 
@@ -155,7 +155,7 @@ namespace ScriptsLibV2
 
 			if (UseAsynchronousEvents)
 			{
-				 Task.Factory.StartNew(() => OnClientDisconnect?.Invoke(socket), TaskCreationOptions.LongRunning);
+				Task.Factory.StartNew(() => OnClientDisconnect?.Invoke(socket), TaskCreationOptions.LongRunning);
 			}
 			else OnClientDisconnect?.Invoke(socket);
 
