@@ -9,15 +9,16 @@ namespace ScriptsLibV2
 {
 	public class TcpClient
 	{
-		private System.Net.Sockets.TcpClient Client = new System.Net.Sockets.TcpClient();
+		private readonly System.Net.Sockets.TcpClient Client = new System.Net.Sockets.TcpClient();
 
 		private IPAddress LastIP = null;
 		private int? LastPort = null;
 		private int? LastRetries = null;
 
-		public delegate void ConnectionEvent(NetworkStream stream);
-		public event ConnectionEvent OnConnect;
-		public event ConnectionEvent OnDisconnect;
+		public delegate void ConnectEvent(NetworkStream stream);
+		public event ConnectEvent OnConnect;
+		public delegate void DisconnectEvent();
+		public event DisconnectEvent OnDisconnect;
 
 		public delegate void DataCallbackEvent(object dataObject);
 		public delegate void DataEvent(EndPoint source, byte[] data);
@@ -25,7 +26,7 @@ namespace ScriptsLibV2
 
 		public delegate void DataReceivedCallback<T>(T packet);
 
-		public bool IsConnected { get => Client.Connected; }
+		public bool IsConnected => Client.Connected;
 
 		private DataCallbackEvent? WaitingForResponseCallback = null;
 		private bool SupressDefaultEvent = false;
@@ -55,7 +56,7 @@ namespace ScriptsLibV2
 		{
 			if (LastIP != null && LastPort != null)
 			{
-				return this.Connect(LastIP, (int)LastPort, (int)LastRetries);
+				return Connect(LastIP, (int)LastPort, (int)LastRetries);
 			}
 			else
 			{
@@ -89,7 +90,7 @@ namespace ScriptsLibV2
 		{
 			if (Client.Connected)
 			{
-				OnDisconnect?.Invoke(Client.GetStream());
+				OnDisconnect?.Invoke();
 				Client.Client.Disconnect(true);
 				Client.Close();
 			}
@@ -111,7 +112,7 @@ namespace ScriptsLibV2
 		{
 			ExpectedResponseType = typeof(T);
 
-			this.Send(data, new DataCallbackEvent((dataObject) =>
+			Send(data, new DataCallbackEvent((dataObject) =>
 			{
 				responseCallback((T)dataObject);
 			}), supressDefaultEvent);
@@ -168,6 +169,8 @@ namespace ScriptsLibV2
 				}
 				catch { }
 			}
+
+			OnDisconnect?.Invoke();
 		}
 	}
 }
