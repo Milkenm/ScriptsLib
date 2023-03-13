@@ -96,23 +96,29 @@ namespace ScriptsLibV2
 			}
 		}
 
-		public void Send(object data)
+		public long Send(object data)
 		{
-			Client.GetStream().SendObject(data);
+			if (data.GetType() == typeof(byte[]))
+			{
+				byte[] dataBytes = (byte[])data;
+				Client.GetStream().SendBytes(dataBytes);
+				return dataBytes.LongLength;
+			}
+			return Client.GetStream().SendObject(data);
 		}
 
-		public void Send(object data, DataCallbackEvent responseCallback, bool supressDefaultEvent = false)
+		public long Send(object data, DataCallbackEvent responseCallback, bool supressDefaultEvent = false)
 		{
-			Send(data);
 			WaitingForResponseCallback = responseCallback;
 			SupressDefaultEvent = supressDefaultEvent;
+			return Send(data);
 		}
 
-		public void Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDefaultEvent)
+		public long Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDefaultEvent)
 		{
 			ExpectedResponseType = typeof(T);
 
-			Send(data, new DataCallbackEvent((dataObject) =>
+			return Send(data, new DataCallbackEvent((dataObject) =>
 			{
 				responseCallback((T)dataObject);
 			}), supressDefaultEvent);

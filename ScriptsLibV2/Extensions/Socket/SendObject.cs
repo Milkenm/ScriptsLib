@@ -4,9 +4,11 @@ namespace ScriptsLibV2.Extensions
 {
 	public static partial class SocketExtensions
 	{
-		public static void SendObject(this Socket socket, object obj)
+		public static long SendObject(this Socket socket, object obj)
 		{
-			socket.Send(obj.ToByteArray());
+			byte[] objBytes = obj.ToByteArray();
+			socket.Send(objBytes);
+			return objBytes.LongLength;
 		}
 	}
 }

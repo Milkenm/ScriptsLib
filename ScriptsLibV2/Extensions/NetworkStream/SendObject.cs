@@ -4,9 +4,11 @@ namespace ScriptsLibV2.Extensions
 {
 	public static partial class NetworkStreamExtensions
 	{
-		public static void SendObject(this NetworkStream stream, object obj)
+		public static long SendObject(this NetworkStream stream, object obj)
 		{
-			stream.SendBytes(obj.ToByteArray());
+			byte[] objBytes = obj.ToByteArray();
+			stream.SendBytes(objBytes);
+			return objBytes.LongLength;
 		}
 	}
 }
