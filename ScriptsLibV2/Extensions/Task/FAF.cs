@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ScriptsLibV2.Extensions
 {
-	public static class TaskExtensions
+	public static partial class TaskExtensions
 	{
 		/// <summary>
 		/// Fire-and-forget!
