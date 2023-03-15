@@ -14,7 +14,7 @@ namespace ScriptsLibV2
 
 		public void AddJoiner(string joiner)
 		{
-			for (int i = StringsList.Count - 2; i > 0; i--)
+			for (int i = StringsList.Count - 1; i > 0; i--)
 			{
 				StringsList.Insert(i, joiner);
 			}
