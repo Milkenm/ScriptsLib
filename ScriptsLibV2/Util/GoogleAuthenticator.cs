@@ -12,7 +12,7 @@ namespace ScriptsLibV2.Util
     // https://stackoverflow.com/questions/6421950/is-there-a-tutorial-on-how-to-implement-google-authenticator-in-net-apps
     public class GoogleAuthenticator
     {
-        private const int IntervalLength = 30;
+        public const int IntervalLength = 30;
         private const int PinLength = 6;
         private static readonly int PinModulo = (int)Math.Pow(10, PinLength);
         private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
