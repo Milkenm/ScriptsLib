@@ -20,7 +20,7 @@ namespace ScriptsLibV2.Util
         /// <summary>
         ///   Number of intervals that have elapsed.
         /// </summary>
-        private static long CurrentInterval
+        public static long CurrentInterval
         {
             get
             {
@@ -51,11 +51,11 @@ namespace ScriptsLibV2.Util
             return GenerateQRCode(username, product, key.ToBytes(), size);
         }
 
-        public static string GeneratePIN(byte[] key)
+        public static int GeneratePIN(byte[] key, long interval)
         {
             const int sizeOfInt32 = 4;
 
-            byte[] counterBytes = BitConverter.GetBytes(CurrentInterval);
+            byte[] counterBytes = BitConverter.GetBytes(interval);
 
             if (BitConverter.IsLittleEndian)
             {
@@ -81,14 +81,19 @@ namespace ScriptsLibV2.Util
             int truncatedHash = selectedInteger & 0x7FFFFFFF;
 
             //generate number of digits for given pin length
-            int Pin = truncatedHash % PinModulo;
+            int pin = truncatedHash % PinModulo;
 
-            return Pin.ToString(CultureInfo.InvariantCulture).PadLeft(PinLength, '0');
+            return Convert.ToInt32(pin.ToString(CultureInfo.InvariantCulture).PadLeft(PinLength, '0'));
         }
 
-        public static string GeneratePIN(string key)
+        public static int GeneratePIN(string key, long interval)
         {
-            return GeneratePIN(key.ToBytes());
+            return GeneratePIN(key.ToBytes(), interval);
+        }
+
+        public static int GeneratePIN(string key)
+        {
+            return GeneratePIN(key, CurrentInterval);
         }
     }
 }
