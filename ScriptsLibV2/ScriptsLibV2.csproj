@@ -46,7 +46,7 @@
     <EmbeddedResource Include="Properties\Libs\MySql.Data.dll" />
     <EmbeddedResource Include="Properties\Libs\UnityEngine.dll" />
     <EmbeddedResource Include="Properties\EES_WPA2PSK_AES_XML.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
@@ -58,7 +58,7 @@
     <EmbeddedResource Include="Properties\License_TXT.txt">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 
@@ -113,7 +113,7 @@
 
   <ItemGroup>
     <None Update="ScriptsLib\DiscordBot\bot_config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
