@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -54,20 +55,43 @@ namespace ScriptsLibV2
 
 			Disconnect();
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
-			Client.Connect(ip, port);
-			if (!Client.Connected)
+			try
 			{
-				if (retries == 0)
+				Client.Connect(ip, port);
+				if (!Client.Connected)
 				{
-					IsConnecting = false;
-					OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
-					OnConnectionFail?.Invoke();
-					return false;
+					return RetryConnection(ip, port, retries);
 				}
-				return Connect(ip, port, retries - 1);
+			}
+			catch
+			{
+				return RetryConnection(ip, port, retries);
 			}
 			Task.Run(() => OnConnectedToServer(Client.GetStream()));
 			return true;
+		}
+
+		public bool Connect(IPAddress ip, int port, Action afterConnectAction, int retries = 0)
+		{
+			bool connected = this.Connect(ip, port, retries);
+			if (connected)
+			{
+				afterConnectAction.Invoke();
+			}
+			return connected;
+		}
+
+		private bool RetryConnection(IPAddress ip, int port, int retries)
+		{
+			Debug.WriteLine("Retrying connection #" + retries);
+			if (retries == 0)
+			{
+				IsConnecting = false;
+				OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
+				OnConnectionFail?.Invoke();
+				return false;
+			}
+			return Connect(ip, port, retries - 1);
 		}
 
 		public bool Connect()
@@ -86,19 +110,31 @@ namespace ScriptsLibV2
 		{
 			Disconnect();
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
-			await Client.ConnectAsync(ip, port);
-			if (!Client.Connected)
+			try
 			{
-				if (retries == 0)
+				await Client.ConnectAsync(ip, port);
+				if (!Client.Connected)
 				{
-					OnConnectionFail?.Invoke();
-					OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
-					return false;
+					return await RetryConnectionAsync(ip, port, retries);
 				}
-				return await ConnectAsync(ip, port, retries - 1);
+			}
+			catch
+			{
+				return await RetryConnectionAsync(ip, port, retries);
 			}
 			Task.Run(async () => await OnConnectedToServer(Client.GetStream()));
 			return true;
+		}
+
+		private async Task<bool> RetryConnectionAsync(IPAddress ip, int port, int retries)
+		{
+			if (retries == 0)
+			{
+				OnConnectionFail?.Invoke();
+				OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
+				return false;
+			}
+			return await ConnectAsync(ip, port, retries - 1);
 		}
 
 		private async Task OnConnectedToServer(NetworkStream stream)
