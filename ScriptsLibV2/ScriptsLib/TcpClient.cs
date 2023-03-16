@@ -19,6 +19,17 @@ namespace ScriptsLibV2
 		public event ConnectEvent OnConnect;
 		public delegate void DisconnectEvent();
 		public event DisconnectEvent OnDisconnect;
+		public event DisconnectEvent OnConnectionFail;
+
+		public delegate void ConnectionStatusChangeEvent(ConnectionStatus newStatus);
+		public enum ConnectionStatus
+		{
+			Connected,
+			Connecting,
+			ConnectionFailed,
+			Disconnected,
+		}
+		public event ConnectionStatusChangeEvent OnConnectionStatusChange;
 
 		public delegate void DataCallbackEvent(object dataObject);
 		public delegate void DataEvent(EndPoint source, byte[] data);
@@ -26,6 +37,7 @@ namespace ScriptsLibV2
 
 		public delegate void DataReceivedCallback<T>(T packet);
 
+		public bool IsConnecting { get; private set; }
 		public bool IsConnected => Client.Connected;
 
 		private DataCallbackEvent? WaitingForResponseCallback = null;
@@ -34,16 +46,22 @@ namespace ScriptsLibV2
 
 		public bool Connect(IPAddress ip, int port, int retries = 0)
 		{
+			IsConnecting = true;
+
 			LastIP = ip;
 			LastPort = port;
 			LastRetries = retries;
 
 			Disconnect();
+			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
 			Client.Connect(ip, port);
 			if (!Client.Connected)
 			{
 				if (retries == 0)
 				{
+					IsConnecting = false;
+					OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
+					OnConnectionFail?.Invoke();
 					return false;
 				}
 				return Connect(ip, port, retries - 1);
@@ -67,11 +85,14 @@ namespace ScriptsLibV2
 		public async Task<bool> ConnectAsync(IPAddress ip, int port, int retries = 0)
 		{
 			Disconnect();
+			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
 			await Client.ConnectAsync(ip, port);
 			if (!Client.Connected)
 			{
 				if (retries == 0)
 				{
+					OnConnectionFail?.Invoke();
+					OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
 					return false;
 				}
 				return await ConnectAsync(ip, port, retries - 1);
@@ -82,7 +103,9 @@ namespace ScriptsLibV2
 
 		private async Task OnConnectedToServer(NetworkStream stream)
 		{
+			IsConnecting = false;
 			OnConnect?.Invoke(stream);
+			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connected);
 			await ReceiveData();
 		}
 
@@ -91,6 +114,7 @@ namespace ScriptsLibV2
 			if (Client.Connected)
 			{
 				OnDisconnect?.Invoke();
+				OnConnectionStatusChange?.Invoke(ConnectionStatus.Disconnected);
 				Client.Client.Disconnect(true);
 				Client.Close();
 			}
