@@ -10,17 +10,27 @@ using Discord.WebSocket;
 
 using Newtonsoft.Json;
 
+using ScriptsLibV2.Extensions;
+using ScriptsLibV2.Properties;
+using ScriptsLibV2.Util;
+
 namespace ScriptsLibV2
 {
 	public partial class DiscordBot
 	{
-		public DiscordBot(LogSeverity logLevel, Assembly assembly, IServiceProvider serviceProvider, string configPath = null)
+		public DiscordBot(Assembly assembly, LogSeverity logLevel = LogSeverity.Info, IServiceProvider serviceProvider = null, string configPath = null)
 		{
-			if (string.IsNullOrEmpty(configPath))
+			if (configPath.IsEmpty())
 			{
-				configPath = @"\bot_config.json";
-			}
+				configPath = $@"{Utils.GetInstallationFolder()}\bot_config.json";
 
+				// Check if config file exists
+				if (!File.Exists(configPath))
+				{
+					File.WriteAllBytes(configPath, Resources.DiscordBotConfig_JSON);
+				}
+			}
+			
 			LogLevel = logLevel;
 			Assembly = assembly;
 			ServiceProvider = serviceProvider;

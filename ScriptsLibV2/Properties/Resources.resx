@@ -124,6 +124,9 @@
   <data name="Books_PNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>icon\books_png.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DiscordBotConfig_JSON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>discordbotconfig_json.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="EES_WPA2PSK_AES_XML" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>ees_wpa2psk_aes_xml.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

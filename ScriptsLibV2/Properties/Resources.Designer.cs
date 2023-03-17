@@ -81,6 +81,16 @@ namespace ScriptsLibV2.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] DiscordBotConfig_JSON {
+            get {
+                object obj = ResourceManager.GetObject("DiscordBotConfig_JSON", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
         ///&lt;WLANProfile xmlns=&quot;http://www.microsoft.com/networking/WLAN/profile/v1&quot;&gt;
         ///	&lt;name&gt;{SSID}&lt;/name&gt;
@@ -121,7 +131,7 @@ namespace ScriptsLibV2.Properties {
         ///      and distribution as defined by Sections 1 through 9 of this document.
         ///
         ///      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
-        ///      the copyright owner that is granting th [rest of string was truncated]&quot;;.
+        ///      the copyright owner that is [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string License_TXT {
             get {

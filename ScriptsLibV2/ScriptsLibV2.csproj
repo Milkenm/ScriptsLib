@@ -112,7 +112,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ScriptsLib\DiscordBot\bot_config.json">
+    <None Update="Properties\DiscordBotConfig_JSON.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
