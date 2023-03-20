@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -30,13 +31,21 @@ namespace ScriptsLibV2
 					File.WriteAllBytes(configPath, Resources.DiscordBotConfig_JSON);
 				}
 			}
-			
+
 			LogLevel = logLevel;
 			Assembly = assembly;
 			ServiceProvider = serviceProvider;
 			ConfigPath = configPath;
 
 			Initialize();
+		}
+
+		public List<ulong> DebugChannels
+		{
+			get
+			{
+				return new List<ulong>(Configuration.DebugChannels);
+			}
 		}
 
 		public string ConfigPath { get; set; }
