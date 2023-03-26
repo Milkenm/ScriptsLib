@@ -7,7 +7,7 @@ namespace ScriptsLibV2.Util
 {
 	public static partial class TwemojiUtils
 	{
-		public static string GetEmojiUrlFromEmoji(string emoji)
+		public static string GetUrlFromEmoji(string emoji)
 		{
 			return GetEmojiUrlFromCode(GetEmojiCode(emoji));
 		}

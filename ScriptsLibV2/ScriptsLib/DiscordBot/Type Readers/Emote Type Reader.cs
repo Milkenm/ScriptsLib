@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ScriptsLibV2
 {
-    public class EmoteTypeReader : TypeReader
+    internal class EmoteTypeReader : TypeReader
     {
         public override Task<TypeReaderResult> ReadAsync(ICommandContext context, string input, IServiceProvider services)
         {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
+﻿using System.Web;
 
 namespace ScriptsLibV2.Util
 {
@@ -10,7 +7,7 @@ namespace ScriptsLibV2.Util
 		public static string GetEmojiCode(string emoji)
 		{
 			string decimalEncoded = HttpUtility.HtmlEncode(emoji);
-			int dec = int.Parse(decimalEncoded.Substring(2, decimalEncoded.Length - 3));
+			int dec = int.Parse(decimalEncoded.Substring(2, decimalEncoded.Length - 3).Replace(';', '\0'));
 			return string.Format("{0:X}", dec).ToLower();
 		}
 	}
