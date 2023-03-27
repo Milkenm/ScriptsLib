@@ -58,7 +58,7 @@ namespace ScriptsLibV2
 			if (CommandActionsList.ContainsKey(arg.CommandId))
 			{
 				ISlashCommand slashCommand = CommandActionsList[arg.CommandId];
-				await slashCommand.GetAction(arg, Client);
+				slashCommand.GetAction(arg, Client).GetAwaiter();
 			}
 		}
 	}
