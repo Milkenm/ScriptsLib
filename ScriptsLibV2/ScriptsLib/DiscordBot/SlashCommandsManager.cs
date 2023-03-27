@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
+using Discord;
 using Discord.WebSocket;
 
 using ScriptsLibV2.ScriptsLib.DiscordBot;
@@ -19,19 +22,28 @@ namespace ScriptsLibV2
 			Client.SlashCommandExecuted += Client_SlashCommandExecuted;
 		}
 
-		public async Task RemoveAllCommands()
-		{
-			foreach (SocketApplicationCommand sac in await Client.GetGlobalApplicationCommandsAsync())
-			{
-				await sac.DeleteAsync();
-			}
-		}
-
 		public async Task AddSlashCommandsAsync(params ISlashCommand[] slashCommands)
 		{
+			List<ApplicationCommandProperties> commandPropertiesList = new List<ApplicationCommandProperties>();
+
 			foreach (ISlashCommand command in slashCommands)
 			{
-				await AddSlashCommandAsync(command);
+				try
+				{
+					SlashCommandProperties commandProperties = command.GetSlashCommand();
+					commandPropertiesList.Add(commandProperties);
+				}
+				catch
+				{
+					Debug.WriteLine($"Error while registering command '{command.Name}'.");
+				}
+			}
+
+			IReadOnlyCollection<SocketApplicationCommand>? socketAppCommands = await Client.BulkOverwriteGlobalApplicationCommandsAsync(commandPropertiesList.ToArray());
+
+			foreach (SocketApplicationCommand socketAppCommand in socketAppCommands)
+			{
+				CommandActionsList.Add(socketAppCommand.Id, slashCommands.First(cmd => cmd.Name == socketAppCommand.Name));
 			}
 		}
 
