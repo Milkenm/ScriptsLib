@@ -64,7 +64,7 @@ namespace ScriptsLibV2.Databases
 
 		public static void CreateDatabase(string databasePath, DatabaseTypeEnum provider)
 		{
-			Util.Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
+			Utils.NullChecker(true, (databasePath, nameof(databasePath)), (provider, nameof(provider)));
 
 			if (File.Exists(databasePath))
 			{

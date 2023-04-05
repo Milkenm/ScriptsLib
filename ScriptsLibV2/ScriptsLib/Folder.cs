@@ -2,6 +2,8 @@
 
 using ScriptsLibV2.Util;
 
+using SPath = System.IO.Path;
+
 namespace ScriptsLibV2
 {
 	public class Folder
@@ -77,6 +79,33 @@ namespace ScriptsLibV2
 		public DirectoryInfo GetDirectory()
 		{
 			return new DirectoryInfo(Path);
+		}
+
+		public string? ReadFile(string name)
+		{
+			string filePath = SPath.Combine(this.Path, name);
+
+			if (!this.Exists || !File.Exists(filePath)) return null;
+
+			return File.ReadAllText(filePath);
+		}
+
+		public void WriteFile(string path, string text)
+		{
+			string folderPath = SPath.GetDirectoryName(path);
+			string fileName = SPath.GetFileName(path);
+			string fullFolderPath = SPath.Combine(Path, folderPath);
+
+			if (!Exists)
+			{
+				this.CreateFolder();
+			}
+			if (!Directory.Exists(fullFolderPath))
+			{
+				Directory.CreateDirectory(fullFolderPath);
+			}
+
+			File.WriteAllText(SPath.Combine(fullFolderPath, fileName), text);
 		}
 	}
 }

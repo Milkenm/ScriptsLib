@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
-
-using ScriptsLibV2.Extensions;
-
-using System;
+﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+
+using Newtonsoft.Json;
+
+using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2.Util
 {
@@ -108,13 +108,12 @@ namespace ScriptsLibV2.Util
 			{
 				throw new ArgumentNullException(nameof(url));
 			}
-			if (headers == null)
-			{
-				throw new ArgumentNullException(nameof(headers));
-			}
 
 			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-			request.Headers = headers;
+			if (headers != null)
+			{
+				request.Headers = headers;
+			}
 
 			return await GetAsync(request);
 		}
