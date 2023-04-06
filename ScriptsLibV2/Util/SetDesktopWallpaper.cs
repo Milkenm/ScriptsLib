@@ -4,11 +4,11 @@ using System.IO;
 
 using Microsoft.Win32;
 
-using ScriptsLib.PInvoke;
+using ScriptsLibV2.PInvoke;
 
-namespace ScriptsLib
+namespace ScriptsLibV2.Util
 {
-	public static partial class Tools
+	public static partial class Utils
 	{
 		/// <summary>Sets the desktop wallpaper.</summary>
 		/// <param name="wallpaper">The image to be set as wallpaper.</param>
@@ -51,18 +51,18 @@ namespace ScriptsLib
 
 			User32.SystemParametersInfo(20, 0, wallpaperPath, 0x01 | 0x02);
 		}
+	}
 
-		/// <summary>Types of wallpaper.</summary>
-		public enum WallpaperStyle
-		{
-			/// <summary>The image is tiled across the screen.</summary>
-			Tiled,
+	/// <summary>Types of wallpaper.</summary>
+	public enum WallpaperStyle
+	{
+		/// <summary>The image is tiled across the screen.</summary>
+		Tiled,
 
-			/// <summary>The image is centered on the screen.</summary>
-			Centered,
+		/// <summary>The image is centered on the screen.</summary>
+		Centered,
 
-			/// <summary>The image is steched to fit the screen.</summary>
-			Stretched,
-		}
+		/// <summary>The image is steched to fit the screen.</summary>
+		Stretched,
 	}
 }
