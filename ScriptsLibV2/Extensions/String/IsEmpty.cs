@@ -7,7 +7,7 @@
 			bool isEmpty = string.IsNullOrEmpty(@string);
 			if (ignoreSpaces)
 			{
-				isEmpty = string.IsNullOrWhiteSpace(@string);
+				isEmpty = isEmpty || string.IsNullOrWhiteSpace(@string);
 			}
 			return isEmpty;
 		}
