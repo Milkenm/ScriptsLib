@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reactive.Concurrency;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,8 +21,8 @@ namespace ScriptsLibV2
 
 		private readonly TcpListener _server;
 		private readonly List<Socket> _connectedClients = new List<Socket>();
-		private readonly List<Task> _clientTasks = new List<Task>();
-		private readonly Dictionary<Socket, Task> _socketToTaskMapping = new Dictionary<Socket, Task>();
+		private readonly List<Thread> _clientThreads = new List<Thread>();
+		private readonly Dictionary<Socket, Thread> _socketToThreadMapping = new Dictionary<Socket, Thread>();
 		private readonly SynchronizationContext _syncContext;
 
 		private readonly bool _disposed = false;
@@ -63,13 +64,14 @@ namespace ScriptsLibV2
 			{
 				this.Stop();
 
-				foreach (Task clientTask in this._clientTasks)
+				foreach (Thread clientThread in this._clientThreads)
 				{
-					clientTask.Dispose();
+					clientThread.Abort();
 				}
 
 				foreach (Socket socket in this._connectedClients)
 				{
+					socket.Dispose();
 				}
 			}
 		}
@@ -100,13 +102,13 @@ namespace ScriptsLibV2
 		private async Task DisconnectClient(Socket client)
 		{
 			EndPoint remoteEp = client.RemoteEndPoint;
-			int index = this._socketToTaskMapping.Keys.ToList().IndexOf(client);
+			int index = this._socketToThreadMapping.Keys.ToList().IndexOf(client);
 
-			Task clientTask = this._socketToTaskMapping[client];
-			_ = this._clientTasks.Remove(clientTask);
-			clientTask.Dispose();
+			Thread clientThread = this._socketToThreadMapping[client];
+			_ = this._clientThreads.Remove(clientThread);
+			clientThread.Abort();
 			client.Dispose();
-			_ = this._socketToTaskMapping.Remove(client);
+			_ = this._socketToThreadMapping.Remove(client);
 
 			await this.LogMessage($"Closed connection for client ({remoteEp}) #{index}");
 		}
@@ -116,7 +118,7 @@ namespace ScriptsLibV2
 			if (!client.Connected)
 			{
 				_ = this.OnClientDisconnected(client).GetAwaiter();
-				_ = this.LogMessage($"Client ({client.RemoteEndPoint}) has disconnected before sending data.").GetAwaiter();
+				_ = this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected before sending data.").GetAwaiter();
 			}
 
 			try
@@ -127,7 +129,7 @@ namespace ScriptsLibV2
 			catch
 			{
 				_ = this.OnClientDisconnected(client).GetAwaiter();
-				_ = this.LogMessage($"Client ({client.RemoteEndPoint}) has disconnected while sending data.").GetAwaiter();
+				_ = this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected while sending data.").GetAwaiter();
 			}
 		}
 
@@ -139,10 +141,10 @@ namespace ScriptsLibV2
 				Socket socket = await this._server.AcceptSocketAsync().ConfigureAwait(false);
 				await this.LogMessage("Client connected.");
 
-				Task clientTask = new Task(async () => await this.ClientProcess(socket));
-				this._clientTasks.Add(clientTask);
-				this._socketToTaskMapping.Add(socket, clientTask);
-				clientTask.Start();
+				Thread clientThread = new Thread(async () => await this.ClientProcess(socket));
+				this._clientThreads.Add(clientThread);
+				this._socketToThreadMapping.Add(socket, clientThread);
+				clientThread.Start();
 
 				await this.LogMessage("Client connection successfully handled.");
 			}

@@ -10,17 +10,18 @@ namespace ScriptsLibV2
 {
 	public class TcpClient
 	{
-		private readonly System.Net.Sockets.TcpClient Client = new System.Net.Sockets.TcpClient();
+		private readonly System.Net.Sockets.TcpClient _client = new System.Net.Sockets.TcpClient();
 
-		private IPAddress LastIP = null;
-		private int? LastPort = null;
-		private int? LastRetries = null;
+		/// Used to reconnect
+		private IPAddress _lastIp = null;
+		private int? _lastPort = null;
+		private int? _lastRetries = null;
 
-		public delegate void ConnectEvent(NetworkStream stream);
-		public event ConnectEvent OnConnect;
-		public delegate void DisconnectEvent();
-		public event DisconnectEvent OnDisconnect;
-		public event DisconnectEvent OnConnectionFail;
+		public delegate void ConnectionEvent(NetworkStream stream);
+		public event ConnectionEvent Connected;
+		public delegate void DisconnectionEvent();
+		public event DisconnectionEvent Disconnected;
+		public event DisconnectionEvent ConnectionFailed;
 
 		public delegate void ConnectionStatusChangeEvent(ConnectionStatus newStatus);
 		public enum ConnectionStatus
@@ -34,31 +35,31 @@ namespace ScriptsLibV2
 
 		public delegate void DataCallbackEvent(object dataObject);
 		public delegate void DataEvent(EndPoint source, byte[] data);
-		public event DataEvent OnDataReceived;
+		public event DataEvent DataReceived;
 
 		public delegate void DataReceivedCallback<T>(T packet);
 
 		public bool IsConnecting { get; private set; }
-		public bool IsConnected => Client.Connected;
+		public bool IsConnected => _client.Connected;
 
-		private DataCallbackEvent? WaitingForResponseCallback = null;
-		private bool SupressDefaultEvent = false;
-		private Type? ExpectedResponseType = null;
+		private DataCallbackEvent? _waitingForResponseCallback = null;
+		private bool _supressDataReceivedEvent = false;
+		private Type? _expectedResponseType = null;
 
 		public bool Connect(IPAddress ip, int port, int retries = 0)
 		{
 			IsConnecting = true;
 
-			LastIP = ip;
-			LastPort = port;
-			LastRetries = retries;
+			_lastIp = ip;
+			_lastPort = port;
+			_lastRetries = retries;
 
 			Disconnect();
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
 			try
 			{
-				Client.Connect(ip, port);
-				if (!Client.Connected)
+				_client.Connect(ip, port);
+				if (!_client.Connected)
 				{
 					return RetryConnection(ip, port, retries);
 				}
@@ -67,7 +68,7 @@ namespace ScriptsLibV2
 			{
 				return RetryConnection(ip, port, retries);
 			}
-			Task.Run(() => OnConnectedToServer(Client.GetStream()));
+			Task.Run(() => OnConnectedToServer(_client.GetStream()));
 			return true;
 		}
 
@@ -81,28 +82,15 @@ namespace ScriptsLibV2
 			return connected;
 		}
 
-		private bool RetryConnection(IPAddress ip, int port, int retries)
-		{
-			Debug.WriteLine("Retrying connection #" + retries);
-			if (retries == 0)
-			{
-				IsConnecting = false;
-				OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
-				OnConnectionFail?.Invoke();
-				return false;
-			}
-			return Connect(ip, port, retries - 1);
-		}
-
 		public bool Connect()
 		{
-			if (LastIP != null && LastPort != null)
+			if (_lastIp != null && _lastPort != null)
 			{
-				return Connect(LastIP, (int)LastPort, (int)LastRetries);
+				return Connect(_lastIp, (int)_lastPort, (int)_lastRetries);
 			}
 			else
 			{
-				throw new System.Exception("Connect method was never called.");
+				throw new Exception("Connect method was never called.");
 			}
 		}
 
@@ -112,8 +100,8 @@ namespace ScriptsLibV2
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connecting);
 			try
 			{
-				await Client.ConnectAsync(ip, port);
-				if (!Client.Connected)
+				await _client.ConnectAsync(ip, port);
+				if (!_client.Connected)
 				{
 					return await RetryConnectionAsync(ip, port, retries);
 				}
@@ -122,15 +110,28 @@ namespace ScriptsLibV2
 			{
 				return await RetryConnectionAsync(ip, port, retries);
 			}
-			Task.Run(async () => await OnConnectedToServer(Client.GetStream()));
+			Task.Run(async () => await OnConnectedToServer(_client.GetStream()));
 			return true;
+		}
+
+		private bool RetryConnection(IPAddress ip, int port, int retries)
+		{
+			Debug.WriteLine("Retrying connection #" + retries);
+			if (retries == 0)
+			{
+				IsConnecting = false;
+				OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
+				ConnectionFailed?.Invoke();
+				return false;
+			}
+			return Connect(ip, port, retries - 1);
 		}
 
 		private async Task<bool> RetryConnectionAsync(IPAddress ip, int port, int retries)
 		{
 			if (retries == 0)
 			{
-				OnConnectionFail?.Invoke();
+				ConnectionFailed?.Invoke();
 				OnConnectionStatusChange?.Invoke(ConnectionStatus.ConnectionFailed);
 				return false;
 			}
@@ -140,19 +141,19 @@ namespace ScriptsLibV2
 		private async Task OnConnectedToServer(NetworkStream stream)
 		{
 			IsConnecting = false;
-			OnConnect?.Invoke(stream);
+			Connected?.Invoke(stream);
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connected);
 			await ReceiveData();
 		}
 
 		public void Disconnect()
 		{
-			if (Client.Connected)
+			if (_client.Connected)
 			{
-				OnDisconnect?.Invoke();
+				Disconnected?.Invoke();
 				OnConnectionStatusChange?.Invoke(ConnectionStatus.Disconnected);
-				Client.Client.Disconnect(true);
-				Client.Close();
+				_client.Client.Disconnect(true);
+				_client.Close();
 			}
 		}
 
@@ -161,36 +162,38 @@ namespace ScriptsLibV2
 			if (data.GetType() == typeof(byte[]))
 			{
 				byte[] dataBytes = (byte[])data;
-				Client.GetStream().SendBytes(dataBytes);
+				_client.GetStream().SendBytes(dataBytes);
 				return dataBytes.LongLength;
 			}
-			return Client.GetStream().SendObject(data);
+			long sentBytes = _client.GetStream().SendObject(data);
+			_client.GetStream().Flush();
+			return sentBytes;
 		}
 
-		public long Send(object data, DataCallbackEvent responseCallback, bool supressDefaultEvent = false)
+		public long Send(object data, DataCallbackEvent responseCallback, bool supressDataReceivedEvent = false)
 		{
-			WaitingForResponseCallback = responseCallback;
-			SupressDefaultEvent = supressDefaultEvent;
+			_waitingForResponseCallback = responseCallback;
+			_supressDataReceivedEvent = supressDataReceivedEvent;
 			return Send(data);
 		}
 
-		public long Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDefaultEvent)
+		public long Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDataReceivedEvent)
 		{
-			ExpectedResponseType = typeof(T);
+			_expectedResponseType = typeof(T);
 
 			return Send(data, new DataCallbackEvent((dataObject) =>
 			{
 				responseCallback((T)dataObject);
-			}), supressDefaultEvent);
+			}), supressDataReceivedEvent);
 		}
 
 		// https://stackoverflow.com/a/11664073
-		public async Task ReceiveData()
+		private async Task ReceiveData()
 		{
-			Socket socket = Client.Client;
+			Socket socket = _client.Client;
 
 			byte[] buffer;
-			while (Client.Connected)
+			while (_client.Connected)
 			{
 				buffer = new byte[socket.ReceiveBufferSize];
 				int read;
@@ -208,17 +211,17 @@ namespace ScriptsLibV2
 				{
 					object responseObject = buffer.ToObject<object>();
 
-					if (!(SupressDefaultEvent && ExpectedResponseType != null && ExpectedResponseType == responseObject.GetType()))
+					if (!(_supressDataReceivedEvent && _expectedResponseType != null && _expectedResponseType == responseObject.GetType()))
 					{
-						OnDataReceived?.Invoke(socket.RemoteEndPoint, buffer);
+						DataReceived?.Invoke(socket.RemoteEndPoint, buffer);
 					}
 
-					if (WaitingForResponseCallback != null && (ExpectedResponseType == null || ExpectedResponseType == responseObject.GetType()))
+					if (_waitingForResponseCallback != null && (_expectedResponseType == null || _expectedResponseType == responseObject.GetType()))
 					{
-						WaitingForResponseCallback(responseObject);
-						WaitingForResponseCallback = null;
-						SupressDefaultEvent = false;
-						ExpectedResponseType = null;
+						_waitingForResponseCallback(responseObject);
+						_waitingForResponseCallback = null;
+						_supressDataReceivedEvent = false;
+						_expectedResponseType = null;
 					}
 				}
 				else
@@ -227,7 +230,7 @@ namespace ScriptsLibV2
 				}
 			}
 
-			if (!Client.Connected && socket.Connected)
+			if (!_client.Connected && socket.Connected)
 			{
 				try
 				{
@@ -236,7 +239,7 @@ namespace ScriptsLibV2
 				catch { }
 			}
 
-			OnDisconnect?.Invoke();
+			Disconnected?.Invoke();
 		}
 	}
 }
