@@ -1,90 +1,133 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using System.Threading.Tasks;
 
 using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2
 {
-	public class TcpServer
+	public class TcpServer : IDisposable
 	{
-		private readonly TcpListener Server;
-		private readonly List<Socket> ConnectedClients = new List<Socket>();
-		private readonly List<Task> ClientTasks = new List<Task>();
-		private readonly Dictionary<Task, Socket> TaskToSocketMapping = new Dictionary<Task, Socket>();
-
 		public bool IsRunning { get; private set; } = false;
-		public bool UseAsynchronousEvents { get; set; }
-
-		public TcpServer(IPEndPoint localEP)
-		{
-			Server = new TcpListener(localEP);
-			Server.Start();
-		}
-
-		public TcpServer(short port) : this(new IPEndPoint(IPAddress.Any, port)) { }
-
+		public bool UseAsynchronousEvents { get; set; } = false;
 		public int ConnectionTimeout { get; set; }
 		public int DisconnectTimeout { get; set; }
 
-		public delegate void ConnectionEvent(Socket client);
-		public event ConnectionEvent OnClientConnect;
-		public event ConnectionEvent OnClientDisconnect;
+		private readonly TcpListener _server;
+		private readonly List<Socket> _connectedClients = new List<Socket>();
+		private readonly List<Task> _clientTasks = new List<Task>();
+		private readonly Dictionary<Socket, Task> _socketToTaskMapping = new Dictionary<Socket, Task>();
+		private readonly SynchronizationContext _syncContext;
+
+		private readonly bool _disposed = false;
+
+		public TcpServer(IPEndPoint localEP)
+		{
+			this._server = new TcpListener(localEP);
+			this._syncContext = SynchronizationContext.Current;
+		}
+
+		public TcpServer(short port)
+			: this(new IPEndPoint(IPAddress.Any, port))
+		{ }
+
+		public delegate void ClientConnectionEvent(Socket client);
+		public event ClientConnectionEvent ClientConnected;
+		public event ClientConnectionEvent ClientDisconnected;
 
 		public delegate void DataEvent(Socket client, byte[] data);
-		public event DataEvent OnDataReceived;
+		public event DataEvent DataReceived;
 
-		public delegate void Log(string log);
-		public event Log OnLog;
+		public delegate void LogEvent(string log);
+		public event LogEvent Log;
+
+		public void Dispose()
+		{
+			this.Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (this._disposed)
+			{
+				return;
+			}
+
+			if (disposing)
+			{
+				this.Stop();
+
+				foreach (Task clientTask in this._clientTasks)
+				{
+					clientTask.Dispose();
+				}
+
+				foreach (Socket socket in this._connectedClients)
+				{
+				}
+			}
+		}
 
 		public void Start()
 		{
-			if (IsRunning) return;
+			if (this.IsRunning) return;
 
-			IsRunning = true;
-			Task.Factory.StartNew(AcceptClientsAsync, TaskCreationOptions.LongRunning).GetAwaiter();
+			this._server.Start();
+			this.IsRunning = true;
+			_ = Task.Factory.StartNew(this.AcceptClientsAsync, TaskCreationOptions.LongRunning).GetAwaiter();
 		}
 
 		public void Stop()
 		{
-			LogMessage("Stopping the server...");
-			if (!IsRunning) return;
+			_ = this.LogMessage("Stopping the server...").GetAwaiter();
+			if (!this.IsRunning) return;
 
-			int startingTasks = ClientTasks.Count;
-			LogMessage($"Closing {startingTasks} client connections...");
-			ClientTasks.ForEach((task) =>
+			_ = this.LogMessage($"Closing {this._connectedClients.Count} client connections...").GetAwaiter();
+			foreach (Socket client in this._connectedClients)
 			{
-				EndPoint remoteEp = TaskToSocketMapping[task].RemoteEndPoint;
-				int clientIndex = startingTasks - ClientTasks.Count;
+				_ = this.DisconnectClient(client).GetAwaiter();
+			}
+			this._server.Stop();
+			this.IsRunning = false;
+		}
 
-				ClientTasks.Remove(task);
-				task.Dispose();
-				TaskToSocketMapping[task].Dispose();
-				TaskToSocketMapping.Remove(task);
+		private async Task DisconnectClient(Socket client)
+		{
+			EndPoint remoteEp = client.RemoteEndPoint;
+			int index = this._socketToTaskMapping.Keys.ToList().IndexOf(client);
 
-				LogMessage($"Closed connection for client ({remoteEp}) #{clientIndex}");
-			});
+			Task clientTask = this._socketToTaskMapping[client];
+			_ = this._clientTasks.Remove(clientTask);
+			clientTask.Dispose();
+			client.Dispose();
+			_ = this._socketToTaskMapping.Remove(client);
+
+			await this.LogMessage($"Closed connection for client ({remoteEp}) #{index}");
 		}
 
 		public void SendObject(Socket client, object obj)
 		{
 			if (!client.Connected)
 			{
-				OnClientDisconnected(client);
-				LogMessage($"Client ({client.RemoteEndPoint}) has disconnected before sending data.");
+				_ = this.OnClientDisconnected(client).GetAwaiter();
+				_ = this.LogMessage($"Client ({client.RemoteEndPoint}) has disconnected before sending data.").GetAwaiter();
 			}
 
 			try
 			{
 				long bytesSent = client.SendObject(obj);
-				LogMessage($"Sent {bytesSent} bytes to a client ({client.RemoteEndPoint}).");
+				_ = this.LogMessage($"Sent {bytesSent} bytes to a client ({client.RemoteEndPoint}).").GetAwaiter();
 			}
 			catch
 			{
-				OnClientDisconnected(client);
-				LogMessage($"Client ({client.RemoteEndPoint}) has disconnected while sending data.");
+				_ = this.OnClientDisconnected(client).GetAwaiter();
+				_ = this.LogMessage($"Client ({client.RemoteEndPoint}) has disconnected while sending data.").GetAwaiter();
 			}
 		}
 
@@ -92,39 +135,40 @@ namespace ScriptsLibV2
 		{
 			try
 			{
-				LogMessage("Waiting for client connection...");
-				Socket socket = await Server.AcceptSocketAsync().ConfigureAwait(false);
-				LogMessage("Client connected.");
+				await this.LogMessage("Waiting for client connection...");
+				Socket socket = await this._server.AcceptSocketAsync().ConfigureAwait(false);
+				await this.LogMessage("Client connected.");
 
-				Task clientTask = new Task(async () => await ClientProcess(socket));
-				ClientTasks.Add(clientTask);
-				TaskToSocketMapping.Add(clientTask, socket);
+				Task clientTask = new Task(async () => await this.ClientProcess(socket));
+				this._clientTasks.Add(clientTask);
+				this._socketToTaskMapping.Add(socket, clientTask);
 				clientTask.Start();
 
-				LogMessage("Client connection successfully handled.");
+				await this.LogMessage("Client connection successfully handled.");
 			}
 			catch (Exception ex)
 			{
-				LogMessage("Error during client connection:\n" + ex.ToString());
-				return;
+				if (this.IsRunning)
+				{
+					await this.LogMessage("Error during client connection:\n" + ex.ToString());
+				}
 			}
 
-			if (IsRunning)
+			if (this.IsRunning)
 			{
-				LogMessage("Looping connection handler...");
-				await AcceptClientsAsync();
+				await this.LogMessage("Looping connection handler...");
+				await this.AcceptClientsAsync();
 			}
 		}
 
 		// https://stackoverflow.com/a/11664073
 		private async Task ClientProcess(Socket clientSocket)
 		{
-			 OnClientConnected(clientSocket);
+			await this.OnClientConnected(clientSocket);
 
-			byte[] buffer;
-			while (IsRunning)
+			while (this.IsRunning)
 			{
-				buffer = new byte[clientSocket.ReceiveBufferSize];
+				byte[] buffer = new byte[clientSocket.ReceiveBufferSize];
 				int read;
 
 				try
@@ -138,12 +182,12 @@ namespace ScriptsLibV2
 
 				if (read > 0)
 				{
-					LogMessage($"Received data from client ({clientSocket.RemoteEndPoint}) with {read} bytes.");
-					if (UseAsynchronousEvents)
+					await this.LogMessage($"Received data from client ({clientSocket.RemoteEndPoint}) with {read} bytes.");
+
+					await this.CallEvent(() =>
 					{
-						await Task.Factory.StartNew(() => OnDataReceived?.Invoke(clientSocket, buffer), TaskCreationOptions.LongRunning);
-					}
-					else OnDataReceived?.Invoke(clientSocket, buffer);
+						DataReceived?.Invoke(clientSocket, buffer);
+					});
 				}
 				else
 				{
@@ -151,49 +195,71 @@ namespace ScriptsLibV2
 				}
 			}
 
-			if (!IsRunning)
+			if (!this.IsRunning)
 			{
 				clientSocket.Disconnect(true);
 			}
 
-			 OnClientDisconnected(clientSocket);
+			await this.OnClientDisconnected(clientSocket);
 		}
 
-		private void OnClientConnected(Socket socket)
+		private async Task OnClientConnected(Socket socket)
 		{
-			LogMessage($"A client ({socket.RemoteEndPoint}) has connected.");
-			socket.ReceiveTimeout = ConnectionTimeout;
+			await this.LogMessage($"A client ({socket.RemoteEndPoint}) has connected.");
+			socket.ReceiveTimeout = this.ConnectionTimeout;
 
-			if (UseAsynchronousEvents)
+			await this.CallEvent(() =>
 			{
-				Task.Factory.StartNew(() => OnClientConnect?.Invoke(socket), TaskCreationOptions.LongRunning).GetAwaiter();
-			}
-			else OnClientConnect.Invoke(socket);
+				ClientConnected.Invoke(socket);
+			});
 
-			ConnectedClients.Add(socket);
+			this._connectedClients.Add(socket);
 		}
 
-		private void OnClientDisconnected(Socket socket)
+		private async Task OnClientDisconnected(Socket socket)
 		{
-			LogMessage($"A client ({socket.RemoteEndPoint}) has disconnected.");
-			socket?.Close(DisconnectTimeout);
+			await this.LogMessage($"A client ({socket.RemoteEndPoint}) has disconnected.");
+			_ = this._connectedClients.Remove(socket);
 
-			if (UseAsynchronousEvents)
+			Socket socketRef = socket;
+			socket.Close(this.DisconnectTimeout);
+			socket.Dispose();
+
+			await this.CallEvent(() =>
 			{
-				Task.Factory.StartNew(() => OnClientDisconnect?.Invoke(socket), TaskCreationOptions.LongRunning).GetAwaiter();
-			}
-			else OnClientDisconnect?.Invoke(socket);
-
-			ConnectedClients.Remove(socket);
+				ClientDisconnected?.Invoke(socketRef);
+			});
 		}
 
-		private void LogMessage(string message)
+		private async Task LogMessage(string message)
 		{
-			if (UseAsynchronousEvents)
+			Debug.WriteLine(message);
+			await this.CallEvent(() =>
 			{
-				Task.Factory.StartNew(() => OnLog?.Invoke(message)).GetAwaiter();
+				Log?.Invoke(message);
+			});
+		}
+
+		private async Task CallEvent(Action @event)
+		{
+			// Async
+			if (this.UseAsynchronousEvents)
+			{
+				await Task.Factory.StartNew(@event, TaskCreationOptions.LongRunning);
+				return;
 			}
-			else OnLog?.Invoke(message);
+
+			// Main
+			if (Thread.CurrentThread.ManagedThreadId == 1)
+			{
+				@event.Invoke();
+				return;
+			}
+
+			this._syncContext.Post(_ =>
+			{
+				@event.Invoke();
+			}, null);
 		}
 	}
 }
