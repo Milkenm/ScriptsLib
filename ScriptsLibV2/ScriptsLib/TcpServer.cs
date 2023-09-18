@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Reactive.Concurrency;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,11 +21,11 @@ namespace ScriptsLibV2
 
 		private readonly TcpListener _server;
 		private readonly List<Socket> _connectedClients = new List<Socket>();
-		private readonly List<Thread> _clientThreads = new List<Thread>();
-		private readonly Dictionary<Socket, Thread> _socketToThreadMapping = new Dictionary<Socket, Thread>();
+		private readonly Dictionary<Task, CancellationTokenSource> _clientTasks = new Dictionary<Task, CancellationTokenSource>();
+		private readonly Dictionary<Socket, Task> _socketToTaskMapping = new Dictionary<Socket, Task>();
 		private readonly SynchronizationContext _syncContext;
 
-		private readonly bool _disposed = false;
+		private bool _isDisposed = false;
 
 		public TcpServer(IPEndPoint localEP)
 		{
@@ -55,7 +55,7 @@ namespace ScriptsLibV2
 
 		protected virtual void Dispose(bool disposing)
 		{
-			if (this._disposed)
+			if (this._isDisposed)
 			{
 				return;
 			}
@@ -64,16 +64,24 @@ namespace ScriptsLibV2
 			{
 				this.Stop();
 
-				foreach (Thread clientThread in this._clientThreads)
+				foreach (var clientTaskKv in this._clientTasks)
 				{
-					clientThread.Abort();
+					// TODO: FIX
+					clientTaskKv.Value.Cancel();
+					clientTaskKv.Value.Dispose();
+					clientTaskKv.Key.Dispose();
+					_clientTasks.Remove(clientTaskKv.Key);
 				}
 
 				foreach (Socket socket in this._connectedClients)
 				{
+					socket.Close();
 					socket.Dispose();
+					this._connectedClients.Remove(socket);
 				}
 			}
+
+			this._isDisposed = true;
 		}
 
 		public void Start()
@@ -82,54 +90,65 @@ namespace ScriptsLibV2
 
 			this._server.Start();
 			this.IsRunning = true;
-			_ = Task.Factory.StartNew(this.AcceptClientsAsync, TaskCreationOptions.LongRunning).GetAwaiter();
+			_ = Task.Factory.StartNew(this.AcceptClientsAsync, TaskCreationOptions.LongRunning);
 		}
 
 		public void Stop()
 		{
-			_ = this.LogMessage("Stopping the server...").GetAwaiter();
-			if (!this.IsRunning) return;
+			this.LogMessage("Stopping the server...");
+			if (!this.IsRunning)
+			{
+				this.LogMessage("Server is already stopped.");
+			}
 
-			_ = this.LogMessage($"Closing {this._connectedClients.Count} client connections...").GetAwaiter();
+			this.LogMessage($"Closing {this._connectedClients.Count} client connections...");
 			foreach (Socket client in this._connectedClients)
 			{
-				_ = this.DisconnectClient(client).GetAwaiter();
+				this.DisconnectClient(client);
 			}
 			this._server.Stop();
 			this.IsRunning = false;
 		}
 
-		private async Task DisconnectClient(Socket client)
+		private void DisconnectClient(Socket client)
 		{
-			EndPoint remoteEp = client.RemoteEndPoint;
-			int index = this._socketToThreadMapping.Keys.ToList().IndexOf(client);
+			try
+			{
+				EndPoint remoteEp = client.RemoteEndPoint;
+				int index = this._socketToTaskMapping.Keys.ToList().IndexOf(client);
 
-			Thread clientThread = this._socketToThreadMapping[client];
-			_ = this._clientThreads.Remove(clientThread);
-			clientThread.Abort();
-			client.Dispose();
-			_ = this._socketToThreadMapping.Remove(client);
+				Task clientTask = this._socketToTaskMapping[client];
+				_ = this._clientTasks.Remove(clientTask);
+				// TODO: FIX
+				clientTask.Dispose();
+				client.Dispose();
+				_ = this._socketToTaskMapping.Remove(client);
 
-			await this.LogMessage($"Closed connection for client ({remoteEp}) #{index}");
+				this.LogMessage($"Closed connection for client ({remoteEp}) #{index}");
+			}
+			catch (Exception ex)
+			{
+				this.LogMessage($"Error while disconnecting client:\n{ex.Message}");
+			}
 		}
 
 		public void SendObject(Socket client, object obj)
 		{
 			if (!client.Connected)
 			{
-				_ = this.OnClientDisconnected(client).GetAwaiter();
-				_ = this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected before sending data.").GetAwaiter();
+				this.OnClientDisconnected(client);
+				this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected before sending data.");
 			}
 
 			try
 			{
 				long bytesSent = client.SendObject(obj);
-				_ = this.LogMessage($"Sent {bytesSent} bytes to a client ({client.RemoteEndPoint}).").GetAwaiter();
+				this.LogMessage($"Sent {bytesSent} bytes to a client ({client.RemoteEndPoint}).");
 			}
 			catch
 			{
-				_ = this.OnClientDisconnected(client).GetAwaiter();
-				_ = this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected while sending data.").GetAwaiter();
+				this.OnClientDisconnected(client);
+				this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected while sending data.");
 			}
 		}
 
@@ -137,36 +156,36 @@ namespace ScriptsLibV2
 		{
 			try
 			{
-				await this.LogMessage("Waiting for client connection...");
-				Socket socket = await this._server.AcceptSocketAsync().ConfigureAwait(false);
-				await this.LogMessage("Client connected.");
+				this.LogMessage("Waiting for client connection...");
+				Socket socket = await this._server.AcceptSocketAsync();
+				this.LogMessage("Client connected.");
 
-				Thread clientThread = new Thread(async () => await this.ClientProcess(socket));
-				this._clientThreads.Add(clientThread);
-				this._socketToThreadMapping.Add(socket, clientThread);
-				clientThread.Start();
+				Task clientTask = new Task(() => this.ClientHandler(socket));
+				this._clientTasks.Add(clientTask);
+				this._socketToTaskMapping.Add(socket, clientTask);
+				clientTask.Start();
 
-				await this.LogMessage("Client connection successfully handled.");
+				this.LogMessage("Client connection successfully handled.");
 			}
 			catch (Exception ex)
 			{
 				if (this.IsRunning)
 				{
-					await this.LogMessage("Error during client connection:\n" + ex.ToString());
+					this.LogMessage("Error during client connection:\n" + ex.ToString());
 				}
 			}
 
 			if (this.IsRunning)
 			{
-				await this.LogMessage("Looping connection handler...");
-				await this.AcceptClientsAsync();
+				this.LogMessage("Looping connection handler...");
+				_ = this.AcceptClientsAsync();
 			}
 		}
 
 		// https://stackoverflow.com/a/11664073
-		private async Task ClientProcess(Socket clientSocket)
+		private void ClientHandler(Socket clientSocket)
 		{
-			await this.OnClientConnected(clientSocket);
+			this.OnClientConnected(clientSocket);
 
 			while (this.IsRunning)
 			{
@@ -184,9 +203,9 @@ namespace ScriptsLibV2
 
 				if (read > 0)
 				{
-					await this.LogMessage($"Received data from client ({clientSocket.RemoteEndPoint}) with {read} bytes.");
+					this.LogMessage($"Received data from client ({clientSocket.RemoteEndPoint}) with {read} bytes.");
 
-					await this.CallEvent(() =>
+					this.CallEvent(() =>
 					{
 						DataReceived?.Invoke(clientSocket, buffer);
 					});
@@ -202,15 +221,15 @@ namespace ScriptsLibV2
 				clientSocket.Disconnect(true);
 			}
 
-			await this.OnClientDisconnected(clientSocket);
+			this.OnClientDisconnected(clientSocket);
 		}
 
-		private async Task OnClientConnected(Socket socket)
+		private void OnClientConnected(Socket socket)
 		{
-			await this.LogMessage($"A client ({socket.RemoteEndPoint}) has connected.");
+			this.LogMessage($"A client ({socket.RemoteEndPoint}) has connected.");
 			socket.ReceiveTimeout = this.ConnectionTimeout;
 
-			await this.CallEvent(() =>
+			this.CallEvent(() =>
 			{
 				ClientConnected.Invoke(socket);
 			});
@@ -218,50 +237,90 @@ namespace ScriptsLibV2
 			this._connectedClients.Add(socket);
 		}
 
-		private async Task OnClientDisconnected(Socket socket)
+		private void OnClientDisconnected(Socket socket)
 		{
-			await this.LogMessage($"A client ({socket.RemoteEndPoint}) has disconnected.");
+			this.LogMessage($"A client ({socket.RemoteEndPoint}) has disconnected.");
 			_ = this._connectedClients.Remove(socket);
 
 			Socket socketRef = socket;
 			socket.Close(this.DisconnectTimeout);
 			socket.Dispose();
 
-			await this.CallEvent(() =>
+			this.CallEvent(() =>
 			{
 				ClientDisconnected?.Invoke(socketRef);
 			});
 		}
 
-		private async Task LogMessage(string message)
+		private void LogMessage(string message)
 		{
 			Debug.WriteLine(message);
-			await this.CallEvent(() =>
+			this.CallEvent(() =>
 			{
 				Log?.Invoke(message);
 			});
 		}
 
-		private async Task CallEvent(Action @event)
+		private void CallEvent(Action @event)
 		{
 			// Async
 			if (this.UseAsynchronousEvents)
 			{
-				await Task.Factory.StartNew(@event, TaskCreationOptions.LongRunning);
+				new Task(@event).FAF();
 				return;
 			}
 
-			// Main
+			// Main (sync)
 			if (Thread.CurrentThread.ManagedThreadId == 1)
 			{
 				@event.Invoke();
 				return;
 			}
-
 			this._syncContext.Post(_ =>
 			{
 				@event.Invoke();
 			}, null);
+		}
+
+		private class ClientInfo : IDisposable
+		{
+			private Socket _socket;
+			private Task _task;
+			private CancellationTokenSource _cancellationToken;
+			private bool _isDisposed;
+
+			public ClientInfo(TcpServer server, Socket socket)
+			{
+				this._socket = socket;
+				this._cancellationToken = new CancellationTokenSource();
+				this._task = new Task(() => server.ClientHandler(socket), this._cancellationToken.Token);
+				_task.Start();
+			}
+
+			protected virtual void Dispose(bool disposing)
+			{
+				if (_isDisposed)
+				{
+					return;
+				}
+				_isDisposed = true;
+
+				if (disposing)
+				{
+					_cancellationToken.Cancel();
+					_cancellationToken.Dispose();
+					_task.Dispose();
+				}
+
+				_socket.Close();
+				_socket.Dispose();
+			}
+
+			public void Dispose()
+			{
+				Dispose(true);
+				GC.SuppressFinalize(this);
+			}
 		}
 	}
 }

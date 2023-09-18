@@ -7,7 +7,7 @@ namespace ScriptsLibV2.Extensions
 		public static long SendObject(this Socket socket, object obj)
 		{
 			byte[] objBytes = obj.ToByteArray();
-			socket.Send(objBytes);
+			socket.Send(objBytes, objBytes.Length, SocketFlags.None);
 			return objBytes.LongLength;
 		}
 	}
