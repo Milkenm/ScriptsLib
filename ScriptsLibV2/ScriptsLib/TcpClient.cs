@@ -4,11 +4,15 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
+using MySql.Data.MySqlClient.Memcached;
+
+using Org.BouncyCastle.Bcpg;
+
 using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2
 {
-	public class TcpClient
+	public class TcpClient /*: System.Net.Sockets.TcpClient*/
 	{
 		private readonly System.Net.Sockets.TcpClient _client = new System.Net.Sockets.TcpClient();
 
@@ -45,6 +49,7 @@ namespace ScriptsLibV2
 		private DataCallbackEvent? _waitingForResponseCallback = null;
 		private bool _supressDataReceivedEvent = false;
 		private Type? _expectedResponseType = null;
+		private byte[] _buffer = new byte[1024];
 
 		public bool Connect(IPAddress ip, int port, int retries = 0)
 		{
@@ -143,7 +148,16 @@ namespace ScriptsLibV2
 			IsConnecting = false;
 			Connected?.Invoke(stream);
 			OnConnectionStatusChange?.Invoke(ConnectionStatus.Connected);
-			await ReceiveData();
+
+			try
+			{
+				// Begin receiving data asynchronously
+				_client.Client.BeginReceive(_buffer, 0, 1024, SocketFlags.None, ReceiveCallback, null);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Error while starting to receive: " + ex.Message);
+			}
 		}
 
 		public void Disconnect()
@@ -187,59 +201,35 @@ namespace ScriptsLibV2
 			}), supressDataReceivedEvent);
 		}
 
-		// https://stackoverflow.com/a/11664073
-		private async Task ReceiveData()
+		private void ReceiveCallback(IAsyncResult ar)
 		{
-			Socket socket = _client.Client;
-
-			byte[] buffer;
-			while (_client.Connected)
+			try
 			{
-				buffer = new byte[socket.ReceiveBufferSize];
-				int read;
+				// End the asynchronous receive operation and get the number of bytes received
+				int bytesRead = _client.Client.EndReceive(ar);
 
-				try
+				if (bytesRead > 0)
 				{
-					read = socket.Receive(buffer);
-				}
-				catch
-				{
-					break;
-				}
+					// Process the received data
+					byte[] receivedData = new byte[bytesRead];
+					Array.Copy(_buffer, receivedData, bytesRead);
 
-				if (read > 0)
-				{
-					object responseObject = buffer.ToObject<object>();
+					DataReceived?.Invoke(_client.Client.RemoteEndPoint, receivedData);
 
-					if (!(_supressDataReceivedEvent && _expectedResponseType != null && _expectedResponseType == responseObject.GetType()))
-					{
-						DataReceived?.Invoke(socket.RemoteEndPoint, buffer);
-					}
-
-					if (_waitingForResponseCallback != null && (_expectedResponseType == null || _expectedResponseType == responseObject.GetType()))
-					{
-						_waitingForResponseCallback(responseObject);
-						_waitingForResponseCallback = null;
-						_supressDataReceivedEvent = false;
-						_expectedResponseType = null;
-					}
+					// Continue receiving more data
+					_client.Client.BeginReceive(_buffer, 0, 1024, SocketFlags.None, ReceiveCallback, null);
 				}
 				else
 				{
-					break;
+
 				}
 			}
-
-			if (!_client.Connected && socket.Connected)
+			catch (Exception ex)
 			{
-				try
-				{
-					socket.Disconnect(true);
-				}
-				catch { }
-			}
+				Debug.WriteLine("Error during receive callback: " + ex.Message);
 
-			Disconnected?.Invoke();
+
+			}
 		}
 	}
 }

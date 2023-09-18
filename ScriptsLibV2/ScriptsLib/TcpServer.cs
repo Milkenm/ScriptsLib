@@ -8,11 +8,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
+using MySql.Data.MySqlClient.Memcached;
+
+using Org.BouncyCastle.Bcpg;
+
 using ScriptsLibV2.Extensions;
 
 namespace ScriptsLibV2
 {
-	public class TcpServer : IDisposable
+	public class TcpServer : /*TcpListener,*/ IDisposable
 	{
 		public bool IsRunning { get; private set; } = false;
 		public bool UseAsynchronousEvents { get; set; } = false;
@@ -26,6 +30,7 @@ namespace ScriptsLibV2
 		private bool _isDisposed = false;
 
 		public TcpServer(IPEndPoint localEP)
+			/*: base (localEP)*/
 		{
 			this._server = new TcpListener(localEP);
 			this._syncContext = SynchronizationContext.Current;
@@ -186,94 +191,67 @@ namespace ScriptsLibV2
 		{
 			this.OnClientConnected(client);
 
-			while (this.IsRunning)
+			try
 			{
-				byte[] buffer = new byte[client.Socket.ReceiveBufferSize];
-				int read;
+				// Begin receiving data asynchronously
+				client.Socket.BeginReceive(client.Buffer, 0, 1024, SocketFlags.None, ReceiveCallback, client);
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Error while starting to receive: " + ex.Message);
+				this.HandleClientDisconnect(client);
+			}
+		}
 
-				try
-				{
-					read = client.Socket.Receive(buffer);
-					StartReceiving(client.Socket);
-				}
-				catch
-				{
-					break;
-				}
+		/// ---------- CHAT GPT STUFF XD ---------- ///
 
-				if (read > 0)
-				{
-					this.LogMessage($"Received {read} bytes of data from client ({client.GetPrintableId()}).");
+		private void ReceiveCallback(IAsyncResult ar)
+		{
+			ClientInfo client = (ClientInfo)ar.AsyncState;
 
+			try
+			{
+				// End the asynchronous receive operation and get the number of bytes received
+				int bytesRead = client.Socket.EndReceive(ar);
+
+				if (bytesRead > 0)
+				{
+					// Process the received data
+					byte[] receivedData = new byte[bytesRead];
+					Array.Copy(client.Buffer, receivedData, bytesRead);
+
+					this.LogMessage($"Received {bytesRead} bytes of data from client ({client.GetPrintableId()}).");
+
+					// Do something with receivedData
 					this.CallEvent(() =>
 					{
-						DataReceived?.Invoke(client.Socket, buffer);
+						DataReceived?.Invoke(client.Socket, client.Buffer);
 					});
+
+					// Continue receiving more data
+					client.Socket.BeginReceive(client.Buffer, 0, 1024, SocketFlags.None, ReceiveCallback, client);
 				}
 				else
 				{
-					break;
+					this.HandleClientDisconnect(client);
 				}
 			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Error during receive callback: " + ex.Message);
 
+				this.HandleClientDisconnect(client);
+			}
+		}
+
+		private void HandleClientDisconnect(ClientInfo client)
+		{
 			if (!this.IsRunning)
 			{
 				this.DisconnectClient(client);
 			}
 
 			this.OnClientDisconnected(client);
-		}
-
-		/// ---------- CHAT GPT STUFF XD ---------- ///
-		
-		private const int BufferSize = 1024;
-		private byte[] buffer = new byte[BufferSize];
-
-		public void StartReceiving(Socket socket)
-		{
-			try
-			{
-				// Begin receiving data asynchronously
-				socket.BeginReceive(buffer, 0, BufferSize, SocketFlags.None, ReceiveCallback, socket);
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("Error while starting to receive: " + ex.Message);
-			}
-		}
-
-		private void ReceiveCallback(IAsyncResult ar)
-		{
-			Socket socket = (Socket)ar.AsyncState;
-
-			try
-			{
-				// End the asynchronous receive operation and get the number of bytes received
-				int bytesRead = socket.EndReceive(ar);
-
-				if (bytesRead > 0)
-				{
-					// Process the received data
-					byte[] receivedData = new byte[bytesRead];
-					Array.Copy(buffer, receivedData, bytesRead);
-
-					Debug.WriteLine("RECEIVED " + receivedData.Length + " BYTES");
-
-					// Do something with receivedData
-
-					// Continue receiving more data
-					socket.BeginReceive(buffer, 0, BufferSize, SocketFlags.None, ReceiveCallback, socket);
-				}
-				else
-				{
-					// If bytesRead is 0, the connection has been closed by the remote end
-					// Handle this situation as needed
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("Error during receive callback: " + ex.Message);
-			}
 		}
 
 		/// ---------- CHAT GPT STUFF XD ---------- ///
@@ -339,6 +317,7 @@ namespace ScriptsLibV2
 
 		public ulong ClientId { get; }
 		public Socket Socket { get; }
+		public byte[] Buffer { get; } = new byte[1024];
 
 		private readonly Task _task;
 		private readonly CancellationTokenSource _cancellationToken;
