@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ScriptsLibV2.Extensions
@@ -10,19 +11,17 @@ namespace ScriptsLibV2.Extensions
 		/// https://stackoverflow.com/a/18205093
 		public static byte[] ToByteArray(this object obj)
 		{
-			if (obj != null)
+			if (obj == null)
 			{
-				using (MemoryStream ms = new MemoryStream())
-				{
-					BinaryFormatter bf = new BinaryFormatter();
-					bf.Serialize(ms, obj);
-
-					return ms.ToArray();
-				}
+				throw new ArgumentNullException(nameof(obj));
 			}
-			else
+
+			using (MemoryStream ms = new MemoryStream())
 			{
-				return null;
+				BinaryFormatter bf = new BinaryFormatter();
+				bf.Serialize(ms, obj);
+
+				return ms.ToArray();
 			}
 		}
 	}

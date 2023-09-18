@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 using ScriptsLibV2.Extensions;
 
@@ -20,9 +20,7 @@ namespace ScriptsLibV2
 		public int DisconnectTimeout { get; set; }
 
 		private readonly TcpListener _server;
-		private readonly List<Socket> _connectedClients = new List<Socket>();
-		private readonly Dictionary<Task, CancellationTokenSource> _clientTasks = new Dictionary<Task, CancellationTokenSource>();
-		private readonly Dictionary<Socket, Task> _socketToTaskMapping = new Dictionary<Socket, Task>();
+		private readonly Dictionary<ulong, ClientInfo> _clients = new Dictionary<ulong, ClientInfo>();
 		private readonly SynchronizationContext _syncContext;
 
 		private bool _isDisposed = false;
@@ -37,7 +35,7 @@ namespace ScriptsLibV2
 			: this(new IPEndPoint(IPAddress.Any, port))
 		{ }
 
-		public delegate void ClientConnectionEvent(Socket client);
+		public delegate void ClientConnectionEvent(ClientInfo client);
 		public event ClientConnectionEvent ClientConnected;
 		public event ClientConnectionEvent ClientDisconnected;
 
@@ -62,23 +60,13 @@ namespace ScriptsLibV2
 
 			if (disposing)
 			{
-				this.Stop();
 
-				foreach (var clientTaskKv in this._clientTasks)
-				{
-					// TODO: FIX
-					clientTaskKv.Value.Cancel();
-					clientTaskKv.Value.Dispose();
-					clientTaskKv.Key.Dispose();
-					_clientTasks.Remove(clientTaskKv.Key);
-				}
+			}
 
-				foreach (Socket socket in this._connectedClients)
-				{
-					socket.Close();
-					socket.Dispose();
-					this._connectedClients.Remove(socket);
-				}
+			this.Stop();
+			foreach (ClientInfo client in this._clients.Values)
+			{
+				this.DisconnectClient(client);
 			}
 
 			this._isDisposed = true;
@@ -86,10 +74,14 @@ namespace ScriptsLibV2
 
 		public void Start()
 		{
-			if (this.IsRunning) return;
+			if (this.IsRunning)
+			{
+				return;
+			}
 
 			this._server.Start();
 			this.IsRunning = true;
+
 			_ = Task.Factory.StartNew(this.AcceptClientsAsync, TaskCreationOptions.LongRunning);
 		}
 
@@ -101,8 +93,8 @@ namespace ScriptsLibV2
 				this.LogMessage("Server is already stopped.");
 			}
 
-			this.LogMessage($"Closing {this._connectedClients.Count} client connections...");
-			foreach (Socket client in this._connectedClients)
+			this.LogMessage($"Closing {this._clients.Count} client connections...");
+			foreach (ClientInfo client in this._clients.Values)
 			{
 				this.DisconnectClient(client);
 			}
@@ -110,21 +102,16 @@ namespace ScriptsLibV2
 			this.IsRunning = false;
 		}
 
-		private void DisconnectClient(Socket client)
+		private void DisconnectClient(ClientInfo client)
 		{
 			try
 			{
-				EndPoint remoteEp = client.RemoteEndPoint;
-				int index = this._socketToTaskMapping.Keys.ToList().IndexOf(client);
+				EndPoint remoteEp = client.Socket.RemoteEndPoint;
 
-				Task clientTask = this._socketToTaskMapping[client];
-				_ = this._clientTasks.Remove(clientTask);
-				// TODO: FIX
-				clientTask.Dispose();
-				client.Dispose();
-				_ = this._socketToTaskMapping.Remove(client);
+				client.Stop();
+				_ = this._clients.Remove(client.ClientId);
 
-				this.LogMessage($"Closed connection for client ({remoteEp}) #{index}");
+				this.LogMessage($"Closed connection for client ({client.GetPrintableId()})");
 			}
 			catch (Exception ex)
 			{
@@ -132,23 +119,31 @@ namespace ScriptsLibV2
 			}
 		}
 
-		public void SendObject(Socket client, object obj)
+		public void SendObject(Socket socket, object obj)
 		{
-			if (!client.Connected)
+			ClientInfo client = ClientInfo.GetClientBySocket(this._clients.Values.ToList(), socket);
+			if (client == null)
+			{
+				this.LogMessage($"No {nameof(ClientInfo)} was found for the provided socket.");
+				return;
+			}
+
+			if (!client.Socket.Connected || client.Socket == null)
 			{
 				this.OnClientDisconnected(client);
-				this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected before sending data.");
+				this.LogMessage($"Client ({client.GetPrintableId()}) has disconnected before sending data.");
+				return;
 			}
 
 			try
 			{
-				long bytesSent = client.SendObject(obj);
-				this.LogMessage($"Sent {bytesSent} bytes to a client ({client.RemoteEndPoint}).");
+				long bytesSent = client.Socket.SendObjectAsync2(obj);
+				this.LogMessage($"Sent {bytesSent} bytes to a client ({client.GetPrintableId()}).");
 			}
 			catch
 			{
 				this.OnClientDisconnected(client);
-				this.LogMessage($"Client ({client?.RemoteEndPoint}) has disconnected while sending data.");
+				this.LogMessage($"Client ({client.GetPrintableId()}) has disconnected while sending data.");
 			}
 		}
 
@@ -160,11 +155,9 @@ namespace ScriptsLibV2
 				Socket socket = await this._server.AcceptSocketAsync();
 				this.LogMessage("Client connected.");
 
-				Task clientTask = new Task(() => this.ClientHandler(socket));
-				this._clientTasks.Add(clientTask);
-				this._socketToTaskMapping.Add(socket, clientTask);
-				clientTask.Start();
-
+				ClientInfo client = new ClientInfo(this, socket);
+				this._clients.Add(client.ClientId, client);
+				client.Start();
 				this.LogMessage("Client connection successfully handled.");
 			}
 			catch (Exception ex)
@@ -182,19 +175,26 @@ namespace ScriptsLibV2
 			}
 		}
 
-		// https://stackoverflow.com/a/11664073
-		private void ClientHandler(Socket clientSocket)
+		int received;
+		private void OnReceive(IAsyncResult result, ClientInfo client)
 		{
-			this.OnClientConnected(clientSocket);
+			received += client.Socket.EndReceive(result);
+		}
+
+		// https://stackoverflow.com/a/11664073
+		internal void ClientHandler(ClientInfo client)
+		{
+			this.OnClientConnected(client);
 
 			while (this.IsRunning)
 			{
-				byte[] buffer = new byte[clientSocket.ReceiveBufferSize];
+				byte[] buffer = new byte[client.Socket.ReceiveBufferSize];
 				int read;
 
 				try
 				{
-					read = clientSocket.Receive(buffer);
+					read = client.Socket.Receive(buffer);
+					StartReceiving(client.Socket);
 				}
 				catch
 				{
@@ -203,11 +203,11 @@ namespace ScriptsLibV2
 
 				if (read > 0)
 				{
-					this.LogMessage($"Received data from client ({clientSocket.RemoteEndPoint}) with {read} bytes.");
+					this.LogMessage($"Received {read} bytes of data from client ({client.GetPrintableId()}).");
 
 					this.CallEvent(() =>
 					{
-						DataReceived?.Invoke(clientSocket, buffer);
+						DataReceived?.Invoke(client.Socket, buffer);
 					});
 				}
 				else
@@ -218,37 +218,87 @@ namespace ScriptsLibV2
 
 			if (!this.IsRunning)
 			{
-				clientSocket.Disconnect(true);
+				this.DisconnectClient(client);
 			}
 
-			this.OnClientDisconnected(clientSocket);
+			this.OnClientDisconnected(client);
 		}
 
-		private void OnClientConnected(Socket socket)
+		/// ---------- CHAT GPT STUFF XD ---------- ///
+		
+		private const int BufferSize = 1024;
+		private byte[] buffer = new byte[BufferSize];
+
+		public void StartReceiving(Socket socket)
 		{
-			this.LogMessage($"A client ({socket.RemoteEndPoint}) has connected.");
-			socket.ReceiveTimeout = this.ConnectionTimeout;
+			try
+			{
+				// Begin receiving data asynchronously
+				socket.BeginReceive(buffer, 0, BufferSize, SocketFlags.None, ReceiveCallback, socket);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Error while starting to receive: " + ex.Message);
+			}
+		}
+
+		private void ReceiveCallback(IAsyncResult ar)
+		{
+			Socket socket = (Socket)ar.AsyncState;
+
+			try
+			{
+				// End the asynchronous receive operation and get the number of bytes received
+				int bytesRead = socket.EndReceive(ar);
+
+				if (bytesRead > 0)
+				{
+					// Process the received data
+					byte[] receivedData = new byte[bytesRead];
+					Array.Copy(buffer, receivedData, bytesRead);
+
+					Debug.WriteLine("RECEIVED " + receivedData.Length + " BYTES");
+
+					// Do something with receivedData
+
+					// Continue receiving more data
+					socket.BeginReceive(buffer, 0, BufferSize, SocketFlags.None, ReceiveCallback, socket);
+				}
+				else
+				{
+					// If bytesRead is 0, the connection has been closed by the remote end
+					// Handle this situation as needed
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Error during receive callback: " + ex.Message);
+			}
+		}
+
+		/// ---------- CHAT GPT STUFF XD ---------- ///
+
+		private void OnClientConnected(ClientInfo client)
+		{
+			this.LogMessage($"A client ({client.GetPrintableId()}) has connected.");
+			client.Socket.ReceiveTimeout = this.ConnectionTimeout;
 
 			this.CallEvent(() =>
 			{
-				ClientConnected.Invoke(socket);
+				ClientConnected.Invoke(client);
 			});
-
-			this._connectedClients.Add(socket);
 		}
 
-		private void OnClientDisconnected(Socket socket)
+		private void OnClientDisconnected(ClientInfo client)
 		{
-			this.LogMessage($"A client ({socket.RemoteEndPoint}) has disconnected.");
-			_ = this._connectedClients.Remove(socket);
+			this.LogMessage($"A client ({client.GetPrintableId()}) has disconnected.");
 
-			Socket socketRef = socket;
-			socket.Close(this.DisconnectTimeout);
-			socket.Dispose();
+			Socket socketRef = client.Socket;
+			this.DisconnectClient(client);
 
 			this.CallEvent(() =>
 			{
-				ClientDisconnected?.Invoke(socketRef);
+				ClientDisconnected?.Invoke(client);
 			});
 		}
 
@@ -266,7 +316,7 @@ namespace ScriptsLibV2
 			// Async
 			if (this.UseAsynchronousEvents)
 			{
-				new Task(@event).FAF();
+				Task.Run(@event).FAF();
 				return;
 			}
 
@@ -281,46 +331,90 @@ namespace ScriptsLibV2
 				@event.Invoke();
 			}, null);
 		}
+	}
 
-		private class ClientInfo : IDisposable
+	public class ClientInfo : IDisposable
+	{
+		private static ulong _NextClientId = 1;
+
+		public ulong ClientId { get; }
+		public Socket Socket { get; }
+
+		private readonly Task _task;
+		private readonly CancellationTokenSource _cancellationToken;
+		private bool _isDisposed;
+
+		public ClientInfo(TcpServer server, Socket socket)
 		{
-			private Socket _socket;
-			private Task _task;
-			private CancellationTokenSource _cancellationToken;
-			private bool _isDisposed;
+			this.Socket = socket;
+			this._cancellationToken = new CancellationTokenSource();
 
-			public ClientInfo(TcpServer server, Socket socket)
+			this._task = new Task(() => server.ClientHandler(this), this._cancellationToken.Token);
+
+			this.ClientId = _NextClientId;
+			_NextClientId++;
+		}
+
+		public void Start()
+		{
+			if (this._task.Status == TaskStatus.Created)
 			{
-				this._socket = socket;
-				this._cancellationToken = new CancellationTokenSource();
-				this._task = new Task(() => server.ClientHandler(socket), this._cancellationToken.Token);
-				_task.Start();
+				this._task.Start();
+			}
+		}
+
+		public void Stop()
+		{
+			if (!this._cancellationToken.IsCancellationRequested)
+			{
+				this._cancellationToken.Cancel();
+				this.Socket.Disconnect(false);
+				this.Socket.Dispose();
+				this.Dispose();
+			}
+		}
+
+		public string GetPrintableId()
+		{
+			if (this.Socket != null)
+			{
+				return $"{this.Socket?.RemoteEndPoint}#{this.ClientId}";
+			}
+			else
+			{
+				return $"?#{this.ClientId}";
+			}
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (this._isDisposed)
+			{
+				return;
+			}
+			this._isDisposed = true;
+
+			if (disposing)
+			{
+				this._cancellationToken.Cancel();
+				this._cancellationToken.Dispose();
+				this._task.Dispose();
 			}
 
-			protected virtual void Dispose(bool disposing)
-			{
-				if (_isDisposed)
-				{
-					return;
-				}
-				_isDisposed = true;
+			this.Socket.Disconnect(false);
+			this.Socket.Close();
+			this.Socket.Dispose();
+		}
 
-				if (disposing)
-				{
-					_cancellationToken.Cancel();
-					_cancellationToken.Dispose();
-					_task.Dispose();
-				}
+		public void Dispose()
+		{
+			this.Dispose(true);
+			GC.SuppressFinalize(this);
+		}
 
-				_socket.Close();
-				_socket.Dispose();
-			}
-
-			public void Dispose()
-			{
-				Dispose(true);
-				GC.SuppressFinalize(this);
-			}
+		public static ClientInfo GetClientBySocket(List<ClientInfo> clientInfos, Socket socket)
+		{
+			return clientInfos.Where(ci => ci.Socket == socket).FirstOrDefault();
 		}
 	}
 }
