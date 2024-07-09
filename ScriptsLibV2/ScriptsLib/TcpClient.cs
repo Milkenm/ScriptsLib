@@ -47,7 +47,7 @@ namespace ScriptsLibV2
 		public bool IsConnected => _client.Connected;
 
 		private DataCallbackEvent? _waitingForResponseCallback = null;
-		private bool _supressDataReceivedEvent = false;
+		private bool _suppressDataReceivedEvent = false;
 		private Type? _expectedResponseType = null;
 		private byte[] _buffer = new byte[1024];
 
@@ -184,21 +184,21 @@ namespace ScriptsLibV2
 			return sentBytes;
 		}
 
-		public long Send(object data, DataCallbackEvent responseCallback, bool supressDataReceivedEvent = false)
+		public long Send(object data, DataCallbackEvent responseCallback, bool suppressDataReceivedEvent = false)
 		{
 			_waitingForResponseCallback = responseCallback;
-			_supressDataReceivedEvent = supressDataReceivedEvent;
+			_suppressDataReceivedEvent = suppressDataReceivedEvent;
 			return Send(data);
 		}
 
-		public long Send<T>(object data, DataReceivedCallback<T> responseCallback, bool supressDataReceivedEvent)
+		public long Send<T>(object data, DataReceivedCallback<T> responseCallback, bool suppressDataReceivedEvent)
 		{
 			_expectedResponseType = typeof(T);
 
 			return Send(data, new DataCallbackEvent((dataObject) =>
 			{
 				responseCallback((T)dataObject);
-			}), supressDataReceivedEvent);
+			}), suppressDataReceivedEvent);
 		}
 
 		private void ReceiveCallback(IAsyncResult ar)
